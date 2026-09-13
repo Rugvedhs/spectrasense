@@ -22,6 +22,8 @@ from ptgbench.figures import (
     use_paper_style,
 )
 
+ALPHA = 0.1
+CWC_ETA = 30.0
 REGIME_ORDER = ["random", "scaffold", "cluster", "family"]
 MODEL_LABELS = {
     "median": "Median baseline",
@@ -141,9 +143,17 @@ def table_conformal(intervals: pd.DataFrame, out: Path) -> pd.DataFrame:
         worst_family_coverage=("fam_worst_coverage", "mean"),
         family_gap=("fam_max_coverage_gap", "mean"),
         mean_width=("mean_width", "mean"),
-        cwc=("cwc", "mean"),
         fallback=("fallback_fraction", "mean"),
     ).reset_index()
+
+    # CWC penalises undercoverage exponentially, so averaging per-split values
+    # lets one badly-covered split dominate the mean by orders of magnitude.
+    # Recomputing it from the aggregated coverage and width keeps the number
+    # interpretable and comparable across regimes.
+    deficit = (1 - ALPHA) - grouped["coverage"]
+    grouped["cwc"] = grouped["mean_width"] * np.where(
+        deficit > 0, np.exp(CWC_ETA * deficit), 1.0
+    )
     grouped["regime"] = pd.Categorical(grouped["regime"], REGIME_ORDER, ordered=True)
     grouped = grouped.sort_values(["regime", "conformal"]).reset_index(drop=True)
     grouped.to_csv(out / "table_conformal.csv", index=False)
