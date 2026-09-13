@@ -170,6 +170,58 @@ def table_applicability_domain(conditional: pd.DataFrame, out: Path) -> pd.DataF
     return grouped
 
 
+def table_gap_drivers(point: pd.DataFrame, structures: pd.DataFrame, out: Path) -> pd.DataFrame:
+    """What predicts how badly a family transfers?
+
+    Three candidate explanations are tested against the family-holdout
+    deterioration: how structurally isolated the family is, how far its Tg
+    distribution sits from the training median, and how large it is.  These are
+    associations across twenty families, not a causal decomposition — the matched
+    design is what supplies the causal claim.
+    """
+    family = point[point["regime"] == "family"]
+    if family.empty:
+        return pd.DataFrame()
+
+    reference = point[point["regime"] == "random"].groupby("model")["mae"].mean()
+    rows = []
+    overall_median = structures["Tg"].median()
+    for (group, model), block in family.groupby(["group", "model"]):
+        if model == "median":
+            continue
+        members = structures[structures["family"] == group]["Tg"]
+        others = structures[structures["family"] != group]["Tg"]
+        rows.append({
+            "group": group, "model": model,
+            "deterioration": block["mae"].mean() / reference[model],
+            "mae": block["mae"].mean(),
+            "mean_nn_similarity": block["mean_nn_similarity"].mean(),
+            "tg_median_shift": abs(members.median() - others.median()),
+            "tg_iqr_ratio": (members.quantile(0.75) - members.quantile(0.25))
+                            / (others.quantile(0.75) - others.quantile(0.25)),
+            "n_members": len(members),
+        })
+    drivers = pd.DataFrame(rows)
+    drivers.to_csv(out / "table_gap_drivers.csv", index=False)
+
+    stat_rows = []
+    for model, block in drivers.groupby("model"):
+        for column in ("mean_nn_similarity", "tg_median_shift", "tg_iqr_ratio",
+                       "n_members"):
+            pearson = stats.pearsonr(block[column], block["deterioration"])
+            spearman = stats.spearmanr(block[column], block["deterioration"])
+            stat_rows.append({
+                "model": model, "driver": column, "n_families": len(block),
+                "pearson_r": float(pearson.statistic),
+                "pearson_p": float(pearson.pvalue),
+                "spearman_rho": float(spearman.statistic),
+                "spearman_p": float(spearman.pvalue),
+            })
+    correlations = pd.DataFrame(stat_rows)
+    correlations.to_csv(out / "table_gap_driver_correlations.csv", index=False)
+    return correlations
+
+
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
     order = structures.groupby("family")["Tg"].median().sort_values().index.tolist()
@@ -178,7 +230,7 @@ def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
 
     fig, ax = plt.subplots(figsize=(7.0, 3.6))
     parts = ax.boxplot(
-        data, vert=True, patch_artist=True, widths=0.62, showfliers=False,
+        data, orientation="vertical", patch_artist=True, widths=0.62, showfliers=False,
         medianprops=dict(color="white", linewidth=1.2),
         whiskerprops=dict(color=TEXT_SECONDARY, linewidth=0.7),
         capprops=dict(color=TEXT_SECONDARY, linewidth=0.7),
@@ -415,6 +467,9 @@ def main() -> None:
         summary = table_point_by_regime(point, results)
         print(summary.to_string(index=False))
         table_family_holdout(point, results)
+        correlations = table_gap_drivers(point, structures, results)
+        if not correlations.empty:
+            print(correlations.to_string(index=False))
         fig_generalization_gap(point, figures)
     fig_dataset(structures, figures)
 
