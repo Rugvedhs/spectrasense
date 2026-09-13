@@ -385,8 +385,9 @@ def fig_coverage(conformal_table: pd.DataFrame, out: Path) -> None:
 
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.1), sharex=True)
     for ax, column, title in (
-        (axes[0], "coverage", "Marginal coverage looks fine everywhere"),
-        (axes[1], "worst_similarity_coverage", "Worst similarity band tells the truth"),
+        (axes[0], "coverage", "Marginal coverage: holds on random splits, fails under shift"),
+        (axes[1], "worst_similarity_coverage",
+         "Least-familiar band: fails even on random splits"),
     ):
         for j, method in enumerate(methods):
             values = [
@@ -399,14 +400,17 @@ def fig_coverage(conformal_table: pd.DataFrame, out: Path) -> None:
             positions = np.arange(len(regimes)) + j * width - 0.4 + width / 2
             bars = ax.bar(positions, values, width * 0.9, color=CONFORMAL_COLORS[method],
                           label=method, edgecolor="white", linewidth=0.8)
-            ax.bar_label(bars, fmt="%.2f", fontsize=5.5, padding=1, color=TEXT_SECONDARY)
+            # Rotated: four near-equal bars per group collide with horizontal labels.
+            ax.bar_label(bars, fmt="%.2f", fontsize=5.5, padding=2,
+                         color=TEXT_SECONDARY, rotation=90)
         ax.axhline(0.9, color="#e34948", linewidth=1.0, linestyle="--")
-        ax.text(len(regimes) - 0.45, 0.905, "nominal 90%", fontsize=6, color="#e34948",
-                ha="right", va="bottom")
+        # Below the line and hard left, where no bar label can reach it.
+        ax.text(-0.48, 0.893, "nominal 90%", fontsize=6, color="#e34948",
+                ha="left", va="top")
         ax.set_xticks(np.arange(len(regimes)))
         ax.set_xticklabels([r.capitalize() for r in regimes])
-        ax.set_ylim(0.3, 1.02)
-        ax.set_title(title)
+        ax.set_ylim(0.3, 1.10)
+        ax.set_title(title, fontsize=8)
     axes[0].set_ylabel("Empirical coverage")
     axes[0].legend(ncol=2, loc="lower left")
     save(fig, out / "fig4_coverage")
