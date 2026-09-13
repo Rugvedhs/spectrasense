@@ -23,14 +23,27 @@ MAIN_MODELS = ("median", "svr", "random_forest", "hist_gbr", "extra_trees")
 MATCHED_MODELS = ("extra_trees", "hist_gbr")
 
 
-def load_cache(processed_dir: str):
+def load_cache(processed_dir: str, representation: str = "descriptors"):
+    """Load the cached table and the chosen model input.
+
+    ``morgan`` swaps the RDKit descriptor block for the raw fingerprint bits.  The
+    fingerprint matrix is always returned regardless, because clustering and the
+    structural-novelty coordinate are defined in fingerprint space no matter what
+    the regressor consumes.
+    """
     processed = Path(processed_dir)
     table = pd.read_parquet(processed / "structures.parquet")
-    descriptors = pd.read_parquet(processed / "descriptors.parquet")
     matrix = np.load(processed / "fingerprint_matrix.npy")
     with open(processed / "fingerprints.pkl", "rb") as handle:
         fps = pickle.load(handle)
-    return table, descriptors.to_numpy(), table["Tg"].to_numpy(), matrix, fps
+
+    if representation == "descriptors":
+        X = pd.read_parquet(processed / "descriptors.parquet").to_numpy()
+    elif representation == "morgan":
+        X = matrix.astype(float)
+    else:
+        raise ValueError(f"unknown representation {representation!r}")
+    return table, X, table["Tg"].to_numpy(), matrix, fps
 
 
 def build_splits(stage: str, table, matrix, n_repeats: int, seed: int) -> list[S.Split]:
@@ -61,13 +74,22 @@ def main() -> None:
     parser.add_argument("--n-repeats", type=int, default=10)
     parser.add_argument("--alpha", type=float, default=0.1)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--representation", default="descriptors",
+                        choices=["descriptors", "morgan"])
+    parser.add_argument("--models", nargs="*", default=None,
+                        help="override the model list for this stage")
+    parser.add_argument("--suffix", default="",
+                        help="appended to output filenames, to keep an ablation "
+                             "run from overwriting the headline results")
     args = parser.parse_args()
 
-    table, X, y, matrix, fps = load_cache(args.processed_dir)
+    table, X, y, matrix, fps = load_cache(args.processed_dir, args.representation)
     families = table["family"].to_numpy()
 
     splits = build_splits(args.stage, table, matrix, args.n_repeats, args.seed)
-    models = MATCHED_MODELS if args.stage == "matched" else MAIN_MODELS
+    models = args.models or (
+        MATCHED_MODELS if args.stage == "matched" else MAIN_MODELS
+    )
     print(f"stage={args.stage}  splits={len(splits)}  models={len(models)}", flush=True)
 
     point, intervals, conditional, predictions = [], [], [], []
@@ -81,6 +103,7 @@ def main() -> None:
                 split, model_name, X, y, fps, families,
                 alpha=args.alpha, seed=args.seed,
             )
+            result.point["representation"] = args.representation
             point.append(result.point)
             if not result.intervals.empty:
                 intervals.append(result.intervals)
@@ -98,14 +121,14 @@ def main() -> None:
     results = Path(args.results_dir)
     results.mkdir(parents=True, exist_ok=True)
     pd.concat(point, ignore_index=True).to_csv(
-        results / f"point_{args.stage}.csv", index=False)
+        results / f"point_{args.stage}{args.suffix}.csv", index=False)
     if intervals:
         pd.concat(intervals, ignore_index=True).to_csv(
-            results / f"intervals_{args.stage}.csv", index=False)
+            results / f"intervals_{args.stage}{args.suffix}.csv", index=False)
         pd.concat(conditional, ignore_index=True).to_csv(
-            results / f"conditional_{args.stage}.csv", index=False)
+            results / f"conditional_{args.stage}{args.suffix}.csv", index=False)
     pd.concat(predictions, ignore_index=True).to_parquet(
-        results / f"predictions_{args.stage}.parquet")
+        results / f"predictions_{args.stage}{args.suffix}.parquet")
     print(f"done in {(time.time() - started) / 60:.1f} min", flush=True)
 
 

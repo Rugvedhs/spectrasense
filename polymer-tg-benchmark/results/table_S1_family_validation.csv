@@ -1,0 +1,26 @@
+polymer,psmiles,expected_family,assigned_family,agrees
+Poly(ethylene),*CC*,Polyolefins,Polyolefins,True
+Poly(propylene),*CC(C)*,Polyolefins,Polyolefins,True
+Poly(styrene),*CC(*)c1ccccc1,Polystyrenes,Polystyrenes,True
+Poly(methyl acrylate),*CC(*)C(=O)OC,Polyacrylics,Polyacrylics,True
+Poly(methyl methacrylate),*CC(C)(*)C(=O)OC,Polyacrylics,Polyacrylics,True
+Poly(butyl acrylate),*CC(*)C(=O)OCCCC,Polyacrylics,Polyacrylics,True
+Poly(acrylonitrile),*CC(*)C#N,Polyacrylics,Polyacrylics,True
+Poly(acrylamide),*CC(*)C(=O)N,Polyacrylics,Polyacrylics,True
+Poly(vinyl chloride),*CC(*)Cl,Polyhalo-olefins,Polyhalo-olefins,True
+Poly(tetrafluoroethylene),*C(F)(F)C(F)(F)*,Polyhalo-olefins,Polyhalo-olefins,True
+Poly(vinyl alcohol),*CC(*)O,Polyvinyls,Polyvinyls,True
+Poly(vinyl acetate),*CC(*)OC(C)=O,Polyvinyls,Polyvinyls,True
+Poly(ethylene oxide),*OCC*,Polyethers,Polyethers,True
+Poly(ethylene terephthalate),*OC(=O)c1ccc(C(=O)OCC*)cc1,Polyesters,Polyesters,True
+Aliphatic polyester,*OC(=O)CCCCC(=O)OCC*,Polyesters,Polyesters,True
+Aliphatic polyamide,*NC(=O)CCCCC(=O)N*,Polyamides,Polyamides,True
+Polyurethane,*NC(=O)OCCO*,Polyurethanes,Polyurethanes,True
+Polyurea,*NC(=O)N*,Polyureas,Polyureas,True
+Bisphenol-A polycarbonate,*OC(=O)Oc1ccc(C(C)(C)c2ccc(*)cc2)cc1,Polycarbonates,Polycarbonates,True
+Poly(dimethylsiloxane),*O[Si](C)(C)*,Polysiloxanes,Polysiloxanes,True
+Aromatic polyimide,*N(*)C(=O)c1ccc2c(c1)C(=O)N(*)C2=O,Polyimides,Polyimides,True
+Poly(p-phenylene),*c1ccc(*)cc1,Polyphenylenes,Polyphenylenes,True
+Poly(butadiene),*CC=CC*,Polydienes,Polydienes,True
+Poly(ethylene sulfide),*SCC*,Polysulfides,Polysulfides,True
+Polyanhydride,*C(=O)OC(=O)CC*,Polyanhydrides,Polyanhydrides,True

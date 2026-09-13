@@ -222,6 +222,49 @@ def table_gap_drivers(point: pd.DataFrame, structures: pd.DataFrame, out: Path) 
     return correlations
 
 
+def table_representation_ablation(results: Path, out: Path) -> pd.DataFrame:
+    """Does the generalisation gap depend on the molecular representation?
+
+    If swapping physically interpretable descriptors for raw Morgan bits left the
+    family-holdout penalty unchanged, the penalty is a property of the data rather
+    than of the feature set — which is the claim the paper needs to defend against
+    "a better representation would fix it".
+    """
+    frames = []
+    for stage in ("random", "family"):
+        for suffix, label in (("", "descriptors"), ("_morgan", "morgan")):
+            path = results / f"point_{stage}{suffix}.csv"
+            if path.exists():
+                block = pd.read_csv(path)
+                block["representation"] = block.get("representation", label)
+                block["representation"] = block["representation"].fillna(label)
+                frames.append(block[block["model"] == "extra_trees"])
+    if len(frames) < 3:
+        return pd.DataFrame()
+
+    frame = pd.concat(frames, ignore_index=True)
+    summary = frame.groupby(["representation", "regime"]).agg(
+        n_splits=("mae", "size"), mae=("mae", "mean"), mae_sd=("mae", "std"),
+        r2=("r2", "mean"),
+    ).reset_index()
+
+    rows = []
+    for representation, block in summary.groupby("representation"):
+        by_regime = block.set_index("regime")["mae"]
+        if {"random", "family"}.issubset(by_regime.index):
+            rows.append({
+                "representation": representation,
+                "mae_random": by_regime["random"],
+                "mae_family": by_regime["family"],
+                "penalty_K": by_regime["family"] - by_regime["random"],
+                "penalty_ratio": by_regime["family"] / by_regime["random"],
+            })
+    ablation = pd.DataFrame(rows)
+    summary.to_csv(out / "table_representation_summary.csv", index=False)
+    ablation.to_csv(out / "table_representation_ablation.csv", index=False)
+    return ablation
+
+
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
     order = structures.groupby("family")["Tg"].median().sort_values().index.tolist()
@@ -487,6 +530,11 @@ def main() -> None:
         print(statistics.to_string(index=False))
         fig_matched(raw, statistics, figures)
     fig_error_vs_similarity(results, figures)
+
+    ablation = table_representation_ablation(results, results)
+    if not ablation.empty:
+        print("\nrepresentation ablation (extra trees):")
+        print(ablation.to_string(index=False))
     print(f"\nfigures written to {figures}")
 
 

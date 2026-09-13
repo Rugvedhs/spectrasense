@@ -30,7 +30,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
-from sklearn.base import clone
+import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 
 
@@ -190,3 +190,58 @@ def similarity_bins(
     are to be used as a Mondrian category under distribution shift.
     """
     return np.digitize(similarity, np.asarray(edges, dtype=float))
+
+
+class FamilyOutCalibration:
+    """Calibration residuals produced by models that had never seen the family.
+
+    Split conformal draws its calibration set at random from the training pool, so
+    every calibration residual describes *interpolation*: the model had relatives of
+    that repeat unit in training.  Under a family holdout the test residuals
+    describe extrapolation instead, the exchangeability assumption fails, and the
+    quantile is calibrated against the wrong population.
+
+    This calibrator repairs the mismatch at its source.  The training pool is
+    partitioned by family; for each held-out training family a model is refitted on
+    the remainder and used to predict it.  The pooled residuals then describe the
+    same kind of prediction the test set will demand — one made without local
+    chemistry — so the resulting quantile is calibrated for extrapolation.
+
+    The cost is the usual cross-conformal caveat: calibration residuals come from
+    models fitted on slightly less data than the deployed one, which makes the
+    resulting intervals mildly conservative rather than anti-conservative. That is
+    the safe direction for a screening decision.
+    """
+
+    def __init__(self, model_factory, n_families: int = 8, min_family_size: int = 30):
+        self.model_factory = model_factory
+        self.n_families = n_families
+        self.min_family_size = min_family_size
+
+    def residual_pool(
+        self,
+        X: np.ndarray,
+        y: np.ndarray,
+        pool_idx: np.ndarray,
+        families: np.ndarray,
+    ) -> tuple[np.ndarray, np.ndarray]:
+        """Return the calibrated indices and the out-of-family predictions for them."""
+        pool_families = families[pool_idx]
+        counts = pd.Series(pool_families).value_counts()
+        eligible = counts[counts >= self.min_family_size].index.tolist()
+        chosen = eligible[: self.n_families]
+
+        indices, predictions = [], []
+        for family in chosen:
+            held = pool_idx[pool_families == family]
+            rest = pool_idx[pool_families != family]
+            if len(held) == 0 or len(rest) < 50:
+                continue
+            model = self.model_factory()
+            model.fit(X[rest], y[rest])
+            indices.append(held)
+            predictions.append(model.predict(X[held]))
+
+        if not indices:
+            return np.array([], dtype=int), np.array([], dtype=float)
+        return np.concatenate(indices), np.concatenate(predictions)
