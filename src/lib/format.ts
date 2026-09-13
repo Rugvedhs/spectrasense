@@ -18,9 +18,9 @@ export function inTargetWindow(eg: number): boolean {
 }
 
 export function sensingContext(eg: number): string {
-  if (eg < 0.2) return "deep short-wave IR territory — beyond typical NIR photodetector design, closer to thermal-imaging chemistries.";
-  if (eg < 0.5) return "short-wave-IR (SWIR) range — matches extended-InGaAs and PbS/PbSe colloidal-QD detector designs.";
-  if (eg <= 1.5) return "squarely inside the NIR sensing target window — the same range as InGaAs telecom photodiodes and CdTe-family absorbers.";
-  if (eg <= 1.8) return "just past the target window, at the NIR/visible boundary — still relevant as an upper-bound reference point.";
-  return "visible-range gap — outside the NIR sensing scope this sandbox is built around.";
+  if (eg < 0.2) return "this sits in deep short-wave IR territory, beyond typical NIR photodetector design and closer to thermal-imaging chemistries.";
+  if (eg < 0.5) return "this falls in the short-wave-IR (SWIR) range, matching extended-InGaAs and PbS/PbSe colloidal-QD detector designs.";
+  if (eg <= 1.5) return "this lands squarely inside the NIR sensing target window, the same range used by InGaAs telecom photodiodes and CdTe-family absorbers.";
+  if (eg <= 1.8) return "this sits just past the target window at the NIR/visible boundary, still useful as an upper-bound reference point.";
+  return "this has a visible-range gap, outside the scope this sandbox is built around.";
 }

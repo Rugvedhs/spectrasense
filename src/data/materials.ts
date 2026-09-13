@@ -84,7 +84,7 @@ export const MATERIALS: Material[] = [
     cations: [{ symbol: "In", frac: 0.53 }, { symbol: "Ga", frac: 0.47 }], anions: [{ symbol: "As", frac: 1 }],
     structure: "zincblende", family: "III-V zincblende",
     latticeConstantAng: 5.869, actualEgEv: 0.75,
-    note: "The incumbent commercial NIR detector material — 900-1700 nm telecom band.",
+    note: "The incumbent commercial NIR detector material, used across the 900-1700 nm telecom band.",
   },
   {
     id: "InP", formula: "InP", displayName: "Indium phosphide",

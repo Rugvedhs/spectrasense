@@ -63,11 +63,11 @@ export default function Compare() {
   return (
     <div className="view view--compare">
       <section className="compare-headline">
-        <h1>Baseline vs. corrected — the actual result</h1>
+        <h1>Baseline vs. corrected: the actual result</h1>
         <p>
           Composition-only features reach <strong>R&sup2; = {fmtR2(OVERALL_BASELINE_METRICS.r2)}</strong> against
           the {OVERALL_BASELINE_METRICS.n}-material reference set (MAE {OVERALL_BASELINE_METRICS.mae.toFixed(2)} eV).
-          Adding structural information — coordination environment and bonding topology — brings that to{" "}
+          Adding structural information (coordination environment and bonding topology) brings that to{" "}
           <strong>R&sup2; = {fmtR2(OVERALL_CORRECTED_METRICS.r2)}</strong> (MAE {OVERALL_CORRECTED_METRICS.mae.toFixed(2)} eV).
           Figures below are computed live from the current model outputs, not hardcoded.
         </p>
@@ -86,19 +86,19 @@ export default function Compare() {
               <tr><th>Model / family</th><th>MAE (eV)</th><th>RMSE (eV)</th><th>R&sup2;</th><th>n</th></tr>
             </thead>
             <tbody>
-              <MetricsRow label="Baseline — overall" m={OVERALL_BASELINE_METRICS} />
-              <MetricsRow label="Corrected — overall" m={OVERALL_CORRECTED_METRICS} />
+              <MetricsRow label="Baseline · overall" m={OVERALL_BASELINE_METRICS} />
+              <MetricsRow label="Corrected · overall" m={OVERALL_CORRECTED_METRICS} />
               {families.map((f) => (
-                <MetricsRow key={`b-${f}`} label={`Baseline — ${f}`} m={baselineByFamily[f]} />
+                <MetricsRow key={`b-${f}`} label={`Baseline · ${f}`} m={baselineByFamily[f]} />
               ))}
               {families.map((f) => (
-                <MetricsRow key={`c-${f}`} label={`Corrected — ${f}`} m={correctedByFamily[f]} />
+                <MetricsRow key={`c-${f}`} label={`Corrected · ${f}`} m={correctedByFamily[f]} />
               ))}
             </tbody>
           </table>
         </div>
         <p className="metrics-table__note">
-          The rocksalt Pb-chalcogenide family carries the baseline's worst error — composition-only descriptors have no
+          The rocksalt Pb-chalcogenide family carries the baseline's worst error. Composition-only descriptors have no
           way to encode the relativistic band-inversion physics that suppresses their gap, which is exactly the
           structure-sensitivity this comparison was built to surface. R&sup2; reads <code>n/a</code> for families with
           only one member: with no spread in the reference values there is no variance for R&sup2; to explain, so MAE/RMSE

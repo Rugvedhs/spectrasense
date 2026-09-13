@@ -22,7 +22,7 @@ const scaleV = (a: Vec3, s: number): Vec3 => [a[0] * s, a[1] * s, a[2] * s];
 const dist = (a: Vec3, b: Vec3) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 
 // Fractional coordinates with a 0-component also appear at the 1-boundary, so
-// conventional cells render as closed boxes (corner/edge/face-shared atoms) —
+// conventional cells render as closed boxes (corner/edge/face-shared atoms),
 // the standard textbook picture rather than a truncated interior slice.
 function expandBoundaryImages(frac: Vec3): Vec3[] {
   const opts = frac.map((v) => (Math.abs(v) < 1e-6 ? [0, 1] : [v]));

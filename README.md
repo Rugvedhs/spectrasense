@@ -1,9 +1,9 @@
 # SpectraSense
 
 An interactive materials-discovery sandbox for NIR-active sensing materials. Pick or build a
-composition/structure, and see predicted band gap from two models — a composition-only baseline
-and a structure-aware corrected model — compared against a reference value, with the gap between
-them reported honestly as MAE / RMSE / R² rather than as a single flattering number.
+composition/structure and see predicted band gap from two models: a composition-only baseline and
+a structure-aware corrected model. Both are compared against a reference value, with the gap
+reported honestly as MAE / RMSE / R² rather than a single flattering number.
 
 ## Current build status
 
@@ -14,15 +14,15 @@ because no Materials Project API key was available yet. Concretely:
   from standard reference band-gap values, not a live `mp-api` pull.
 - `baselinePredict` and `correctedPredict` in [`src/lib/models.ts`](src/lib/models.ts) are
   **deterministic stand-ins**, not trained models. They encode the same qualitative hypothesis the
-  real pipeline is meant to test — composition-only descriptors track band gap reasonably for
+  real pipeline is meant to test: composition-only descriptors track band gap reasonably for
   ordinary zincblende/diamond semiconductors but miss the relativistic band-gap suppression in
-  rocksalt Pb-chalcogenides — so the app is honest about *why* the comparison looks the way it
+  rocksalt Pb-chalcogenides. That keeps the app honest about *why* the comparison looks the way it
   does, without claiming a result it hasn't earned yet.
 - Every metric shown in the app (R², MAE, RMSE, scatter plots) is computed live from those
   functions, never hardcoded, so swapping in real models changes the numbers everywhere at once.
 
-Wiring in real data and real models (Phases 1–3 of the roadmap below) does not require touching
-the UI layer — `Explore`, `Sandbox`, `Compare`, and `About` all consume `materials.ts` and
+Wiring in real data and real models (Phases 1-3 of the roadmap below) does not require touching
+the UI layer. `Explore`, `Sandbox`, `Compare`, and `About` all consume `materials.ts` and
 `models.ts` through the same interfaces a trained pipeline would fill in.
 
 ## Running it
@@ -74,7 +74,7 @@ fully inspectable.
 - **Baseline:** Magpie-style composition-only descriptors → gradient-boosted regressor (XGBoost).
 - **Corrected:** adds coordination number, bond-length statistics, space group, or (stretch goal) a
   graph neural network over the crystal graph (CGCNN/MEGNet-style).
-- Same train/test split for both, evaluated side by side — the comparison *is* the result.
+- Same train/test split for both, evaluated side by side. The comparison *is* the result.
 
 ## Build roadmap
 
@@ -91,14 +91,14 @@ fully inspectable.
 
 - **Data/ML (target):** Python, `mp-api`, pandas, scikit-learn/XGBoost, PyTorch Geometric.
 - **Front-end (this build):** React 19 + TypeScript + Vite, `three.js` for the crystal-structure
-  viewer, no CSS framework — hand-written design tokens in `src/styles/global.css`.
+  viewer, no CSS framework. Design tokens are hand-written in `src/styles/global.css`.
 - **Deployment (target):** static/serverless hosting for the front end, a small API layer for live
   predictions once real models exist.
 
 ## Honest limitations
 
 - The R²/MAE gap shown in **Compare** is illustrative of the hypothesis, not yet a trained-model
-  result — see "Current build status" above.
+  result (see "Current build status" above).
 - A full GNN structure encoder is a stretch goal; the documented fallback is the hand-engineered
   structural feature set already used by the placeholder `correctedPredict`.
 - Scope is deliberately narrow: one target property (band gap), one physically motivated material

@@ -2,18 +2,18 @@ import { ELEMENTS } from "../data/elements";
 import { MATERIALS, type Material } from "../data/materials";
 
 /**
- * IMPORTANT — read before wiring up real training data:
+ * IMPORTANT, read before wiring up real training data.
  *
  * Phase 1-3 of the build roadmap (Materials Project data pull, baseline
- * composition-only regressor, structure-aware corrected model) have not run
- * yet — this session was built without an MP API key. The two "models" below
- * are deterministic stand-ins that encode the same *qualitative* hypothesis
- * the real pipeline is meant to test: composition-only descriptors track
- * band gap reasonably for ordinary zincblende/diamond semiconductors but miss
- * the relativistic band-gap suppression in rocksalt Pb-chalcogenides, while a
- * structure-aware model does not. Replace `baselinePredict` / `correctedPredict`
- * with real model inference once Phase 2/3 land; nothing else in the app
- * depends on how the numbers are produced.
+ * composition-only regressor, structure-aware corrected model) haven't run
+ * yet, since this session was built without an MP API key. The two "models"
+ * below are deterministic stand-ins that encode the same *qualitative*
+ * hypothesis the real pipeline is meant to test: composition-only descriptors
+ * track band gap reasonably for ordinary zincblende/diamond semiconductors
+ * but miss the relativistic band-gap suppression in rocksalt Pb-chalcogenides,
+ * while a structure-aware model does not. Replace `baselinePredict` /
+ * `correctedPredict` with real model inference once Phase 2/3 land; nothing
+ * else in the app depends on how the numbers are produced.
  */
 
 export interface CompositionFeatures {
@@ -40,7 +40,7 @@ function weightedMean(components: { symbol: string; frac: number }[], get: (s: s
   return components.reduce((a, c) => a + get(c.symbol) * c.frac, 0) / totalFrac;
 }
 
-// Deterministic pseudo-random in [-1, 1], seeded by a string — stands in for
+// Deterministic pseudo-random in [-1, 1], seeded by a string. Stands in for
 // per-material model residual so the same material always yields the same
 // "prediction" across renders without needing real inference.
 function seededUnit(seed: string): number {
@@ -73,7 +73,7 @@ export function correctedPredict(m: Material): number {
   return Math.max(0.02, m.actualEgEv + jitter);
 }
 
-// A rough calibrated "uncertainty" band per model — wider where the model is
+// A rough calibrated "uncertainty" band per model. Wider where the model is
 // systematically worse, used for the confidence indicator in the UI.
 export function baselineUncertaintyEv(m: Material): number {
   const bias = FAMILY_BASELINE_BIAS[m.family];
@@ -93,7 +93,7 @@ export interface Metrics {
   rmse: number;
   // R² is statistically undefined when there isn't enough spread in the
   // reference values to define a variance to explain (n < 2, or a
-  // single-material family) — null rather than a fabricated 0/1 in that case.
+  // single-material family). Null here, rather than a fabricated 0/1.
   r2: number | null;
   n: number;
 }

@@ -24,8 +24,8 @@ export default function App() {
         {mode === "about" && <About />}
       </main>
       <footer className="app__footer">
-        <span>SpectraSense — interactive NIR materials-discovery sandbox</span>
-        <span>Data: Materials Project–style reference values · Preview build, simulated models</span>
+        <span>SpectraSense · interactive NIR materials-discovery sandbox</span>
+        <span>Data: Materials Project-style reference values · Preview build, simulated models</span>
       </footer>
     </div>
   );

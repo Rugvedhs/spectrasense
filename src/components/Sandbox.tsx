@@ -51,7 +51,7 @@ export default function Sandbox({ initialMaterialId }: Props) {
             <label className="control-group__label" htmlFor="material-select">Base composition / structure</label>
             <select id="material-select" value={curatedId} onChange={(e) => setCuratedId(e.target.value)}>
               {MATERIALS.map((m) => (
-                <option key={m.id} value={m.id}>{m.displayName} — {m.formula}</option>
+                <option key={m.id} value={m.id}>{m.displayName} · {m.formula}</option>
               ))}
             </select>
           </div>
@@ -87,7 +87,7 @@ export default function Sandbox({ initialMaterialId }: Props) {
             {legendSymbols.map(([symbol, color]) => (
               <span key={symbol} className="legend-chip">
                 <span className="legend-chip__swatch" style={{ background: color }} />
-                {symbol} — {ELEMENTS[symbol]?.name ?? symbol}
+                {symbol} · {ELEMENTS[symbol]?.name ?? symbol}
               </span>
             ))}
           </div>

@@ -1,6 +1,6 @@
 // Simplified elemental reference data used for composition-only ("baseline") featurization.
 // Electronegativity: Pauling scale. Radius: empirical covalent radius, picometers.
-// Values are standard textbook approximations — adequate for feature engineering, not
+// Values are standard textbook approximations, adequate for feature engineering, not
 // meant as a citable primary source.
 export interface ElementRef {
   symbol: string;

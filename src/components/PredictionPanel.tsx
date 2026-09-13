@@ -66,15 +66,14 @@ export default function PredictionPanel({ material }: Props) {
       <ModelRow label="Corrected · structure-aware" predicted={corrected} uncertainty={corrUnc} actual={material.actualEgEv} tone="corrected" />
 
       <div className="reference-row">
-        <span>Reference value (Materials Project–style)</span>
+        <span>Reference value (Materials Project-style)</span>
         <span className="reference-row__value">{fmtEv(material.actualEgEv)} · {fmtNm(evToNm(material.actualEgEv))}</span>
       </div>
 
       <div className="explainer">
         <span className="explainer__label">Why this might work for NIR sensing</span>
         <p>
-          At {fmtEv(material.actualEgEv)} ({fmtNm(evToNm(material.actualEgEv))}), this composition sits in{" "}
-          {sensingContext(material.actualEgEv)}
+          At {fmtEv(material.actualEgEv)} ({fmtNm(evToNm(material.actualEgEv))}), {sensingContext(material.actualEgEv)}
         </p>
       </div>
     </div>

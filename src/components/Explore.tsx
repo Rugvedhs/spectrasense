@@ -13,12 +13,12 @@ export default function Explore({ onSelect }: Props) {
       <section className="landing">
         <h1>Finding the next NIR sensing material, computationally</h1>
         <p className="landing__lede">
-          Near-infrared sensing — allergen detection, produce ripeness, moisture and material
-          identification — depends on a detector material whose band gap sits in the right window,
+          Near-infrared sensing (allergen detection, produce ripeness, moisture and material
+          identification) depends on a detector material whose band gap sits in the right window,
           roughly <strong>0.5–1.5 eV</strong>. Today that search is mostly a literature exercise: look up
           what's been made before, borrow its band gap, hope it transfers. SpectraSense asks whether a
-          model trained on open computational materials data can do better — and whether it actually
-          needs to know a material's <em>structure</em>, not just its <em>composition</em>, to get there.
+          model trained on open computational materials data can do better, and whether it actually
+          needs a material's <em>structure</em>, not just its <em>composition</em>, to get there.
         </p>
         <p className="landing__lede">
           The curated set below spans exactly the chemistries a physical NIR sensor build (like a

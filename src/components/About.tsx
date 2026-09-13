@@ -8,8 +8,8 @@ export default function About() {
       <section>
         <h1>Methodology</h1>
         <p>
-          SpectraSense predicts semiconductor band gap — used here as the tractable proxy for NIR
-          absorption-edge behavior — from two feature sets computed over a curated,{" "}
+          SpectraSense predicts semiconductor band gap (used here as the tractable proxy for NIR
+          absorption-edge behavior) from two feature sets computed over a curated,{" "}
           {MATERIALS.length}-material set spanning IV-VI rocksalt, III-V/II-VI zincblende, II-VI
           wurtzite, and group-IV diamond-cubic chemistries relevant to NIR photodetectors.
         </p>
@@ -34,22 +34,22 @@ export default function About() {
 
       <section>
         <h2>Modeling layer</h2>
-        <h3>Baseline — composition only</h3>
+        <h3>Baseline: composition only</h3>
         <p>
           Magpie-style elemental statistics (mean electronegativity difference, mean valence electron
           count, mean period, mean covalent radius) fed into a regressor with no knowledge of crystal
           structure.
         </p>
-        <h3>Corrected — structure-aware</h3>
+        <h3>Corrected: structure-aware</h3>
         <p>
           Adds coordination environment and bonding topology (rocksalt vs. zincblende vs. wurtzite vs.
-          diamond, and the resulting nearest-neighbor geometry) — the information the baseline cannot
-          see.
+          diamond, and the resulting nearest-neighbor geometry). This is the information the baseline
+          cannot see.
         </p>
       </section>
 
       <section>
-        <h2>Validation — current numbers</h2>
+        <h2>Validation: current numbers</h2>
         <div className="about-metrics">
           <div>
             <span className="about-metrics__label">Baseline R&sup2;</span>
@@ -69,7 +69,7 @@ export default function About() {
           </div>
         </div>
         <p>
-          Full breakdown by material family — including where the baseline fails worst — is on the{" "}
+          Full breakdown by material family, including where the baseline fails worst, is on the{" "}
           <strong>Compare</strong> page, computed live from the same functions each time the app renders.
         </p>
       </section>
@@ -77,9 +77,9 @@ export default function About() {
       <section>
         <h2>Honest limitations</h2>
         <ul>
-          <li>The gap between baseline and corrected R&sup2; shown here is illustrative of the hypothesis, not yet a trained-model result — that requires Phase 1-3 of the build roadmap against real Materials Project data.</li>
+          <li>The gap between baseline and corrected R&sup2; shown here is illustrative of the hypothesis, not yet a trained-model result. That requires Phase 1-3 of the build roadmap against real Materials Project data.</li>
           <li>A full graph-neural-network structure encoder (CGCNN/MEGNet-style) is a stretch goal; the documented fallback is a hand-engineered structural feature set (coordination number, bond-length statistics) feeding the same gradient-boosted regressor.</li>
-          <li>Scope is deliberately narrow — one target property, one physically motivated material scope — rather than broad and shallow.</li>
+          <li>Scope is deliberately narrow: one target property, one physically motivated material scope, rather than broad and shallow.</li>
         </ul>
       </section>
     </div>
