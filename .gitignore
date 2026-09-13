@@ -25,3 +25,7 @@ dist-ssr
 
 # local session lock, not project content
 .claude/*.lock
+
+# polymer-tg-benchmark
+polymer-tg-benchmark/logs/
+polymer-tg-benchmark/data/processed/

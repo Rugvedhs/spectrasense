@@ -1,0 +1,9 @@
+step,value
+Raw records,7208.0
+Unique raw SMILES,7174.0
+RDKit parse failures,0.0
+Canonical structures retained,7174.0
+Structures aggregated from >1 record,31.0
+Records absorbed by aggregation,34.0
+Aggregated groups with disagreeing Tg,28.0
+Max within-structure Tg range (K),115.0
