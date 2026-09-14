@@ -16,6 +16,7 @@ import pandas as pd
 import _bootstrap  # noqa: F401  (puts src/ on the path)
 from ptgbench.data import family_summary, load_structure_level
 from ptgbench.features import compute_descriptors, compute_fingerprints
+from ptgbench.groupcontrib import compute_group_counts
 
 
 def main() -> None:
@@ -39,9 +40,12 @@ def main() -> None:
     smiles = table["canonical_psmiles"].tolist()
     descriptors = compute_descriptors(smiles)
     matrix, fps = compute_fingerprints(smiles, args.fp_radius, args.fp_bits)
+    groups, masses = compute_group_counts(smiles)
+    groups["molar_mass"] = masses
 
     table.to_parquet(out / "structures.parquet")
     descriptors.to_parquet(out / "descriptors.parquet")
+    groups.to_parquet(out / "group_counts.parquet")
     np.save(out / "fingerprint_matrix.npy", matrix)
     with open(out / "fingerprints.pkl", "wb") as handle:
         pickle.dump(fps, handle)

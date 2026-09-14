@@ -23,6 +23,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
 from .features import DescriptorFilter
+from .groupcontrib import GroupContributionRegressor
 
 RANDOM_STATE = 0
 
@@ -68,6 +69,10 @@ def build_model(name: str, random_state: int = RANDOM_STATE) -> Pipeline:
                 early_stopping=False, random_state=random_state,
             )
         )
+    if name == "group_contribution":
+        # No DescriptorFilter: the regressor identifies molar mass by position,
+        # and column removal would silently hand it a group count instead.
+        return Pipeline([("model", GroupContributionRegressor(alpha=1.0))])
     if name == "svr":
         return _scaled_pipeline(SVR(C=100.0, epsilon=5.0, gamma="scale"))
     if name == "krr":

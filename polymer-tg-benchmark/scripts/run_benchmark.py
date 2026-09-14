@@ -41,6 +41,12 @@ def load_cache(processed_dir: str, representation: str = "descriptors"):
         X = pd.read_parquet(processed / "descriptors.parquet").to_numpy()
     elif representation == "morgan":
         X = matrix.astype(float)
+    elif representation == "groups":
+        # Molar mass must stay in the final column: the regressor reads it by
+        # position, so the column order here is part of the contract.
+        frame = pd.read_parquet(processed / "group_counts.parquet")
+        ordered = [c for c in frame.columns if c != "molar_mass"] + ["molar_mass"]
+        X = frame[ordered].to_numpy()
     else:
         raise ValueError(f"unknown representation {representation!r}")
     return table, X, table["Tg"].to_numpy(), matrix, fps
@@ -75,7 +81,7 @@ def main() -> None:
     parser.add_argument("--alpha", type=float, default=0.1)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--representation", default="descriptors",
-                        choices=["descriptors", "morgan"])
+                        choices=["descriptors", "morgan", "groups"])
     parser.add_argument("--models", nargs="*", default=None,
                         help="override the model list for this stage")
     parser.add_argument("--suffix", default="",
