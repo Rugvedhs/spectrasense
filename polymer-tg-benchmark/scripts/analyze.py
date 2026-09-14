@@ -355,7 +355,9 @@ def fig_matched(matched_raw: pd.DataFrame, statistics: pd.DataFrame, out: Path) 
     ax.set_yticklabels(per_family.index, fontsize=6.5)
     ax.set_xlabel("MAE on the same held-out structures (°C)")
     ax.set_title("Matched arms, identical test set")
-    ax.legend(ncol=3, loc="lower right")
+    # Single column in the bottom-right corner: a wide three-column legend there
+    # sits on top of the lowest families' markers.
+    ax.legend(ncol=1, loc="lower right", handletextpad=0.4, borderaxespad=0.6)
 
     ax = axes[1]
     bars = ax.barh(y, per_family["family_effect"], color=SERIES[1], edgecolor="white",

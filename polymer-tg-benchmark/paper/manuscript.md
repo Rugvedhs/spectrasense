@@ -395,3 +395,42 @@ strongly favourable in practice: that band holds 127 of 7,174 held-out predictio
 therefore to report novelty-conditioned intervals together with the
 nearest-training similarity itself, so that a reader can see which regime a given
 prediction sits in rather than trusting a single interval uniformly.
+
+### 3.6. The penalty is caused by the missing chemistry, not the missing data
+
+The matched design separates the two effects that a conventional family holdout
+confounds (Figure 3, Table 6). Across twenty families and three repeats, with the
+test set held identical and the two comparison pools held identical in size:
+
+* Removing an equal quantity of *unrelated* structures — the **control** arm —
+  changes MAE by +0.32 K (95% CI [−0.63, +1.23], Wilcoxon *p* = 0.47, worse in
+  12 of 20 families) for extremely randomised trees, and by +0.21 K
+  (*p* = 0.93, 9 of 20) for histogram gradient boosting. Per family the effect
+  ranges from −4.0 K to +5.1 K and scatters around zero.
+* Removing *the family itself* — the **naive** arm — costs +14.61 K
+  (95% CI [+10.53, +19.41], *p* = 2 × 10⁻⁶) and **is worse in all twenty of
+  twenty families**, and +13.28 K (*p* = 1 × 10⁻⁵, 18 of 20) for the second model.
+
+The family effect is roughly forty-six times the size of the data-volume effect
+and, unlike it, is consistent in sign across every family tested. Essentially the
+entire family-holdout penalty is attributable to the absent chemistry: the total
+effect of +14.93 K decomposes into +14.61 K of chemistry and +0.32 K of data
+volume. This resolves the confound that motivated the design, and it does so on
+matched test structures, so it is not an artefact of families differing in
+intrinsic difficulty or in *T*~g~ spread.
+
+Family-level magnitudes rank as the chemistry predicts. Polyphosphazenes suffer
+most (+45.4 K), followed by polyamides (+30.0 K) and polysiloxanes (+28.7 K); at
+the other end polysulfides (+1.5 K), polyvinyls (+3.7 K) and polyimines (+4.1 K)
+are nearly unaffected, because the linkages that set their backbone mobility
+survive elsewhere in the training set. Note that polyamides rank second here
+despite being the second-largest family in the dataset (982 structures) — further
+evidence that abundance does not confer transferability when the chemistry is
+distinctive.
+
+The practical reading is uncomfortable but clear. Because the penalty comes from
+absent chemistry rather than absent volume, a *T*~g~ model cannot be made
+trustworthy on a new backbone family by training it on more of what it already
+has. Either the family must be represented in training, or the prediction must
+carry an interval that widens honestly when it is not — which is the case for
+novelty-conditioned calibration made in Section 3.4.
