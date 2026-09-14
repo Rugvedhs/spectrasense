@@ -422,6 +422,188 @@ def table_model_comparison(results: Path, out: Path, reference: str = "hist_gbr"
     return frame
 
 
+def table_width_matched_control(results: Path, out: Path,
+                                model: str = "extra_trees") -> pd.DataFrame:
+    """Can a uniformly inflated split-conformal interval do the same job?
+
+    The novelty-conditioned predictor buys its conditional coverage partly with
+    width, so the fair control is split conformal scaled by a single constant to
+    the same mean width. That control is an *oracle*: the constant is computed
+    from the novelty-conditioned widths on the test set, and nothing available at
+    prediction time supplies it. It is reported anyway, because the honest
+    comparison is against the strongest strawman rather than the most convenient
+    one.
+
+    A McNemar test on the paired coverage indicators settles the band the
+    argument rests on; the two predictors see identical structures, so the
+    discordant pairs are the whole of the evidence.
+    """
+    rows = []
+    for regime in ("family", "cluster"):
+        path = results / f"predictions_{regime}.parquet"
+        if not path.exists():
+            continue
+        frame = pd.read_parquet(path)
+        frame = frame[frame["model"] == model]
+        if frame.empty or "lower_Mondrian-similarity" not in frame.columns:
+            continue
+
+        y = frame["y_true"].to_numpy()
+        scp_width = (frame["upper_SCP"] - frame["lower_SCP"]).to_numpy()
+        centre = ((frame["upper_SCP"] + frame["lower_SCP"]) / 2).to_numpy()
+        mondrian = (
+            (y >= frame["lower_Mondrian-similarity"])
+            & (y <= frame["upper_Mondrian-similarity"])
+        ).to_numpy()
+        mondrian_width = (
+            frame["upper_Mondrian-similarity"] - frame["lower_Mondrian-similarity"]
+        ).to_numpy()
+        band = np.digitize(frame["nn_similarity"].to_numpy(), [0.4, 0.5, 0.6, 0.7, 0.8])
+        lowest = band == 0
+
+        # Sweep the inflation factor, including the oracle value that equalises
+        # mean width and the factor that would reach nominal in the lowest band.
+        oracle_k = mondrian_width.mean() / scp_width.mean()
+        for k in sorted({round(oracle_k, 4), 1.0, 1.2, 1.4, 1.6, 1.8, 1.93, 2.0, 2.2}):
+            half = scp_width / 2 * k
+            covered = (y >= centre - half) & (y <= centre + half)
+            rows.append({
+                "regime": regime, "model": model, "k": k,
+                "is_oracle_k": abs(k - round(oracle_k, 4)) < 1e-9,
+                "coverage_pooled": float(covered.mean()),
+                "coverage_lowest_band": float(covered[lowest].mean()),
+                "mean_width": float((2 * half).mean()),
+                "mondrian_coverage_pooled": float(mondrian.mean()),
+                "mondrian_coverage_lowest_band": float(mondrian[lowest].mean()),
+                "mondrian_mean_width": float(mondrian_width.mean()),
+                "n_lowest_band": int(lowest.sum()),
+            })
+
+        # McNemar at the oracle factor, in the band the claim is about.
+        half = scp_width / 2 * oracle_k
+        matched = (y >= centre - half) & (y <= centre + half)
+        only_mondrian = int((mondrian[lowest] & ~matched[lowest]).sum())
+        only_matched = int((~mondrian[lowest] & matched[lowest]).sum())
+        discordant = only_mondrian + only_matched
+        # Attach to the oracle row, not to whichever k the sweep ended on.
+        oracle_row = next(
+            r for r in rows if r["regime"] == regime and r["is_oracle_k"]
+        )
+        oracle_row["mcnemar_only_mondrian"] = only_mondrian
+        oracle_row["mcnemar_only_width_matched"] = only_matched
+        oracle_row["mcnemar_p"] = (
+            float(stats.binomtest(only_mondrian, discordant, 0.5).pvalue)
+            if discordant else np.nan
+        )
+
+    frame = pd.DataFrame(rows)
+    frame.to_csv(out / "table_width_matched.csv", index=False)
+    return frame
+
+
+def table_bias_shrinkage(results: Path, structures: pd.DataFrame, out: Path,
+                         model: str = "hist_gbr") -> pd.DataFrame:
+    """Is the family-resolved bias chemistry, or regression to the training mean?
+
+    A model fitted mostly on other families pulls its predictions toward the bulk
+    of the training distribution, so any family whose Tg sits far from that bulk
+    is biased toward it for reasons that have nothing to do with its backbone.
+    That alternative has to be removed before a signed error can be read as
+    evidence of a chemical mechanism.
+
+    Regressing bias on the family's Tg offset separates the two. The families
+    that move *against* the shrinkage line are the ones whose bias the offset
+    cannot explain, and they are where the chemical argument actually lives.
+    """
+    path = results / "point_family.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    frame = pd.read_csv(path)
+    frame = frame[(frame["model"] == model)].dropna(subset=["group"]).copy()
+    if frame.empty:
+        return frame
+
+    offsets = []
+    for family in frame["group"]:
+        member = structures["family"] == family
+        offsets.append(
+            structures.loc[member, "Tg"].median()
+            - structures.loc[~member, "Tg"].median()
+        )
+    frame["tg_offset"] = offsets
+
+    slope, intercept = np.polyfit(frame["tg_offset"], frame["bias"], 1)
+    frame["bias_expected_from_offset"] = slope * frame["tg_offset"] + intercept
+    frame["bias_residual"] = frame["bias"] - frame["bias_expected_from_offset"]
+
+    correlation = stats.pearsonr(frame["tg_offset"], frame["bias"])
+    frame["shrinkage_r"] = correlation.statistic
+    frame["shrinkage_p"] = correlation.pvalue
+
+    frame = frame[[
+        "group", "n", "mae", "bias", "tg_offset", "bias_expected_from_offset",
+        "bias_residual", "shrinkage_r", "shrinkage_p",
+    ]].sort_values("bias_residual", ascending=False)
+    frame.to_csv(out / "table_bias_shrinkage.csv", index=False)
+    return frame
+
+
+def table_matched_by_analogue(results: Path, out: Path) -> pd.DataFrame:
+    """Does the matched effect survive where near-duplicates were never available?
+
+    The informed arm keeps the rest of the family, so for some test structures it
+    holds a very close analogue that the naive arm cannot have. If the family
+    effect were only the loss of near-duplicates it would vanish once those
+    structures are excluded. Splitting the effect by how close the informed arm's
+    nearest training neighbour was tests exactly that.
+    """
+    path = results / "predictions_matched.parquet"
+    if not path.exists():
+        return pd.DataFrame()
+    frame = pd.read_parquet(path)
+    if "arm" not in frame.columns:
+        return pd.DataFrame()
+
+    informed = frame[frame["arm"] == "informed"][
+        ["split", "model", "index", "nn_similarity"]
+    ].rename(columns={"nn_similarity": "informed_similarity"})
+    informed["pair"] = informed["split"].str.rsplit("_", n=1).str[0]
+
+    merged = frame.copy()
+    merged["pair"] = merged["split"].str.rsplit("_", n=1).str[0]
+    merged = merged.merge(
+        informed[["pair", "model", "index", "informed_similarity"]],
+        on=["pair", "model", "index"], how="left",
+    )
+    merged["abs_error"] = (merged["y_true"] - merged["y_pred"]).abs()
+    merged["analogue_band"] = pd.cut(
+        merged["informed_similarity"], [0, 0.6, 0.8, 0.9, 1.01],
+        labels=["<0.6", "0.6-0.8", "0.8-0.9", ">=0.9"],
+    )
+
+    rows = []
+    for (model, band), block in merged.groupby(["model", "analogue_band"],
+                                               observed=True):
+        wide = block.pivot_table(index=["pair", "index"], columns="arm",
+                                 values="abs_error")
+        if not {"naive", "control"}.issubset(wide.columns):
+            continue
+        wide = wide.dropna(subset=["naive", "control"])
+        if wide.empty:
+            continue
+        rows.append({
+            "model": model, "analogue_band": str(band), "n": len(wide),
+            "mae_informed": float(wide["informed"].mean())
+            if "informed" in wide else np.nan,
+            "mae_control": float(wide["control"].mean()),
+            "mae_naive": float(wide["naive"].mean()),
+            "family_effect": float((wide["naive"] - wide["control"]).mean()),
+        })
+    frame = pd.DataFrame(rows)
+    frame.to_csv(out / "table_matched_by_analogue.csv", index=False)
+    return frame
+
+
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
     """Family Tg distributions, horizontal so family names need no rotation."""
@@ -745,6 +927,26 @@ def main() -> None:
         print(statistics.to_string(index=False))
         fig_matched(raw, statistics, figures)
     fig_error_vs_similarity(results, figures)
+
+    width_matched = table_width_matched_control(results, results)
+    if not width_matched.empty:
+        print("\nwidth-matched oracle control:")
+        print(width_matched[width_matched["is_oracle_k"]][
+            ["regime", "k", "coverage_pooled", "coverage_lowest_band",
+             "mondrian_coverage_lowest_band", "mean_width", "mcnemar_p"]
+        ].to_string(index=False))
+
+    shrinkage = table_bias_shrinkage(results, structures, results)
+    if not shrinkage.empty:
+        print(f"\nbias vs family Tg offset: r={shrinkage['shrinkage_r'].iloc[0]:+.3f} "
+              f"p={shrinkage['shrinkage_p'].iloc[0]:.4f}")
+        print(shrinkage.head(4)[["group", "tg_offset", "bias",
+                                 "bias_residual"]].to_string(index=False))
+
+    analogue = table_matched_by_analogue(results, results)
+    if not analogue.empty:
+        print("\nmatched family effect by informed-arm analogue closeness:")
+        print(analogue.to_string(index=False))
 
     pooled = table_pooled_r2(results, results)
     if not pooled.empty:
