@@ -16,31 +16,37 @@ keywords:
 ## Abstract
 
 Machine-learned models of the glass transition temperature (*T*~g~) of homopolymers
-routinely report coefficients of determination above 0.85, and are increasingly
-proposed as screening tools for polymer discovery. Those figures are obtained on
-random partitions of the available data, which populate the test set with repeat
-units whose backbone chemistry is already well represented in training. Screening
-campaigns operate in the opposite regime. Here we quantify what that difference
-costs, attribute it, and ask whether the uncertainty attached to a prediction
-survives it. Using 7,174 canonical repeat units spanning twenty backbone families,
-we compare random, Bemis–Murcko scaffold, fingerprint-cluster and whole-family
-partitions, and introduce a matched-pair design in which three models predict an
-identical set of held-out structures from training pools that differ only in what
-was removed. Because a size-matched control arm is included, the penalty for
-removing a family is separated from the penalty for training on less data — a
-confound that previous family-holdout analyses of this dataset acknowledge but do
-not resolve. We then evaluate split conformal prediction and two conditional
-variants. The central finding is that reliability in this problem is a property of
-backbone chemistry rather than of the model: siloxane, phosphazene and imide
-backbones behave very differently from one another under identical treatment, and
-conventional conformal intervals retain their nominal marginal coverage while
-covering substantially less than nominal for the least familiar repeat units.
-Conditioning the conformal calibration on polymer family cannot repair this,
-because an unseen family has no calibration data by construction; conditioning on
-nearest-neighbour structural similarity can, because that coordinate is defined
-for every repeat unit. We recommend reporting family-resolved errors and
-novelty-conditioned intervals alongside any *T*~g~ model intended for screening,
-and provide an open, fully reproducible implementation.
+routinely report coefficients of determination above 0.85 and are increasingly
+proposed as screening tools for polymer discovery. Those figures come from random
+partitions, which fill the test set with repeat units whose backbone chemistry is
+already well represented in training; screening campaigns operate in the opposite
+regime. Using 7,174 canonical repeat units spanning twenty backbone families, we
+quantify what that difference costs, attribute it, and ask whether the uncertainty
+attached to a prediction survives it. Error rises from 28.1 ± 1.0 K on random
+partitions to 33.8 K under scaffold holdout, 44.5 K under fingerprint-cluster
+holdout and 46.8 K under whole-family holdout, while *R*² falls from 0.87 to 0.32.
+For scale, the two best models differ by 0.38 K, which repeated splits cannot
+resolve: **the evaluation protocol is worth about forty times more than the choice
+of model**. A matched-pair design, in which three models predict an identical
+held-out set from training pools differing only in what was removed, separates the
+two effects that a conventional family holdout confounds. Deleting an equal
+quantity of unrelated structures costs +0.32 K (*p* = 0.47); deleting the family
+itself costs +14.61 K (95% CI [+10.53, +19.41], *p* = 2 × 10⁻⁶) and is worse in
+all twenty families. The penalty is therefore caused by absent chemistry, not
+absent data, so it cannot be closed by collecting more of what is already covered.
+Transferability tracks structural isolation (*r* = −0.63 to −0.68, *p* < 0.005)
+rather than family size (*p* > 0.2), and spans 0.80× for polycarbonates to 3.02×
+for polyphosphazenes. Split conformal prediction fails in the same place: it holds
+0.904 marginal coverage on random splits yet covers only 0.650 of the least
+familiar structural band, and loses even marginal validity under shift (0.834,
+0.730, 0.711). Conditioning calibration on polymer family cannot repair this — a
+withheld family has no calibration members, so the predictor falls back for 100%
+of test structures and reproduces split conformal exactly — whereas conditioning
+on nearest-neighbour structural similarity holds 0.883–0.907 across all four
+regimes while remaining *narrower* than split conformal on random splits. We
+recommend reporting family-resolved errors and novelty-conditioned intervals,
+accompanied by the nearest-training similarity itself, alongside any *T*~g~ model
+intended for screening, and provide an open, fully reproducible implementation.
 
 ## 1. Introduction
 
