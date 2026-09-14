@@ -1,0 +1,505 @@
+group,n,coverage,coverage_error,mean_width,reliable,taxonomy,conformal,split,regime,model
+0,335,0.7223880597014926,-0.17761194029850746,149.37600000000003,True,similarity,SCP,family_Polyacrylics,family,extra_trees
+3,25,0.76,-0.14,149.37600000000003,True,similarity,SCP,family_Polyacrylics,family,extra_trees
+1,200,0.85,-0.050000000000000044,149.37599999999998,True,similarity,SCP,family_Polyacrylics,family,extra_trees
+2,100,0.86,-0.040000000000000036,149.37599999999998,True,similarity,SCP,family_Polyacrylics,family,extra_trees
+4,1,1.0,0.09999999999999998,149.376,False,similarity,SCP,family_Polyacrylics,family,extra_trees
+Polyacrylics,661,0.783661119515885,-0.116338880484115,149.37599999999998,True,family,SCP,family_Polyacrylics,family,extra_trees
+0,335,0.9522388059701492,0.05223880597014918,283.8,True,similarity,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+2,100,0.96,0.05999999999999994,200.8319999999999,True,similarity,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+1,200,0.98,0.07999999999999996,266.05600000000004,True,similarity,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+3,25,1.0,0.09999999999999998,210.35576000000128,True,similarity,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+4,1,1.0,0.09999999999999998,142.35199999999998,False,similarity,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+Polyacrylics,661,0.9636913767019667,0.06369137670196667,262.88751285930414,True,family,Mondrian-similarity,family_Polyacrylics,family,extra_trees
+0,335,0.7223880597014926,-0.17761194029850746,149.37600000000003,True,similarity,Mondrian-family,family_Polyacrylics,family,extra_trees
+3,25,0.76,-0.14,149.37600000000003,True,similarity,Mondrian-family,family_Polyacrylics,family,extra_trees
+1,200,0.85,-0.050000000000000044,149.37599999999998,True,similarity,Mondrian-family,family_Polyacrylics,family,extra_trees
+2,100,0.86,-0.040000000000000036,149.37599999999998,True,similarity,Mondrian-family,family_Polyacrylics,family,extra_trees
+4,1,1.0,0.09999999999999998,149.376,False,similarity,Mondrian-family,family_Polyacrylics,family,extra_trees
+Polyacrylics,661,0.783661119515885,-0.116338880484115,149.37599999999998,True,family,Mondrian-family,family_Polyacrylics,family,extra_trees
+4,1,0.0,-0.9,73.37983209080184,False,similarity,Normalised SCP,family_Polyacrylics,family,extra_trees
+3,25,0.52,-0.38,122.0021317322349,True,similarity,Normalised SCP,family_Polyacrylics,family,extra_trees
+0,335,0.8029850746268656,-0.09701492537313439,194.34361984825222,True,similarity,Normalised SCP,family_Polyacrylics,family,extra_trees
+1,200,0.845,-0.05500000000000005,167.26208977625893,True,similarity,Normalised SCP,family_Polyacrylics,family,extra_trees
+2,100,0.85,-0.050000000000000044,142.62817882680434,True,similarity,Normalised SCP,family_Polyacrylics,family,extra_trees
+Polyacrylics,661,0.81089258698941,-0.08910741301059,175.40662876322756,True,family,Normalised SCP,family_Polyacrylics,family,extra_trees
+0,229,0.4672489082969432,-0.4327510917030568,146.30800000000002,True,similarity,SCP,family_Polyamides,family,extra_trees
+1,309,0.5436893203883495,-0.3563106796116505,146.308,True,similarity,SCP,family_Polyamides,family,extra_trees
+5,5,0.6,-0.30000000000000004,146.308,False,similarity,SCP,family_Polyamides,family,extra_trees
+3,97,0.711340206185567,-0.18865979381443299,146.308,True,similarity,SCP,family_Polyamides,family,extra_trees
+2,288,0.7326388888888888,-0.16736111111111118,146.308,True,similarity,SCP,family_Polyamides,family,extra_trees
+4,54,0.7777777777777778,-0.12222222222222223,146.308,True,similarity,SCP,family_Polyamides,family,extra_trees
+Polyamides,982,0.6109979633401222,-0.2890020366598778,146.308,True,family,SCP,family_Polyamides,family,extra_trees
+5,5,0.6,-0.30000000000000004,119.0,False,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+4,54,0.6666666666666666,-0.2333333333333334,132.916,True,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+3,97,0.6701030927835051,-0.22989690721649492,139.13200000000003,True,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+0,229,0.8165938864628821,-0.08340611353711791,299.672,True,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+1,309,0.8349514563106796,-0.06504854368932045,240.21800000000007,True,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+2,288,0.9097222222222222,0.009722222222222188,245.1003999999998,True,similarity,Mondrian-similarity,family_Polyamides,family,extra_trees
+Polyamides,982,0.8258655804480651,-0.0741344195519349,239.01164276985742,True,family,Mondrian-similarity,family_Polyamides,family,extra_trees
+0,229,0.4672489082969432,-0.4327510917030568,146.30800000000002,True,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+1,309,0.5436893203883495,-0.3563106796116505,146.308,True,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+5,5,0.6,-0.30000000000000004,146.308,False,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+3,97,0.711340206185567,-0.18865979381443299,146.308,True,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+2,288,0.7326388888888888,-0.16736111111111118,146.308,True,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+4,54,0.7777777777777778,-0.12222222222222223,146.308,True,similarity,Mondrian-family,family_Polyamides,family,extra_trees
+Polyamides,982,0.6109979633401222,-0.2890020366598778,146.308,True,family,Mondrian-family,family_Polyamides,family,extra_trees
+5,5,0.4,-0.5,115.18365351484499,False,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+0,229,0.4672489082969432,-0.4327510917030568,149.33215603863587,True,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+1,309,0.49838187702265374,-0.4016181229773463,138.33001841690321,True,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+4,54,0.5185185185185185,-0.38148148148148153,108.62552975403472,True,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+3,97,0.5463917525773195,-0.3536082474226805,109.93653354079846,True,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+2,288,0.6701388888888888,-0.22986111111111118,128.66115704277507,True,similarity,Normalised SCP,family_Polyamides,family,extra_trees
+Polyamides,982,0.5468431771894093,-0.3531568228105907,133.50406647631308,True,family,Normalised SCP,family_Polyamides,family,extra_trees
+0,18,0.8333333333333334,-0.06666666666666665,166.97680000000003,True,similarity,SCP,family_Polyanhydrides,family,extra_trees
+2,12,0.9166666666666666,0.016666666666666607,166.9768,True,similarity,SCP,family_Polyanhydrides,family,extra_trees
+1,4,1.0,0.09999999999999998,166.97680000000003,False,similarity,SCP,family_Polyanhydrides,family,extra_trees
+5,3,1.0,0.09999999999999998,166.97680000000003,False,similarity,SCP,family_Polyanhydrides,family,extra_trees
+3,5,1.0,0.09999999999999998,166.97680000000003,False,similarity,SCP,family_Polyanhydrides,family,extra_trees
+4,1,1.0,0.09999999999999998,166.97680000000003,False,similarity,SCP,family_Polyanhydrides,family,extra_trees
+Polyanhydrides,43,0.9069767441860465,0.006976744186046435,166.97680000000005,True,family,SCP,family_Polyanhydrides,family,extra_trees
+0,18,1.0,0.09999999999999998,294.8092000000003,True,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+2,12,1.0,0.09999999999999998,256.42,True,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+1,4,1.0,0.09999999999999998,247.51999999999998,False,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+5,3,1.0,0.09999999999999998,115.54080000000073,False,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+3,5,1.0,0.09999999999999998,169.42399999999998,False,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+4,1,1.0,0.09999999999999998,166.97680000000003,False,similarity,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+Polyanhydrides,43,1.0,0.09999999999999998,249.63732093023273,True,family,Mondrian-similarity,family_Polyanhydrides,family,extra_trees
+0,18,0.8333333333333334,-0.06666666666666665,166.97680000000003,True,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+2,12,0.9166666666666666,0.016666666666666607,166.9768,True,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+1,4,1.0,0.09999999999999998,166.97680000000003,False,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+5,3,1.0,0.09999999999999998,166.97680000000003,False,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+3,5,1.0,0.09999999999999998,166.97680000000003,False,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+4,1,1.0,0.09999999999999998,166.97680000000003,False,similarity,Mondrian-family,family_Polyanhydrides,family,extra_trees
+Polyanhydrides,43,0.9069767441860465,0.006976744186046435,166.97680000000005,True,family,Mondrian-family,family_Polyanhydrides,family,extra_trees
+2,12,0.8333333333333334,-0.06666666666666665,145.7939051596879,True,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+0,18,0.9444444444444444,0.0444444444444444,211.58644737232427,True,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+1,4,1.0,0.09999999999999998,157.1729058213383,False,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+5,3,1.0,0.09999999999999998,98.09098182275534,False,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+3,5,1.0,0.09999999999999998,114.97501935545048,False,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+4,1,1.0,0.09999999999999998,114.21301326111018,False,similarity,Normalised SCP,family_Polyanhydrides,family,extra_trees
+Polyanhydrides,43,0.9302325581395349,0.03023255813953485,166.74733938162962,True,family,Normalised SCP,family_Polyanhydrides,family,extra_trees
+5,2,0.5,-0.4,160.38,False,similarity,SCP,family_Polycarbonates,family,extra_trees
+0,11,0.7272727272727273,-0.17272727272727273,160.38000000000002,True,similarity,SCP,family_Polycarbonates,family,extra_trees
+3,36,0.8611111111111112,-0.03888888888888886,160.38,True,similarity,SCP,family_Polycarbonates,family,extra_trees
+2,25,0.92,0.020000000000000018,160.38,True,similarity,SCP,family_Polycarbonates,family,extra_trees
+1,12,1.0,0.09999999999999998,160.38000000000002,True,similarity,SCP,family_Polycarbonates,family,extra_trees
+4,12,1.0,0.09999999999999998,160.38000000000002,True,similarity,SCP,family_Polycarbonates,family,extra_trees
+Polycarbonates,98,0.8877551020408163,-0.01224489795918371,160.38000000000002,True,family,SCP,family_Polycarbonates,family,extra_trees
+5,2,0.5,-0.4,115.048,False,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+3,36,0.8888888888888888,-0.011111111111111183,190.31999999999996,True,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+2,25,1.0,0.09999999999999998,216.23,True,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+0,11,1.0,0.09999999999999998,339.02399999999994,True,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+1,12,1.0,0.09999999999999998,248.5304000000002,True,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+4,12,1.0,0.09999999999999998,163.16800000000003,True,similarity,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+Polycarbonates,98,0.9489795918367347,0.048979591836734726,215.88786530612248,True,family,Mondrian-similarity,family_Polycarbonates,family,extra_trees
+5,2,0.5,-0.4,160.38,False,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+0,11,0.7272727272727273,-0.17272727272727273,160.38000000000002,True,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+3,36,0.8611111111111112,-0.03888888888888886,160.38,True,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+2,25,0.92,0.020000000000000018,160.38,True,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+1,12,1.0,0.09999999999999998,160.38000000000002,True,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+4,12,1.0,0.09999999999999998,160.38000000000002,True,similarity,Mondrian-family,family_Polycarbonates,family,extra_trees
+Polycarbonates,98,0.8877551020408163,-0.01224489795918371,160.38000000000002,True,family,Mondrian-family,family_Polycarbonates,family,extra_trees
+5,2,0.5,-0.4,143.82333267958094,False,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+0,11,0.8181818181818182,-0.08181818181818179,195.0057970387341,True,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+3,36,0.8611111111111112,-0.03888888888888886,137.69615872205782,True,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+2,25,0.88,-0.020000000000000018,174.4249821437449,True,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+1,12,1.0,0.09999999999999998,152.9931975511588,True,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+4,12,1.0,0.09999999999999998,141.56101358250655,True,similarity,Normalised SCP,family_Polycarbonates,family,extra_trees
+Polycarbonates,98,0.8877551020408163,-0.01224489795918371,155.96986973445843,True,family,Normalised SCP,family_Polycarbonates,family,extra_trees
+0,63,0.42857142857142855,-0.4714285714285715,158.474,True,similarity,SCP,family_Polydienes,family,extra_trees
+1,15,0.4666666666666667,-0.43333333333333335,158.47400000000002,True,similarity,SCP,family_Polydienes,family,extra_trees
+3,2,0.5,-0.4,158.474,False,similarity,SCP,family_Polydienes,family,extra_trees
+2,9,1.0,0.09999999999999998,158.474,False,similarity,SCP,family_Polydienes,family,extra_trees
+Polydienes,89,0.4943820224719101,-0.4056179775280899,158.47399999999996,True,family,SCP,family_Polydienes,family,extra_trees
+3,2,0.5,-0.4,157.47228000000007,False,similarity,Mondrian-similarity,family_Polydienes,family,extra_trees
+0,63,0.746031746031746,-0.15396825396825398,335.22399999999976,True,similarity,Mondrian-similarity,family_Polydienes,family,extra_trees
+1,15,0.8,-0.09999999999999998,284.6543999999994,True,similarity,Mondrian-similarity,family_Polydienes,family,extra_trees
+2,9,1.0,0.09999999999999998,258.098,False,similarity,Mondrian-similarity,family_Polydienes,family,extra_trees
+Polydienes,89,0.7752808988764045,-0.12471910112359552,314.9073546067415,True,family,Mondrian-similarity,family_Polydienes,family,extra_trees
+0,63,0.42857142857142855,-0.4714285714285715,158.474,True,similarity,Mondrian-family,family_Polydienes,family,extra_trees
+1,15,0.4666666666666667,-0.43333333333333335,158.47400000000002,True,similarity,Mondrian-family,family_Polydienes,family,extra_trees
+3,2,0.5,-0.4,158.474,False,similarity,Mondrian-family,family_Polydienes,family,extra_trees
+2,9,1.0,0.09999999999999998,158.474,False,similarity,Mondrian-family,family_Polydienes,family,extra_trees
+Polydienes,89,0.4943820224719101,-0.4056179775280899,158.47399999999996,True,family,Mondrian-family,family_Polydienes,family,extra_trees
+3,2,0.5,-0.4,138.54312642007974,False,similarity,Normalised SCP,family_Polydienes,family,extra_trees
+1,15,0.5333333333333333,-0.3666666666666667,202.3298660781314,True,similarity,Normalised SCP,family_Polydienes,family,extra_trees
+0,63,0.5714285714285714,-0.3285714285714286,224.3388218442247,True,similarity,Normalised SCP,family_Polydienes,family,extra_trees
+2,9,1.0,0.09999999999999998,155.33342582719163,False,similarity,Normalised SCP,family_Polydienes,family,extra_trees
+Polydienes,89,0.6067415730337079,-0.2932584269662921,211.72338036677536,True,family,Normalised SCP,family_Polydienes,family,extra_trees
+0,108,0.6574074074074074,-0.24259259259259258,164.9056000000003,True,similarity,SCP,family_Polyesters,family,extra_trees
+1,286,0.7097902097902098,-0.19020979020979023,164.90560000000028,True,similarity,SCP,family_Polyesters,family,extra_trees
+3,93,0.7741935483870968,-0.12580645161290327,164.90560000000025,True,similarity,SCP,family_Polyesters,family,extra_trees
+2,289,0.8304498269896193,-0.06955017301038069,164.90560000000025,True,similarity,SCP,family_Polyesters,family,extra_trees
+4,54,0.9074074074074074,0.007407407407407418,164.90560000000022,True,similarity,SCP,family_Polyesters,family,extra_trees
+5,6,1.0,0.09999999999999998,164.90560000000025,False,similarity,SCP,family_Polyesters,family,extra_trees
+Polyesters,836,0.7667464114832536,-0.1332535885167464,164.90560000000025,True,family,SCP,family_Polyesters,family,extra_trees
+5,6,0.6666666666666666,-0.2333333333333334,110.0,False,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+3,93,0.8602150537634409,-0.03978494623655915,203.86400000000006,True,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+4,54,0.9259259259259259,0.025925925925925908,181.89199999999997,True,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+0,108,0.9259259259259259,0.025925925925925908,303.3232000000012,True,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+1,286,0.9440559440559441,0.04405594405594404,302.34400000000005,True,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+2,289,0.9446366782006921,0.04463667820069206,221.46240000000006,True,similarity,Mondrian-similarity,family_Polyesters,family,extra_trees
+Polyesters,836,0.9294258373205742,0.029425837320574133,254.39407081339732,True,family,Mondrian-similarity,family_Polyesters,family,extra_trees
+0,108,0.6574074074074074,-0.24259259259259258,164.9056000000003,True,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+1,286,0.7097902097902098,-0.19020979020979023,164.90560000000028,True,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+3,93,0.7741935483870968,-0.12580645161290327,164.90560000000025,True,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+2,289,0.8304498269896193,-0.06955017301038069,164.90560000000025,True,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+4,54,0.9074074074074074,0.007407407407407418,164.90560000000022,True,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+5,6,1.0,0.09999999999999998,164.90560000000025,False,similarity,Mondrian-family,family_Polyesters,family,extra_trees
+Polyesters,836,0.7667464114832536,-0.1332535885167464,164.90560000000025,True,family,Mondrian-family,family_Polyesters,family,extra_trees
+0,108,0.5833333333333334,-0.31666666666666665,153.72218557108712,True,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+1,286,0.6293706293706294,-0.27062937062937065,148.19398164406047,True,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+5,6,0.6666666666666666,-0.2333333333333334,119.29774714038676,False,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+4,54,0.6666666666666666,-0.2333333333333334,133.29473494739727,True,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+3,93,0.6774193548387096,-0.2225806451612904,146.2019465445422,True,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+2,289,0.6920415224913494,-0.2079584775086506,136.676081700315,True,similarity,Normalised SCP,family_Polyesters,family,extra_trees
+Polyesters,836,0.65311004784689,-0.24688995215311005,143.5351023946339,True,family,Normalised SCP,family_Polyesters,family,extra_trees
+0,156,0.7756410256410257,-0.12435897435897436,152.57600000000005,True,similarity,SCP,family_Polyethers,family,extra_trees
+1,133,0.8045112781954887,-0.09548872180451129,152.57600000000005,True,similarity,SCP,family_Polyethers,family,extra_trees
+2,153,0.8169934640522876,-0.08300653594771246,152.57600000000002,True,similarity,SCP,family_Polyethers,family,extra_trees
+5,49,0.8367346938775511,-0.06326530612244896,152.57600000000002,True,similarity,SCP,family_Polyethers,family,extra_trees
+4,126,0.9047619047619048,0.004761904761904745,152.57600000000008,True,similarity,SCP,family_Polyethers,family,extra_trees
+3,119,0.9411764705882353,0.04117647058823526,152.57600000000008,True,similarity,SCP,family_Polyethers,family,extra_trees
+Polyethers,736,0.842391304347826,-0.05760869565217397,152.57600000000002,True,family,SCP,family_Polyethers,family,extra_trees
+5,49,0.673469387755102,-0.226530612244898,108.0,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+2,153,0.8823529411764706,-0.01764705882352946,196.968,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+4,126,0.8968253968253969,-0.0031746031746031633,149.51600000000002,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+1,133,0.9398496240601504,0.03984962406015036,229.41,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+3,119,0.957983193277311,0.05798319327731094,199.42799999999994,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+0,156,0.9615384615384616,0.06153846153846154,344.1599999999999,True,similarity,Mondrian-similarity,family_Polyethers,family,extra_trees
+Polyethers,736,0.9103260869565217,0.010326086956521707,220.37981249999993,True,family,Mondrian-similarity,family_Polyethers,family,extra_trees
+0,156,0.7756410256410257,-0.12435897435897436,152.57600000000005,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+1,133,0.8045112781954887,-0.09548872180451129,152.57600000000005,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+2,153,0.8169934640522876,-0.08300653594771246,152.57600000000002,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+5,49,0.8367346938775511,-0.06326530612244896,152.57600000000002,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+4,126,0.9047619047619048,0.004761904761904745,152.57600000000008,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+3,119,0.9411764705882353,0.04117647058823526,152.57600000000008,True,similarity,Mondrian-family,family_Polyethers,family,extra_trees
+Polyethers,736,0.842391304347826,-0.05760869565217397,152.57600000000002,True,family,Mondrian-family,family_Polyethers,family,extra_trees
+5,49,0.7551020408163265,-0.14489795918367354,137.2365331086615,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+1,133,0.7593984962406015,-0.1406015037593985,145.87674764044547,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+2,153,0.7908496732026143,-0.10915032679738568,145.42625174559907,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+4,126,0.8015873015873016,-0.0984126984126984,132.5779678764719,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+0,156,0.8269230769230769,-0.07307692307692315,193.12571020705653,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+3,119,0.8403361344537815,-0.0596638655462185,135.6114423296525,True,similarity,Normalised SCP,family_Polyethers,family,extra_trees
+Polyethers,736,0.8002717391304348,-0.09972826086956521,151.2861555129691,True,family,Normalised SCP,family_Polyethers,family,extra_trees
+0,41,0.24390243902439024,-0.6560975609756098,162.51999999999998,True,similarity,SCP,family_Polyhalo-olefins,family,extra_trees
+1,11,0.8181818181818182,-0.08181818181818179,162.51999999999998,True,similarity,SCP,family_Polyhalo-olefins,family,extra_trees
+2,4,1.0,0.09999999999999998,162.51999999999998,False,similarity,SCP,family_Polyhalo-olefins,family,extra_trees
+Polyhalo-olefins,56,0.4107142857142857,-0.4892857142857143,162.51999999999998,True,family,SCP,family_Polyhalo-olefins,family,extra_trees
+0,41,0.8536585365853658,-0.04634146341463419,431.70000000000005,True,similarity,Mondrian-similarity,family_Polyhalo-olefins,family,extra_trees
+1,11,0.9090909090909091,0.009090909090909038,235.25,True,similarity,Mondrian-similarity,family_Polyhalo-olefins,family,extra_trees
+2,4,1.0,0.09999999999999998,217.836,False,similarity,Mondrian-similarity,family_Polyhalo-olefins,family,extra_trees
+Polyhalo-olefins,56,0.875,-0.025000000000000022,377.83560714285716,True,family,Mondrian-similarity,family_Polyhalo-olefins,family,extra_trees
+0,41,0.24390243902439024,-0.6560975609756098,162.51999999999998,True,similarity,Mondrian-family,family_Polyhalo-olefins,family,extra_trees
+1,11,0.8181818181818182,-0.08181818181818179,162.51999999999998,True,similarity,Mondrian-family,family_Polyhalo-olefins,family,extra_trees
+2,4,1.0,0.09999999999999998,162.51999999999998,False,similarity,Mondrian-family,family_Polyhalo-olefins,family,extra_trees
+Polyhalo-olefins,56,0.4107142857142857,-0.4892857142857143,162.51999999999998,True,family,Mondrian-family,family_Polyhalo-olefins,family,extra_trees
+0,41,0.6585365853658537,-0.24146341463414633,279.34691191204706,True,similarity,Normalised SCP,family_Polyhalo-olefins,family,extra_trees
+1,11,0.9090909090909091,0.009090909090909038,243.4310191092476,True,similarity,Normalised SCP,family_Polyhalo-olefins,family,extra_trees
+2,4,1.0,0.09999999999999998,178.96916473315062,False,similarity,Normalised SCP,family_Polyhalo-olefins,family,extra_trees
+Polyhalo-olefins,56,0.7321428571428571,-0.16785714285714293,265.1221653130046,True,family,Normalised SCP,family_Polyhalo-olefins,family,extra_trees
+0,844,0.5414691943127962,-0.35853080568720386,172.72399999999993,True,similarity,SCP,family_Polyimides,family,extra_trees
+2,197,0.7055837563451777,-0.19441624365482235,172.72399999999996,True,similarity,SCP,family_Polyimides,family,extra_trees
+1,637,0.7142857142857143,-0.18571428571428572,172.724,True,similarity,SCP,family_Polyimides,family,extra_trees
+3,19,0.7894736842105263,-0.1105263157894737,172.72400000000002,True,similarity,SCP,family_Polyimides,family,extra_trees
+4,9,1.0,0.09999999999999998,172.72400000000002,False,similarity,SCP,family_Polyimides,family,extra_trees
+5,1,1.0,0.09999999999999998,172.72400000000002,False,similarity,SCP,family_Polyimides,family,extra_trees
+Polyimides,1707,0.6303456356180434,-0.26965436438195667,172.724,True,family,SCP,family_Polyimides,family,extra_trees
+3,19,0.8421052631578947,-0.05789473684210533,200.132,True,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+2,197,0.9441624365482234,0.04416243654822338,279.82400000000007,True,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+1,637,0.945054945054945,0.045054945054945006,289.98533333333313,True,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+0,844,0.9715639810426541,0.07156398104265405,404.944,True,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+4,9,1.0,0.09999999999999998,151.928,False,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+5,1,1.0,0.09999999999999998,111.41200000000003,False,similarity,Mondrian-similarity,family_Polyimides,family,extra_trees
+Polyimides,1707,0.9572349150556532,0.057234915055653146,343.81956258543244,True,family,Mondrian-similarity,family_Polyimides,family,extra_trees
+0,844,0.5414691943127962,-0.35853080568720386,172.72399999999993,True,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+2,197,0.7055837563451777,-0.19441624365482235,172.72399999999996,True,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+1,637,0.7142857142857143,-0.18571428571428572,172.724,True,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+3,19,0.7894736842105263,-0.1105263157894737,172.72400000000002,True,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+4,9,1.0,0.09999999999999998,172.72400000000002,False,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+5,1,1.0,0.09999999999999998,172.72400000000002,False,similarity,Mondrian-family,family_Polyimides,family,extra_trees
+Polyimides,1707,0.6303456356180434,-0.26965436438195667,172.724,True,family,Mondrian-family,family_Polyimides,family,extra_trees
+0,844,0.6267772511848341,-0.27322274881516595,201.1078677722423,True,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+3,19,0.631578947368421,-0.268421052631579,167.61209496079525,True,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+1,637,0.7142857142857143,-0.18571428571428572,177.34860191543302,True,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+2,197,0.7563451776649747,-0.14365482233502536,176.8488741840991,True,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+4,9,1.0,0.09999999999999998,177.71175402495757,False,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+5,1,1.0,0.09999999999999998,200.65273967843075,False,similarity,Normalised SCP,family_Polyimides,family,extra_trees
+Polyimides,1707,0.6766256590509666,-0.2233743409490334,188.94552804002873,True,family,Normalised SCP,family_Polyimides,family,extra_trees
+0,12,0.3333333333333333,-0.5666666666666667,165.596,True,similarity,SCP,family_Polyimines,family,extra_trees
+1,5,0.8,-0.09999999999999998,165.596,False,similarity,SCP,family_Polyimines,family,extra_trees
+2,22,1.0,0.09999999999999998,165.596,True,similarity,SCP,family_Polyimines,family,extra_trees
+3,8,1.0,0.09999999999999998,165.596,False,similarity,SCP,family_Polyimines,family,extra_trees
+4,5,1.0,0.09999999999999998,165.596,False,similarity,SCP,family_Polyimines,family,extra_trees
+Polyimines,52,0.8269230769230769,-0.07307692307692315,165.59599999999998,True,family,SCP,family_Polyimines,family,extra_trees
+0,12,0.75,-0.15000000000000002,340.68800000000005,True,similarity,Mondrian-similarity,family_Polyimines,family,extra_trees
+1,5,1.0,0.09999999999999998,275.10039999999935,False,similarity,Mondrian-similarity,family_Polyimines,family,extra_trees
+2,22,1.0,0.09999999999999998,236.11600000000016,True,similarity,Mondrian-similarity,family_Polyimines,family,extra_trees
+3,8,1.0,0.09999999999999998,198.48400000000004,False,similarity,Mondrian-similarity,family_Polyimines,family,extra_trees
+4,5,1.0,0.09999999999999998,158.74400000000003,False,similarity,Mondrian-similarity,family_Polyimines,family,extra_trees
+Polyimines,52,0.9423076923076923,0.04230769230769227,250.76734615384618,True,family,Mondrian-similarity,family_Polyimines,family,extra_trees
+0,12,0.3333333333333333,-0.5666666666666667,165.596,True,similarity,Mondrian-family,family_Polyimines,family,extra_trees
+1,5,0.8,-0.09999999999999998,165.596,False,similarity,Mondrian-family,family_Polyimines,family,extra_trees
+2,22,1.0,0.09999999999999998,165.596,True,similarity,Mondrian-family,family_Polyimines,family,extra_trees
+3,8,1.0,0.09999999999999998,165.596,False,similarity,Mondrian-family,family_Polyimines,family,extra_trees
+4,5,1.0,0.09999999999999998,165.596,False,similarity,Mondrian-family,family_Polyimines,family,extra_trees
+Polyimines,52,0.8269230769230769,-0.07307692307692315,165.59599999999998,True,family,Mondrian-family,family_Polyimines,family,extra_trees
+0,12,0.3333333333333333,-0.5666666666666667,172.14018234729508,True,similarity,Normalised SCP,family_Polyimines,family,extra_trees
+1,5,0.4,-0.5,120.2642605699464,False,similarity,Normalised SCP,family_Polyimines,family,extra_trees
+3,8,0.75,-0.15000000000000002,134.26025923223415,False,similarity,Normalised SCP,family_Polyimines,family,extra_trees
+4,5,0.8,-0.09999999999999998,129.80268586159178,False,similarity,Normalised SCP,family_Polyimines,family,extra_trees
+2,22,0.9090909090909091,0.009090909090909038,127.55733742582775,True,similarity,Normalised SCP,family_Polyimines,family,extra_trees
+Polyimines,52,0.6923076923076923,-0.20769230769230773,138.39154649137146,True,family,Normalised SCP,family_Polyimines,family,extra_trees
+0,87,0.5632183908045977,-0.33678160919540234,161.28000000000003,True,similarity,SCP,family_Polyolefins,family,extra_trees
+1,48,0.7916666666666666,-0.10833333333333339,161.28,True,similarity,SCP,family_Polyolefins,family,extra_trees
+3,8,0.875,-0.025000000000000022,161.27999999999997,False,similarity,SCP,family_Polyolefins,family,extra_trees
+2,29,0.9310344827586207,0.03103448275862064,161.27999999999997,True,similarity,SCP,family_Polyolefins,family,extra_trees
+Polyolefins,172,0.7034883720930233,-0.19651162790697674,161.28,True,family,SCP,family_Polyolefins,family,extra_trees
+0,87,0.8045977011494253,-0.09540229885057472,294.19199999999995,True,similarity,Mondrian-similarity,family_Polyolefins,family,extra_trees
+1,48,0.875,-0.025000000000000022,224.44000000000003,True,similarity,Mondrian-similarity,family_Polyolefins,family,extra_trees
+2,29,0.9655172413793104,0.06551724137931036,207.07200000000003,True,similarity,Mondrian-similarity,family_Polyolefins,family,extra_trees
+3,8,1.0,0.09999999999999998,217.60639999999967,False,similarity,Mondrian-similarity,family_Polyolefins,family,extra_trees
+Polyolefins,172,0.8604651162790697,-0.03953488372093028,256.47536744186044,True,family,Mondrian-similarity,family_Polyolefins,family,extra_trees
+0,87,0.5632183908045977,-0.33678160919540234,161.28000000000003,True,similarity,Mondrian-family,family_Polyolefins,family,extra_trees
+1,48,0.7916666666666666,-0.10833333333333339,161.28,True,similarity,Mondrian-family,family_Polyolefins,family,extra_trees
+3,8,0.875,-0.025000000000000022,161.27999999999997,False,similarity,Mondrian-family,family_Polyolefins,family,extra_trees
+2,29,0.9310344827586207,0.03103448275862064,161.27999999999997,True,similarity,Mondrian-family,family_Polyolefins,family,extra_trees
+Polyolefins,172,0.7034883720930233,-0.19651162790697674,161.28,True,family,Mondrian-family,family_Polyolefins,family,extra_trees
+0,87,0.632183908045977,-0.267816091954023,208.0283653980821,True,similarity,Normalised SCP,family_Polyolefins,family,extra_trees
+1,48,0.8541666666666666,-0.04583333333333339,191.86367218451502,True,similarity,Normalised SCP,family_Polyolefins,family,extra_trees
+2,29,0.8620689655172413,-0.037931034482758696,188.09880443391305,True,similarity,Normalised SCP,family_Polyolefins,family,extra_trees
+3,8,0.875,-0.025000000000000022,152.89823989840409,False,similarity,Normalised SCP,family_Polyolefins,family,extra_trees
+Polyolefins,172,0.7441860465116279,-0.15581395348837213,197.59287966430566,True,family,Normalised SCP,family_Polyolefins,family,extra_trees
+0,200,0.565,-0.3350000000000001,157.26400000000004,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+3,17,0.6470588235294118,-0.2529411764705882,157.264,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+4,24,0.7083333333333334,-0.19166666666666665,157.264,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+5,34,0.7352941176470589,-0.16470588235294115,157.264,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+2,54,0.7592592592592593,-0.14074074074074072,157.26399999999998,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+1,100,0.76,-0.14,157.26399999999998,True,similarity,SCP,family_Polyphenylenes,family,extra_trees
+Polyphenylenes,429,0.6596736596736597,-0.24032634032634037,157.264,True,family,SCP,family_Polyphenylenes,family,extra_trees
+5,34,0.5294117647058824,-0.37058823529411766,116.96400000000006,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+3,17,0.7058823529411765,-0.1941176470588235,193.83999999999997,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+4,24,0.7083333333333334,-0.19166666666666665,151.34799999999996,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+2,54,0.7777777777777778,-0.12222222222222223,218.8799999999999,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+0,200,0.8,-0.09999999999999998,274.1000000000013,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+1,100,0.9,0.0,231.61999999999992,True,similarity,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+Polyphenylenes,429,0.7902097902097902,-0.10979020979020981,234.74575291375353,True,family,Mondrian-similarity,family_Polyphenylenes,family,extra_trees
+0,200,0.565,-0.3350000000000001,157.26400000000004,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+3,17,0.6470588235294118,-0.2529411764705882,157.264,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+4,24,0.7083333333333334,-0.19166666666666665,157.264,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+5,34,0.7352941176470589,-0.16470588235294115,157.264,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+2,54,0.7592592592592593,-0.14074074074074072,157.26399999999998,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+1,100,0.76,-0.14,157.26399999999998,True,similarity,Mondrian-family,family_Polyphenylenes,family,extra_trees
+Polyphenylenes,429,0.6596736596736597,-0.24032634032634037,157.264,True,family,Mondrian-family,family_Polyphenylenes,family,extra_trees
+0,200,0.665,-0.235,202.03294224758238,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+3,17,0.7058823529411765,-0.1941176470588235,195.10238046679015,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+2,54,0.7407407407407407,-0.15925925925925932,183.2180499424374,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+1,100,0.81,-0.08999999999999997,191.38359077112418,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+4,24,0.8333333333333334,-0.06666666666666665,217.46324077521942,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+5,34,0.8529411764705882,-0.04705882352941182,221.9049015661932,True,similarity,Normalised SCP,family_Polyphenylenes,family,extra_trees
+Polyphenylenes,429,0.7342657342657343,-0.16573426573426575,199.34579749023723,True,family,Normalised SCP,family_Polyphenylenes,family,extra_trees
+1,9,0.5555555555555556,-0.34444444444444444,152.13000000000022,False,similarity,SCP,family_Polyphosphazenes,family,extra_trees
+0,107,0.7102803738317757,-0.18971962616822435,152.1300000000002,True,similarity,SCP,family_Polyphosphazenes,family,extra_trees
+2,2,1.0,0.09999999999999998,152.13000000000022,False,similarity,SCP,family_Polyphosphazenes,family,extra_trees
+Polyphosphazenes,118,0.7033898305084746,-0.19661016949152543,152.13000000000022,True,family,SCP,family_Polyphosphazenes,family,extra_trees
+1,9,0.5555555555555556,-0.34444444444444444,207.132,False,similarity,Mondrian-similarity,family_Polyphosphazenes,family,extra_trees
+0,107,0.9906542056074766,0.09065420560747661,359.6148000000003,True,similarity,Mondrian-similarity,family_Polyphosphazenes,family,extra_trees
+2,2,1.0,0.09999999999999998,255.424,False,similarity,Mondrian-similarity,family_Polyphosphazenes,family,extra_trees
+Polyphosphazenes,118,0.9576271186440678,0.057627118644067776,346.2188101694918,True,family,Mondrian-similarity,family_Polyphosphazenes,family,extra_trees
+1,9,0.5555555555555556,-0.34444444444444444,152.13000000000022,False,similarity,Mondrian-family,family_Polyphosphazenes,family,extra_trees
+0,107,0.7102803738317757,-0.18971962616822435,152.1300000000002,True,similarity,Mondrian-family,family_Polyphosphazenes,family,extra_trees
+2,2,1.0,0.09999999999999998,152.13000000000022,False,similarity,Mondrian-family,family_Polyphosphazenes,family,extra_trees
+Polyphosphazenes,118,0.7033898305084746,-0.19661016949152543,152.13000000000022,True,family,Mondrian-family,family_Polyphosphazenes,family,extra_trees
+1,9,0.5555555555555556,-0.34444444444444444,154.9214248497043,False,similarity,Normalised SCP,family_Polyphosphazenes,family,extra_trees
+0,107,0.8317757009345794,-0.0682242990654206,196.627130061013,True,similarity,Normalised SCP,family_Polyphosphazenes,family,extra_trees
+2,2,1.0,0.09999999999999998,133.63235422506992,False,similarity,Normalised SCP,family_Polyphosphazenes,family,extra_trees
+Polyphosphazenes,118,0.8135593220338984,-0.08644067796610166,192.3784783781853,True,family,Normalised SCP,family_Polyphosphazenes,family,extra_trees
+0,118,0.4576271186440678,-0.4423728813559322,157.256,True,similarity,SCP,family_Polysiloxanes,family,extra_trees
+1,50,0.74,-0.16000000000000003,157.25599999999997,True,similarity,SCP,family_Polysiloxanes,family,extra_trees
+2,31,0.7419354838709677,-0.15806451612903227,157.25600000000003,True,similarity,SCP,family_Polysiloxanes,family,extra_trees
+3,9,0.8888888888888888,-0.011111111111111183,157.25599999999997,False,similarity,SCP,family_Polysiloxanes,family,extra_trees
+4,1,1.0,0.09999999999999998,157.25599999999997,False,similarity,SCP,family_Polysiloxanes,family,extra_trees
+Polysiloxanes,209,0.5885167464114832,-0.3114832535885168,157.25599999999994,True,family,SCP,family_Polysiloxanes,family,extra_trees
+1,50,0.8,-0.09999999999999998,185.194,True,similarity,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+2,31,0.8064516129032258,-0.09354838709677427,179.54000000000008,True,similarity,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+0,118,0.864406779661017,-0.035593220338983045,368.54,True,similarity,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+3,9,0.8888888888888888,-0.011111111111111183,187.62,False,similarity,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+4,1,1.0,0.09999999999999998,171.60000000000002,False,similarity,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+Polysiloxanes,209,0.8421052631578947,-0.05789473684210533,287.9107177033493,True,family,Mondrian-similarity,family_Polysiloxanes,family,extra_trees
+0,118,0.4576271186440678,-0.4423728813559322,157.256,True,similarity,Mondrian-family,family_Polysiloxanes,family,extra_trees
+1,50,0.74,-0.16000000000000003,157.25599999999997,True,similarity,Mondrian-family,family_Polysiloxanes,family,extra_trees
+2,31,0.7419354838709677,-0.15806451612903227,157.25600000000003,True,similarity,Mondrian-family,family_Polysiloxanes,family,extra_trees
+3,9,0.8888888888888888,-0.011111111111111183,157.25599999999997,False,similarity,Mondrian-family,family_Polysiloxanes,family,extra_trees
+4,1,1.0,0.09999999999999998,157.25599999999997,False,similarity,Mondrian-family,family_Polysiloxanes,family,extra_trees
+Polysiloxanes,209,0.5885167464114832,-0.3114832535885168,157.25599999999994,True,family,Mondrian-family,family_Polysiloxanes,family,extra_trees
+4,1,0.0,-0.9,129.37441632929173,False,similarity,Normalised SCP,family_Polysiloxanes,family,extra_trees
+0,118,0.5338983050847458,-0.36610169491525424,177.0730947345133,True,similarity,Normalised SCP,family_Polysiloxanes,family,extra_trees
+1,50,0.54,-0.36,135.3318799422393,True,similarity,Normalised SCP,family_Polysiloxanes,family,extra_trees
+2,31,0.7096774193548387,-0.19032258064516128,136.69664374803875,True,similarity,Normalised SCP,family_Polysiloxanes,family,extra_trees
+3,9,0.8888888888888888,-0.011111111111111183,140.4667659521589,False,similarity,Normalised SCP,family_Polysiloxanes,family,extra_trees
+Polysiloxanes,209,0.5741626794258373,-0.3258373205741627,159.2937341716386,True,family,Normalised SCP,family_Polysiloxanes,family,extra_trees
+0,137,0.6204379562043796,-0.27956204379562044,153.35500000000002,True,similarity,SCP,family_Polystyrenes,family,extra_trees
+1,72,0.7777777777777778,-0.12222222222222223,153.35500000000002,True,similarity,SCP,family_Polystyrenes,family,extra_trees
+2,37,0.8648648648648649,-0.03513513513513511,153.35499999999996,True,similarity,SCP,family_Polystyrenes,family,extra_trees
+3,2,1.0,0.09999999999999998,153.35500000000002,False,similarity,SCP,family_Polystyrenes,family,extra_trees
+4,2,1.0,0.09999999999999998,153.35500000000002,False,similarity,SCP,family_Polystyrenes,family,extra_trees
+Polystyrenes,250,0.708,-0.19200000000000006,153.355,True,family,SCP,family_Polystyrenes,family,extra_trees
+1,72,0.9027777777777778,0.002777777777777768,247.35400000000007,True,similarity,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+0,137,0.948905109489051,0.048905109489051024,337.88359999999926,True,similarity,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+2,37,1.0,0.09999999999999998,230.60599999999997,True,similarity,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+3,2,1.0,0.09999999999999998,193.53320000000016,False,similarity,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+4,2,1.0,0.09999999999999998,153.844,False,similarity,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+Polystyrenes,250,0.944,0.04399999999999993,293.30687039999964,True,family,Mondrian-similarity,family_Polystyrenes,family,extra_trees
+0,137,0.6204379562043796,-0.27956204379562044,153.35500000000002,True,similarity,Mondrian-family,family_Polystyrenes,family,extra_trees
+1,72,0.7777777777777778,-0.12222222222222223,153.35500000000002,True,similarity,Mondrian-family,family_Polystyrenes,family,extra_trees
+2,37,0.8648648648648649,-0.03513513513513511,153.35499999999996,True,similarity,Mondrian-family,family_Polystyrenes,family,extra_trees
+3,2,1.0,0.09999999999999998,153.35500000000002,False,similarity,Mondrian-family,family_Polystyrenes,family,extra_trees
+4,2,1.0,0.09999999999999998,153.35500000000002,False,similarity,Mondrian-family,family_Polystyrenes,family,extra_trees
+Polystyrenes,250,0.708,-0.19200000000000006,153.355,True,family,Mondrian-family,family_Polystyrenes,family,extra_trees
+0,137,0.7445255474452555,-0.15547445255474457,191.61824890155359,True,similarity,Normalised SCP,family_Polystyrenes,family,extra_trees
+1,72,0.8055555555555556,-0.09444444444444444,178.5700595424073,True,similarity,Normalised SCP,family_Polystyrenes,family,extra_trees
+2,37,0.8918918918918919,-0.008108108108108136,162.8221186584452,True,similarity,Normalised SCP,family_Polystyrenes,family,extra_trees
+3,2,1.0,0.09999999999999998,170.7609965503801,False,similarity,Normalised SCP,family_Polystyrenes,family,extra_trees
+4,2,1.0,0.09999999999999998,168.49239762317606,False,similarity,Normalised SCP,family_Polystyrenes,family,extra_trees
+Polystyrenes,250,0.788,-0.11199999999999999,183.246678261103,True,family,Normalised SCP,family_Polystyrenes,family,extra_trees
+1,16,0.3125,-0.5875,158.63599999999997,True,similarity,SCP,family_Polysulfides,family,extra_trees
+0,17,0.47058823529411764,-0.4294117647058824,158.63600000000002,True,similarity,SCP,family_Polysulfides,family,extra_trees
+5,7,0.7142857142857143,-0.18571428571428572,158.63599999999997,False,similarity,SCP,family_Polysulfides,family,extra_trees
+2,13,0.7692307692307693,-0.13076923076923075,158.636,True,similarity,SCP,family_Polysulfides,family,extra_trees
+4,5,0.8,-0.09999999999999998,158.63599999999997,False,similarity,SCP,family_Polysulfides,family,extra_trees
+3,2,1.0,0.09999999999999998,158.63599999999997,False,similarity,SCP,family_Polysulfides,family,extra_trees
+Polysulfides,60,0.5666666666666667,-0.33333333333333337,158.636,True,family,SCP,family_Polysulfides,family,extra_trees
+1,16,0.5625,-0.3375,210.2,True,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+5,7,0.7142857142857143,-0.18571428571428572,114.46400000000006,False,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+0,17,0.8823529411764706,-0.01764705882352946,275.4472000000002,True,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+2,13,1.0,0.09999999999999998,228.89600000000007,True,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+3,2,1.0,0.09999999999999998,167.64,False,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+4,5,1.0,0.09999999999999998,163.69,False,similarity,Mondrian-similarity,family_Polysulfides,family,extra_trees
+Polysulfides,60,0.8166666666666667,-0.08333333333333337,216.27380666666676,True,family,Mondrian-similarity,family_Polysulfides,family,extra_trees
+1,16,0.3125,-0.5875,158.63599999999997,True,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+0,17,0.47058823529411764,-0.4294117647058824,158.63600000000002,True,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+5,7,0.7142857142857143,-0.18571428571428572,158.63599999999997,False,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+2,13,0.7692307692307693,-0.13076923076923075,158.636,True,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+4,5,0.8,-0.09999999999999998,158.63599999999997,False,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+3,2,1.0,0.09999999999999998,158.63599999999997,False,similarity,Mondrian-family,family_Polysulfides,family,extra_trees
+Polysulfides,60,0.5666666666666667,-0.33333333333333337,158.636,True,family,Mondrian-family,family_Polysulfides,family,extra_trees
+3,2,0.5,-0.4,131.36709788630787,False,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+1,16,0.625,-0.275,205.1121999717957,True,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+0,17,0.7058823529411765,-0.1941176470588235,226.5042245694275,True,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+5,7,0.7142857142857143,-0.18571428571428572,122.91676416204386,False,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+2,13,0.8461538461538461,-0.05384615384615388,166.12870075175064,True,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+4,5,1.0,0.09999999999999998,151.54552609120955,False,similarity,Normalised SCP,family_Polysulfides,family,extra_trees
+Polysulfides,60,0.7333333333333333,-0.16666666666666674,186.2153217060788,True,family,Normalised SCP,family_Polysulfides,family,extra_trees
+2,57,0.6842105263157895,-0.21578947368421053,150.48000000000002,True,similarity,SCP,family_Polysulfones,family,extra_trees
+1,54,0.6851851851851852,-0.2148148148148148,150.48,True,similarity,SCP,family_Polysulfones,family,extra_trees
+0,31,0.7096774193548387,-0.19032258064516128,150.47999999999996,True,similarity,SCP,family_Polysulfones,family,extra_trees
+3,38,0.7368421052631579,-0.16315789473684217,150.47999999999996,True,similarity,SCP,family_Polysulfones,family,extra_trees
+5,13,0.8461538461538461,-0.05384615384615388,150.48000000000002,True,similarity,SCP,family_Polysulfones,family,extra_trees
+4,39,0.8461538461538461,-0.05384615384615388,150.48,True,similarity,SCP,family_Polysulfones,family,extra_trees
+Polysulfones,232,0.7327586206896551,-0.16724137931034488,150.48,True,family,SCP,family_Polysulfones,family,extra_trees
+5,13,0.7692307692307693,-0.13076923076923075,108.0,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+4,39,0.8461538461538461,-0.05384615384615388,146.17600000000007,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+2,57,0.9122807017543859,0.012280701754385892,219.016,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+3,38,0.9210526315789473,0.021052631578947323,190.304,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+1,54,0.9444444444444444,0.0444444444444444,286.95000000000005,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+0,31,0.967741935483871,0.06774193548387097,311.30199999999996,True,similarity,Mondrian-similarity,family_Polysulfones,family,extra_trees
+Polysulfones,232,0.9094827586206896,0.00948275862068959,223.99133620689656,True,family,Mondrian-similarity,family_Polysulfones,family,extra_trees
+2,57,0.6842105263157895,-0.21578947368421053,150.48000000000002,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+1,54,0.6851851851851852,-0.2148148148148148,150.48,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+0,31,0.7096774193548387,-0.19032258064516128,150.47999999999996,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+3,38,0.7368421052631579,-0.16315789473684217,150.47999999999996,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+5,13,0.8461538461538461,-0.05384615384615388,150.48000000000002,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+4,39,0.8461538461538461,-0.05384615384615388,150.48,True,similarity,Mondrian-family,family_Polysulfones,family,extra_trees
+Polysulfones,232,0.7327586206896551,-0.16724137931034488,150.48,True,family,Mondrian-family,family_Polysulfones,family,extra_trees
+3,38,0.6578947368421053,-0.2421052631578947,139.19717958594444,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+2,57,0.6842105263157895,-0.21578947368421053,167.88229587611974,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+1,54,0.7222222222222222,-0.1777777777777778,176.81905339520355,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+4,39,0.7948717948717948,-0.1051282051282052,143.95890520820498,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+0,31,0.8064516129032258,-0.09354838709677427,191.90306205066503,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+5,13,0.8461538461538461,-0.05384615384615388,118.82586436865685,True,similarity,Normalised SCP,family_Polysulfones,family,extra_trees
+Polysulfones,232,0.7327586206896551,-0.16724137931034488,161.70319412081403,True,family,Normalised SCP,family_Polysulfones,family,extra_trees
+0,6,0.5,-0.4,156.09199999999998,False,similarity,SCP,family_Polyureas,family,extra_trees
+2,21,0.6666666666666666,-0.2333333333333334,156.09200000000004,True,similarity,SCP,family_Polyureas,family,extra_trees
+1,4,0.75,-0.15000000000000002,156.092,False,similarity,SCP,family_Polyureas,family,extra_trees
+3,8,0.875,-0.025000000000000022,156.09199999999998,False,similarity,SCP,family_Polyureas,family,extra_trees
+4,2,1.0,0.09999999999999998,156.09199999999998,False,similarity,SCP,family_Polyureas,family,extra_trees
+5,2,1.0,0.09999999999999998,156.09199999999998,False,similarity,SCP,family_Polyureas,family,extra_trees
+Polyureas,43,0.7209302325581395,-0.17906976744186054,156.09199999999998,True,family,SCP,family_Polyureas,family,extra_trees
+2,21,0.9047619047619048,0.004761904761904745,231.0832000000001,True,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+0,6,1.0,0.09999999999999998,442.09919999999966,False,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+3,8,1.0,0.09999999999999998,191.002,False,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+1,4,1.0,0.09999999999999998,360.79999999999995,False,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+4,2,1.0,0.09999999999999998,155.48399999999998,False,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+5,2,1.0,0.09999999999999998,114.0,False,similarity,Mondrian-similarity,family_Polyureas,family,extra_trees
+Polyureas,43,0.9534883720930233,0.05348837209302326,256.1750325581395,True,family,Mondrian-similarity,family_Polyureas,family,extra_trees
+0,6,0.5,-0.4,156.09199999999998,False,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+2,21,0.6666666666666666,-0.2333333333333334,156.09200000000004,True,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+1,4,0.75,-0.15000000000000002,156.092,False,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+3,8,0.875,-0.025000000000000022,156.09199999999998,False,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+4,2,1.0,0.09999999999999998,156.09199999999998,False,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+5,2,1.0,0.09999999999999998,156.09199999999998,False,similarity,Mondrian-family,family_Polyureas,family,extra_trees
+Polyureas,43,0.7209302325581395,-0.17906976744186054,156.09199999999998,True,family,Mondrian-family,family_Polyureas,family,extra_trees
+0,6,0.6666666666666666,-0.2333333333333334,202.6743835627441,False,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+2,21,0.6666666666666666,-0.2333333333333334,190.91419281329166,True,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+1,4,0.75,-0.15000000000000002,264.9507705953934,False,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+3,8,1.0,0.09999999999999998,237.7267431496777,False,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+4,2,1.0,0.09999999999999998,231.1491217116627,False,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+5,2,1.0,0.09999999999999998,274.207608856128,False,similarity,Normalised SCP,family_Polyureas,family,extra_trees
+Polyureas,43,0.7674418604651163,-0.1325581395348837,213.89708928302716,True,family,Normalised SCP,family_Polyureas,family,extra_trees
+1,65,0.6,-0.30000000000000004,143.41199999999998,True,similarity,SCP,family_Polyurethanes,family,extra_trees
+0,41,0.7317073170731707,-0.1682926829268293,143.412,True,similarity,SCP,family_Polyurethanes,family,extra_trees
+2,73,0.7671232876712328,-0.1328767123287672,143.412,True,similarity,SCP,family_Polyurethanes,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,143.412,False,similarity,SCP,family_Polyurethanes,family,extra_trees
+4,3,1.0,0.09999999999999998,143.41199999999998,False,similarity,SCP,family_Polyurethanes,family,extra_trees
+5,1,1.0,0.09999999999999998,143.41199999999998,False,similarity,SCP,family_Polyurethanes,family,extra_trees
+Polyurethanes,189,0.708994708994709,-0.19100529100529107,143.412,True,family,SCP,family_Polyurethanes,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,171.19600000000003,False,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+0,41,0.926829268292683,0.02682926829268295,298.464,True,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+2,73,0.9315068493150684,0.03150684931506842,220.23199999999997,True,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+1,65,0.9692307692307692,0.0692307692307692,303.952,True,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+4,3,1.0,0.09999999999999998,137.7353999999997,False,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+5,1,1.0,0.09999999999999998,111.94799999999998,False,similarity,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+Polyurethanes,189,0.9417989417989417,0.041798941798941724,262.5564560846561,True,family,Mondrian-similarity,family_Polyurethanes,family,extra_trees
+1,65,0.6,-0.30000000000000004,143.41199999999998,True,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+0,41,0.7317073170731707,-0.1682926829268293,143.412,True,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+2,73,0.7671232876712328,-0.1328767123287672,143.412,True,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,143.412,False,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+4,3,1.0,0.09999999999999998,143.41199999999998,False,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+5,1,1.0,0.09999999999999998,143.41199999999998,False,similarity,Mondrian-family,family_Polyurethanes,family,extra_trees
+Polyurethanes,189,0.708994708994709,-0.19100529100529107,143.412,True,family,Mondrian-family,family_Polyurethanes,family,extra_trees
+1,65,0.5230769230769231,-0.3769230769230769,119.35646913560402,True,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+2,73,0.684931506849315,-0.215068493150685,119.89315147991861,True,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+0,41,0.7073170731707317,-0.19268292682926835,149.96248390122102,True,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,133.8831783418347,False,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+4,3,1.0,0.09999999999999998,103.6037512791875,False,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+5,1,1.0,0.09999999999999998,94.78822227065575,False,similarity,Normalised SCP,family_Polyurethanes,family,extra_trees
+Polyurethanes,189,0.6455026455026455,-0.25449735449735456,126.2842906770244,True,family,Normalised SCP,family_Polyurethanes,family,extra_trees
+1,72,0.5416666666666666,-0.3583333333333334,149.42000000000004,True,similarity,SCP,family_Polyvinyls,family,extra_trees
+0,96,0.5416666666666666,-0.3583333333333334,149.42000000000004,True,similarity,SCP,family_Polyvinyls,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,149.42000000000004,False,similarity,SCP,family_Polyvinyls,family,extra_trees
+2,31,0.8387096774193549,-0.06129032258064515,149.42000000000002,True,similarity,SCP,family_Polyvinyls,family,extra_trees
+4,3,1.0,0.09999999999999998,149.42000000000002,False,similarity,SCP,family_Polyvinyls,family,extra_trees
+5,4,1.0,0.09999999999999998,149.42000000000002,False,similarity,SCP,family_Polyvinyls,family,extra_trees
+Polyvinyls,212,0.6084905660377359,-0.29150943396226414,149.42000000000004,True,family,SCP,family_Polyvinyls,family,extra_trees
+1,72,0.9027777777777778,0.002777777777777768,261.516,True,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+2,31,0.967741935483871,0.06774193548387097,205.7999999999996,True,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+0,96,0.9895833333333334,0.08958333333333335,329.241,True,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+3,6,1.0,0.09999999999999998,192.0,False,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+4,3,1.0,0.09999999999999998,143.61200000000002,False,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+5,4,1.0,0.09999999999999998,108.0,False,similarity,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+Polyvinyls,212,0.9575471698113207,0.057547169811320686,277.504358490566,True,family,Mondrian-similarity,family_Polyvinyls,family,extra_trees
+1,72,0.5416666666666666,-0.3583333333333334,149.42000000000004,True,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+0,96,0.5416666666666666,-0.3583333333333334,149.42000000000004,True,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,149.42000000000004,False,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+2,31,0.8387096774193549,-0.06129032258064515,149.42000000000002,True,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+4,3,1.0,0.09999999999999998,149.42000000000002,False,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+5,4,1.0,0.09999999999999998,149.42000000000002,False,similarity,Mondrian-family,family_Polyvinyls,family,extra_trees
+Polyvinyls,212,0.6084905660377359,-0.29150943396226414,149.42000000000004,True,family,Mondrian-family,family_Polyvinyls,family,extra_trees
+1,72,0.6111111111111112,-0.28888888888888886,160.3137414030075,True,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+0,96,0.625,-0.275,184.7410619497954,True,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+2,31,0.7096774193548387,-0.19032258064516128,136.49228161386313,True,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+3,6,0.8333333333333334,-0.06666666666666665,143.7443914191642,False,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+4,3,1.0,0.09999999999999998,84.16718530291907,False,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+5,4,1.0,0.09999999999999998,123.27963078848222,False,similarity,Normalised SCP,family_Polyvinyls,family,extra_trees
+Polyvinyls,212,0.6509433962264151,-0.24905660377358496,165.64659663115248,True,family,Normalised SCP,family_Polyvinyls,family,extra_trees

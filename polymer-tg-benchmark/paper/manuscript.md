@@ -588,3 +588,30 @@ it, resolve errors by family, and attach novelty-conditioned intervals together
 with the similarity value itself. None of these is expensive, and together they
 turn a *T*~g~ model from something that scores well into something a screening
 campaign can act on.
+
+### 3.7. The gap is not an artefact of the descriptor set
+
+A natural objection is that the generalisation gap reflects a limitation of RDKit
+descriptors rather than of the data, and that a representation better suited to
+novel chemistry would close it. Repeating the random and family-holdout regimes
+with binary Morgan fingerprints (radius 2, 2,048 bits) in place of the descriptor
+block tests this directly, since the two representations share almost nothing:
+one is a set of physically motivated aggregate quantities, the other a sparse
+record of local substructural environments.
+
+The gap survives the substitution, and widens slightly (Table 7). Fingerprints are
+worse in absolute terms in both regimes — 35.8 K against 28.5 K on random splits
+and 63.7 K against 48.9 K under family holdout — and their family-holdout penalty
+is marginally *larger*, both in absolute terms (+27.9 K against +20.4 K) and as a
+ratio (1.78× against 1.71×). Substructural environments offer no protection here,
+which is consistent with the mechanism proposed in Section 4.2: the bits encoding a
+P=N or Si–O backbone simply do not occur in the training data when that family is
+withheld, so a fingerprint model has even less to generalise from than a
+descriptor model whose aggregate quantities at least vary continuously.
+
+This does not establish that *no* representation could narrow the gap. A model
+pretrained on millions of hypothetical polymers may have effective coverage of
+backbone chemistry that this dataset's labelled portion lacks, and testing that is
+the natural next step (Section 4.5). It does establish that the gap is a property
+of which chemistry is present in the training data, not of the particular feature
+set used here.
