@@ -288,10 +288,16 @@ Against that 0.38 K of model-choice sensitivity, the choice of partition moves t
 error by an order of magnitude more (Figure 2, Table 3). Holding the model fixed,
 MAE rises from 28.1 K on random splits to 33.8 K on scaffold splits, 44.5 K on
 fingerprint-cluster splits and 46.8 K under whole-family holdout; *R*² falls from
-0.87 to 0.79, 0.54 and 0.32. Mean nearest-training Tanimoto similarity falls in
-step, from 0.76 to 0.67, 0.40 and 0.46. **The evaluation protocol is worth about
-forty times more than the model choice**, which reframes what a leaderboard on
-this dataset is measuring.
+0.87 to 0.79, 0.54 and 0.32. Mean nearest-training Tanimoto similarity falls
+alongside it, from 0.76 on random splits to 0.67, 0.40 and 0.46. That ordering is
+not strictly monotone: family holdout leaves test structures slightly *less*
+isolated on average (0.46) than cluster holdout (0.40), because a withheld family
+may still have near analogues in a chemically adjacent one, yet family holdout
+produces the higher error. Structural distance alone therefore does not determine
+difficulty; *which* chemistry is missing also matters, a point Section 3.3 takes
+up directly. **The evaluation protocol is worth about forty times more than the
+model choice** (16.3 K against 0.38 K), which reframes what a leaderboard on this
+dataset is measuring.
 
 The dispersion is as informative as the mean. Random-split MAE varies by ±1.0 K
 across repeats; scaffold and cluster splits vary by ±7.8 K and ±10.4 K, and
