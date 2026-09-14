@@ -307,6 +307,121 @@ def table_baseline_comparison(results: Path, out: Path) -> pd.DataFrame:
     return wide
 
 
+def table_pooled_r2(results: Path, out: Path) -> pd.DataFrame:
+    """Pooled R2 alongside the mean of per-split R2, because they differ.
+
+    Averaging R2 over family holdouts normalises each family by its own Tg
+    variance, so a narrow-spread family can contribute a large negative value at
+    a modest absolute error. The mean of those is not comparable to a
+    random-split R2 and must not be quoted as though it were. Pooling the
+    residuals over all held-out structures gives the comparable quantity.
+    """
+    rows = []
+    for stage in REGIME_ORDER:
+        path = results / f"predictions_{stage}.parquet"
+        point_path = results / f"point_{stage}.csv"
+        if not (path.exists() and point_path.exists()):
+            continue
+        predictions = pd.read_parquet(path)
+        point = pd.read_csv(point_path)
+        for model in predictions["model"].unique():
+            block = predictions[predictions["model"] == model]
+            y = block["y_true"].to_numpy()
+            residual = y - block["y_pred"].to_numpy()
+            denominator = ((y - y.mean()) ** 2).sum()
+            rows.append({
+                "regime": stage, "model": model,
+                "n_predictions": len(block),
+                "r2_pooled": 1 - (residual ** 2).sum() / denominator
+                if denominator > 0 else np.nan,
+                "r2_mean_of_splits": point[point["model"] == model]["r2"].mean(),
+                "mae_pooled": float(np.abs(residual).mean()),
+            })
+    frame = pd.DataFrame(rows)
+    frame.to_csv(out / "table_pooled_r2.csv", index=False)
+    return frame
+
+
+def table_band_mae(results: Path, out: Path) -> pd.DataFrame:
+    """Absolute error resolved by nearest-training similarity band.
+
+    The applicability-domain argument needs this: an interval predictor that
+    applies one width across bands whose error differs by a factor of X is
+    mis-specified by exactly that factor, and X has to be measured rather than
+    asserted.
+    """
+    rows = []
+    for stage in REGIME_ORDER:
+        path = results / f"predictions_{stage}.parquet"
+        if not path.exists():
+            continue
+        predictions = pd.read_parquet(path)
+        predictions = predictions.assign(
+            abs_error=(predictions["y_true"] - predictions["y_pred"]).abs(),
+            band=np.digitize(predictions["nn_similarity"], [0.4, 0.5, 0.6, 0.7, 0.8]),
+        )
+        for (model, band), block in predictions.groupby(["model", "band"]):
+            rows.append({
+                "regime": stage, "model": model, "band": band,
+                "band_label": BIN_LABELS[int(band)] if int(band) < len(BIN_LABELS)
+                else str(band),
+                "n": len(block), "mae": float(block["abs_error"].mean()),
+            })
+    frame = pd.DataFrame(rows)
+    frame.to_csv(out / "table_band_mae.csv", index=False)
+
+    ratios = []
+    for (regime, model), block in frame.groupby(["regime", "model"]):
+        reliable = block[block["n"] >= 30]
+        if len(reliable) > 1:
+            ratios.append({
+                "regime": regime, "model": model,
+                "mae_worst_band": reliable["mae"].max(),
+                "mae_best_band": reliable["mae"].min(),
+                "ratio": reliable["mae"].max() / reliable["mae"].min(),
+            })
+    ratio_frame = pd.DataFrame(ratios)
+    ratio_frame.to_csv(out / "table_band_mae_ratio.csv", index=False)
+    return ratio_frame
+
+
+def table_model_comparison(results: Path, out: Path, reference: str = "hist_gbr") -> pd.DataFrame:
+    """Paired tests between models on the repeated random splits.
+
+    Both a paired t-test and a Wilcoxon signed-rank test are reported, because
+    for the closest pair they disagree about significance at 0.05 and the
+    manuscript's claim rests on which is believed. Repeated splits of one dataset
+    are not independent draws, so the t-test is anti-conservative here; the
+    honest reading is that the two leading models are not separated by an amount
+    this design can resolve.
+    """
+    path = results / "point_random.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    point = pd.read_csv(path)
+    if reference not in set(point["model"]):
+        return pd.DataFrame()
+    base = point[point["model"] == reference].sort_values("split")["mae"].to_numpy()
+
+    rows = []
+    for model in point["model"].unique():
+        if model == reference:
+            continue
+        other = point[point["model"] == model].sort_values("split")["mae"].to_numpy()
+        if len(other) != len(base):
+            continue
+        rows.append({
+            "model": model, "reference": reference, "n_splits": len(base),
+            "mae": float(other.mean()), "reference_mae": float(base.mean()),
+            "delta_mae": float(other.mean() - base.mean()),
+            "paired_t_p": float(stats.ttest_rel(other, base).pvalue),
+            "wilcoxon_p": float(stats.wilcoxon(other, base).pvalue),
+        })
+    frame = pd.DataFrame(rows).sort_values("delta_mae").reset_index(drop=True)
+    frame.to_csv(out / "table_model_comparison.csv", index=False)
+    return frame
+
+
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
     """Family Tg distributions, horizontal so family names need no rotation."""
@@ -630,6 +745,22 @@ def main() -> None:
         print(statistics.to_string(index=False))
         fig_matched(raw, statistics, figures)
     fig_error_vs_similarity(results, figures)
+
+    pooled = table_pooled_r2(results, results)
+    if not pooled.empty:
+        print("\npooled vs mean-of-split R2:")
+        print(pooled[pooled.model == "hist_gbr"][
+            ["regime", "r2_pooled", "r2_mean_of_splits"]].to_string(index=False))
+
+    bands = table_band_mae(results, results)
+    if not bands.empty:
+        print("\nerror ratio across similarity bands:")
+        print(bands[bands.model == "hist_gbr"].to_string(index=False))
+
+    comparison = table_model_comparison(results, results)
+    if not comparison.empty:
+        print("\nmodel comparison on repeated random splits:")
+        print(comparison.to_string(index=False))
 
     baseline = table_baseline_comparison(results, results)
     if not baseline.empty:

@@ -174,10 +174,6 @@ class MondrianConformal:
                 self.n_fallback_ += 1
         return Intervals(pred_test - half, pred_test + half, pred_test)
 
-    @property
-    def fallback_fraction(self) -> float:
-        return getattr(self, "_fallback_fraction", float("nan"))
-
 
 def similarity_bins(
     similarity: np.ndarray, edges: tuple[float, ...] = (0.4, 0.5, 0.6, 0.7, 0.8)
