@@ -615,3 +615,47 @@ backbone chemistry that this dataset's labelled portion lacks, and testing that 
 the natural next step (Section 4.5). It does establish that the gap is a property
 of which chemistry is present in the training data, not of the particular feature
 set used here.
+
+### 3.8. The calibration set is a second, independent lever
+
+Sections 3.4 and 3.5 repair conditional coverage by changing how the conformal
+*quantile* is computed. A second possibility is to leave the quantile alone and
+change what the calibration set contains. Standard split conformal draws
+calibration points at random from the training pool, so every calibration residual
+describes an interpolation — the model had relatives of that repeat unit in
+training. Under family holdout the test residuals describe extrapolation, so the
+quantile is calibrated against the wrong population. Rebuilding the calibration
+set by holding families out *within* the training pool produces residuals of the
+kind the test set will actually demand.
+
+Both levers work, and to a similar degree (Table 9). Against a nominal 0.90 under
+family holdout, with the point model identical in all four arms:
+
+| Calibration set | Quantile | Coverage | Worst band | Width |
+|---|---|---|---|---|
+| Random | Global (SCP) | 0.711 | 0.593 | 124 K |
+| Random | Novelty-conditioned | 0.883 | 0.763 | 208 K |
+| Family-out | Global (SCP) | 0.855 | 0.762 | 187 K |
+| Family-out | Novelty-conditioned | 0.863 | **0.790** | 188 K |
+
+Rebuilding the calibration set lifts plain split conformal from 0.711 to 0.855
+without touching the quantile rule, the model or the representation — a change of
+calibration construction alone. It does so by widening intervals from 124 K to
+187 K, which is the appropriate response: the residuals it now calibrates against
+are genuinely larger.
+
+The two repairs are, however, largely **substitutes rather than complements**.
+Applying both gives 0.863 marginal coverage, no better than the novelty-conditioned
+quantile alone at 0.883, because they address the same root cause from opposite
+ends — that calibration residuals understate extrapolation error. The combination
+is nonetheless the best of the four on *conditional* coverage (0.790 in the worst
+similarity band against 0.763 and 0.762), so a practitioner who can afford the
+extra fits gains a little where it matters most.
+
+The practical guidance follows the cost. Novelty-conditioned calibration is free:
+it reuses the same fitted model and calibration set, requiring only that
+similarity be computed. Family-out calibration requires refitting the model once
+per held-out training family — here eight additional fits per split. For most
+purposes the novelty-conditioned quantile alone is the better trade; where the
+worst-case band is what governs a decision, and compute is available, the two
+together are better still.
