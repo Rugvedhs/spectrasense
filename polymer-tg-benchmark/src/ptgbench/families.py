@@ -65,10 +65,61 @@ _COMPILED_PENDANT: list[tuple[str, Chem.Mol]] = [
 ]
 
 UNASSIGNED = "Unassigned"
+OTHER_BACKBONE = "Other backbone"
 
 
 def _dummy_indices(mol: Chem.Mol) -> list[int]:
     return [a.GetIdx() for a in mol.GetAtoms() if a.GetAtomicNum() == 0]
+
+
+def dimerised(mol: Chem.Mol) -> tuple[Chem.Mol, list[int]] | None:
+    """Join two copies of the repeat unit head-to-tail.
+
+    A PSMILES repeat unit is a chain fragment cut at an arbitrary point, and that
+    point is very often the characteristic linkage itself. Nylon-6 written as
+    ``*NCCCCCC(=O)*`` has its amide split between the two ends, so the path
+    between the attachment points contains no amide at all and the unit reads as
+    a plain hydrocarbon chain.
+
+    Joining *two* copies restores the linkage the cut destroyed, and does so
+    without inventing strain: closing a single unit onto itself would bond the two
+    ends of, say, a para-substituted aromatic into a bridged bicycle that
+    aromatises into something the original polymer does not contain. The dimer's
+    junction is a real bond in the real chain.
+
+    Returns the dimer and its two surviving attachment points, or ``None`` when
+    the unit does not present exactly two terminal attachment points.
+    """
+    stars = [a.GetIdx() for a in mol.GetAtoms() if a.GetAtomicNum() == 0]
+    if len(stars) != 2:
+        return None
+    for star in stars:
+        if mol.GetAtomWithIdx(star).GetDegree() != 1:
+            return None
+
+    n = mol.GetNumAtoms()
+    combo = Chem.RWMol(Chem.CombineMols(mol, mol))
+
+    # Bond the tail of the first copy to the head of the second.
+    tail_star, head_star = stars[1], stars[0] + n
+    tail_anchor = combo.GetAtomWithIdx(tail_star).GetNeighbors()[0].GetIdx()
+    head_anchor = combo.GetAtomWithIdx(head_star).GetNeighbors()[0].GetIdx()
+    if combo.GetBondBetweenAtoms(tail_anchor, head_anchor) is not None:
+        return None
+
+    try:
+        combo.AddBond(tail_anchor, head_anchor, Chem.BondType.SINGLE)
+        for star in sorted((tail_star, head_star), reverse=True):
+            combo.RemoveAtom(star)
+        dimer = combo.GetMol()
+        Chem.SanitizeMol(dimer)
+    except Exception:
+        return None
+
+    remaining = [a.GetIdx() for a in dimer.GetAtoms() if a.GetAtomicNum() == 0]
+    if len(remaining) != 2:
+        return None
+    return dimer, remaining
 
 
 def backbone_atoms(mol: Chem.Mol) -> set[int]:
@@ -134,6 +185,17 @@ def _carbon_backbone_family(mol: Chem.Mol, backbone: set[int]) -> str:
         if any(match[0] in backbone for match in mol.GetSubstructMatches(patt)):
             return name
 
+    # Abstain rather than absorb. Anything the linkage patterns miss but that
+    # still carries a chain heteroatom is not an olefin: poly(dimethylsilane),
+    # polycarbosilanes and backbone phosphate esters all reached "Polyolefins"
+    # by default, which flattered the taxonomy into reporting no unassigned
+    # structures at all.
+    chain_heteroatoms = {
+        mol.GetAtomWithIdx(i).GetSymbol() for i in backbone
+    } - {"C", "H", "*"}
+    if chain_heteroatoms:
+        return OTHER_BACKBONE
+
     has_backbone_unsaturation = any(
         bond.GetBondType() == Chem.BondType.DOUBLE
         and bond.GetBeginAtomIdx() in backbone
@@ -149,18 +211,28 @@ def _carbon_backbone_family(mol: Chem.Mol, backbone: set[int]) -> str:
 def assign_family(psmiles: str) -> str:
     """Return the polymer family of a PSMILES repeat unit.
 
-    Returns :data:`UNASSIGNED` when the string cannot be parsed.
+    Linkages are sought on a head-to-tail *dimer* wherever one can be formed, so a
+    unit cut at its own characteristic linkage is still recognised; the open form
+    is used only as a fallback. Returns :data:`UNASSIGNED` when the string
+    cannot be parsed.
     """
     mol = Chem.MolFromSmiles(psmiles)
     if mol is None:
         return UNASSIGNED
 
-    backbone = _backbone_ring_closure(mol, backbone_atoms(mol))
+    dimer = dimerised(mol)
+    if dimer is not None:
+        dimer_mol, _ = dimer
+        backbone = _backbone_ring_closure(dimer_mol, backbone_atoms(dimer_mol))
+        for name, patt, core in _COMPILED:
+            if patt is not None and _match_on_backbone(dimer_mol, patt, core, backbone):
+                return name
+        return _carbon_backbone_family(dimer_mol, backbone)
 
+    backbone = _backbone_ring_closure(mol, backbone_atoms(mol))
     for name, patt, core in _COMPILED:
         if patt is not None and _match_on_backbone(mol, patt, core, backbone):
             return name
-
     return _carbon_backbone_family(mol, backbone)
 
 
