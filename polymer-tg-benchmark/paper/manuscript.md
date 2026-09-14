@@ -244,3 +244,148 @@ assessed by sparsification error.
 
 All code, the curated structure-level table and every result file are available at
 [repository]. Seeds are fixed; a cold run reproduces every number in this paper.
+
+## 3. Results
+
+### 3.1. The public record survives re-derivation
+
+Independent re-curation of the 7,208 raw records reproduces the published audit of
+this collection step for step: 7,174 unique raw SMILES, no RDKit parse failures,
+7,174 canonical structures, 31 canonical groups containing more than one record,
+34 records absorbed by aggregation, 28 of those groups carrying disagreeing
+*T*~g~ values, and a maximum within-structure range of 115 K. Attachment-point
+counts likewise agree, at 7,170 structures with two, three with three and one
+with four. The dataset is therefore a stable object to build on, and the numbers
+below are not sensitive to curation choices.
+
+That 115 K figure deserves emphasis before any model error is quoted. It is the
+spread between independent literature reports of the *same* repeat unit, and it
+places a floor under what structure-based prediction can achieve: a repeat-unit
+representation cannot resolve differences in molecular weight, tacticity,
+crosslinking, thermal history or measurement protocol, and those differences are
+folded into the target.
+
+The derived taxonomy places all twenty-five reference polymers of Table S1 in the
+family a polymer chemist would assign. The resulting family *T*~g~ ordering
+(Figure 1) is likewise the expected one, which is a further check that the labels
+are chemically meaningful rather than merely self-consistent: polyphosphazenes
+(median −8 °C) and polysiloxanes (−8 °C) sit lowest, reflecting the low rotational
+barriers of P=N and Si–O backbones, and aromatic polyimides sit highest (249 °C),
+reflecting rigid, strongly interacting heteroaromatic chains.
+
+### 3.2. Accuracy is governed by the split, not by the model
+
+On random partitions the best model reaches 28.1 ± 1.0 K MAE
+(*R*² = 0.87), consistent with published values for descriptor-based ensembles on
+this dataset. That ranking is fragile. Across ten repeated splits, histogram
+gradient boosting beats extremely randomised trees by 0.38 K, which a paired
+*t*-test does not resolve (*p* = 0.069); random forests and support vector
+regression are worse by 2.17 K and 2.74 K (*p* < 0.0001 each). Reporting a single
+split, as is common, would allow either of the leading models to be declared the
+winner.
+
+Against that 0.38 K of model-choice sensitivity, the choice of partition moves the
+error by an order of magnitude more (Figure 2, Table 3). Holding the model fixed,
+MAE rises from 28.1 K on random splits to 33.8 K on scaffold splits, 44.5 K on
+fingerprint-cluster splits and 46.8 K under whole-family holdout; *R*² falls from
+0.87 to 0.79, 0.54 and 0.32. Mean nearest-training Tanimoto similarity falls in
+step, from 0.76 to 0.67, 0.40 and 0.46. **The evaluation protocol is worth about
+forty times more than the model choice**, which reframes what a leaderboard on
+this dataset is measuring.
+
+The dispersion is as informative as the mean. Random-split MAE varies by ±1.0 K
+across repeats; scaffold and cluster splits vary by ±7.8 K and ±10.4 K, and
+family holdouts by ±15.6 K. Performance under novelty is not a single number, and
+a point estimate from one chemistry-aware split should not be trusted.
+
+### 3.3. Transfer failure is a property of backbone chemistry
+
+Family-holdout deterioration, defined as the ratio of family-holdout MAE to
+random-split MAE for the same model, spans a factor of nearly four across the
+twenty families (Table 4). At the difficult end sit polyphosphazenes (3.02×,
+84.8 K MAE), polydienes (2.58×) and polysiloxanes (2.48×). At the easy end,
+polycarbonates deteriorate by 0.80× — that is, they are predicted *better* when
+their own family is withheld than the average random-split structure is.
+
+The pattern is chemically coherent. Polyphosphazene and polysiloxane backbones are
+inorganic, and nothing else in a dataset dominated by organic condensation
+polymers constrains the relationship between their descriptors and chain
+flexibility; the models fall back on organic intuition and overpredict badly.
+Polycarbonates, by contrast, are surrounded in structure space by polyesters and
+polyethers, which remain in training and carry nearly the same carbonyl and ether
+linkages, so their withdrawal removes little the model cannot recover.
+
+Testing three candidate explanations against deterioration across the twenty
+families, only structural isolation survives. Mean nearest-training similarity
+correlates strongly and significantly for every model (Pearson *r* between −0.63
+and −0.68, *p* < 0.005). The shift between the family's median *T*~g~ and the rest
+of the dataset is weaker and marginal (*r* ≈ 0.40–0.46, *p* ≈ 0.04–0.08), and
+family size does not predict deterioration at all (*p* > 0.2). Larger families are
+not easier to extrapolate to; isolated ones are harder.
+
+This also settles a practical question. Because the effect tracks structural
+isolation rather than family size, collecting more data *within* well-represented
+families will not close the gap. Coverage of the structure space, not volume, is
+the binding constraint.
+
+### 3.4. Conformal intervals lose validity exactly where they are needed
+
+Split conformal behaves as advertised on random partitions: 0.904 empirical
+coverage against a nominal 0.90. Under shift the guarantee degrades monotonically
+with structural novelty — 0.834 on scaffold splits, 0.730 on cluster splits and
+0.711 under family holdout (Figure 4, left). This is not a defect of the method
+but of its premise: conformal validity requires calibration and test data to be
+exchangeable, and a chemistry-aware holdout is constructed precisely to break
+that.
+
+Marginal coverage also conceals a failure that is present even when it holds. On
+random splits, where overall coverage is a healthy 0.904, coverage in the
+least-similar structural band is 0.650 (Figure 4, right; Figure 5). A nominally
+90% interval covers two-thirds of the repeat units that a screening campaign would
+actually be evaluating. **A model can pass every validity check in current
+practice and still be wrong about a third of the unfamiliar polymers it is
+deployed on.**
+
+Neither obvious remedy works. The normalised predictor, which scales residuals by
+a fitted difficulty estimate, improves the worst band on random splits (0.741 vs
+0.650) but fails with everything else under shift (0.826 scaffold, 0.711 cluster,
+0.712 family) and is the *worst* of the four under cluster holdout. Conditioning
+the quantile on polymer family fails for a structural reason rather than an
+empirical one: under family holdout the withheld family has no calibration members
+by construction, so the predictor falls back to the global quantile for 100% of
+test structures and reproduces split conformal exactly (0.711, identical interval
+widths).
+
+Conditioning on nearest-training similarity is the variant that survives, because
+that coordinate is defined for every repeat unit whether or not its family was
+seen. It holds 0.907, 0.895, 0.886 and 0.883 across the four regimes, never
+requiring a fallback under family holdout. Crucially it does not buy this with
+width: on random splits it is *narrower* than split conformal (129.1 K vs
+132.3 K) while covering far more of the difficult band, and it widens only where
+the chemistry demands it — to 155 K under scaffold, 232 K under cluster and 208 K
+under family holdout. That adaptivity is the behaviour a screening workflow needs,
+and it is what the coverage–width criterion rewards (Figure 6): under family
+holdout, 342 against 35,556 for split conformal.
+
+### 3.5. An applicability domain, and an honest limit on the repair
+
+Resolving coverage by similarity band under family holdout (Table 5) turns the
+result into an operational rule. Split conformal covers 0.650 of structures whose
+nearest training analogue lies below Tanimoto 0.4, rising through 0.778, 0.828 and
+0.868 as similarity increases. Its intervals are essentially constant in width
+(123–127 K) across all six bands — it applies one width to structures whose error
+differs by a factor of three, which is precisely the failure mode.
+Novelty-conditioned calibration instead holds 0.900, 0.931, 0.903 and 0.906 in the
+four least-familiar bands, at widths that scale from 250 K down to 158 K.
+
+The repair has a cost that should be stated plainly. In the most-similar band
+(Tanimoto ≥ 0.8) the novelty-conditioned predictor *under*-covers, at 0.622
+against split conformal's 0.803, because it narrows those intervals to 86 K. Under
+a family holdout a test structure that closely resembles training data is unusual,
+and the calibration points populating that band come from families where high
+similarity genuinely did signal an easy prediction. The trade is nonetheless
+strongly favourable in practice: that band holds 127 of 7,174 held-out predictions
+(1.8%), while the two least-similar bands hold 4,759 (66%). The recommendation is
+therefore to report novelty-conditioned intervals together with the
+nearest-training similarity itself, so that a reader can see which regime a given
+prediction sits in rather than trusting a single interval uniformly.
