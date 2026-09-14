@@ -11,16 +11,8 @@ import pandas as pd
 from scipy import stats
 
 import _bootstrap  # noqa: F401
-from ptgbench.figures import (
-    ARM_COLORS,
-    CONFORMAL_COLORS,
-    REGIME_COLORS,
-    SEQUENTIAL,
-    SERIES,
-    TEXT_SECONDARY,
-    save,
-    use_paper_style,
-)
+from ptgbench import figures as F
+from ptgbench.figures import save, use_paper_style
 
 ALPHA = 0.1
 CWC_ETA = 30.0
@@ -277,196 +269,249 @@ def table_representation_ablation(results: Path, out: Path) -> pd.DataFrame:
 
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
+    """Family Tg distributions, horizontal so family names need no rotation."""
     order = structures.groupby("family")["Tg"].median().sort_values().index.tolist()
     data = [structures.loc[structures["family"] == f, "Tg"].to_numpy() for f in order]
-    counts = [len(d) for d in data]
 
-    fig, ax = plt.subplots(figsize=(7.0, 3.6))
+    fig, ax = plt.subplots(figsize=(F.ONE_HALF_COLUMN, 4.1))
     parts = ax.boxplot(
-        data, orientation="vertical", patch_artist=True, widths=0.62, showfliers=False,
-        medianprops=dict(color="white", linewidth=1.2),
-        whiskerprops=dict(color=TEXT_SECONDARY, linewidth=0.7),
-        capprops=dict(color=TEXT_SECONDARY, linewidth=0.7),
+        data, orientation="horizontal", patch_artist=True, widths=0.6,
+        showfliers=False, showcaps=False,
+        medianprops=dict(color=F.INK, linewidth=1.0),
+        whiskerprops=dict(color=F.HAIRLINE, linewidth=0.5),
+        boxprops=dict(linewidth=0.0),
     )
     for patch in parts["boxes"]:
-        patch.set_facecolor(SERIES[0])
-        patch.set_edgecolor("white")
-        patch.set_linewidth(0.8)
+        patch.set_facecolor(F.FILL)
+        patch.set_edgecolor("none")
 
-    ax.set_xticks(range(1, len(order) + 1))
-    ax.set_xticklabels(order, rotation=38, ha="right")
-    ax.set_ylabel("Glass transition temperature (°C)")
-    ax.axhline(0, color=TEXT_SECONDARY, linewidth=0.6, linestyle=":")
-    top = ax.get_ylim()[1]
-    for i, n in enumerate(counts, start=1):
-        ax.text(i, top, f"{n}", ha="center", va="bottom", fontsize=6, color=TEXT_SECONDARY)
-    ax.set_ylim(top=top * 1.12)
-    ax.set_title("Reported $T_g$ by repeat-unit family (structure level, n above each box)")
-    save(fig, out / "fig1_dataset")
+    ax.set_yticks(range(1, len(order) + 1))
+    ax.set_yticklabels(order)
+    ax.set_xlabel("Glass transition temperature (°C)")
+    F.reference_line(ax, 0, orientation="v")
+    F.yardstick(ax, axis="x")
+    ax.set_ylim(0.3, len(order) + 0.7)
+
+    # Counts as a right-hand column rather than floating annotations.
+    right = ax.get_xlim()[1]
+    ax.text(right, len(order) + 0.9, "n", fontsize=6.5, color=F.MUTED,
+            ha="right", va="bottom", fontstyle="italic")
+    for i, family in enumerate(order, start=1):
+        ax.text(right, i, f"{len(structures[structures.family == family])}",
+                fontsize=6.3, color=F.MUTED, ha="right", va="center")
+    F.save(fig, out / "fig1_dataset")
 
 
 def fig_generalization_gap(point: pd.DataFrame, out: Path) -> None:
+    """Error against split regime: a trend, so a line rather than grouped bars."""
     frame = point[point["regime"].isin(REGIME_ORDER) & (point["model"] != "median")]
-    models = [m for m in MODEL_LABELS if m in frame["model"].unique() and m != "median"]
-    width = 0.8 / len(REGIME_ORDER)
+    models = [m for m in MODEL_LABELS if m in set(frame["model"]) and m != "median"]
+    x = np.arange(len(REGIME_ORDER))
 
-    fig, ax = plt.subplots(figsize=(7.0, 3.2))
-    for j, regime in enumerate(REGIME_ORDER):
+    fig, ax = plt.subplots(figsize=(F.ONE_HALF_COLUMN, 2.6))
+    # Dodge each series slightly: undodged error bars sit on top of one another
+    # at the wide-spread regimes and read as hatching rather than as uncertainty.
+    offsets = np.linspace(-0.055, 0.055, len(models))
+    finals = []
+    for model, offset in zip(models, offsets):
         means, errs = [], []
-        for model in models:
+        for regime in REGIME_ORDER:
             block = frame[(frame["regime"] == regime) & (frame["model"] == model)]["mae"]
             means.append(block.mean())
             errs.append(block.std() if len(block) > 1 else 0.0)
-        positions = np.arange(len(models)) + j * width - 0.4 + width / 2
-        bars = ax.bar(positions, means, width * 0.9, yerr=errs, capsize=2,
-                      color=REGIME_COLORS[regime], label=regime.capitalize(),
-                      edgecolor="white", linewidth=0.8,
-                      error_kw=dict(ecolor=TEXT_SECONDARY, elinewidth=0.7))
-        ax.bar_label(bars, fmt="%.0f", fontsize=5.5, padding=1, color=TEXT_SECONDARY)
+        colour = F.MODEL_COLORS[model]
+        ax.errorbar(x + offset, means, yerr=errs, marker="o", color=colour,
+                    capsize=0, elinewidth=0.5, alpha=0.95,
+                    markeredgecolor="white", markeredgewidth=0.4, zorder=3)
+        finals.append(means[-1])
 
-    ax.set_xticks(np.arange(len(models)))
-    ax.set_xticklabels([MODEL_LABELS[m] for m in models])
+    for model, y_label, y_data, offset in zip(
+        models, F.spread_labels(finals, minimum_gap=2.0), finals, offsets
+    ):
+        colour = F.MODEL_COLORS[model]
+        if abs(y_label - y_data) > 0.05:
+            ax.plot([x[-1] + offset, x[-1] + 0.20], [y_data, y_label],
+                    color=colour, linewidth=0.5, zorder=2)
+        F.end_label(ax, x[-1], y_label, MODEL_LABELS[model], colour, dx=0.22)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels([r.capitalize() for r in REGIME_ORDER])
+    ax.set_xlim(-0.3, len(REGIME_ORDER) - 1 + 1.55)
     ax.set_ylabel("Test MAE (°C)")
-    ax.set_title("Prediction error rises as the split forces structural novelty")
-    ax.legend(ncol=4, loc="upper left")
-    save(fig, out / "fig2_generalization_gap")
+    ax.set_xlabel("Partitioning regime, in order of enforced structural novelty")
+    F.yardstick(ax)
+    F.save(fig, out / "fig2_generalization_gap")
 
 
 def fig_matched(matched_raw: pd.DataFrame, statistics: pd.DataFrame, out: Path) -> None:
     if matched_raw.empty:
         return
-    model = "extra_trees" if "extra_trees" in matched_raw["model"].unique() else matched_raw["model"].iloc[0]
+    model = ("extra_trees" if "extra_trees" in set(matched_raw["model"])
+             else matched_raw["model"].iloc[0])
     frame = matched_raw[matched_raw["model"] == model]
     per_family = frame.groupby("group")[["informed", "control", "naive"]].mean()
     per_family["family_effect"] = per_family["naive"] - per_family["control"]
     per_family = per_family.sort_values("family_effect")
+    y = np.arange(len(per_family))
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.6), gridspec_kw={"width_ratios": [1.15, 1]})
+    fig, axes = plt.subplots(1, 2, figsize=(F.DOUBLE_COLUMN, 3.5),
+                             gridspec_kw={"width_ratios": [1.25, 1], "wspace": 0.06})
 
     ax = axes[0]
-    y = np.arange(len(per_family))
-    for arm in ("informed", "control", "naive"):
-        ax.scatter(per_family[arm], y, s=26, color=ARM_COLORS[arm], label=arm.capitalize(),
-                   edgecolor="white", linewidth=0.8, zorder=3)
     for i, (_, row) in enumerate(per_family.iterrows()):
-        ax.plot([row["control"], row["naive"]], [i, i], color=TEXT_SECONDARY,
-                linewidth=0.7, zorder=2)
+        ax.plot([row["control"], row["naive"]], [i, i], color=F.HAIRLINE,
+                linewidth=0.6, zorder=2, solid_capstyle="butt")
+    for arm in ("informed", "control", "naive"):
+        ax.scatter(per_family[arm], y, s=14, color=F.ARM_COLORS[arm], label=arm,
+                   edgecolor="white", linewidth=0.4, zorder=3)
     ax.set_yticks(y)
-    ax.set_yticklabels(per_family.index, fontsize=6.5)
+    ax.set_yticklabels(per_family.index)
     ax.set_xlabel("MAE on the same held-out structures (°C)")
-    ax.set_title("Matched arms, identical test set")
-    # Single column in the bottom-right corner: a wide three-column legend there
-    # sits on top of the lowest families' markers.
-    ax.legend(ncol=1, loc="lower right", handletextpad=0.4, borderaxespad=0.6)
+    ax.set_ylim(-0.8, len(per_family) - 0.2)
+    F.yardstick(ax, axis="x")
+    ax.legend(loc="lower right", ncol=1)
+    F.panel(ax, "a")
 
     ax = axes[1]
-    bars = ax.barh(y, per_family["family_effect"], color=SERIES[1], edgecolor="white",
-                   linewidth=0.8, height=0.68)
-    ax.bar_label(bars, fmt="%+.1f", fontsize=6, padding=2, color=TEXT_SECONDARY)
-    ax.axvline(0, color=TEXT_SECONDARY, linewidth=0.8)
+    ax.barh(y, per_family["family_effect"], color=F.VERMILLION, height=0.55,
+            linewidth=0)
+    ax.axvline(0, color=F.HAIRLINE, linewidth=0.5)
     ax.set_yticks(y)
     ax.set_yticklabels([])
     ax.set_xlabel("MAE penalty from removing the family (°C)")
-    ax.set_title("Family effect, size held constant")
+    ax.set_ylim(-0.8, len(per_family) - 0.2)
+    F.yardstick(ax, axis="x")
+    F.panel(ax, "b")
 
-    row = statistics[(statistics["model"] == model) & (statistics["effect"] == "family_effect")]
+    # Label only the extremes: the rest are readable off the axis.
+    for i in (0, len(per_family) - 1):
+        value = per_family["family_effect"].iloc[i]
+        ax.text(value + 0.9, i, f"{value:+.1f}", fontsize=6.3, color=F.MUTED,
+                va="center")
+
+    row = statistics[(statistics["model"] == model)
+                     & (statistics["effect"] == "family_effect")]
     if not row.empty:
         r = row.iloc[0]
-        ax.text(0.98, 0.02,
-                f"mean {r['mean']:+.1f} °C\n95% CI [{r['ci_low']:+.1f}, {r['ci_high']:+.1f}]\n"
-                f"{int(r['n_families_positive'])}/{int(r['n_families'])} families worse",
-                transform=ax.transAxes, ha="right", va="bottom", fontsize=6,
-                color=TEXT_SECONDARY)
-    save(fig, out / "fig3_matched_design")
+        ax.text(0.97, 0.06,
+                f"mean {r['mean']:+.1f} °C  (95% CI {r['ci_low']:+.1f} to "
+                f"{r['ci_high']:+.1f})\n{int(r['n_families_positive'])} of "
+                f"{int(r['n_families'])} families worse",
+                transform=ax.transAxes, ha="right", va="bottom", fontsize=6.3,
+                color=F.INK)
+    F.save(fig, out / "fig3_matched_design")
+
+
+# Line style is a second channel alongside hue: under family holdout two methods
+# coincide exactly, and identical solid lines would hide that rather than show it.
+_CONFORMAL_DASH = {
+    "SCP": (0, ()),
+    "Normalised SCP": (0, (4, 2)),
+    "Mondrian-family": (0, (1.2, 1.6)),
+    "Mondrian-similarity": (0, ()),
+}
+_CONFORMAL_WIDTH = {"Mondrian-similarity": 1.6}
+
+
+def _conformal_line(ax, x, values, method, marker="o"):
+    ax.plot(x, values, marker=marker, color=F.CONFORMAL_COLORS[method],
+            linestyle=_CONFORMAL_DASH[method],
+            linewidth=_CONFORMAL_WIDTH.get(method, 1.1),
+            markeredgecolor="white", markeredgewidth=0.4,
+            label=method, zorder=3)
 
 
 def fig_coverage(conformal_table: pd.DataFrame, out: Path) -> None:
-    regimes = [r for r in REGIME_ORDER if r in conformal_table["regime"].unique()]
-    methods = [m for m in CONFORMAL_ORDER if m in conformal_table["conformal"].unique()]
-    width = 0.8 / len(methods)
+    regimes = [r for r in REGIME_ORDER if r in set(conformal_table["regime"])]
+    methods = [m for m in CONFORMAL_ORDER if m in set(conformal_table["conformal"])]
+    x = np.arange(len(regimes))
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.1), sharex=True)
-    for ax, column, title in (
-        (axes[0], "coverage", "Marginal coverage: holds on random splits, fails under shift"),
-        (axes[1], "worst_similarity_coverage",
-         "Least-familiar band: fails even on random splits"),
-    ):
-        for j, method in enumerate(methods):
+    fig, axes = plt.subplots(1, 2, figsize=(F.DOUBLE_COLUMN, 2.7), sharey=True,
+                             gridspec_kw={"wspace": 0.08})
+    for ax, column, letter in ((axes[0], "coverage", "a"),
+                               (axes[1], "worst_similarity_coverage", "b")):
+        for method in methods:
             values = [
-                conformal_table.loc[
-                    (conformal_table["regime"] == r) & (conformal_table["conformal"] == method),
-                    column,
-                ].mean()
+                conformal_table.loc[(conformal_table["regime"] == r)
+                                    & (conformal_table["conformal"] == method),
+                                    column].mean()
                 for r in regimes
             ]
-            positions = np.arange(len(regimes)) + j * width - 0.4 + width / 2
-            bars = ax.bar(positions, values, width * 0.9, color=CONFORMAL_COLORS[method],
-                          label=method, edgecolor="white", linewidth=0.8)
-            # Rotated: four near-equal bars per group collide with horizontal labels.
-            ax.bar_label(bars, fmt="%.2f", fontsize=5.5, padding=2,
-                         color=TEXT_SECONDARY, rotation=90)
-        ax.axhline(0.9, color="#e34948", linewidth=1.0, linestyle="--")
-        # Below the line and hard left, where no bar label can reach it.
-        ax.text(-0.48, 0.893, "nominal 90%", fontsize=6, color="#e34948",
-                ha="left", va="top")
-        ax.set_xticks(np.arange(len(regimes)))
+            _conformal_line(ax, x, values, method)
+        F.reference_line(ax, 0.9, "nominal 0.90")
+        ax.set_xticks(x)
         ax.set_xticklabels([r.capitalize() for r in regimes])
-        ax.set_ylim(0.3, 1.10)
-        ax.set_title(title, fontsize=8)
+        ax.set_xlim(-0.3, len(regimes) - 0.7)
+        ax.set_ylim(0.45, 1.0)
+        F.yardstick(ax)
+        F.panel(ax, letter)
+
     axes[0].set_ylabel("Empirical coverage")
-    axes[0].legend(ncol=2, loc="lower left")
-    save(fig, out / "fig4_coverage")
+    axes[0].set_xlabel("Partitioning regime")
+    axes[1].set_xlabel("Partitioning regime")
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=4,
+               bbox_to_anchor=(0.5, -0.10))
+    F.save(fig, out / "fig4_coverage")
 
 
 def fig_coverage_vs_similarity(ad: pd.DataFrame, out: Path) -> None:
-    regimes = [r for r in REGIME_ORDER if r in ad["regime"].unique()]
-    methods = [m for m in CONFORMAL_ORDER if m in ad["conformal"].unique()]
+    regimes = [r for r in REGIME_ORDER if r in set(ad["regime"])]
+    methods = [m for m in CONFORMAL_ORDER if m in set(ad["conformal"])]
 
-    fig, axes = plt.subplots(1, len(regimes), figsize=(7.4, 2.6), sharey=True)
+    fig, axes = plt.subplots(1, len(regimes), figsize=(F.DOUBLE_COLUMN, 2.3),
+                             sharey=True, gridspec_kw={"wspace": 0.08})
     axes = np.atleast_1d(axes)
-    for ax, regime in zip(axes, regimes):
+    for ax, regime, letter in zip(axes, regimes, "abcd"):
         for method in methods:
-            block = ad[(ad["regime"] == regime) & (ad["conformal"] == method)]
-            block = block.sort_values("similarity_bin")
+            block = ad[(ad["regime"] == regime)
+                       & (ad["conformal"] == method)].sort_values("similarity_bin")
             if block.empty:
                 continue
-            ax.plot(block["similarity_bin"], block["coverage"], marker="o",
-                    color=CONFORMAL_COLORS[method], label=method,
-                    markeredgecolor="white", markeredgewidth=0.7)
-        ax.axhline(0.9, color="#e34948", linewidth=1.0, linestyle="--")
+            _conformal_line(ax, block["similarity_bin"], block["coverage"], method)
+        F.reference_line(ax, 0.9)
         ax.set_xticks(range(len(BIN_LABELS)))
-        ax.set_xticklabels(BIN_LABELS, rotation=45, ha="right", fontsize=6)
-        ax.set_title(regime.capitalize())
-        ax.set_xlabel("Nearest-training Tanimoto")
+        ax.set_xticklabels(BIN_LABELS, rotation=90, fontsize=6)
+        ax.set_ylim(0.45, 1.0)
+        F.yardstick(ax)
+        F.panel(ax, letter)
+        ax.text(0.5, 1.04, regime.capitalize(), transform=ax.transAxes,
+                fontsize=7, color=F.INK, ha="center", va="bottom")
+
     axes[0].set_ylabel("Coverage")
-    axes[0].set_ylim(0.3, 1.02)
-    axes[-1].legend(loc="lower right")
-    fig.suptitle("Conditional coverage against structural novelty", y=1.04)
-    save(fig, out / "fig5_coverage_vs_similarity")
+    fig.text(0.5, -0.16, "Nearest-training Tanimoto similarity", ha="center",
+             fontsize=7.5)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=4,
+               bbox_to_anchor=(0.5, -0.30))
+    F.save(fig, out / "fig5_coverage_vs_similarity")
 
 
 def fig_width_tradeoff(conformal_table: pd.DataFrame, out: Path) -> None:
-    methods = [m for m in CONFORMAL_ORDER if m in conformal_table["conformal"].unique()]
-    fig, ax = plt.subplots(figsize=(4.2, 3.2))
+    methods = [m for m in CONFORMAL_ORDER if m in set(conformal_table["conformal"])]
     markers = {"random": "o", "scaffold": "s", "cluster": "^", "family": "D"}
+
+    fig, ax = plt.subplots(figsize=(F.SINGLE_COLUMN, 2.7))
     for method in methods:
-        block = conformal_table[conformal_table["conformal"] == method]
-        for _, row in block.iterrows():
-            ax.scatter(row["mean_width"], row["worst_similarity_coverage"],
-                       s=42, color=CONFORMAL_COLORS[method],
+        for _, row in conformal_table[conformal_table["conformal"] == method].iterrows():
+            ax.scatter(row["mean_width"], row["worst_similarity_coverage"], s=20,
+                       color=F.CONFORMAL_COLORS[method],
                        marker=markers.get(row["regime"], "o"),
-                       edgecolor="white", linewidth=0.9, zorder=3)
-    ax.axhline(0.9, color="#e34948", linewidth=1.0, linestyle="--")
+                       edgecolor="white", linewidth=0.4, zorder=3)
+    F.reference_line(ax, 0.9, "nominal 0.90")
     ax.set_xlabel("Mean interval width (°C)")
     ax.set_ylabel("Worst similarity-band coverage")
-    ax.set_title("Wider is not automatically safer")
-    handles = [plt.Line2D([], [], marker="o", linestyle="", color=CONFORMAL_COLORS[m],
-                          markeredgecolor="white", label=m) for m in methods]
-    handles += [plt.Line2D([], [], marker=markers[r], linestyle="", color=TEXT_SECONDARY,
-                           label=r.capitalize()) for r in markers if r in
-                conformal_table["regime"].unique()]
-    ax.legend(handles=handles, ncol=2, fontsize=6, loc="lower right")
-    save(fig, out / "fig6_width_tradeoff")
+    F.yardstick(ax)
+
+    method_handles = [plt.Line2D([], [], marker="o", linestyle="", markersize=3.2,
+                                 color=F.CONFORMAL_COLORS[m], label=m)
+                      for m in methods]
+    regime_handles = [plt.Line2D([], [], marker=markers[r], linestyle="",
+                                 markersize=3.2, color=F.MUTED, label=r.capitalize())
+                      for r in markers if r in set(conformal_table["regime"])]
+    ax.legend(handles=method_handles + regime_handles, loc="lower right",
+              fontsize=6, ncol=1)
+    F.save(fig, out / "fig6_width_tradeoff")
 
 
 def fig_error_vs_similarity(predictions_dir: Path, out: Path) -> None:
@@ -482,25 +527,24 @@ def fig_error_vs_similarity(predictions_dir: Path, out: Path) -> None:
     frame["abs_error"] = (frame["y_true"] - frame["y_pred"]).abs()
     frame["bin"] = np.digitize(frame["nn_similarity"], [0.4, 0.5, 0.6, 0.7, 0.8])
 
-    fig, ax = plt.subplots(figsize=(4.4, 3.2))
-    for regime, colour in (("random", SERIES[0]), ("family", SERIES[3])):
+    fig, ax = plt.subplots(figsize=(F.SINGLE_COLUMN, 2.5))
+    for regime in ("random", "family"):
         block = frame[frame["regime"] == regime]
         if block.empty:
             continue
-        grouped = block.groupby("bin")["abs_error"].agg(["mean", "count", "sem"])
+        grouped = block.groupby("bin")["abs_error"].agg(["mean", "sem"])
+        colour = F.REGIME_COLORS[regime]
         ax.errorbar(grouped.index, grouped["mean"], yerr=grouped["sem"], marker="o",
-                    color=colour, label=f"{regime.capitalize()} split", capsize=2,
-                    markeredgecolor="white", markeredgewidth=0.7)
-        for b, row in grouped.iterrows():
-            ax.annotate(f"{int(row['count'])}", (b, row["mean"]), textcoords="offset points",
-                        xytext=(0, 7), ha="center", fontsize=5.5, color=TEXT_SECONDARY)
+                    color=colour, capsize=1.6, elinewidth=0.5, capthick=0.5,
+                    markeredgecolor="white", markeredgewidth=0.4,
+                    label=f"{regime.capitalize()} split", zorder=3)
     ax.set_xticks(range(len(BIN_LABELS)))
-    ax.set_xticklabels(BIN_LABELS, rotation=45, ha="right")
+    ax.set_xticklabels(BIN_LABELS, rotation=90)
     ax.set_xlabel("Nearest-training Tanimoto similarity")
     ax.set_ylabel("Mean absolute error (°C)")
-    ax.set_title("Error grows as the nearest training analogue recedes")
-    ax.legend()
-    save(fig, out / "fig7_error_vs_similarity")
+    F.yardstick(ax)
+    ax.legend(loc="upper right")
+    F.save(fig, out / "fig7_error_vs_similarity")
 
 
 def main() -> None:

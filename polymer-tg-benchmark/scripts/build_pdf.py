@@ -40,17 +40,21 @@ FONT_DIR = Path(matplotlib.__file__).parent / "mpl-data" / "fonts" / "ttf"
 
 FIGURE_CAPTIONS = {
     1: "Reported glass transition temperature by repeat-unit family, ordered by "
-       "median. Family sizes are printed above each box. The ordering is the one "
-       "polymer chemistry predicts, which is evidence that the derived taxonomy "
-       "is meaningful rather than merely self-consistent.",
+       "median; boxes span the interquartile range, whiskers the 5th to 95th "
+       "percentiles, and family sizes are listed at the right. The ordering is "
+       "the one polymer chemistry predicts, which is evidence that the derived "
+       "taxonomy is meaningful rather than merely self-consistent.",
     2: "Test MAE by model and split regime; error bars are the standard deviation "
        "across repeated splits. The spread between regimes dwarfs the spread "
        "between models.",
-    3: "Matched-pair design. Left: the three training arms predicting an identical "
-       "set of held-out structures, with informed and control almost coincident. "
-       "Right: the family effect with training-set size held constant.",
-    4: "Coverage of nominally 90% conformal intervals. Left: marginal coverage. "
-       "Right: coverage in the least-similar structural band of each split.",
+    3: "Matched-pair design. (a) The three training arms predicting an identical "
+       "set of held-out structures; informed and control are almost coincident, "
+       "while naive is displaced to the right in every family. (b) The family "
+       "effect, naive minus control, with training-set size held constant.",
+    4: "Coverage of nominally 90% conformal intervals. (a) Marginal coverage. "
+       "(b) Coverage in the least-similar structural band. Line style encodes "
+       "method alongside colour, so the exact coincidence of split conformal and "
+       "the family-conditioned quantile under family holdout remains visible.",
     5: "Conditional coverage against nearest-training Tanimoto similarity, one "
        "panel per split regime. Split conformal degrades monotonically with "
        "structural novelty; the novelty-conditioned quantile stays near nominal.",
@@ -166,8 +170,15 @@ def figure_flowable(number: int, figures_dir: Path, styles, width: float):
 
     with PILImage.open(matches[0]) as im:
         w, h = im.size
-    scaled = min(width, width)
-    image = Image(str(matches[0]), width=scaled, height=scaled * h / w)
+        dpi = im.info.get("dpi", (600, 600))[0] or 600
+
+    # Figures are drawn at their intended printed width. Stretching them to the
+    # text measure would enlarge the type inside them past the body text, which
+    # is the usual reason a figure looks pasted in rather than typeset.
+    natural = w / dpi * 72.0
+    drawn = min(natural, width)
+    image = Image(str(matches[0]), width=drawn, height=drawn * h / w)
+    image.hAlign = "CENTER"
     caption = Paragraph(
         f"<b>Figure {number}.</b> {inline(FIGURE_CAPTIONS.get(number, ''))}",
         styles["caption"],
