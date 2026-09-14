@@ -267,6 +267,46 @@ def table_representation_ablation(results: Path, out: Path) -> pd.DataFrame:
     return ablation
 
 
+def table_baseline_comparison(results: Path, out: Path) -> pd.DataFrame:
+    """Additive group contribution against the machine-learned ensembles.
+
+    The question is not only which is more accurate on a random split — the
+    ensembles are — but which degrades less when the split forces novel backbone
+    chemistry. An additive law is compositional, so it has a prior claim to
+    transferring: a group it has seen in one family carries the same contribution
+    in another. Whether that claim survives contact with the data is the point.
+    """
+    frames = []
+    for stage in REGIME_ORDER:
+        for suffix in ("", "_gc"):
+            path = results / f"point_{stage}{suffix}.csv"
+            if path.exists():
+                frames.append(pd.read_csv(path))
+    if not frames:
+        return pd.DataFrame()
+
+    frame = pd.concat(frames, ignore_index=True)
+    frame = frame[frame["model"].isin(["group_contribution", "hist_gbr", "median"])]
+    summary = frame.groupby(["model", "regime"]).agg(
+        n_splits=("mae", "size"), mae=("mae", "mean"), mae_sd=("mae", "std"),
+        r2=("r2", "mean"),
+    ).reset_index()
+    if summary.empty:
+        return summary
+
+    wide = summary.pivot_table(index="model", columns="regime", values="mae")
+    available = [r for r in REGIME_ORDER if r in wide.columns]
+    wide = wide[available]
+    if {"random", "family"}.issubset(wide.columns):
+        wide["penalty_K"] = wide["family"] - wide["random"]
+        wide["penalty_ratio"] = wide["family"] / wide["random"]
+    wide = wide.reset_index()
+
+    summary.to_csv(out / "table_baseline_by_regime.csv", index=False)
+    wide.to_csv(out / "table_baseline_comparison.csv", index=False)
+    return wide
+
+
 # --------------------------------------------------------------- figures ----
 def fig_dataset(structures: pd.DataFrame, out: Path) -> None:
     """Family Tg distributions, horizontal so family names need no rotation."""
@@ -590,6 +630,11 @@ def main() -> None:
         print(statistics.to_string(index=False))
         fig_matched(raw, statistics, figures)
     fig_error_vs_similarity(results, figures)
+
+    baseline = table_baseline_comparison(results, results)
+    if not baseline.empty:
+        print("\nadditive baseline vs ensemble (MAE by regime):")
+        print(baseline.to_string(index=False))
 
     ablation = table_representation_ablation(results, results)
     if not ablation.empty:

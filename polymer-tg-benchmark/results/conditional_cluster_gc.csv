@@ -1,0 +1,965 @@
+group,n,coverage,coverage_error,mean_width,reliable,taxonomy,conformal,split,regime,model
+0,1406,0.7809388335704125,-0.11906116642958753,189.41683388657796,True,similarity,SCP,cluster_0,cluster,group_contribution
+1,837,0.8757467144563919,-0.024253285543608172,189.41683388657793,True,similarity,SCP,cluster_0,cluster,group_contribution
+2,382,0.9162303664921466,0.016230366492146597,189.41683388657793,True,similarity,SCP,cluster_0,cluster,group_contribution
+3,86,0.9418604651162791,0.041860465116279055,189.41683388657796,True,similarity,SCP,cluster_0,cluster,group_contribution
+4,5,1.0,0.09999999999999998,189.41683388657793,False,similarity,SCP,cluster_0,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,189.41683388657793,False,family,SCP,cluster_0,cluster,group_contribution
+Polyphosphazenes,104,0.5384615384615384,-0.3615384615384616,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyureas,11,0.5454545454545454,-0.3545454545454546,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyolefins,57,0.5964912280701754,-0.3035087719298246,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polysulfides,5,0.6,-0.30000000000000004,189.41683388657793,False,family,SCP,cluster_0,cluster,group_contribution
+Polysiloxanes,203,0.625615763546798,-0.274384236453202,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyphenylenes,42,0.7380952380952381,-0.16190476190476188,189.41683388657796,True,family,SCP,cluster_0,cluster,group_contribution
+Polyacrylics,498,0.7891566265060241,-0.11084337349397588,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyurethanes,169,0.8284023668639053,-0.07159763313609468,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyimines,6,0.8333333333333334,-0.06666666666666665,189.41683388657793,False,family,SCP,cluster_0,cluster,group_contribution
+Polydienes,29,0.8620689655172413,-0.037931034482758696,189.41683388657802,True,family,SCP,cluster_0,cluster,group_contribution
+Polyamides,425,0.8847058823529412,-0.015294117647058791,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyethers,180,0.8888888888888888,-0.011111111111111183,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polyimides,81,0.9012345679012346,0.0012345679012345512,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+Polycarbonates,70,0.9142857142857143,0.014285714285714235,189.41683388657796,True,family,SCP,cluster_0,cluster,group_contribution
+Polyanhydrides,26,0.9230769230769231,0.023076923076923106,189.41683388657796,True,family,SCP,cluster_0,cluster,group_contribution
+Polyesters,717,0.9246861924686193,0.02468619246861925,189.41683388657796,True,family,SCP,cluster_0,cluster,group_contribution
+Polysulfones,29,0.9310344827586207,0.03103448275862064,189.41683388657802,True,family,SCP,cluster_0,cluster,group_contribution
+Polyvinyls,47,0.9361702127659575,0.036170212765957444,189.416833886578,True,family,SCP,cluster_0,cluster,group_contribution
+Polystyrenes,16,1.0,0.09999999999999998,189.41683388657793,True,family,SCP,cluster_0,cluster,group_contribution
+2,382,0.9790575916230366,0.0790575916230366,307.6482496491336,True,similarity,Mondrian-similarity,cluster_0,cluster,group_contribution
+3,86,0.9883720930232558,0.08837209302325577,240.97650819846257,True,similarity,Mondrian-similarity,cluster_0,cluster,group_contribution
+0,1406,0.9914651493598862,0.09146514935988614,384.0271619646372,True,similarity,Mondrian-similarity,cluster_0,cluster,group_contribution
+1,837,0.995221027479092,0.095221027479092,397.09999999999997,True,similarity,Mondrian-similarity,cluster_0,cluster,group_contribution
+4,5,1.0,0.09999999999999998,176.91499248139098,False,similarity,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,384.0271619646372,False,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyureas,11,0.9090909090909091,0.009090909090909038,389.9693610716203,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyurethanes,169,0.9644970414201184,0.06449704142011836,380.88805112175146,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polydienes,29,0.9655172413793104,0.06551724137931036,377.4782577287606,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyvinyls,47,0.9787234042553191,0.0787234042553191,384.8775678950394,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyphosphazenes,104,0.9807692307692307,0.0807692307692307,385.15846525615905,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyacrylics,498,0.9879518072289156,0.0879518072289156,369.4407148589697,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyesters,717,0.9944211994421199,0.09442119944211991,366.77346491809465,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polysiloxanes,203,0.9950738916256158,0.09507389162561575,379.51228252710735,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyamides,425,0.9952941176470588,0.09529411764705875,376.47792429055596,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polysulfones,29,1.0,0.09999999999999998,381.5353453949076,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyphenylenes,42,1.0,0.09999999999999998,381.63510309583825,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyimides,81,1.0,0.09999999999999998,368.1676791658053,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyolefins,57,1.0,0.09999999999999998,383.41133245037844,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyethers,180,1.0,0.09999999999999998,369.9704177869724,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polystyrenes,16,1.0,0.09999999999999998,349.1059153157262,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polycarbonates,70,1.0,0.09999999999999998,343.9486746025645,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyanhydrides,26,1.0,0.09999999999999998,385.27023980158896,True,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polyimines,6,1.0,0.09999999999999998,386.20596830386427,False,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+Polysulfides,5,1.0,0.09999999999999998,389.2562971787823,False,family,Mondrian-similarity,cluster_0,cluster,group_contribution
+0,1406,0.8250355618776671,-0.07496443812233289,211.73239501788225,True,similarity,Mondrian-family,cluster_0,cluster,group_contribution
+1,837,0.8876941457586619,-0.012305854241338121,203.94503153818673,True,similarity,Mondrian-family,cluster_0,cluster,group_contribution
+2,382,0.918848167539267,0.01884816753926699,204.9874479656947,True,similarity,Mondrian-family,cluster_0,cluster,group_contribution
+3,86,0.9651162790697675,0.06511627906976747,214.83999521157318,True,similarity,Mondrian-family,cluster_0,cluster,group_contribution
+4,5,1.0,0.09999999999999998,224.14548789637524,False,similarity,Mondrian-family,cluster_0,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,189.41683388657793,False,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyphosphazenes,104,0.5384615384615384,-0.3615384615384616,189.41683388657793,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyureas,11,0.5454545454545454,-0.3545454545454546,189.41683388657793,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polysulfides,5,0.6,-0.30000000000000004,189.41683388657793,False,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polysiloxanes,203,0.625615763546798,-0.274384236453202,189.41683388657793,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polysulfones,29,0.7586206896551724,-0.14137931034482765,88.38631746514011,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyimides,81,0.8271604938271605,-0.07283950617283952,150.4364755629474,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyurethanes,169,0.8284023668639053,-0.07159763313609468,189.41683388657793,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyimines,6,0.8333333333333334,-0.06666666666666665,189.41683388657793,False,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyamides,425,0.8470588235294118,-0.05294117647058827,177.17387281208337,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polydienes,29,0.8620689655172413,-0.037931034482758696,189.41683388657802,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyphenylenes,42,0.8809523809523809,-0.01904761904761909,218.25959456046098,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyolefins,57,0.9122807017543859,0.012280701754385892,294.4724251360597,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polycarbonates,70,0.9142857142857143,0.014285714285714235,189.41683388657796,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyethers,180,0.9166666666666666,0.016666666666666607,200.80247957986046,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyanhydrides,26,0.9230769230769231,0.023076923076923106,189.41683388657796,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyacrylics,498,0.9257028112449799,0.025702811244979862,277.56999959901447,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyesters,717,0.9288702928870293,0.028870292887029247,194.2067837358819,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polyvinyls,47,0.9787234042553191,0.0787234042553191,322.0783027966361,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+Polystyrenes,16,1.0,0.09999999999999998,209.1419641675833,True,family,Mondrian-family,cluster_0,cluster,group_contribution
+0,1406,0.8691322901849218,-0.030867709815078248,248.10322675134086,True,similarity,Normalised SCP,cluster_0,cluster,group_contribution
+2,382,0.8926701570680629,-0.007329842931937169,209.0499983345017,True,similarity,Normalised SCP,cluster_0,cluster,group_contribution
+3,86,0.9069767441860465,0.006976744186046435,180.750599083078,True,similarity,Normalised SCP,cluster_0,cluster,group_contribution
+1,837,0.927120669056153,0.027120669056152957,220.68258705726612,True,similarity,Normalised SCP,cluster_0,cluster,group_contribution
+4,5,1.0,0.09999999999999998,179.83093086022723,False,similarity,Normalised SCP,cluster_0,cluster,group_contribution
+Polysulfides,5,0.6,-0.30000000000000004,190.77866503516728,False,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyolefins,57,0.6491228070175439,-0.25087719298245614,227.5357687456757,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyphosphazenes,104,0.6634615384615384,-0.2365384615384616,272.3762629044356,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polysiloxanes,203,0.7339901477832512,-0.1660098522167488,249.06821340563795,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyimines,6,0.8333333333333334,-0.06666666666666665,224.2697542761962,False,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyethers,180,0.8722222222222222,-0.02777777777777779,206.48695999076315,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyurethanes,169,0.8875739644970414,-0.012426035502958621,232.96496350874972,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polydienes,29,0.896551724137931,-0.0034482758620689724,285.6241050207598,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyphenylenes,42,0.9047619047619048,0.004761904761904745,245.77973314351706,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyureas,11,0.9090909090909091,0.009090909090909038,270.7340663483777,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyacrylics,498,0.9096385542168675,0.009638554216867434,257.49131120152066,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyvinyls,47,0.9148936170212766,0.014893617021276562,303.28345581476464,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyesters,717,0.9149232914923291,0.014923291492329072,206.9854657746815,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polysulfones,29,0.9310344827586207,0.03103448275862064,179.7882905923457,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polystyrenes,16,0.9375,0.03749999999999998,175.56357778044804,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polycarbonates,70,0.9428571428571428,0.042857142857142816,224.0610622225006,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyanhydrides,26,0.9615384615384616,0.06153846153846154,169.03787888065563,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyimides,81,0.9629629629629629,0.06296296296296289,240.47612051490617,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyamides,425,0.9741176470588235,0.07411764705882351,232.18710199118385,True,family,Normalised SCP,cluster_0,cluster,group_contribution
+Polyhalo-olefins,1,1.0,0.09999999999999998,411.78883882643186,False,family,Normalised SCP,cluster_0,cluster,group_contribution
+0,1402,0.7417974322396577,-0.15820256776034236,192.5852243594082,True,similarity,SCP,cluster_1,cluster,group_contribution
+1,816,0.8823529411764706,-0.01764705882352946,192.5852243594082,True,similarity,SCP,cluster_1,cluster,group_contribution
+2,412,0.9004854368932039,0.0004854368932039055,192.58522435940822,True,similarity,SCP,cluster_1,cluster,group_contribution
+3,127,0.905511811023622,0.005511811023621971,192.58522435940824,True,similarity,SCP,cluster_1,cluster,group_contribution
+4,13,1.0,0.09999999999999998,192.5852243594082,True,similarity,SCP,cluster_1,cluster,group_contribution
+Polyolefins,56,0.39285714285714285,-0.5071428571428571,192.58522435940827,True,family,SCP,cluster_1,cluster,group_contribution
+Polysulfides,16,0.5625,-0.3375,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polyureas,38,0.5789473684210527,-0.32105263157894737,192.58522435940822,True,family,SCP,cluster_1,cluster,group_contribution
+Polydienes,14,0.6428571428571429,-0.2571428571428571,192.5852243594082,True,family,SCP,cluster_1,cluster,group_contribution
+Polyvinyls,90,0.6555555555555556,-0.24444444444444446,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polyimides,19,0.7368421052631579,-0.16315789473684217,192.58522435940822,True,family,SCP,cluster_1,cluster,group_contribution
+Polyurethanes,132,0.7424242424242424,-0.1575757575757576,192.58522435940827,True,family,SCP,cluster_1,cluster,group_contribution
+Polyhalo-olefins,44,0.7727272727272727,-0.12727272727272732,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,192.58522435940824,False,family,SCP,cluster_1,cluster,group_contribution
+Polyethers,255,0.7843137254901961,-0.11568627450980395,192.58522435940822,True,family,SCP,cluster_1,cluster,group_contribution
+Polyacrylics,435,0.8,-0.09999999999999998,192.5852243594082,True,family,SCP,cluster_1,cluster,group_contribution
+Polyamides,721,0.826629680998613,-0.07337031900138702,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polyphenylenes,61,0.8688524590163934,-0.031147540983606614,192.58522435940833,True,family,SCP,cluster_1,cluster,group_contribution
+Polyesters,681,0.8781204111600588,-0.021879588839941233,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polystyrenes,22,0.9090909090909091,0.009090909090909038,192.58522435940822,True,family,SCP,cluster_1,cluster,group_contribution
+Polycarbonates,92,0.9565217391304348,0.05652173913043479,192.58522435940824,True,family,SCP,cluster_1,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,192.58522435940822,True,family,SCP,cluster_1,cluster,group_contribution
+Polysulfones,50,0.96,0.05999999999999994,192.58522435940827,True,family,SCP,cluster_1,cluster,group_contribution
+Polyphosphazenes,9,1.0,0.09999999999999998,192.58522435940824,False,family,SCP,cluster_1,cluster,group_contribution
+Polysiloxanes,3,1.0,0.09999999999999998,192.58522435940824,False,family,SCP,cluster_1,cluster,group_contribution
+3,127,0.9212598425196851,0.021259842519685046,200.08511944271592,True,similarity,Mondrian-similarity,cluster_1,cluster,group_contribution
+1,816,0.9473039215686274,0.047303921568627394,247.11991427973044,True,similarity,Mondrian-similarity,cluster_1,cluster,group_contribution
+2,412,0.9805825242718447,0.08058252427184465,289.8011016578056,True,similarity,Mondrian-similarity,cluster_1,cluster,group_contribution
+0,1402,0.9950071326676176,0.09500713266761762,537.52,True,similarity,Mondrian-similarity,cluster_1,cluster,group_contribution
+4,13,1.0,0.09999999999999998,177.30403574537144,True,similarity,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyolefins,56,0.9285714285714286,0.02857142857142858,454.54854693706585,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyurethanes,132,0.9318181818181818,0.031818181818181746,329.20559520966924,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyimides,19,0.9473684210526315,0.047368421052631504,247.61070139282967,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyesters,681,0.9691629955947136,0.06916299559471362,352.0878962327196,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyacrylics,435,0.9701149425287356,0.07011494252873562,386.2093065400557,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyureas,38,0.9736842105263158,0.0736842105263158,472.1105997539947,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyhalo-olefins,44,0.9772727272727273,0.07727272727272727,524.3199961036242,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyvinyls,90,0.9777777777777777,0.07777777777777772,495.2718243831135,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyethers,255,0.9803921568627451,0.08039215686274503,438.11932478067786,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyamides,721,0.984743411927878,0.08474341192787793,418.2633429220154,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyphenylenes,61,1.0,0.09999999999999998,449.1665890729361,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyimines,9,1.0,0.09999999999999998,472.98664761771784,False,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyphosphazenes,9,1.0,0.09999999999999998,408.45329523543575,False,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polystyrenes,22,1.0,0.09999999999999998,339.70242421196696,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polysulfones,50,1.0,0.09999999999999998,400.8561946154802,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polydienes,14,1.0,0.09999999999999998,484.43737892667275,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polycarbonates,92,1.0,0.09999999999999998,393.0511524326602,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,277.9392070438506,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polysulfides,16,1.0,0.09999999999999998,519.3699946424831,True,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+Polysiloxanes,3,1.0,0.09999999999999998,537.52,False,family,Mondrian-similarity,cluster_1,cluster,group_contribution
+0,1402,0.7774607703281027,-0.12253922967189734,219.68133166801155,True,similarity,Mondrian-family,cluster_1,cluster,group_contribution
+2,412,0.8956310679611651,-0.004368932038834927,238.04621451662362,True,similarity,Mondrian-family,cluster_1,cluster,group_contribution
+1,816,0.9375,0.03749999999999998,248.01282822769937,True,similarity,Mondrian-family,cluster_1,cluster,group_contribution
+3,127,0.968503937007874,0.06850393700787394,230.57847346726408,True,similarity,Mondrian-family,cluster_1,cluster,group_contribution
+4,13,1.0,0.09999999999999998,199.80924737753912,True,similarity,Mondrian-family,cluster_1,cluster,group_contribution
+Polysulfides,16,0.5625,-0.3375,192.58522435940824,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyureas,38,0.5789473684210527,-0.32105263157894737,192.58522435940822,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyimides,19,0.631578947368421,-0.268421052631579,145.96255769990077,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polydienes,14,0.6428571428571429,-0.2571428571428571,192.5852243594082,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyethers,255,0.7098039215686275,-0.19019607843137254,160.32463831247082,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyvinyls,90,0.7111111111111111,-0.18888888888888888,217.4113610172562,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyolefins,56,0.7142857142857143,-0.18571428571428572,287.4977432333592,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyurethanes,132,0.7424242424242424,-0.1575757575757576,192.58522435940827,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyhalo-olefins,44,0.7727272727272727,-0.12727272727272732,192.58522435940824,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,192.58522435940824,False,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyamides,721,0.7988904299583911,-0.10110957004160892,178.31641480085628,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polysulfones,50,0.88,-0.020000000000000018,153.1782554612589,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyphenylenes,61,0.8852459016393442,-0.014754098360655776,196.5973730410139,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyacrylics,435,0.8988505747126436,-0.0011494252873563982,247.11991427973044,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polystyrenes,22,0.9545454545454546,0.054545454545454564,228.3184213171092,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polycarbonates,92,0.9565217391304348,0.05652173913043479,192.58522435940824,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,192.58522435940822,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyesters,681,0.9926578560939795,0.09265785609397947,331.46019776694396,True,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polyphosphazenes,9,1.0,0.09999999999999998,337.11645625599675,False,family,Mondrian-family,cluster_1,cluster,group_contribution
+Polysiloxanes,3,1.0,0.09999999999999998,212.4310501195621,False,family,Mondrian-family,cluster_1,cluster,group_contribution
+0,1402,0.8402282453637661,-0.059771754636233965,228.97410917391798,True,similarity,Normalised SCP,cluster_1,cluster,group_contribution
+3,127,0.889763779527559,-0.010236220472440993,176.41525310721343,True,similarity,Normalised SCP,cluster_1,cluster,group_contribution
+2,412,0.8907766990291263,-0.00922330097087376,179.20239019000195,True,similarity,Normalised SCP,cluster_1,cluster,group_contribution
+1,816,0.9142156862745098,0.014215686274509753,189.73897902271037,True,similarity,Normalised SCP,cluster_1,cluster,group_contribution
+4,13,1.0,0.09999999999999998,164.6645218452939,True,similarity,Normalised SCP,cluster_1,cluster,group_contribution
+Polyureas,38,0.631578947368421,-0.268421052631579,268.98654224324,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,230.76308784353327,False,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyurethanes,132,0.7878787878787878,-0.11212121212121218,198.79817078979795,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyphenylenes,61,0.8032786885245902,-0.09672131147540985,207.93571281845098,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyethers,255,0.8313725490196079,-0.06862745098039214,226.9522928830626,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyimides,19,0.8421052631578947,-0.05789473684210533,170.5013924991818,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyacrylics,435,0.8459770114942529,-0.05402298850574716,215.4842159027281,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polydienes,14,0.8571428571428571,-0.04285714285714293,272.7560081460602,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyolefins,56,0.875,-0.025000000000000022,373.7762307027247,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyesters,681,0.8751835535976505,-0.02481644640234948,164.33879737273972,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyamides,721,0.9001386962552012,0.0001386962552011317,204.59226873324556,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyhalo-olefins,44,0.9090909090909091,0.009090909090909038,304.9789339626939,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyanhydrides,23,0.9130434782608695,0.01304347826086949,127.13023024097826,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyvinyls,90,0.9222222222222223,0.022222222222222254,311.9211163483331,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polysulfides,16,0.9375,0.03749999999999998,349.2450810490717,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polystyrenes,22,0.9545454545454546,0.054545454545454564,198.21664665846384,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polycarbonates,92,0.967391304347826,0.06739130434782603,185.20409953440483,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polyphosphazenes,9,1.0,0.09999999999999998,289.26249470769056,False,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polysulfones,50,1.0,0.09999999999999998,187.89392734916407,True,family,Normalised SCP,cluster_1,cluster,group_contribution
+Polysiloxanes,3,1.0,0.09999999999999998,192.12932882208057,False,family,Normalised SCP,cluster_1,cluster,group_contribution
+0,1138,0.68804920913884,-0.21195079086115998,172.9393064975028,True,similarity,SCP,cluster_2,cluster,group_contribution
+1,1009,0.8384539147670962,-0.061546085232903835,172.93930649750283,True,similarity,SCP,cluster_2,cluster,group_contribution
+2,380,0.9052631578947369,0.0052631578947368585,172.93930649750283,True,similarity,SCP,cluster_2,cluster,group_contribution
+3,98,0.9081632653061225,0.008163265306122436,172.9393064975028,True,similarity,SCP,cluster_2,cluster,group_contribution
+4,13,1.0,0.09999999999999998,172.93930649750286,True,similarity,SCP,cluster_2,cluster,group_contribution
+Polydienes,1,0.0,-0.9,172.9393064975028,False,family,SCP,cluster_2,cluster,group_contribution
+Polyureas,4,0.25,-0.65,172.9393064975028,False,family,SCP,cluster_2,cluster,group_contribution
+Polysiloxanes,2,0.5,-0.4,172.9393064975028,False,family,SCP,cluster_2,cluster,group_contribution
+Polyphenylenes,85,0.5058823529411764,-0.3941176470588236,172.93930649750283,True,family,SCP,cluster_2,cluster,group_contribution
+Polyesters,58,0.6379310344827587,-0.26206896551724135,172.9393064975028,True,family,SCP,cluster_2,cluster,group_contribution
+Polyimides,1604,0.7736907730673317,-0.12630922693266833,172.93930649750283,True,family,SCP,cluster_2,cluster,group_contribution
+Polyethers,407,0.7936117936117936,-0.10638820638820645,172.9393064975028,True,family,SCP,cluster_2,cluster,group_contribution
+Polysulfides,15,0.8666666666666667,-0.033333333333333326,172.93930649750286,True,family,SCP,cluster_2,cluster,group_contribution
+Polysulfones,151,0.8675496688741722,-0.03245033112582785,172.93930649750283,True,family,SCP,cluster_2,cluster,group_contribution
+Polyvinyls,55,0.8909090909090909,-0.00909090909090915,172.93930649750283,True,family,SCP,cluster_2,cluster,group_contribution
+Polyamides,213,0.9061032863849765,0.006103286384976481,172.9393064975028,True,family,SCP,cluster_2,cluster,group_contribution
+Polyurethanes,4,1.0,0.09999999999999998,172.9393064975028,False,family,SCP,cluster_2,cluster,group_contribution
+Polycarbonates,7,1.0,0.09999999999999998,172.93930649750277,False,family,SCP,cluster_2,cluster,group_contribution
+Polyimines,32,1.0,0.09999999999999998,172.9393064975028,True,family,SCP,cluster_2,cluster,group_contribution
+2,380,0.9131578947368421,0.013157894736842035,186.43831241707835,True,similarity,Mondrian-similarity,cluster_2,cluster,group_contribution
+3,98,0.9183673469387755,0.01836734693877551,185.29424573372515,True,similarity,Mondrian-similarity,cluster_2,cluster,group_contribution
+0,1138,0.961335676625659,0.061335676625658975,339.1914046077222,True,similarity,Mondrian-similarity,cluster_2,cluster,group_contribution
+1,1009,0.9702675916749257,0.07026759167492569,285.37633654170605,True,similarity,Mondrian-similarity,cluster_2,cluster,group_contribution
+4,13,1.0,0.09999999999999998,179.10501576970142,True,similarity,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polydienes,1,0.0,-0.9,339.19140460772223,False,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polysiloxanes,2,0.5,-0.4,262.8148585124003,False,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyureas,4,0.75,-0.15000000000000002,287.5493645435572,False,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyphenylenes,85,0.8705882352941177,-0.02941176470588236,326.63129579227615,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyesters,58,0.9310344827586207,0.03103448275862064,258.8873486332628,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyimides,1604,0.9532418952618454,0.05324189526184542,297.83955276682127,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyethers,407,0.9631449631449631,0.0631449631449631,281.8239092053077,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polysulfones,151,0.9801324503311258,0.08013245033112582,281.3172612421708,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyamides,213,0.9812206572769953,0.08122065727699523,236.66563806811237,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polysulfides,15,1.0,0.09999999999999998,314.65718031074164,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyvinyls,55,1.0,0.09999999999999998,335.2775814756483,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyurethanes,4,1.0,0.09999999999999998,233.78798364670965,False,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polycarbonates,7,1.0,0.09999999999999998,294.14249559742996,False,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+Polyimines,32,1.0,0.09999999999999998,281.38193582758777,True,family,Mondrian-similarity,cluster_2,cluster,group_contribution
+0,1138,0.710896309314587,-0.189103690685413,187.9617021190405,True,similarity,Mondrian-family,cluster_2,cluster,group_contribution
+1,1009,0.8602576808721506,-0.039742319127849424,186.12667149694752,True,similarity,Mondrian-family,cluster_2,cluster,group_contribution
+3,98,0.8877551020408163,-0.01224489795918371,159.83696058681534,True,similarity,Mondrian-family,cluster_2,cluster,group_contribution
+2,380,0.9131578947368421,0.013157894736842035,176.19760292663844,True,similarity,Mondrian-family,cluster_2,cluster,group_contribution
+4,13,1.0,0.09999999999999998,154.89997314874043,True,similarity,Mondrian-family,cluster_2,cluster,group_contribution
+Polydienes,1,0.0,-0.9,172.9393064975028,False,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyureas,4,0.25,-0.65,172.9393064975028,False,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polysiloxanes,2,0.5,-0.4,131.66891094783898,False,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyesters,58,0.5689655172413793,-0.3310344827586207,141.98344517116664,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyphenylenes,85,0.6352941176470588,-0.26470588235294124,246.18870669849105,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyethers,407,0.7788697788697788,-0.1211302211302212,163.65192463708166,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyimides,1604,0.8110972568578554,-0.08890274314214464,194.84561838954892,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyvinyls,55,0.8363636363636363,-0.06363636363636371,158.49842408374033,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyamides,213,0.863849765258216,-0.036150234741784026,149.7398364366805,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polysulfides,15,0.8666666666666667,-0.033333333333333326,172.93930649750286,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polysulfones,151,0.8675496688741722,-0.03245033112582785,172.93930649750283,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyurethanes,4,1.0,0.09999999999999998,210.66591675857183,False,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polycarbonates,7,1.0,0.09999999999999998,172.93930649750277,False,family,Mondrian-family,cluster_2,cluster,group_contribution
+Polyimines,32,1.0,0.09999999999999998,172.9393064975028,True,family,Mondrian-family,cluster_2,cluster,group_contribution
+0,1138,0.7398945518453427,-0.16010544815465733,194.2453834354303,True,similarity,Normalised SCP,cluster_2,cluster,group_contribution
+1,1009,0.846382556987116,-0.05361744301288407,176.9804091868039,True,similarity,Normalised SCP,cluster_2,cluster,group_contribution
+2,380,0.9131578947368421,0.013157894736842035,181.88119634151408,True,similarity,Normalised SCP,cluster_2,cluster,group_contribution
+3,98,0.9183673469387755,0.01836734693877551,205.41978445816667,True,similarity,Normalised SCP,cluster_2,cluster,group_contribution
+4,13,1.0,0.09999999999999998,206.49595243438122,True,similarity,Normalised SCP,cluster_2,cluster,group_contribution
+Polydienes,1,0.0,-0.9,292.61282688864094,False,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyureas,4,0.25,-0.65,185.98342974868885,False,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polysiloxanes,2,0.5,-0.4,211.3629029512014,False,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyesters,58,0.6551724137931034,-0.2448275862068966,174.3991511391867,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyphenylenes,85,0.6705882352941176,-0.22941176470588243,220.11096134765418,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyimides,1604,0.7961346633416458,-0.10386533665835418,182.51619183925848,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polysulfones,151,0.8278145695364238,-0.07218543046357617,167.8922204940462,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyethers,407,0.8501228501228502,-0.04987714987714986,187.81640121422322,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polysulfides,15,0.8666666666666667,-0.033333333333333326,176.42645570775343,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyamides,213,0.9014084507042254,0.0014084507042253502,197.32173434672782,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyvinyls,55,0.9636363636363636,0.0636363636363636,242.1614000748375,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyurethanes,4,1.0,0.09999999999999998,116.82748682791716,False,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polycarbonates,7,1.0,0.09999999999999998,191.06827695241594,False,family,Normalised SCP,cluster_2,cluster,group_contribution
+Polyimines,32,1.0,0.09999999999999998,216.32818169980783,True,family,Normalised SCP,cluster_2,cluster,group_contribution
+0,822,0.7700729927007299,-0.1299270072992701,195.40207654618695,True,similarity,SCP,cluster_3,cluster,group_contribution
+4,8,0.875,-0.025000000000000022,195.402076546187,False,similarity,SCP,cluster_3,cluster,group_contribution
+3,60,0.8833333333333333,-0.01666666666666672,195.40207654618698,True,similarity,SCP,cluster_3,cluster,group_contribution
+1,392,0.8903061224489796,-0.009693877551020469,195.40207654618695,True,similarity,SCP,cluster_3,cluster,group_contribution
+2,163,0.8957055214723927,-0.004294478527607337,195.40207654618698,True,similarity,SCP,cluster_3,cluster,group_contribution
+Polyphosphazenes,24,0.5,-0.4,195.40207654618698,True,family,SCP,cluster_3,cluster,group_contribution
+Polyanhydrides,20,0.6,-0.30000000000000004,195.40207654618698,True,family,SCP,cluster_3,cluster,group_contribution
+Polystyrenes,8,0.625,-0.275,195.402076546187,False,family,SCP,cluster_3,cluster,group_contribution
+Polysiloxanes,6,0.6666666666666666,-0.2333333333333334,195.402076546187,False,family,SCP,cluster_3,cluster,group_contribution
+Polyacrylics,38,0.7105263157894737,-0.18947368421052635,195.40207654618706,True,family,SCP,cluster_3,cluster,group_contribution
+Polyphenylenes,299,0.7324414715719063,-0.1675585284280937,195.40207654618698,True,family,SCP,cluster_3,cluster,group_contribution
+Polyolefins,62,0.7580645161290323,-0.14193548387096777,195.40207654618692,True,family,SCP,cluster_3,cluster,group_contribution
+Polyethers,144,0.7708333333333334,-0.12916666666666665,195.40207654618695,True,family,SCP,cluster_3,cluster,group_contribution
+Polyimines,14,0.7857142857142857,-0.11428571428571432,195.40207654618695,True,family,SCP,cluster_3,cluster,group_contribution
+Polysulfides,34,0.7941176470588235,-0.10588235294117654,195.40207654618703,True,family,SCP,cluster_3,cluster,group_contribution
+Polyureas,28,0.8214285714285714,-0.07857142857142863,195.40207654618706,True,family,SCP,cluster_3,cluster,group_contribution
+Polyvinyls,54,0.8333333333333334,-0.06666666666666665,195.40207654618692,True,family,SCP,cluster_3,cluster,group_contribution
+Polydienes,39,0.8461538461538461,-0.05384615384615388,195.40207654618706,True,family,SCP,cluster_3,cluster,group_contribution
+Polyamides,351,0.8746438746438746,-0.025356125356125414,195.40207654618698,True,family,SCP,cluster_3,cluster,group_contribution
+Polysulfones,27,0.8888888888888888,-0.011111111111111183,195.40207654618703,True,family,SCP,cluster_3,cluster,group_contribution
+Polyesters,108,0.8981481481481481,-0.0018518518518518823,195.40207654618692,True,family,SCP,cluster_3,cluster,group_contribution
+Polyurethanes,49,0.9387755102040817,0.038775510204081653,195.402076546187,True,family,SCP,cluster_3,cluster,group_contribution
+Polyimides,90,0.9777777777777777,0.07777777777777772,195.40207654618695,True,family,SCP,cluster_3,cluster,group_contribution
+Polyhalo-olefins,24,1.0,0.09999999999999998,195.40207654618698,True,family,SCP,cluster_3,cluster,group_contribution
+Polycarbonates,26,1.0,0.09999999999999998,195.40207654618703,True,family,SCP,cluster_3,cluster,group_contribution
+4,8,0.875,-0.025000000000000022,169.65698115757687,False,similarity,Mondrian-similarity,cluster_3,cluster,group_contribution
+3,60,0.9333333333333333,0.033333333333333326,231.29021336691355,True,similarity,Mondrian-similarity,cluster_3,cluster,group_contribution
+2,163,0.9631901840490797,0.06319018404907972,287.93175003599845,True,similarity,Mondrian-similarity,cluster_3,cluster,group_contribution
+1,392,0.9693877551020408,0.06938775510204076,302.8541035731914,True,similarity,Mondrian-similarity,cluster_3,cluster,group_contribution
+0,822,0.9939172749391727,0.09391727493917268,529.0713892123758,True,similarity,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polysiloxanes,6,0.8333333333333334,-0.06666666666666665,399.061313512673,False,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyacrylics,38,0.8947368421052632,-0.0052631578947368585,350.139604971097,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyureas,28,0.9642857142857143,0.06428571428571428,373.96797893537286,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyamides,351,0.9658119658119658,0.0658119658119658,375.3725126084135,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polysulfides,34,0.9705882352941176,0.07058823529411762,404.13222725731856,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyethers,144,0.9791666666666666,0.07916666666666661,444.2751918131249,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyurethanes,49,0.9795918367346939,0.07959183673469383,346.5864164625357,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyolefins,62,0.9838709677419355,0.08387096774193548,441.0220414314917,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyphenylenes,299,0.9899665551839465,0.08996655518394647,479.6112665075386,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyesters,108,0.9907407407407407,0.09074074074074068,379.161216970192,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyhalo-olefins,24,1.0,0.09999999999999998,519.6456689774099,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyvinyls,54,1.0,0.09999999999999998,482.9900902858752,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyimides,90,1.0,0.09999999999999998,423.1904287300075,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyphosphazenes,24,1.0,0.09999999999999998,491.36850827251175,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polydienes,39,1.0,0.09999999999999998,494.2687298832704,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyimines,14,1.0,0.09999999999999998,479.53037417989395,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polyanhydrides,20,1.0,0.09999999999999998,529.0713892123756,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polystyrenes,8,1.0,0.09999999999999998,444.2399070976817,False,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polycarbonates,26,1.0,0.09999999999999998,432.7901393828288,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+Polysulfones,27,1.0,0.09999999999999998,431.4948781041064,True,family,Mondrian-similarity,cluster_3,cluster,group_contribution
+0,822,0.7871046228710462,-0.11289537712895381,204.554065328808,True,similarity,Mondrian-family,cluster_3,cluster,group_contribution
+4,8,0.875,-0.025000000000000022,197.35934774123143,False,similarity,Mondrian-family,cluster_3,cluster,group_contribution
+2,163,0.8773006134969326,-0.022699386503067465,198.5458766201548,True,similarity,Mondrian-family,cluster_3,cluster,group_contribution
+3,60,0.8833333333333333,-0.01666666666666672,190.6414299967488,True,similarity,Mondrian-family,cluster_3,cluster,group_contribution
+1,392,0.8877551020408163,-0.01224489795918371,198.6790984251802,True,similarity,Mondrian-family,cluster_3,cluster,group_contribution
+Polyphosphazenes,24,0.5,-0.4,195.40207654618698,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyanhydrides,20,0.6,-0.30000000000000004,195.40207654618698,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polysiloxanes,6,0.6666666666666666,-0.2333333333333334,211.3577365611608,False,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polysulfones,27,0.6666666666666666,-0.2333333333333334,137.50609304505076,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyacrylics,38,0.7368421052631579,-0.16315789473684217,218.7239469511875,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyethers,144,0.7430555555555556,-0.15694444444444444,172.33947170217584,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyolefins,62,0.7580645161290323,-0.14193548387096777,195.40207654618692,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyimines,14,0.7857142857142857,-0.11428571428571432,195.40207654618695,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polysulfides,34,0.7941176470588235,-0.10588235294117654,195.40207654618703,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyphenylenes,299,0.7993311036789298,-0.10066889632107023,224.83531556049414,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyureas,28,0.8214285714285714,-0.07857142857142863,195.40207654618706,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polydienes,39,0.8461538461538461,-0.05384615384615388,195.40207654618706,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyamides,351,0.8547008547008547,-0.04529914529914536,181.57360515156103,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyesters,108,0.8888888888888888,-0.011111111111111183,187.2815083350106,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyvinyls,54,0.9259259259259259,0.025925925925925908,325.6688306357905,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyimides,90,0.9333333333333333,0.033333333333333326,161.72603298678158,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyurethanes,49,1.0,0.09999999999999998,307.8595458689238,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polystyrenes,8,1.0,0.09999999999999998,241.46799215315957,False,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polyhalo-olefins,24,1.0,0.09999999999999998,195.40207654618698,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+Polycarbonates,26,1.0,0.09999999999999998,195.40207654618703,True,family,Mondrian-family,cluster_3,cluster,group_contribution
+1,392,0.8341836734693877,-0.06581632653061231,204.0930998122956,True,similarity,Normalised SCP,cluster_3,cluster,group_contribution
+0,822,0.8454987834549879,-0.054501216545012166,242.73324337221985,True,similarity,Normalised SCP,cluster_3,cluster,group_contribution
+2,163,0.8650306748466258,-0.03496932515337425,177.868086312532,True,similarity,Normalised SCP,cluster_3,cluster,group_contribution
+4,8,0.875,-0.025000000000000022,138.38756591855355,False,similarity,Normalised SCP,cluster_3,cluster,group_contribution
+3,60,0.8833333333333333,-0.01666666666666672,183.44899901371056,True,similarity,Normalised SCP,cluster_3,cluster,group_contribution
+Polyphosphazenes,24,0.5833333333333334,-0.31666666666666665,265.29627022617103,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polysiloxanes,6,0.6666666666666666,-0.2333333333333334,300.04762643204157,False,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyureas,28,0.6785714285714286,-0.22142857142857142,152.07672419967574,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polysulfones,27,0.7777777777777778,-0.12222222222222223,171.26481297006845,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyimines,14,0.7857142857142857,-0.11428571428571432,153.93741338883635,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyamides,351,0.7863247863247863,-0.11367521367521372,165.96573824865953,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyanhydrides,20,0.8,-0.09999999999999998,274.5577995739985,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyphenylenes,299,0.8127090301003345,-0.08729096989966556,232.50182285778317,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyurethanes,49,0.8571428571428571,-0.04285714285714293,173.33657659418435,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyolefins,62,0.8709677419354839,-0.029032258064516148,303.7376682109068,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyesters,108,0.8888888888888888,-0.011111111111111183,170.88530329762744,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polydienes,39,0.8974358974358975,-0.002564102564102555,287.9018369949231,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyethers,144,0.9097222222222222,0.009722222222222188,272.5541457540011,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polysulfides,34,0.9117647058823529,0.0117647058823529,221.7008823919475,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyvinyls,54,0.9259259259259259,0.025925925925925908,259.9366683607713,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyimides,90,0.9444444444444444,0.0444444444444444,216.2255364806307,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polycarbonates,26,0.9615384615384616,0.06153846153846154,260.49082134970206,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polystyrenes,8,1.0,0.09999999999999998,261.1957879056312,False,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyacrylics,38,1.0,0.09999999999999998,372.59336722897655,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+Polyhalo-olefins,24,1.0,0.09999999999999998,327.3905519249453,True,family,Normalised SCP,cluster_3,cluster,group_contribution
+0,1479,0.830290736984449,-0.06970926301555103,206.0265237947479,True,similarity,SCP,cluster_4,cluster,group_contribution
+1,913,0.8893756845564075,-0.010624315443592547,206.02652379474787,True,similarity,SCP,cluster_4,cluster,group_contribution
+4,12,0.9166666666666666,0.016666666666666607,206.02652379474793,True,similarity,SCP,cluster_4,cluster,group_contribution
+2,343,0.9183673469387755,0.01836734693877551,206.0265237947479,True,similarity,SCP,cluster_4,cluster,group_contribution
+3,120,0.9333333333333333,0.033333333333333326,206.02652379474787,True,similarity,SCP,cluster_4,cluster,group_contribution
+Polyureas,39,0.5641025641025641,-0.3358974358974359,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polyolefins,36,0.5833333333333334,-0.31666666666666665,206.02652379474796,True,family,SCP,cluster_4,cluster,group_contribution
+Polyvinyls,98,0.7244897959183674,-0.17551020408163265,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polyimines,8,0.75,-0.15000000000000002,206.02652379474796,False,family,SCP,cluster_4,cluster,group_contribution
+Polysulfides,9,0.7777777777777778,-0.12222222222222223,206.02652379474796,False,family,SCP,cluster_4,cluster,group_contribution
+Polydienes,9,0.7777777777777778,-0.12222222222222223,206.02652379474796,False,family,SCP,cluster_4,cluster,group_contribution
+Polyimides,26,0.8076923076923077,-0.09230769230769231,206.02652379474796,True,family,SCP,cluster_4,cluster,group_contribution
+Polyurethanes,172,0.8197674418604651,-0.08023255813953489,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polyamides,761,0.8265440210249672,-0.07345597897503287,206.0265237947479,True,family,SCP,cluster_4,cluster,group_contribution
+Polyhalo-olefins,12,0.8333333333333334,-0.06666666666666665,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polyacrylics,437,0.8649885583524027,-0.035011441647597286,206.0265237947479,True,family,SCP,cluster_4,cluster,group_contribution
+Polyethers,215,0.9069767441860465,0.006976744186046435,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polyesters,745,0.9154362416107382,0.0154362416107382,206.0265237947479,True,family,SCP,cluster_4,cluster,group_contribution
+Polyphenylenes,108,0.9351851851851852,0.03518518518518521,206.02652379474796,True,family,SCP,cluster_4,cluster,group_contribution
+Polysulfones,49,0.9591836734693877,0.05918367346938769,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polycarbonates,91,0.967032967032967,0.06703296703296702,206.02652379474796,True,family,SCP,cluster_4,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polystyrenes,21,1.0,0.09999999999999998,206.02652379474793,True,family,SCP,cluster_4,cluster,group_contribution
+Polysiloxanes,4,1.0,0.09999999999999998,206.02652379474796,False,family,SCP,cluster_4,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,206.02652379474796,False,family,SCP,cluster_4,cluster,group_contribution
+4,12,0.9166666666666666,0.016666666666666607,186.77452854043008,True,similarity,Mondrian-similarity,cluster_4,cluster,group_contribution
+3,120,0.9583333333333334,0.05833333333333335,243.50808399436667,True,similarity,Mondrian-similarity,cluster_4,cluster,group_contribution
+2,343,0.9650145772594753,0.06501457725947524,253.45388309210787,True,similarity,Mondrian-similarity,cluster_4,cluster,group_contribution
+0,1479,0.966869506423259,0.06686950642325895,345.44997822242567,True,similarity,Mondrian-similarity,cluster_4,cluster,group_contribution
+1,913,0.9978094194961665,0.0978094194961665,400.5782309205061,True,similarity,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyolefins,36,0.8055555555555556,-0.09444444444444444,346.9716790779126,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyureas,39,0.8717948717948718,-0.028205128205128216,344.02753528399927,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyimines,8,0.875,-0.025000000000000022,345.44997822242567,False,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polydienes,9,0.8888888888888888,-0.011111111111111183,320.9099745898842,False,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyhalo-olefins,12,0.9166666666666666,0.016666666666666607,350.04399928059905,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyurethanes,172,0.9534883720930233,0.05348837209302326,356.87623183384073,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyvinyls,98,0.9591836734693877,0.05918367346938769,350.5976199106994,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyimides,26,0.9615384615384616,0.06153846153846154,268.2815018815713,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyamides,761,0.9724047306176085,0.07240473061760844,344.99540554566863,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyacrylics,437,0.977116704805492,0.07711670480549193,345.9217526546476,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polysulfones,49,0.9795918367346939,0.07959183673469383,354.8090065499641,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyethers,215,0.9813953488372092,0.08139534883720922,342.8453580750964,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyphenylenes,108,0.9907407407407407,0.09074074074074068,360.0774307611052,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyesters,745,0.9946308724832215,0.09463087248322144,347.9929086391317,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polycarbonates,91,1.0,0.09999999999999998,349.4029949180296,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polystyrenes,21,1.0,0.09999999999999998,323.925555061281,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,398.1813503684156,True,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polysulfides,9,1.0,0.09999999999999998,341.3535512855104,False,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polysiloxanes,4,1.0,0.09999999999999998,296.96548088283146,False,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,400.57823092050603,False,family,Mondrian-similarity,cluster_4,cluster,group_contribution
+0,1479,0.8154158215010142,-0.08458417849898581,209.66479068203017,True,similarity,Mondrian-family,cluster_4,cluster,group_contribution
+1,913,0.8806133625410734,-0.01938663745892666,199.07650740416202,True,similarity,Mondrian-family,cluster_4,cluster,group_contribution
+2,343,0.892128279883382,-0.007871720116618075,196.81971604041337,True,similarity,Mondrian-family,cluster_4,cluster,group_contribution
+3,120,0.9,0.0,186.78388666331952,True,similarity,Mondrian-family,cluster_4,cluster,group_contribution
+4,12,0.9166666666666666,0.016666666666666607,153.8164879687167,True,similarity,Mondrian-family,cluster_4,cluster,group_contribution
+Polyureas,39,0.5641025641025641,-0.3358974358974359,206.02652379474793,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyimides,26,0.6538461538461539,-0.24615384615384617,138.97232461214844,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polysulfones,49,0.6938775510204082,-0.20612244897959187,99.71461276855473,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyamides,761,0.7319316688567674,-0.1680683311432326,151.31407584506172,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyimines,8,0.75,-0.15000000000000002,206.02652379474796,False,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polydienes,9,0.7777777777777778,-0.12222222222222223,206.02652379474796,False,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polysulfides,9,0.7777777777777778,-0.12222222222222223,206.02652379474796,False,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyurethanes,172,0.8197674418604651,-0.08023255813953489,206.02652379474793,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyhalo-olefins,12,0.8333333333333334,-0.06666666666666665,206.02652379474793,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyacrylics,437,0.8832951945080092,-0.016704805491990826,222.69612580976306,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyolefins,36,0.8888888888888888,-0.011111111111111183,403.1610894023098,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyethers,215,0.9069767441860465,0.006976744186046435,208.57399571756014,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyesters,745,0.9154362416107382,0.0154362416107382,206.0265237947479,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyvinyls,98,0.9591836734693877,0.05918367346938769,403.3136562357463,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polycarbonates,91,0.967032967032967,0.06703296703296702,206.02652379474796,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyphenylenes,108,0.9722222222222222,0.07222222222222219,253.45388309210787,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,206.02652379474793,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polystyrenes,21,1.0,0.09999999999999998,286.4861005336891,True,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polysiloxanes,4,1.0,0.09999999999999998,218.59564103531767,False,family,Mondrian-family,cluster_4,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,307.4108376337492,False,family,Mondrian-family,cluster_4,cluster,group_contribution
+3,120,0.85,-0.050000000000000044,169.18994302377985,True,similarity,Normalised SCP,cluster_4,cluster,group_contribution
+0,1479,0.8512508451656524,-0.04874915483434761,217.1933918914515,True,similarity,Normalised SCP,cluster_4,cluster,group_contribution
+1,913,0.8751369112814896,-0.024863088718510395,188.21310303356512,True,similarity,Normalised SCP,cluster_4,cluster,group_contribution
+2,343,0.9067055393586005,0.006705539358600521,181.27885558760264,True,similarity,Normalised SCP,cluster_4,cluster,group_contribution
+4,12,0.9166666666666666,0.016666666666666607,153.8060725628468,True,similarity,Normalised SCP,cluster_4,cluster,group_contribution
+Polyimines,8,0.625,-0.275,197.83868665958036,False,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyureas,39,0.6410256410256411,-0.25897435897435894,228.15905590639022,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyurethanes,172,0.7325581395348837,-0.16744186046511633,167.07331327348604,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polysulfides,9,0.7777777777777778,-0.12222222222222223,355.2786280332759,False,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyacrylics,437,0.8466819221967964,-0.053318077803203634,216.78755609353635,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyethers,215,0.8651162790697674,-0.03488372093023262,194.36011152448185,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyamides,761,0.8699080157687253,-0.030091984231274682,198.05180404865783,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyvinyls,98,0.8775510204081632,-0.022448979591836782,304.60587837799267,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyesters,745,0.8832214765100671,-0.016778523489932917,176.7024005916979,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyimides,26,0.8846153846153846,-0.015384615384615441,178.33055901362917,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polydienes,9,0.8888888888888888,-0.011111111111111183,208.5215879423046,False,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polysulfones,49,0.8979591836734694,-0.0020408163265306367,160.0885471103219,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyphenylenes,108,0.9074074074074074,0.007407407407407418,245.30055247934246,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyhalo-olefins,12,0.9166666666666666,0.016666666666666607,327.2869695681498,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polycarbonates,91,0.9560439560439561,0.05604395604395607,155.31898279788044,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,136.09822469192684,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyolefins,36,0.9722222222222222,0.07222222222222219,496.7690581579492,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polystyrenes,21,1.0,0.09999999999999998,233.98348576467006,True,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polysiloxanes,4,1.0,0.09999999999999998,224.9592311860666,False,family,Normalised SCP,cluster_4,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,126.2514539821929,False,family,Normalised SCP,cluster_4,cluster,group_contribution
+0,736,0.8627717391304348,-0.03722826086956521,204.19138171571922,True,similarity,SCP,cluster_5,cluster,group_contribution
+3,85,0.9294117647058824,0.02941176470588236,204.19138171571916,True,similarity,SCP,cluster_5,cluster,group_contribution
+1,730,0.9342465753424658,0.03424657534246578,204.19138171571922,True,similarity,SCP,cluster_5,cluster,group_contribution
+2,393,0.9363867684478372,0.03638676844783717,204.19138171571925,True,similarity,SCP,cluster_5,cluster,group_contribution
+4,5,1.0,0.09999999999999998,204.19138171571922,False,similarity,SCP,cluster_5,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polyureas,10,0.5,-0.4,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyvinyls,18,0.6666666666666666,-0.2333333333333334,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyimines,6,0.6666666666666666,-0.2333333333333334,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polyphenylenes,3,0.6666666666666666,-0.2333333333333334,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polyimides,13,0.7692307692307693,-0.13076923076923075,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyurethanes,128,0.796875,-0.10312500000000002,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polydienes,5,0.8,-0.09999999999999998,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polyacrylics,433,0.8683602771362586,-0.03163972286374139,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyamides,395,0.9215189873417722,0.021518987341772156,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyethers,154,0.922077922077922,0.02207792207792203,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyesters,649,0.9506933744221879,0.05069337442218791,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polycarbonates,69,0.9710144927536232,0.07101449275362315,204.19138171571916,True,family,SCP,cluster_5,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,204.19138171571922,True,family,SCP,cluster_5,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,204.19138171571922,False,family,SCP,cluster_5,cluster,group_contribution
+3,85,0.9647058823529412,0.06470588235294117,252.96189526451786,True,similarity,Mondrian-similarity,cluster_5,cluster,group_contribution
+2,393,0.9669211195928753,0.06692111959287528,248.5833390516929,True,similarity,Mondrian-similarity,cluster_5,cluster,group_contribution
+0,736,0.9959239130434783,0.09592391304347825,433.1267697714366,True,similarity,Mondrian-similarity,cluster_5,cluster,group_contribution
+1,730,0.9972602739726028,0.09726027397260273,444.0322256605218,True,similarity,Mondrian-similarity,cluster_5,cluster,group_contribution
+4,5,1.0,0.09999999999999998,193.60026146279387,False,similarity,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,444.0322256605218,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyureas,10,0.9,0.0,438.57949771597924,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyurethanes,128,0.90625,0.006249999999999978,351.2300031311021,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyamides,395,0.9949367088607595,0.09493670886075944,411.3694332535874,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyesters,649,0.9953775038520801,0.0953775038520801,385.29844633091074,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyacrylics,433,0.9953810623556582,0.09538106235565813,396.88915630480204,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyethers,154,1.0,0.09999999999999998,396.0384077202693,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polydienes,5,1.0,0.09999999999999998,322.4007113395905,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyimides,13,1.0,0.09999999999999998,294.0237402854861,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyvinyls,18,1.0,0.09999999999999998,413.2024806773325,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polycarbonates,69,1.0,0.09999999999999998,375.87964516928,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,313.73296792130253,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,417.116441856446,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,388.3040570281816,True,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyimines,6,1.0,0.09999999999999998,434.944345752951,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyphenylenes,3,1.0,0.09999999999999998,371.61229286485553,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,444.0322256605218,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,444.0322256605218,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,433.1267697714368,False,family,Mondrian-similarity,cluster_5,cluster,group_contribution
+0,736,0.8790760869565217,-0.020923913043478293,212.60186675558546,True,similarity,Mondrian-family,cluster_5,cluster,group_contribution
+3,85,0.9411764705882353,0.04117647058823526,209.52970853457967,True,similarity,Mondrian-family,cluster_5,cluster,group_contribution
+2,393,0.9440203562340967,0.044020356234096725,206.8231247821659,True,similarity,Mondrian-family,cluster_5,cluster,group_contribution
+1,730,0.9506849315068493,0.05068493150684927,211.08114473411672,True,similarity,Mondrian-family,cluster_5,cluster,group_contribution
+4,5,1.0,0.09999999999999998,238.6459766229268,False,similarity,Mondrian-family,cluster_5,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,204.19138171571922,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyureas,10,0.5,-0.4,204.19138171571922,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyimines,6,0.6666666666666666,-0.2333333333333334,204.19138171571922,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyimides,13,0.6923076923076923,-0.20769230769230773,160.86455174024786,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyurethanes,128,0.796875,-0.10312500000000002,204.19138171571922,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polydienes,5,0.8,-0.09999999999999998,204.19138171571922,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyacrylics,433,0.8729792147806005,-0.027020785219399546,208.02830473345554,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyethers,154,0.935064935064935,0.03506493506493502,223.0223470666924,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyesters,649,0.9506933744221879,0.05069337442218791,204.19138171571922,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,204.19138171571922,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyamides,395,0.9670886075949368,0.06708860759493673,222.11048607751403,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polycarbonates,69,0.9710144927536232,0.07101449275362315,204.19138171571916,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyvinyls,18,1.0,0.09999999999999998,350.87140585448947,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,228.43697932927316,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,128.30758221398673,True,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyphenylenes,3,1.0,0.09999999999999998,265.18692170450004,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,170.11234449156655,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,321.4484337167329,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,204.19138171571922,False,family,Mondrian-family,cluster_5,cluster,group_contribution
+0,736,0.8546195652173914,-0.04538043478260867,201.31552567397495,True,similarity,Normalised SCP,cluster_5,cluster,group_contribution
+2,393,0.905852417302799,0.005852417302798951,181.7986242357555,True,similarity,Normalised SCP,cluster_5,cluster,group_contribution
+1,730,0.9095890410958904,0.009589041095890427,197.23766465073234,True,similarity,Normalised SCP,cluster_5,cluster,group_contribution
+3,85,0.9176470588235294,0.01764705882352935,175.9984188908697,True,similarity,Normalised SCP,cluster_5,cluster,group_contribution
+4,5,1.0,0.09999999999999998,159.17091569698485,False,similarity,Normalised SCP,cluster_5,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,400.5578725152932,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyphenylenes,3,0.0,-0.9,131.17189894383716,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyvinyls,18,0.5555555555555556,-0.34444444444444444,220.06992146081132,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyurethanes,128,0.6875,-0.21250000000000002,170.4557142077378,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyimines,6,0.8333333333333334,-0.06666666666666665,221.6191382116091,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyethers,154,0.8376623376623377,-0.06233766233766236,182.82491926787867,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyacrylics,433,0.8960739030023095,-0.003926096997690531,240.78141006823375,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyureas,10,0.9,0.0,309.2969107298256,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyamides,395,0.9139240506329114,0.013924050632911356,189.26255492675176,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyesters,649,0.9167950693374423,0.016795069337442237,176.95273651197115,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polycarbonates,69,0.9420289855072463,0.04202898550724632,178.21966154030375,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,170.6577384384848,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyimides,13,1.0,0.09999999999999998,199.73793430811904,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polydienes,5,1.0,0.09999999999999998,244.25749812021922,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,188.67467943632752,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,133.41654449968834,True,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,125.77059708387051,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polyphosphazenes,4,1.0,0.09999999999999998,111.20863482699798,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,200.04184495649667,False,family,Normalised SCP,cluster_5,cluster,group_contribution
+0,1497,0.7261189044756179,-0.17388109552438213,179.2940406166459,True,similarity,SCP,cluster_6,cluster,group_contribution
+1,1076,0.8447955390334573,-0.055204460966542745,179.2940406166459,True,similarity,SCP,cluster_6,cluster,group_contribution
+2,301,0.9235880398671097,0.023588039867109667,179.2940406166459,True,similarity,SCP,cluster_6,cluster,group_contribution
+3,102,0.9411764705882353,0.04117647058823526,179.29404061664587,True,similarity,SCP,cluster_6,cluster,group_contribution
+4,10,1.0,0.09999999999999998,179.2940406166459,True,similarity,SCP,cluster_6,cluster,group_contribution
+Polyureas,4,0.25,-0.65,179.29404061664593,False,family,SCP,cluster_6,cluster,group_contribution
+Polyolefins,47,0.6382978723404256,-0.26170212765957446,179.29404061664593,True,family,SCP,cluster_6,cluster,group_contribution
+Polyphosphazenes,3,0.6666666666666666,-0.2333333333333334,179.29404061664593,False,family,SCP,cluster_6,cluster,group_contribution
+Polyesters,74,0.7027027027027027,-0.19729729729729728,179.2940406166459,True,family,SCP,cluster_6,cluster,group_contribution
+Polyhalo-olefins,7,0.7142857142857143,-0.18571428571428572,179.29404061664596,False,family,SCP,cluster_6,cluster,group_contribution
+Polyphenylenes,248,0.717741935483871,-0.18225806451612903,179.2940406166459,True,family,SCP,cluster_6,cluster,group_contribution
+Polydienes,15,0.7333333333333333,-0.16666666666666674,179.29404061664587,True,family,SCP,cluster_6,cluster,group_contribution
+Polysiloxanes,4,0.75,-0.15000000000000002,179.29404061664593,False,family,SCP,cluster_6,cluster,group_contribution
+Polyethers,472,0.788135593220339,-0.11186440677966103,179.29404061664584,True,family,SCP,cluster_6,cluster,group_contribution
+Polyimides,1608,0.7885572139303483,-0.11144278606965174,179.29404061664587,True,family,SCP,cluster_6,cluster,group_contribution
+Polyacrylics,34,0.8235294117647058,-0.07647058823529418,179.29404061664596,True,family,SCP,cluster_6,cluster,group_contribution
+Polyvinyls,17,0.8823529411764706,-0.01764705882352946,179.29404061664593,True,family,SCP,cluster_6,cluster,group_contribution
+Polysulfides,32,0.90625,0.006249999999999978,179.29404061664593,True,family,SCP,cluster_6,cluster,group_contribution
+Polysulfones,154,0.9090909090909091,0.009090909090909038,179.2940406166459,True,family,SCP,cluster_6,cluster,group_contribution
+Polyamides,210,0.9142857142857143,0.014285714285714235,179.29404061664587,True,family,SCP,cluster_6,cluster,group_contribution
+Polyimines,36,0.9166666666666666,0.016666666666666607,179.29404061664596,True,family,SCP,cluster_6,cluster,group_contribution
+Polystyrenes,10,1.0,0.09999999999999998,179.2940406166459,True,family,SCP,cluster_6,cluster,group_contribution
+Polyurethanes,8,1.0,0.09999999999999998,179.29404061664593,False,family,SCP,cluster_6,cluster,group_contribution
+Polycarbonates,3,1.0,0.09999999999999998,179.29404061664593,False,family,SCP,cluster_6,cluster,group_contribution
+2,301,0.9269102990033222,0.026910299003322202,185.62283400674778,True,similarity,Mondrian-similarity,cluster_6,cluster,group_contribution
+3,102,0.9411764705882353,0.04117647058823526,196.3622486884556,True,similarity,Mondrian-similarity,cluster_6,cluster,group_contribution
+1,1076,0.9563197026022305,0.056319702602230515,253.39333384768307,True,similarity,Mondrian-similarity,cluster_6,cluster,group_contribution
+0,1497,0.9879759519038076,0.08797595190380758,435.05694708598634,True,similarity,Mondrian-similarity,cluster_6,cluster,group_contribution
+4,10,1.0,0.09999999999999998,179.2940406166459,True,similarity,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyacrylics,34,0.8823529411764706,-0.01764705882352946,262.16434886833053,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyesters,74,0.8918918918918919,-0.008108108108108136,271.57535893336524,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyimines,36,0.9444444444444444,0.0444444444444444,291.57749869386913,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyphenylenes,248,0.9596774193548387,0.05967741935483872,407.3200818610526,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyethers,472,0.9703389830508474,0.0703389830508474,333.1631420898957,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyimides,1608,0.9713930348258707,0.07139303482587067,342.1127555781044,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyamides,210,0.9761904761904762,0.07619047619047614,240.31738310778715,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyolefins,47,0.9787234042553191,0.0787234042553191,379.5024559120038,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polysulfones,154,0.9805194805194806,0.08051948051948055,303.3806140307778,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyhalo-olefins,7,1.0,0.09999999999999998,409.1050023376574,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polysulfides,32,1.0,0.09999999999999998,408.1133391911401,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polydienes,15,1.0,0.09999999999999998,410.83513198754594,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyurethanes,8,1.0,0.09999999999999998,281.0755130232623,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polystyrenes,10,1.0,0.09999999999999998,319.28172915891093,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyvinyls,17,1.0,0.09999999999999998,360.25428281139085,True,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polysiloxanes,4,1.0,0.09999999999999998,327.28251550660093,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyphosphazenes,3,1.0,0.09999999999999998,435.0569470859864,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polycarbonates,3,1.0,0.09999999999999998,294.9375098740417,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+Polyureas,4,1.0,0.09999999999999998,389.6410437764106,False,family,Mondrian-similarity,cluster_6,cluster,group_contribution
+0,1497,0.7060788243152972,-0.1939211756847028,171.56499786143917,True,similarity,Mondrian-family,cluster_6,cluster,group_contribution
+1,1076,0.8271375464684015,-0.07286245353159848,167.76477678452477,True,similarity,Mondrian-family,cluster_6,cluster,group_contribution
+2,301,0.920265780730897,0.02026578073089702,174.79731408334666,True,similarity,Mondrian-family,cluster_6,cluster,group_contribution
+3,102,0.9313725490196079,0.03137254901960784,177.5952247890889,True,similarity,Mondrian-family,cluster_6,cluster,group_contribution
+4,10,1.0,0.09999999999999998,183.05569005736746,True,similarity,Mondrian-family,cluster_6,cluster,group_contribution
+Polyureas,4,0.25,-0.65,179.29404061664593,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyolefins,47,0.44680851063829785,-0.45319148936170217,124.14213187499071,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyesters,74,0.6621621621621622,-0.23783783783783785,150.94817028992338,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyphosphazenes,3,0.6666666666666666,-0.2333333333333334,176.86029723418676,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyhalo-olefins,7,0.7142857142857143,-0.18571428571428572,179.29404061664596,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polydienes,15,0.7333333333333333,-0.16666666666666674,179.29404061664587,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyimides,1608,0.7487562189054726,-0.1512437810945274,160.018172715859,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polysiloxanes,4,0.75,-0.15000000000000002,196.36224868845557,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyphenylenes,248,0.7580645161290323,-0.14193548387096777,199.19975980333584,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyethers,472,0.8199152542372882,-0.08008474576271185,189.34334951198116,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyacrylics,34,0.8235294117647058,-0.07647058823529418,178.12129267366677,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyvinyls,17,0.8823529411764706,-0.01764705882352946,169.1660599699877,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polystyrenes,10,0.9,0.0,157.70126141312153,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polysulfides,32,0.90625,0.006249999999999978,179.29404061664593,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polysulfones,154,0.9090909090909091,0.009090909090909038,179.2940406166459,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyimines,36,0.9166666666666666,0.016666666666666607,179.29404061664596,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyamides,210,0.919047619047619,0.01904761904761898,181.89473665259152,True,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polyurethanes,8,1.0,0.09999999999999998,224.45083706301898,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+Polycarbonates,3,1.0,0.09999999999999998,179.29404061664593,False,family,Mondrian-family,cluster_6,cluster,group_contribution
+0,1497,0.843687374749499,-0.05631262525050107,236.54180708078383,True,similarity,Normalised SCP,cluster_6,cluster,group_contribution
+1,1076,0.9247211895910781,0.024721189591078052,219.0784981547158,True,similarity,Normalised SCP,cluster_6,cluster,group_contribution
+2,301,0.9368770764119602,0.03687707641196014,198.86179413961133,True,similarity,Normalised SCP,cluster_6,cluster,group_contribution
+3,102,0.9509803921568627,0.050980392156862675,217.88171319951778,True,similarity,Normalised SCP,cluster_6,cluster,group_contribution
+4,10,1.0,0.09999999999999998,192.711710911813,True,similarity,Normalised SCP,cluster_6,cluster,group_contribution
+Polyureas,4,0.5,-0.4,203.31078551625782,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyacrylics,34,0.7058823529411765,-0.1941176470588235,150.7796225707722,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyesters,74,0.7297297297297297,-0.1702702702702703,192.14909512626238,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polydienes,15,0.7333333333333333,-0.16666666666666674,215.37404754840128,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polysiloxanes,4,0.75,-0.15000000000000002,213.97375483017498,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyphenylenes,248,0.8225806451612904,-0.07741935483870965,242.2886501756044,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyolefins,47,0.8297872340425532,-0.07021276595744685,201.4723029363663,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyhalo-olefins,7,0.8571428571428571,-0.04285714285714293,234.589859765051,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyethers,472,0.864406779661017,-0.035593220338983045,215.6655218169019,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyvinyls,17,0.8823529411764706,-0.01764705882352946,219.42549679592472,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyimides,1608,0.9011194029850746,0.0011194029850746245,231.8833776754443,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polysulfides,32,0.90625,0.006249999999999978,245.9488736810897,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyimines,36,0.9166666666666666,0.016666666666666607,225.12326774003583,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polysulfones,154,0.9415584415584416,0.04155844155844157,223.90100100653345,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyamides,210,0.9571428571428572,0.05714285714285716,211.66387059247063,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyurethanes,8,1.0,0.09999999999999998,182.93614262295102,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polystyrenes,10,1.0,0.09999999999999998,217.90773451789923,True,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polyphosphazenes,3,1.0,0.09999999999999998,301.2558700372604,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+Polycarbonates,3,1.0,0.09999999999999998,183.88860242175542,False,family,Normalised SCP,cluster_6,cluster,group_contribution
+0,960,0.7875,-0.11250000000000004,175.28746132051265,True,similarity,SCP,cluster_7,cluster,group_contribution
+3,118,0.8898305084745762,-0.01016949152542379,175.28746132051268,True,similarity,SCP,cluster_7,cluster,group_contribution
+1,758,0.8970976253298153,-0.0029023746701847264,175.28746132051262,True,similarity,SCP,cluster_7,cluster,group_contribution
+2,344,0.9098837209302325,0.009883720930232487,175.28746132051265,True,similarity,SCP,cluster_7,cluster,group_contribution
+4,6,1.0,0.09999999999999998,175.28746132051265,False,similarity,SCP,cluster_7,cluster,group_contribution
+Polyolefins,7,0.0,-0.9,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+Polyureas,10,0.5,-0.4,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyphosphazenes,94,0.5531914893617021,-0.3468085106382979,175.28746132051268,True,family,SCP,cluster_7,cluster,group_contribution
+Polyvinyls,19,0.631578947368421,-0.268421052631579,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyimides,13,0.6923076923076923,-0.20769230769230773,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyurethanes,130,0.7,-0.20000000000000007,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polydienes,11,0.7272727272727273,-0.17272727272727273,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+Polyacrylics,464,0.8060344827586207,-0.09396551724137936,175.28746132051268,True,family,SCP,cluster_7,cluster,group_contribution
+Polyethers,164,0.8719512195121951,-0.028048780487804903,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyamides,434,0.9032258064516129,0.003225806451612856,175.28746132051262,True,family,SCP,cluster_7,cluster,group_contribution
+Polycarbonates,92,0.9130434782608695,0.01304347826086949,175.28746132051268,True,family,SCP,cluster_7,cluster,group_contribution
+Polyesters,674,0.9198813056379822,0.019881305637982183,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,175.28746132051265,True,family,SCP,cluster_7,cluster,group_contribution
+Polyphenylenes,3,1.0,0.09999999999999998,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,175.28746132051265,False,family,SCP,cluster_7,cluster,group_contribution
+3,118,0.9491525423728814,0.04915254237288136,207.6909467127893,True,similarity,Mondrian-similarity,cluster_7,cluster,group_contribution
+2,344,0.9767441860465116,0.07674418604651156,287.9700816644632,True,similarity,Mondrian-similarity,cluster_7,cluster,group_contribution
+1,758,0.9894459102902374,0.08944591029023741,287.60691882981604,True,similarity,Mondrian-similarity,cluster_7,cluster,group_contribution
+0,960,0.9958333333333333,0.09583333333333333,456.0673119733883,True,similarity,Mondrian-similarity,cluster_7,cluster,group_contribution
+4,6,1.0,0.09999999999999998,148.4302065416723,False,similarity,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,287.606918829816,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyureas,10,0.8,-0.09999999999999998,287.606918829816,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyurethanes,130,0.9230769230769231,0.023076923076923106,344.5677159407142,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyacrylics,464,0.9892241379310345,0.08922413793103445,364.4269443516959,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyphosphazenes,94,0.9893617021276596,0.08936170212765959,436.35386171190646,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyethers,164,0.9939024390243902,0.09390243902439022,365.93309722561975,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyesters,674,0.9940652818991098,0.09406528189910979,328.4856588252155,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyamides,434,0.9953917050691244,0.09539170506912442,383.29236313036535,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyolefins,7,1.0,0.09999999999999998,432.00154152430656,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyimines,9,1.0,0.09999999999999998,399.91384759219756,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyvinyls,19,1.0,0.09999999999999998,372.0641798465895,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyimides,13,1.0,0.09999999999999998,269.36032063685064,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,281.15909947360797,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polycarbonates,92,1.0,0.09999999999999998,350.3378561492259,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyanhydrides,23,1.0,0.09999999999999998,294.97865281449054,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polydienes,11,1.0,0.09999999999999998,394.90803160335673,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,353.6051515457024,True,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polyphenylenes,3,1.0,0.09999999999999998,400.03490187041325,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,287.606918829816,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,456.0673119733883,False,family,Mondrian-similarity,cluster_7,cluster,group_contribution
+0,960,0.8020833333333334,-0.09791666666666665,185.76651874114154,True,similarity,Mondrian-family,cluster_7,cluster,group_contribution
+3,118,0.9152542372881356,0.015254237288135575,193.9311073272598,True,similarity,Mondrian-family,cluster_7,cluster,group_contribution
+2,344,0.9186046511627907,0.018604651162790642,196.450733010687,True,similarity,Mondrian-family,cluster_7,cluster,group_contribution
+1,758,0.920844327176781,0.020844327176780975,194.204052093784,True,similarity,Mondrian-family,cluster_7,cluster,group_contribution
+4,6,1.0,0.09999999999999998,187.8630684806092,False,similarity,Mondrian-family,cluster_7,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,175.28746132051265,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyureas,10,0.5,-0.4,175.28746132051265,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyphosphazenes,94,0.5531914893617021,-0.3468085106382979,175.28746132051268,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyimides,13,0.6923076923076923,-0.20769230769230773,138.37224891209442,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyurethanes,130,0.7,-0.20000000000000007,175.28746132051265,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polydienes,11,0.7272727272727273,-0.17272727272727273,175.28746132051265,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyvinyls,19,0.7368421052631579,-0.16315789473684217,218.79918215131,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,175.28746132051265,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyamides,434,0.8317972350230415,-0.06820276497695854,145.11900016988923,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyacrylics,464,0.8620689655172413,-0.037931034482758696,207.69094671278938,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyethers,164,0.8841463414634146,-0.01585365853658538,183.97806913942205,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polycarbonates,92,0.9130434782608695,0.01304347826086949,175.28746132051268,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,175.28746132051265,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyesters,674,0.9673590504451038,0.06735905044510382,216.10259464716208,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polystyrenes,12,1.0,0.09999999999999998,215.115591724453,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyolefins,7,1.0,0.09999999999999998,417.783226013762,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,185.4496600129649,True,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polyphenylenes,3,1.0,0.09999999999999998,283.8783931080468,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,171.0268798671924,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,175.28746132051265,False,family,Mondrian-family,cluster_7,cluster,group_contribution
+3,118,0.8135593220338984,-0.08644067796610166,147.99259732406577,True,similarity,Normalised SCP,cluster_7,cluster,group_contribution
+0,960,0.8145833333333333,-0.0854166666666667,184.1494727505297,True,similarity,Normalised SCP,cluster_7,cluster,group_contribution
+4,6,0.8333333333333334,-0.06666666666666665,117.67165601302952,False,similarity,Normalised SCP,cluster_7,cluster,group_contribution
+2,344,0.8575581395348837,-0.04244186046511633,150.8932177685529,True,similarity,Normalised SCP,cluster_7,cluster,group_contribution
+1,758,0.8825857519788918,-0.017414248021108247,167.27512403255741,True,similarity,Normalised SCP,cluster_7,cluster,group_contribution
+Polyhalo-olefins,1,0.0,-0.9,225.5032023630663,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyphenylenes,3,0.0,-0.9,121.28985703416555,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyolefins,7,0.42857142857142855,-0.4714285714285715,262.91243932080226,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyvinyls,19,0.5263157894736842,-0.37368421052631584,202.28682905020577,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyurethanes,130,0.5923076923076923,-0.3076923076923077,149.33576855747472,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyureas,10,0.6,-0.30000000000000004,237.134013813271,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyphosphazenes,94,0.7127659574468085,-0.18723404255319154,240.30491137314203,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,188.97021287210646,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyacrylics,464,0.8038793103448276,-0.0961206896551724,178.65339017844965,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyethers,164,0.8048780487804879,-0.09512195121951217,153.6813452650955,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polydienes,11,0.8181818181818182,-0.08181818181818179,188.3822833331584,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyimides,13,0.8461538461538461,-0.05384615384615388,165.44528913671533,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polycarbonates,92,0.8478260869565217,-0.05217391304347829,162.8926677888446,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyesters,674,0.8976261127596439,-0.002373887240356143,158.80073721219077,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polystyrenes,12,0.9166666666666666,0.016666666666666607,149.3098830034755,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyamides,434,0.9447004608294931,0.04470046082949308,181.2277665136164,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polyanhydrides,23,0.9565217391304348,0.05652173913043479,154.98202189792153,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polysulfones,23,1.0,0.09999999999999998,108.22869733878456,True,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polysiloxanes,1,1.0,0.09999999999999998,159.76441467974163,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+Polysulfides,2,1.0,0.09999999999999998,154.47893715475982,False,family,Normalised SCP,cluster_7,cluster,group_contribution
+0,2327,0.6153846153846154,-0.2846153846153846,152.92105246118743,True,similarity,SCP,cluster_8,cluster,group_contribution
+1,1120,0.8026785714285715,-0.09732142857142856,152.9210524611874,True,similarity,SCP,cluster_8,cluster,group_contribution
+3,63,0.8253968253968254,-0.07460317460317467,152.9210524611875,True,similarity,SCP,cluster_8,cluster,group_contribution
+2,315,0.834920634920635,-0.06507936507936507,152.9210524611874,True,similarity,SCP,cluster_8,cluster,group_contribution
+4,2,1.0,0.09999999999999998,152.9210524611874,False,similarity,SCP,cluster_8,cluster,group_contribution
+Polyphosphazenes,3,0.3333333333333333,-0.5666666666666667,152.9210524611874,False,family,SCP,cluster_8,cluster,group_contribution
+Polyphenylenes,256,0.56640625,-0.33359375,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polyhalo-olefins,52,0.5769230769230769,-0.32307692307692315,152.92105246118737,True,family,SCP,cluster_8,cluster,group_contribution
+Polydienes,57,0.5789473684210527,-0.32105263157894737,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polyamides,563,0.6536412078152753,-0.24635879218472467,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polystyrenes,15,0.6666666666666666,-0.2333333333333334,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polyimides,1614,0.6691449814126395,-0.23085501858736057,152.92105246118737,True,family,SCP,cluster_8,cluster,group_contribution
+Polyethers,526,0.720532319391635,-0.17946768060836504,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polyesters,132,0.7272727272727273,-0.17272727272727273,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polysiloxanes,8,0.75,-0.15000000000000002,152.9210524611874,False,family,SCP,cluster_8,cluster,group_contribution
+Polyolefins,111,0.7747747747747747,-0.12522522522522528,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polysulfones,194,0.7783505154639175,-0.12164948453608249,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polyureas,32,0.8125,-0.08750000000000002,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polysulfides,38,0.8157894736842105,-0.08421052631578951,152.92105246118737,True,family,SCP,cluster_8,cluster,group_contribution
+Polyvinyls,91,0.8791208791208791,-0.020879120879120916,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polyacrylics,67,0.8805970149253731,-0.0194029850746269,152.92105246118743,True,family,SCP,cluster_8,cluster,group_contribution
+Polycarbonates,24,0.9583333333333334,0.05833333333333335,152.9210524611874,True,family,SCP,cluster_8,cluster,group_contribution
+Polyurethanes,9,1.0,0.09999999999999998,152.9210524611874,False,family,SCP,cluster_8,cluster,group_contribution
+Polyimines,35,1.0,0.09999999999999998,152.92105246118737,True,family,SCP,cluster_8,cluster,group_contribution
+0,2327,0.6153846153846154,-0.2846153846153846,152.92105246118743,True,similarity,Mondrian-similarity,cluster_8,cluster,group_contribution
+3,63,0.7936507936507936,-0.10634920634920642,151.1688958939033,True,similarity,Mondrian-similarity,cluster_8,cluster,group_contribution
+1,1120,0.8901785714285714,-0.009821428571428648,188.66835646020854,True,similarity,Mondrian-similarity,cluster_8,cluster,group_contribution
+2,315,0.9079365079365079,0.007936507936507908,185.01225079918768,True,similarity,Mondrian-similarity,cluster_8,cluster,group_contribution
+4,2,1.0,0.09999999999999998,132.61649893057393,False,similarity,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyphosphazenes,3,0.3333333333333333,-0.5666666666666667,152.9210524611874,False,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyhalo-olefins,52,0.5769230769230769,-0.32307692307692315,154.98339692266939,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polydienes,57,0.5789473684210527,-0.32105263157894737,156.68392656634754,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyphenylenes,256,0.5859375,-0.3140625,157.5830512971272,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyimides,1614,0.6982651796778191,-0.20173482032218093,166.31305399076092,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyamides,563,0.7158081705150977,-0.18419182948490231,169.25063091072752,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polystyrenes,15,0.7333333333333333,-0.16666666666666674,159.58303250618883,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polysiloxanes,8,0.75,-0.15000000000000002,165.1932454746546,False,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyethers,526,0.7509505703422054,-0.14904942965779466,165.5051350869992,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyesters,132,0.7651515151515151,-0.13484848484848488,172.18159580257617,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polysulfones,194,0.7989690721649485,-0.10103092783505152,168.22545881354517,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyolefins,111,0.8018018018018018,-0.0981981981981982,164.38302112173406,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polysulfides,38,0.8421052631578947,-0.05789473684210533,158.4691503120586,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyureas,32,0.84375,-0.05625000000000002,169.33484130500784,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyvinyls,91,0.8791208791208791,-0.020879120879120916,157.63498265886054,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyacrylics,67,0.8955223880597015,-0.004477611940298498,173.10504245596,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polycarbonates,24,0.9583333333333334,0.05833333333333335,169.23222693710193,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyurethanes,9,1.0,0.09999999999999998,175.9401205358635,False,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+Polyimines,35,1.0,0.09999999999999998,180.18416363234476,True,family,Mondrian-similarity,cluster_8,cluster,group_contribution
+0,2327,0.6115169746454663,-0.28848302535453374,155.61887749863558,True,similarity,Mondrian-family,cluster_8,cluster,group_contribution
+3,63,0.7142857142857143,-0.18571428571428572,141.7441161211493,True,similarity,Mondrian-family,cluster_8,cluster,group_contribution
+1,1120,0.7741071428571429,-0.12589285714285714,146.35001154729923,True,similarity,Mondrian-family,cluster_8,cluster,group_contribution
+2,315,0.7968253968253968,-0.10317460317460325,141.89995884836944,True,similarity,Mondrian-family,cluster_8,cluster,group_contribution
+4,2,1.0,0.09999999999999998,94.25965683016648,False,similarity,Mondrian-family,cluster_8,cluster,group_contribution
+Polyphosphazenes,3,0.3333333333333333,-0.5666666666666667,152.9210524611874,False,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyamides,563,0.44404973357015987,-0.45595026642984016,94.25965683016648,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyhalo-olefins,52,0.5769230769230769,-0.32307692307692315,152.92105246118737,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polydienes,57,0.5789473684210527,-0.32105263157894737,152.9210524611874,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyimides,1614,0.6517967781908303,-0.24820322180916976,148.34284596964068,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyesters,132,0.7121212121212122,-0.18787878787878787,139.52354251492088,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polystyrenes,15,0.7333333333333333,-0.16666666666666674,158.84934552725173,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polysiloxanes,8,0.75,-0.15000000000000002,147.68840273956823,False,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyethers,526,0.7737642585551331,-0.12623574144486693,168.5968418612452,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyolefins,111,0.7747747747747747,-0.12522522522522528,152.92105246118743,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polysulfones,194,0.7783505154639175,-0.12164948453608249,152.9210524611874,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyvinyls,91,0.7912087912087912,-0.10879120879120885,128.21091860704524,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyureas,32,0.8125,-0.08750000000000002,152.9210524611874,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polysulfides,38,0.8157894736842105,-0.08421052631578951,152.92105246118737,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyphenylenes,256,0.8203125,-0.07968750000000002,256.931543299916,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyacrylics,67,0.9104477611940298,0.010447761194029792,211.8546871074068,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polycarbonates,24,0.9583333333333334,0.05833333333333335,152.9210524611874,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyurethanes,9,1.0,0.09999999999999998,174.04057273459614,False,family,Mondrian-family,cluster_8,cluster,group_contribution
+Polyimines,35,1.0,0.09999999999999998,152.92105246118737,True,family,Mondrian-family,cluster_8,cluster,group_contribution
+0,2327,0.5818650623119896,-0.3181349376880104,157.58650805591404,True,similarity,Normalised SCP,cluster_8,cluster,group_contribution
+1,1120,0.6901785714285714,-0.2098214285714286,131.86087973018206,True,similarity,Normalised SCP,cluster_8,cluster,group_contribution
+2,315,0.7682539682539683,-0.13174603174603172,153.17176588813285,True,similarity,Normalised SCP,cluster_8,cluster,group_contribution
+3,63,0.7936507936507936,-0.10634920634920642,157.05250281519787,True,similarity,Normalised SCP,cluster_8,cluster,group_contribution
+4,2,1.0,0.09999999999999998,151.33310433603265,False,similarity,Normalised SCP,cluster_8,cluster,group_contribution
+Polyphosphazenes,3,0.3333333333333333,-0.5666666666666667,191.02341477865446,False,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyimides,1614,0.5,-0.4,123.8808427854882,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyureas,32,0.53125,-0.36875,107.2258208778248,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyamides,563,0.6252220248667851,-0.2747779751332149,141.6247816982032,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polydienes,57,0.6491228070175439,-0.25087719298245614,225.37403010372208,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyphenylenes,256,0.69921875,-0.20078125000000002,193.56118086550833,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyesters,132,0.7196969696969697,-0.1803030303030303,136.73749671761607,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyethers,526,0.7319391634980988,-0.16806083650190118,157.7690355291033,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polysiloxanes,8,0.75,-0.15000000000000002,177.66670334896207,False,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polysulfones,194,0.7938144329896907,-0.10618556701030935,171.16170793738993,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyhalo-olefins,52,0.8076923076923077,-0.09230769230769231,259.7796333250868,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polysulfides,38,0.8421052631578947,-0.05789473684210533,197.80381746865814,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyolefins,111,0.8468468468468469,-0.053153153153153165,223.21720287988956,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polystyrenes,15,0.8666666666666667,-0.033333333333333326,207.00894530908937,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyvinyls,91,0.8791208791208791,-0.020879120879120916,204.14944503435137,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyacrylics,67,0.8955223880597015,-0.004477611940298498,196.00726468455187,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polycarbonates,24,0.9583333333333334,0.05833333333333335,143.19625921562348,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyurethanes,9,1.0,0.09999999999999998,111.79548290181386,False,family,Normalised SCP,cluster_8,cluster,group_contribution
+Polyimines,35,1.0,0.09999999999999998,172.30017388438083,True,family,Normalised SCP,cluster_8,cluster,group_contribution
+0,1079,0.6978683966635774,-0.20213160333642266,176.03310590641175,True,similarity,SCP,cluster_9,cluster,group_contribution
+1,336,0.7678571428571429,-0.13214285714285712,176.03310590641172,True,similarity,SCP,cluster_9,cluster,group_contribution
+3,25,0.88,-0.020000000000000018,176.03310590641172,True,similarity,SCP,cluster_9,cluster,group_contribution
+2,158,0.9050632911392406,0.005063291139240533,176.03310590641172,True,similarity,SCP,cluster_9,cluster,group_contribution
+4,3,1.0,0.09999999999999998,176.03310590641172,False,similarity,SCP,cluster_9,cluster,group_contribution
+Polyanhydrides,3,0.3333333333333333,-0.5666666666666667,176.03310590641172,False,family,SCP,cluster_9,cluster,group_contribution
+Polyphosphazenes,15,0.4,-0.5,176.03310590641178,True,family,SCP,cluster_9,cluster,group_contribution
+Polyhalo-olefins,38,0.5526315789473685,-0.34736842105263155,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polyethers,84,0.5952380952380952,-0.3047619047619048,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polysiloxanes,202,0.6039603960396039,-0.2960396039603961,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyolefins,94,0.6276595744680851,-0.27234042553191495,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polysulfones,43,0.6511627906976745,-0.24883720930232556,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polyimines,9,0.6666666666666666,-0.2333333333333334,176.03310590641172,False,family,SCP,cluster_9,cluster,group_contribution
+Polyphenylenes,242,0.6859504132231405,-0.21404958677685948,176.03310590641178,True,family,SCP,cluster_9,cluster,group_contribution
+Polystyrenes,235,0.7617021276595745,-0.13829787234042556,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polydienes,33,0.7878787878787878,-0.11212121212121218,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyacrylics,223,0.8071748878923767,-0.09282511210762334,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polyvinyls,110,0.8090909090909091,-0.09090909090909094,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polyesters,60,0.85,-0.050000000000000044,176.03310590641175,True,family,SCP,cluster_9,cluster,group_contribution
+Polysulfides,34,0.8529411764705882,-0.04705882352941182,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyamides,73,0.8767123287671232,-0.023287671232876783,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyimides,68,0.9852941176470589,0.08529411764705885,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyurethanes,11,1.0,0.09999999999999998,176.03310590641172,True,family,SCP,cluster_9,cluster,group_contribution
+Polyureas,1,1.0,0.09999999999999998,176.03310590641172,False,family,SCP,cluster_9,cluster,group_contribution
+Polycarbonates,23,1.0,0.09999999999999998,176.03310590641178,True,family,SCP,cluster_9,cluster,group_contribution
+0,1079,0.6978683966635774,-0.20213160333642266,176.03310590641175,True,similarity,Mondrian-similarity,cluster_9,cluster,group_contribution
+1,336,0.9107142857142857,0.010714285714285676,257.3228853835373,True,similarity,Mondrian-similarity,cluster_9,cluster,group_contribution
+3,25,0.92,0.020000000000000018,205.9844253271907,True,similarity,Mondrian-similarity,cluster_9,cluster,group_contribution
+2,158,0.9556962025316456,0.05569620253164553,244.31106705390283,True,similarity,Mondrian-similarity,cluster_9,cluster,group_contribution
+4,3,1.0,0.09999999999999998,167.17737589971455,False,similarity,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyanhydrides,3,0.3333333333333333,-0.5666666666666667,203.1296990654536,False,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyphosphazenes,15,0.4666666666666667,-0.43333333333333335,197.7103804336452,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyhalo-olefins,38,0.5789473684210527,-0.32105263157894737,182.45072007565852,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyethers,84,0.6428571428571429,-0.2571428571428571,196.70367584900967,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polysiloxanes,202,0.6435643564356436,-0.25643564356435644,203.62593101216382,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyimines,9,0.6666666666666666,-0.2333333333333334,185.06530362609234,False,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyolefins,94,0.6702127659574468,-0.2297872340425532,187.72482354142085,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyphenylenes,242,0.7272727272727273,-0.17272727272727273,196.68717398915305,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polystyrenes,235,0.7702127659574468,-0.1297872340425532,189.89705874932096,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polydienes,33,0.7878787878787878,-0.11212121212121218,188.34973916052166,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polysulfones,43,0.7906976744186046,-0.10930232558139541,232.89662040204905,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyvinyls,110,0.8272727272727273,-0.07272727272727275,200.8419525932873,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polysulfides,34,0.8529411764705882,-0.04705882352941182,194.12753130610622,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyamides,73,0.8767123287671232,-0.023287671232876783,201.37266041451818,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyacrylics,223,0.8789237668161435,-0.02107623318385654,214.11909181745034,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyesters,60,0.8833333333333333,-0.01666666666666672,227.62392855856856,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyureas,1,1.0,0.09999999999999998,176.03310590641172,False,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyurethanes,11,1.0,0.09999999999999998,205.59302571627558,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polyimides,68,1.0,0.09999999999999998,189.24068321538073,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+Polycarbonates,23,1.0,0.09999999999999998,200.77347357336302,True,family,Mondrian-similarity,cluster_9,cluster,group_contribution
+0,1079,0.732159406858202,-0.167840593141798,185.91730532326966,True,similarity,Mondrian-family,cluster_9,cluster,group_contribution
+1,336,0.7827380952380952,-0.11726190476190479,184.54581879470464,True,similarity,Mondrian-family,cluster_9,cluster,group_contribution
+2,158,0.8670886075949367,-0.032911392405063356,177.50967251189707,True,similarity,Mondrian-family,cluster_9,cluster,group_contribution
+3,25,0.92,0.020000000000000018,194.9123331766876,True,similarity,Mondrian-family,cluster_9,cluster,group_contribution
+4,3,1.0,0.09999999999999998,190.8020836964637,False,similarity,Mondrian-family,cluster_9,cluster,group_contribution
+Polysulfones,43,0.18604651162790697,-0.713953488372093,74.54569757905574,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyanhydrides,3,0.3333333333333333,-0.5666666666666667,176.03310590641172,False,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyethers,84,0.5357142857142857,-0.3642857142857143,137.50666537678393,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyhalo-olefins,38,0.5526315789473685,-0.34736842105263155,176.03310590641175,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polysiloxanes,202,0.6039603960396039,-0.2960396039603961,176.03310590641172,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyolefins,94,0.6276595744680851,-0.27234042553191495,176.03310590641172,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyimines,9,0.6666666666666666,-0.2333333333333334,176.03310590641172,False,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polystyrenes,235,0.7617021276595745,-0.13829787234042556,176.03310590641175,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polydienes,33,0.7878787878787878,-0.11212121212121218,176.03310590641172,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyamides,73,0.821917808219178,-0.07808219178082199,139.36490626688692,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyphenylenes,242,0.8264462809917356,-0.07355371900826446,224.28737436389946,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyesters,60,0.85,-0.050000000000000044,162.17257155519025,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polysulfides,34,0.8529411764705882,-0.04705882352941182,176.03310590641172,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyacrylics,223,0.874439461883408,-0.02556053811659198,207.19048427163963,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyvinyls,110,0.8909090909090909,-0.00909090909090915,225.8508605508646,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyimides,68,0.9705882352941176,0.07058823529411762,148.93130755029256,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyureas,1,1.0,0.09999999999999998,176.03310590641172,False,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyphosphazenes,15,1.0,0.09999999999999998,359.6824670174622,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polyurethanes,11,1.0,0.09999999999999998,209.3147928042452,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+Polycarbonates,23,1.0,0.09999999999999998,176.03310590641178,True,family,Mondrian-family,cluster_9,cluster,group_contribution
+0,1079,0.7655236329935126,-0.13447636700648746,209.48987004383224,True,similarity,Normalised SCP,cluster_9,cluster,group_contribution
+1,336,0.8244047619047619,-0.07559523809523816,221.1720569023643,True,similarity,Normalised SCP,cluster_9,cluster,group_contribution
+2,158,0.8670886075949367,-0.032911392405063356,191.22383276760735,True,similarity,Normalised SCP,cluster_9,cluster,group_contribution
+3,25,0.92,0.020000000000000018,197.26315182925487,True,similarity,Normalised SCP,cluster_9,cluster,group_contribution
+4,3,1.0,0.09999999999999998,178.5154083958672,False,similarity,Normalised SCP,cluster_9,cluster,group_contribution
+Polyphosphazenes,15,0.4,-0.5,169.2253829585443,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polysulfones,43,0.46511627906976744,-0.4348837209302326,145.97417397971057,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyolefins,94,0.648936170212766,-0.25106382978723407,202.65582136009868,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyethers,84,0.6666666666666666,-0.2333333333333334,206.8695588008736,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyanhydrides,3,0.6666666666666666,-0.2333333333333334,361.96920680705756,False,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyphenylenes,242,0.7066115702479339,-0.19338842975206616,185.29672812279966,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polysiloxanes,202,0.7277227722772277,-0.17227722772277232,207.91189427051086,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyhalo-olefins,38,0.7368421052631579,-0.16315789473684217,222.0655420250383,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyimines,9,0.7777777777777778,-0.12222222222222223,206.96097311488134,False,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polydienes,33,0.7878787878787878,-0.11212121212121218,202.17513765224618,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polystyrenes,235,0.8127659574468085,-0.08723404255319156,194.97589467175013,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyamides,73,0.8493150684931506,-0.050684931506849384,170.16351925123908,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polysulfides,34,0.8529411764705882,-0.04705882352941182,168.83900276078745,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyvinyls,110,0.9090909090909091,0.009090909090909038,267.4416633755675,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyesters,60,0.9166666666666666,0.016666666666666607,215.1922838131375,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyacrylics,223,0.9192825112107623,0.0192825112107623,270.3173002745279,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyimides,68,0.9558823529411765,0.055882352941176494,163.80274225569386,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyurethanes,11,1.0,0.09999999999999998,190.4607300476557,True,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polyureas,1,1.0,0.09999999999999998,132.37010612762936,False,family,Normalised SCP,cluster_9,cluster,group_contribution
+Polycarbonates,23,1.0,0.09999999999999998,258.0162146670701,True,family,Normalised SCP,cluster_9,cluster,group_contribution
