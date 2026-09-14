@@ -63,7 +63,8 @@ submission** — they were not re-verified here.
 16. Vovk, V.; Gammerman, A.; Shafer, G. *Algorithmic Learning in a Random World*;
     Springer: New York, **2005**.
 17. Vovk, V. Conditional validity of inductive conformal predictors.
-    *Mach. Learn.* **2013**, *92*, 349–376. — Mondrian conformal prediction.
+    *Mach. Learn.* **2013**, *92*, 349–376. — Mondrian conformal prediction;
+    cited as [Vovk2013].
 18. Lei, J.; G'Sell, M.; Rinaldo, A.; Tibshirani, R. J.; Wasserman, L.
     Distribution-Free Predictive Inference for Regression.
     *J. Am. Stat. Assoc.* **2018**, *113* (523), 1094–1111.
@@ -74,7 +75,8 @@ submission** — they were not re-verified here.
     *Proc. Mach. Learn. Res. (COPA)* **2020**, *128*, 114–133.
 21. Barber, R. F.; Candès, E. J.; Ramdas, A.; Tibshirani, R. J. Predictive
     inference with the jackknife+. *Ann. Stat.* **2021**, *49* (1), 486–507.
-    — the cross-conformal caveat noted in Section 2.7.
+    — the data-reusing alternative to the split construction, noted in
+    Section 2.7.
 
 ## Representations and evaluation protocol
 
@@ -91,5 +93,14 @@ submission** — they were not re-verified here.
 ## Software
 
 26. Pedregosa, F.; et al. Scikit-learn: Machine Learning in Python.
-    *J. Mach. Learn. Res.* **2011**, *12*, 2825–2830.
-27. RDKit: Open-source cheminformatics. https://www.rdkit.org
+    *J. Mach. Learn. Res.* **2011**, *12*, 2825–2830. — cited as [Pedregosa2011].
+27. RDKit: Open-source cheminformatics. https://www.rdkit.org — cited as [RDKit].
+28. Teh, S. X. Polymer Glass-Transition Temperature Prediction and Polymer-Family
+    Generalisation. Software and report, GitHub repository.
+    https://github.com/tehsongxuan/Polymer-Tg-Prediction-and-Polymer-Family-Generalisation
+    (accessed 14 September 2026). — the closest prior analysis of this dataset,
+    cited as [Teh]: it reports the 7,208 → 7,174 curation audit, the 31/34/28
+    aggregation counts and the 115 K maximum within-structure range reproduced in
+    Section 3.1, and states the family-holdout confound that Section 2.5 sets out
+    to resolve. Bibliographic details were not re-verified from this environment;
+    **check the repository, its authorship and its state before submission**.

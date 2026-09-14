@@ -52,7 +52,7 @@ def table_point_by_regime(point: pd.DataFrame, out: Path) -> pd.DataFrame:
     grouped = frame.groupby(["regime", "model"]).agg(
         n_splits=("mae", "size"),
         mae_mean=("mae", "mean"), mae_sd=("mae", "std"),
-        rmse_mean=("rmse", "mean"), r2_mean=("r2", "mean"),
+        rmse_mean=("rmse", "mean"), r2_mean_of_splits=("r2", "mean"),
         similarity=("mean_nn_similarity", "mean"),
     ).reset_index()
     grouped["regime"] = pd.Categorical(grouped["regime"], REGIME_ORDER, ordered=True)
@@ -674,7 +674,7 @@ def fig_generalization_gap(point: pd.DataFrame, out: Path) -> None:
     ax.set_xticks(x)
     ax.set_xticklabels([r.capitalize() for r in REGIME_ORDER])
     ax.set_xlim(-0.3, len(REGIME_ORDER) - 1 + 1.55)
-    ax.set_ylabel("Test MAE (°C)")
+    ax.set_ylabel("Test MAE (K)")
     ax.set_xlabel("Partitioning regime, in order of enforced structural novelty")
     F.yardstick(ax)
     F.save(fig, out / "fig2_generalization_gap")
@@ -703,7 +703,7 @@ def fig_matched(matched_raw: pd.DataFrame, statistics: pd.DataFrame, out: Path) 
                    edgecolor="white", linewidth=0.4, zorder=3)
     ax.set_yticks(y)
     ax.set_yticklabels(per_family.index)
-    ax.set_xlabel("MAE on the same held-out structures (°C)")
+    ax.set_xlabel("MAE on the same held-out structures (K)")
     ax.set_ylim(-0.8, len(per_family) - 0.2)
     F.yardstick(ax, axis="x")
     ax.legend(loc="lower right", ncol=1)
@@ -715,7 +715,7 @@ def fig_matched(matched_raw: pd.DataFrame, statistics: pd.DataFrame, out: Path) 
     ax.axvline(0, color=F.HAIRLINE, linewidth=0.5)
     ax.set_yticks(y)
     ax.set_yticklabels([])
-    ax.set_xlabel("MAE penalty from removing the family (°C)")
+    ax.set_xlabel("MAE penalty from removing the family (K)")
     ax.set_ylim(-0.8, len(per_family) - 0.2)
     F.yardstick(ax, axis="x")
     F.panel(ax, "b")
@@ -731,7 +731,7 @@ def fig_matched(matched_raw: pd.DataFrame, statistics: pd.DataFrame, out: Path) 
     if not row.empty:
         r = row.iloc[0]
         ax.text(0.97, 0.06,
-                f"mean {r['mean']:+.1f} °C  (95% CI {r['ci_low']:+.1f} to "
+                f"mean {r['mean']:+.1f} K  (95% CI {r['ci_low']:+.1f} to "
                 f"{r['ci_high']:+.1f})\n{int(r['n_families_positive'])} of "
                 f"{int(r['n_families'])} families worse",
                 transform=ax.transAxes, ha="right", va="bottom", fontsize=6.3,
@@ -836,7 +836,7 @@ def fig_width_tradeoff(conformal_table: pd.DataFrame, out: Path) -> None:
                        marker=markers.get(row["regime"], "o"),
                        edgecolor="white", linewidth=0.4, zorder=3)
     F.reference_line(ax, 0.9, "nominal 0.90")
-    ax.set_xlabel("Mean interval width (°C)")
+    ax.set_xlabel("Mean interval width (K)")
     ax.set_ylabel("Worst similarity-band coverage")
     F.yardstick(ax)
 
@@ -878,7 +878,7 @@ def fig_error_vs_similarity(predictions_dir: Path, out: Path) -> None:
     ax.set_xticks(range(len(BIN_LABELS)))
     ax.set_xticklabels(BIN_LABELS, rotation=90)
     ax.set_xlabel("Nearest-training Tanimoto similarity")
-    ax.set_ylabel("Mean absolute error (°C)")
+    ax.set_ylabel("Mean absolute error (K)")
     F.yardstick(ax)
     ax.legend(loc="upper right")
     F.save(fig, out / "fig7_error_vs_similarity")

@@ -44,53 +44,47 @@ FIGURE_CAPTIONS = {
        "percentiles, and family sizes are listed at the right. The ordering is "
        "the one polymer chemistry predicts, which is evidence that the derived "
        "taxonomy is meaningful rather than merely self-consistent.",
-    2: "Test MAE by model and split regime; error bars are the standard deviation "
-       "across repeated splits. The spread between regimes dwarfs the spread "
+    2: "Test MAE in K by model and split regime; error bars are the standard "
+       "deviation across splits. For random, scaffold and cluster that is spread "
+       "across ten repeats of the same protocol; for family holdout each family "
+       "is withheld exactly once, so the bar is dispersion between families and "
+       "not run-to-run noise. The spread between regimes dwarfs the spread "
        "between models.",
     3: "Matched-pair design. (a) The three training arms predicting an identical "
        "set of held-out structures; informed and control are almost coincident, "
        "while naive is displaced to the right in every family. (b) The family "
        "effect, naive minus control, with training-set size held constant.",
-    4: "Coverage of nominally 90% conformal intervals. (a) Marginal coverage. "
-       "(b) Coverage in the least-similar structural band. Line style encodes "
-       "method alongside colour, so the exact coincidence of split conformal and "
-       "the family-conditioned quantile under family holdout remains visible.",
+    4: "Coverage of nominally 90% conformal intervals, extremely randomised "
+       "trees. (a) Marginal coverage, as a mean over the splits of each regime. "
+       "(b) The split-averaged worst band: within each split the weakest "
+       "similarity band is taken and those minima are averaged. Line style "
+       "encodes method alongside colour, so the exact coincidence of split "
+       "conformal and the family-conditioned quantile under family holdout "
+       "remains visible.",
     5: "Conditional coverage against nearest-training Tanimoto similarity, one "
-       "panel per split regime. Split conformal degrades monotonically with "
-       "structural novelty; the novelty-conditioned quantile stays near nominal.",
-    6: "Worst similarity-band coverage against mean interval width. Marker colour "
-       "is the conformal method, shape the split regime.",
-    7: "Mean absolute error against nearest-training similarity, for random and "
-       "family-holdout splits. Group sizes are annotated.",
+       "panel per split regime, pooled within each band across the splits of that "
+       "regime. Split conformal degrades monotonically with structural novelty; "
+       "the novelty-conditioned quantile stays near nominal.",
+    6: "Split-averaged worst similarity-band coverage against mean interval "
+       "width in K. Marker colour is the conformal method, shape the split "
+       "regime. The coverage-width criterion is not plotted; it is reported in "
+       "Table 7.",
+    7: "Mean absolute error in K against nearest-training similarity, for random "
+       "and family-holdout splits, pooled within each band. Group sizes are "
+       "annotated.",
 }
 
 TABLES = {
-    "table_point_by_regime.csv": (
-        "Point accuracy by split regime and model",
-        ["regime", "model", "n_splits", "mae_mean", "mae_sd", "rmse_mean", "r2_mean"],
-    ),
-    "table_conformal.csv": (
-        "Conformal coverage, width and subgroup validity",
-        ["regime", "conformal", "coverage", "worst_similarity_coverage",
-         "mean_width", "fallback"],
-    ),
-    "table_matched_statistics.csv": (
-        "Matched-pair effects, with bootstrap confidence intervals",
-        ["model", "effect", "n_families", "mean", "ci_low", "ci_high",
-         "wilcoxon_p", "n_families_positive"],
-    ),
+    # Tables 1-14 are numbered, captioned and typeset inline from the manuscript
+    # source.  The appendix carries only what an inline table deliberately does
+    # not: the full twenty-one-family listing that Table 5 quotes six rows of.
     "table_family_holdout.csv": (
-        "Family-holdout error and deterioration (histogram gradient boosting)",
-        ["group", "n", "mae", "r2", "deterioration", "mean_nn_similarity"],
-    ),
-    "table_pooled_r2.csv": (
-        "Pooled R2 against the mean of per-split R2, by regime and model",
-        ["regime", "model", "n_predictions", "r2_pooled", "r2_mean_of_splits"],
-    ),
-    "table_baseline_comparison.csv": (
-        "Group-contribution baseline against the ensemble, by regime",
-        ["model", "random", "scaffold", "cluster", "family", "penalty_K",
-         "penalty_ratio"],
+        "Table A1. Family-holdout error and deterioration for histogram gradient "
+        "boosting, all twenty-one families, in full. MAE and RMSE in K; "
+        "deterioration is the family's holdout MAE over the model's mean "
+        "random-split MAE. Table 5 quotes the three most and three least "
+        "deteriorated rows of this listing.",
+        ["group", "n", "mae", "rmse", "r2", "deterioration", "mean_nn_similarity"],
     ),
 }
 
@@ -360,7 +354,7 @@ def main() -> None:
         story.extend(figure_flowable(number, Path(args.figures_dir), styles, width))
 
     story.append(PageBreak())
-    story.append(Paragraph("Appendix A. Result tables", styles["h1"]))
+    story.append(Paragraph("Appendix A. Full per-family listing", styles["h1"]))
     for filename, (title, columns) in TABLES.items():
         story.extend(table_flowable(Path(args.results_dir) / filename, title,
                                     columns, styles, width))

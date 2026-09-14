@@ -16,24 +16,23 @@ keywords:
 ## Abstract
 
 Machine-learned models of the polymer glass transition temperature (*T*~g~)
-routinely report coefficients of determination above 0.85 and are proposed as
-screening tools, but those figures come from random partitions whose test sets
-are filled with chemistry already well represented in training. Using 7,174
-canonical repeat units in twenty-one backbone families, we measure what
-deployment outside it costs. For histogram gradient boosting, mean
-absolute error rises from 28.1 K on random partitions to 33.8 K under scaffold
-holdout, 44.5 K under fingerprint-cluster holdout and 48.1 K under whole-family
-holdout, and pooled *R*² falls from 0.87 to 0.75, while the two best models
-differ by 0.38 K. A matched-pair design, fixing the test set and varying only
-which structures the training pool loses, attributes +14.97 K (95% CI [+11.21,
-+19.28]) to removing the family and +0.29 K to removing an equal number of
-unrelated structures, the family arm being worse in all twenty-one families for
-both models. Uncertainty fails in the same place: split conformal holds 0.904
-marginal coverage on random splits while covering 0.650 of the least familiar
-structural band, and loses marginal validity under shift. Family-conditioned
-calibration cannot repair this, since a withheld family has no calibration
-members; similarity-conditioned calibration holds 0.877–0.907 across all four
-regimes.
+report coefficients of determination above 0.85 and are proposed for screening,
+but those figures come from random partitions whose test sets are filled
+with chemistry already in training. Using 7,174 canonical repeat units in twenty
+backbone families and an abstention class, we measure what deployment outside
+familiar chemistry costs. For histogram gradient boosting, mean absolute error
+rises from 28.1 K on random partitions to 33.8 K (scaffold), 44.5 K
+(fingerprint-cluster) and 48.1 K (whole-family holdout), and pooled *R*² falls
+from 0.87 to 0.75, while the two best models differ by 0.38 K. A matched-pair
+design that fixes the test set and varies only which structures training loses
+attributes +14.97 K (95% CI [+11.21, +19.28]) to removing the family and
++0.29 K to removing an equal number of unrelated structures, worse in all
+twenty-one families for both models. Uncertainty fails in the same place: for
+extremely randomised trees, split conformal holds 0.904 marginal coverage on
+random splits while covering 0.657 of the least familiar structural band, and
+loses marginal validity under shift. Family-conditioned calibration cannot repair
+this, a withheld family having no calibration members; similarity-conditioned
+calibration holds 0.877–0.907 across all four regimes.
 
 ## 1. Introduction
 
@@ -49,7 +48,8 @@ polymer theory since group-contribution methods were first formalised
 Data-driven surrogates have largely displaced those schemes. Curated repositories
 such as PoLyInfo [Otsuka] made supervised learning on experimental *T*~g~
 practical, and a decade of work has explored the resulting design space: physically
-interpretable descriptor sets with tree ensembles and kernel methods [Tao2021],
+interpretable descriptor sets with tree ensembles and kernel methods
+[Tao2021, Casanola2024],
 graph neural networks over the repeat-unit graph [Qiu2023], and chemical language
 models pretrained on millions of hypothetical polymers [Kuenneth2023, Xu2023].
 Recent community infrastructure has consolidated the datasets and the evaluation
@@ -76,8 +76,8 @@ but it changes two things at once. The test population changes — families diff
 how intrinsically hard they are and in how wide their *T*~g~ distribution is — and
 the training set shrinks. A comparison against a random-split baseline therefore
 measures the sum of a population effect, a data-volume effect and the effect of
-interest. Published treatments of this dataset state the confound explicitly and
-leave it unresolved. Resolving it requires holding the test set fixed and matching
+interest. The closest prior analysis of this dataset states the confound
+explicitly and leaves it unresolved [Teh]. Resolving it requires holding the test set fixed and matching
 the training pools on size.
 
 **Does the uncertainty survive the shift?** A point prediction without a
@@ -88,7 +88,10 @@ exchangeability. Two difficulties arise here. Exchangeability is precisely what 
 family holdout violates. And the guarantee is *marginal*: a predictor can achieve
 90% coverage overall while systematically under-covering a subpopulation, and in
 this problem that subpopulation is the unfamiliar chemistry the model was deployed
-to explore. A recent analysis on a 410-sample simulation-derived set reports this
+to explore. Ensemble uncertainty paired with an explicit applicability-domain
+check has been applied to polymer property prediction [Agrawal2026], but without
+a family-resolved conditional-coverage test. A recent analysis on a 410-sample
+simulation-derived set reports this
 pattern and characterises conformal intervals as conservative triage indicators
 rather than fine-grained screening tools [Akdogan2026]; whether the failure is
 repairable, and whether it persists at the scale and heterogeneity of the
@@ -98,7 +101,7 @@ experimental record, has not been tested.
 
 1. **An independently re-derived, chemically resolved dataset.** We re-curate
    7,208 experimental repeat-unit records to 7,174 canonical structures,
-   reproducing the published audit of this collection step for step, and assign
+   reproducing the published audit of this collection [Teh] step for step, and assign
    each structure to one of twenty backbone families or to an explicit
    abstention class using a *backbone-aware* substructure classifier.
    Classifying on the chain path rather than on whole-molecule matches keeps
@@ -112,9 +115,15 @@ experimental record, has not been tested.
 3. **A conditional-coverage evaluation of conformal uncertainty**, and a
    novelty-conditioned Mondrian taxonomy that restores subgroup validity where a
    family-conditioned taxonomy structurally cannot.
-4. **A validated applicability-domain criterion** expressed in units a
-   practitioner can act on: the nearest-neighbour Tanimoto similarity below which
-   the stated interval should not be believed.
+4. **An applicability-domain diagnostic in units a practitioner can act on.**
+   Coverage, interval width and absolute error are resolved by nearest-neighbour
+   Tanimoto similarity, and the similarity itself is reported alongside each
+   prediction so that a reader can see which regime a prediction sits in. We do
+   not offer a single similarity below which an interval should be disbelieved,
+   because under family holdout the error is not monotone in similarity: for
+   extremely randomised trees it falls from 55.5 K below Tanimoto 0.4 to 30.3 K
+   in the 0.6–0.7 band and then rises again to 36.7 K above 0.8 (Section 3.5), so
+   no cut-point separates trustworthy from untrustworthy predictions.
 5. **A group-contribution reference point and a taxonomy sensitivity check**,
    so that the machine-learned result is placed against the additive schemes it
    proposes to replace and against a perturbation of its own labels.
@@ -136,7 +145,7 @@ The raw export is record-level: one repeat unit may appear several times carryin
 values from different primary sources. Modelling on records would allow identical
 inputs to fall on both sides of a partition and would weight frequently reported
 polymers more heavily, so all analysis is performed on a structure-level table.
-Repeat units were canonicalised with RDKit and grouped; where a canonical structure
+Repeat units were canonicalised with RDKit [RDKit] and grouped; where a canonical structure
 carried several reported values, the median was taken, and the number of
 contributing records and the full reported range were retained as provenance.
 
@@ -171,17 +180,17 @@ category. The twenty-five chemistry cases in Table S1 are pinned by unit tests.
 Two representations were computed. The full RDKit descriptor block (217 columns)
 provides physically interpretable features; the topological ``Ipc`` index was
 replaced by its base-10 logarithm because it overflows for larger repeat units.
-Binary Morgan fingerprints (radius 2, 2,048 bits) provide the similarity space in
-which structural novelty is measured. Attachment points were retained in both,
-since they identify where the chain continues and the environments around them
+Binary Morgan fingerprints (radius 2, 2,048 bits) [Rogers2010] provide the
+similarity space in which structural novelty is measured. Attachment points were
+retained in both, since they identify where the chain continues and the environments around them
 encode exactly the linkage motifs that set *T*~g~.
 
 Descriptor column filtering — removal of non-finite, constant and exactly
 duplicated columns — is implemented as the first step of a scikit-learn pipeline
-and is therefore **fitted on the training fold only**. Performing this filtering
+[Pedregosa2011] and is therefore **fitted on the training fold only**. Performing this filtering
 once over the full table, as is common, lets test structures influence the feature
 definition; the closest prior analysis of this dataset notes this as an unquantified
-limitation of its own results.
+limitation of its own results [Teh].
 
 ### 2.4. Partitioning regimes
 
@@ -196,11 +205,14 @@ noise. The family regime contributes twenty-one splits, one per family.
 
 ### 2.5. Matched-pair design
 
-For each eligible family *F*, a test set *T* ⊂ *F* is drawn (30% of *F*) and three
-training pools are constructed: **informed** (everything but *T*, so the remainder
-of *F* is available), **naive** (everything but *F* entirely), and **control**
-(**informed** minus a randomly chosen block of structures from other families,
-equal in number to *F* \ *T*). All three predict the same *T*.
+A family is eligible if it holds at least forty structures, which all twenty-one
+groups in this dataset do. For each eligible family *F*, a test set *T* ⊂ *F* is
+drawn (30% of *F*) and three training pools are constructed: **informed**
+(everything but *T*, so the remainder of *F* is available), **naive** (everything
+but *F* entirely), and **control** (**informed** minus a randomly chosen block of
+structures from other families, equal in number to *F* \ *T*). All three predict
+the same *T*. The draw of *T* and of the control block is repeated three times
+per family with different seeds, giving sixty-three matched triples per model.
 
 The contrast **naive** − **control** is the quantity of interest. Both pools are
 identical in size and both exclude *T*; they differ only in *which* structures
@@ -254,7 +266,10 @@ The three-way division costs accuracy. On a random 80:20 partition the point
 regressor is fitted on about 48% of the dataset, three-fifths of what an
 80%-trained literature model sees, so the random-split errors reported below are
 mildly pessimistic relative to published figures obtained without a calibration
-carve-out.
+carve-out. Data-reusing constructions such as the jackknife+ avoid the carve-out
+at the cost of refitting [Barber2021]; the split construction is kept here so
+that all four interval methods share one fitted model and one calibration set and
+differ in nothing else.
 
 Given calibration scores *s*~1~…*s*~n~ and a miscoverage level α, the conformal
 quantile is the ⌈(*n*+1)(1−α)⌉-th order statistic; when that index exceeds *n* the
@@ -263,9 +278,10 @@ compared:
 
 * **SCP** — one global quantile of absolute residuals.
 * **Normalised SCP** — residuals scaled by a fitted difficulty estimate, so
-  intervals widen where the model expects to struggle rather than everywhere.
-* **Mondrian SCP** — a separate quantile per category [Vovk2012], under two
-  taxonomies: *polymer family*, and *nearest-training-similarity band*.
+  intervals widen where the model expects to struggle rather than everywhere
+  [Papadopoulos2011].
+* **Mondrian SCP** — a separate quantile per category [Vovk2013, Bostrom2020],
+  under two taxonomies: *polymer family*, and *nearest-training-similarity band*.
 
 The asymmetry between the two taxonomies is the point. A family-conditioned
 taxonomy is undefined for a family with no calibration members, which is exactly
@@ -286,13 +302,43 @@ gap** (the largest shortfall below nominal across subgroups with at least ten
 members), and the coverage–width criterion. Ensemble spread is additionally
 assessed by sparsification error.
 
+Coverage can be aggregated in four ways that differ here by several points, so
+every coverage figure below is labelled with the one used.
+
+* **Pooled** marginal coverage is the fraction of all held-out predictions in a
+  regime that fall inside their interval, taking every split together. It is the
+  quantity a single large test set would give.
+* **Mean-of-splits** marginal coverage is the per-split coverage averaged over
+  splits, so a 44-structure family weighs as much as a 1,707-structure one. Under
+  family holdout split conformal gives 0.701 this way against 0.743 pooled.
+* **Band-resolved** coverage is pooled within a similarity band across splits,
+  since a single split may contribute few or no structures to a band.
+* **Split-averaged worst-band** coverage takes the lowest band coverage within
+  each split and averages those minima. Taking the minimum before the average
+  makes it lower than the band-resolved coverage of the least-similar band.
+
+The convention adopted is mean-of-splits for marginal coverage and band-resolved
+for coverage within a similarity band. Two places depart from it and say so: the
+split-averaged worst band is used in Figure 4b and in the calibration-construction
+comparison of Section 3.8, and the width-matched control of Section 3.4 is quoted
+pooled throughout, because it compares two predictors structure by structure on
+the same held-out set and a split-level average would discard that pairing.
+
+The coverage–width criterion (CWC) is the mean interval width multiplied by
+exp(η(1 − α − coverage)) when coverage falls below nominal and left unpenalised
+otherwise, with η = 30. Because the penalty is exponential in the shortfall, CWC
+differences between methods are dominated by that exponent and not by width: the
+criterion is close to a recoding of the coverage gap already reported, and it is
+quoted only for comparability with the conformal literature.
+
 ### 2.8. Statistical treatment
 
 Confidence intervals on the matched-pair effects are percentile bootstrap
-intervals over the twenty-one family-level means. Those twenty-one values are
-neither independent nor a sample. The arms of a given family share at least 82%
-of their training data by construction, and more than 95% in sixteen of the
-twenty-one families; the families are chemically
+intervals over the twenty-one family-level means, each of which averages the
+three repeats. Those twenty-one values are neither independent nor a sample. The
+naive and control pools of a given family share at least 78% of their training
+data by construction — the minimum is polyimides, the largest family, and the
+figure exceeds 95% in sixteen of the twenty-one families; the families are chemically
 nested, so that polycarbonates sit inside the same carbonyl chemistry as
 polyesters; and the twenty-one are the entire population of families in this
 dataset rather than a draw from a larger one. The intervals should therefore be
@@ -314,15 +360,17 @@ all four models and no other driver survives for any.
 
 All code, the curated structure-level table and every result file are available at
 https://github.com/Rugvedhs/spectrasense, in the directory
-``polymer-tg-benchmark``. Seeds are fixed; a cold run reproduces every number in
-this paper.
+``polymer-tg-benchmark``. Seeds are fixed, every figure and table is written by
+``scripts/analyze.py`` from the stage outputs with nothing hand-entered — the
+width-matched oracle of Section 3.4 and the shrinkage regression of Section 3.3
+included — and a cold run reproduces every number in this paper.
 
 ## 3. Results
 
 ### 3.1. The public record survives re-derivation
 
 Independent re-curation of the 7,208 raw records reproduces the published audit of
-this collection step for step: 7,174 unique raw SMILES, no RDKit parse failures,
+this collection [Teh] step for step: 7,174 unique raw SMILES, no RDKit parse failures,
 7,174 canonical structures, 31 canonical groups containing more than one record,
 34 records absorbed by aggregation, 28 of those groups carrying disagreeing
 *T*~g~ values, and a maximum within-structure range of 115 K (Table 1).
@@ -330,6 +378,22 @@ Attachment-point
 counts likewise agree, at 7,170 structures with two, three with three and one
 with four. The dataset is therefore a stable object to build on, and the numbers
 below are not sensitive to curation choices.
+
+**Table 1.** Curation audit of the POINT² experimental *T*~g~ export
+[Xu2025]. Counts describe the whole collection, not a model run; the
+within-structure range is the largest spread between independent reports of one
+canonical repeat unit, in kelvin. Source: `results/table_curation.csv`.
+
+| Step | Value |
+|---|---|
+| Raw records | 7,208 |
+| Unique raw SMILES | 7,174 |
+| RDKit parse failures | 0 |
+| Canonical structures retained | 7,174 |
+| Structures aggregated from >1 record | 31 |
+| Records absorbed by aggregation | 34 |
+| Aggregated groups with disagreeing *T*~g~ | 28 |
+| Max within-structure *T*~g~ range (K) | 115 |
 
 That 115 K figure deserves emphasis before any model error is quoted. It is the
 spread between independent literature reports of the *same* repeat unit, and it
@@ -349,6 +413,35 @@ polyimides sit highest (249 °C), reflecting rigid, strongly interacting
 heteroaromatic chains. The only group below them is the abstention class
 Other backbone (median −19.6 °C, 58 structures), of which 57 contain silicon;
 its position is consistent with the silane and carbosilane chemistry it holds.
+
+**Table 2.** Composition of the twenty backbone families and the *Other
+backbone* abstention class, over the 7,174 structure-level records; *T*~g~ in °C
+as reported, ordered by family size. Means and standard deviations are in
+`results/table_families.csv`.
+
+| Family | *n* | Median *T*~g~ (°C) | Min (°C) | Max (°C) |
+|---|---|---|---|---|
+| Polyimides | 1707 | 249.0 | -9.0 | 490.0 |
+| Polyamides | 999 | 154.0 | -62.0 | 395.0 |
+| Polyesters | 761 | 75.0 | -78.6 | 400.0 |
+| Polyethers | 713 | 167.0 | -116.0 | 437.0 |
+| Polyacrylics | 661 | 60.0 | -100.0 | 330.0 |
+| Polyphenylenes | 423 | 133.0 | -71.4 | 495.0 |
+| Polystyrenes | 250 | 95.0 | -75.0 | 330.0 |
+| Polysulfones | 232 | 192.0 | 23.0 | 422.0 |
+| Polysiloxanes | 209 | -8.0 | -139.0 | 177.5 |
+| Polyvinyls | 197 | 57.0 | -79.5 | 174.6 |
+| Polyurethanes | 189 | 62.0 | -60.0 | 225.0 |
+| Polycarbonates | 189 | 113.0 | -50.0 | 355.0 |
+| Polyolefins | 126 | 60.0 | -88.0 | 350.0 |
+| Polyphosphazenes | 118 | -8.0 | -105.0 | 291.0 |
+| Polydienes | 77 | 101.0 | -99.6 | 420.0 |
+| Polysulfides | 60 | 130.5 | -118.0 | 386.0 |
+| Other backbone | 58 | -19.6 | -90.0 | 152.0 |
+| Polyhalo-olefins | 56 | 33.2 | -108.0 | 232.5 |
+| Polyanhydrides | 53 | 98.0 | 20.0 | 260.0 |
+| Polyimines | 52 | 159.0 | 10.0 | 327.0 |
+| Polyureas | 44 | 169.0 | -50.0 | 292.0 |
 
 ### 3.2. Accuracy is governed by the split, not by the model
 
@@ -372,6 +465,23 @@ four non-trivial regressors. Only the training-median baseline, at +65.7 K, is
 moved more by the choice of model than by the choice of protocol. Whatever a
 leaderboard on this dataset is ranking, it is not the property that changes most.
 
+**Table 3.** Test mean absolute error in K by model and split regime. Each cell
+is the mean over splits, with the standard deviation across splits after ±.
+Random, scaffold and cluster are ten repeated splits; family holdout contributes
+twenty-one splits, one per family, so its spread is dispersion between families
+rather than run-to-run noise. The last row is the mean nearest-training Tanimoto
+similarity of the held-out structures. RMSE and *R*² per cell are in
+`results/table_point_by_regime.csv`.
+
+| Model | Random (10) | Scaffold (10) | Cluster (10) | Family (21) |
+|---|---|---|---|---|
+| Histogram gradient boosting | 28.13 ± 1.01 | 33.81 ± 7.76 | 44.47 ± 10.37 | 48.11 ± 15.39 |
+| Extremely randomised trees | 28.51 ± 0.93 | 35.50 ± 8.48 | 48.71 ± 11.27 | 49.56 ± 16.19 |
+| Random forest | 30.30 ± 1.00 | 36.95 ± 8.37 | 48.79 ± 11.81 | 50.30 ± 15.66 |
+| Support vector regression | 30.88 ± 0.90 | 35.34 ± 6.15 | 53.94 ± 17.06 | 53.06 ± 18.28 |
+| Training-median baseline | 93.79 ± 1.65 | 95.71 ± 13.67 | 121.61 ± 24.23 | 95.46 ± 28.61 |
+| Mean nearest-training similarity | 0.762 | 0.671 | 0.403 | 0.454 |
+
 Mean nearest-training Tanimoto similarity falls alongside the error, from 0.76 on
 random splits to 0.67, 0.40 and 0.45. That ordering is not strictly monotone:
 family holdout leaves test structures slightly *less* isolated on average (0.45)
@@ -381,7 +491,7 @@ error. Structural distance alone therefore does not determine difficulty;
 *which* chemistry is missing also matters, a point Section 3.3 takes up directly.
 
 *R*² must be quoted with its aggregation stated, because the two natural choices
-disagree by more than any effect in this paper (Table 10). Pooling residuals over
+disagree by more than any effect in this paper (Table 4). Pooling residuals over
 all held-out structures in a regime, which is the quantity comparable to a
 random-split *R*², gives 0.87 on random splits, 0.81 on scaffold, 0.68 on cluster
 and 0.75 under family holdout. Averaging *R*² over the twenty-one individual
@@ -391,6 +501,19 @@ negative value at a modest absolute error. That 0.26 is a real number but it is
 not commensurable with 0.87, and the fall from 0.87 to 0.26 that a naive
 comparison suggests is an aggregation artefact. The comparable fall is 0.87 to
 0.75.
+
+**Table 4.** The two aggregations of *R*², for histogram gradient boosting.
+Pooled *R*² is computed once over all held-out predictions in a regime; the
+mean-of-splits value averages the per-split *R*², each scored against its own
+split's *T*~g~ variance. The two are not interchangeable, and the family-holdout
+row is where they diverge. All five models are in `results/table_pooled_r2.csv`.
+
+| Regime | Predictions pooled | Pooled *R*² | Mean of per-split *R*² |
+|---|---|---|---|
+| Random (10 splits) | 14,350 | 0.866 | 0.865 |
+| Scaffold (10 splits) | 14,863 | 0.808 | 0.792 |
+| Cluster (10 splits) | 24,985 | 0.679 | 0.538 |
+| Family (21 splits) | 7,174 | 0.746 | 0.256 |
 
 The dispersion is as informative as the mean. Random-split MAE varies by ±1.0 K
 across ten repeats, and scaffold and cluster splits by ±7.8 K and ±10.4 K; these
@@ -404,33 +527,88 @@ estimate from one chemistry-aware split should not be trusted.
 
 Family-holdout deterioration, defined as the ratio of family-holdout MAE to
 random-split MAE for the same model, spans a factor of nearly three across the
-twenty-one families (Table 4; histogram gradient boosting throughout this
+twenty-one families (Table 5; histogram gradient boosting throughout this
 section). At the difficult end sit polyphosphazenes (3.02×, 84.8 K MAE),
 polydienes (2.83×, 79.6 K) and polysiloxanes (2.48×, 69.7 K). At the easy end,
 polyvinyls deteriorate by 1.07×, polyethers by 1.19× and polycarbonates by
 1.20×; no family is predicted better when withheld than the average random-split
 structure, though polyvinyls come within 8%.
 
-The signed error makes the mechanism visible rather than merely plausible.
-Defining bias as mean(*T*~g~ observed − *T*~g~ predicted), so that a negative
-value is overprediction, the three families a model has least chemical warrant
-for are overpredicted by a wide margin when withheld: polyphosphazenes by
-−83.7 K, polysiloxanes by −63.7 K and the Other backbone silane class by
-−45.3 K. Set against their MAEs of 84.8, 69.7 and 52.5 K, the error in these
-families is dominated by displacement rather than by scatter. This is the
-expected failure for an inorganic backbone
-withdrawn from a training set dominated by organic condensation polymers: with
-nothing to indicate that P=N or Si–O rotation is nearly free, the model assigns
-these chains the stiffness of the organic chemistry it does know. The mirror
-case exists and points the other way. Polydienes are *under*predicted by
-+48.0 K and polyolefins by +37.8 K; a model deprived of its flexible unsaturated
-and saturated hydrocarbon chains places them too low, having learned its
-temperature scale from stiffer condensation backbones. Bias of either sign is
-what an absent linkage type produces, and it is not confined to the extremes:
-across the twenty-one families the median ratio of |bias| to MAE is 0.54, so
-about half of a typical family-holdout error is systematic displacement.
-Its magnitude tracks structural isolation, the absolute bias correlating with
-mean nearest-training similarity at *r* = −0.53 (*p* = 0.014, unadjusted).
+**Table 5.** Family-holdout error for histogram gradient boosting: the three
+most and three least deteriorated of the twenty-one families. Each family is
+withheld exactly once, so *n* is the number of held-out structures and there is
+no repeat-to-repeat spread. Deterioration is the family's holdout MAE divided by
+the same model's mean random-split MAE of 28.13 K. All twenty-one families are
+listed in Appendix A and in `results/table_family_holdout.csv`.
+
+| Family | *n* | MAE (K) | Deterioration | Mean NN similarity |
+|---|---|---|---|---|
+| Polyphosphazenes | 118 | 84.8 | 3.02× | 0.304 |
+| Polydienes | 77 | 79.6 | 2.83× | 0.367 |
+| Polysiloxanes | 209 | 69.7 | 2.48× | 0.388 |
+| … | | | | |
+| Polycarbonates | 189 | 33.7 | 1.20× | 0.558 |
+| Polyethers | 713 | 33.4 | 1.19× | 0.553 |
+| Polyvinyls | 197 | 30.2 | 1.07× | 0.430 |
+
+The signed error carries the mechanism, but it has to be separated from a purely
+statistical effect first. Defining bias as mean(*T*~g~ observed − *T*~g~
+predicted), so that a negative value is overprediction, the withheld inorganic
+backbones are displaced by wide margins: polyphosphazenes by −83.7 K,
+polysiloxanes by −63.7 K and the Other backbone silane class by −45.3 K, against
+MAEs of 84.8, 69.7 and 52.5 K. Across the twenty-one families the median ratio of
+|bias| to MAE is 0.54, so about half of a typical family-holdout error is
+systematic displacement rather than scatter, and its magnitude tracks structural
+isolation, the absolute bias correlating with mean nearest-training similarity at
+*r* = −0.53 (*p* = 0.014, unadjusted).
+
+A model fitted almost entirely on other families will pull any withheld family
+toward the bulk of the training distribution, so a family whose *T*~g~ sits far
+from that bulk is displaced toward it for reasons that have nothing to do with
+its backbone. Regressing bias on the family's *T*~g~ offset from the rest of the
+dataset measures how much of the signal that accounts for (Table 6). The two are
+positively correlated, at *r* = +0.425 (*p* = 0.055, twenty-one families):
+marginal, but large enough to matter here, because it is the three families just
+quoted that the line fits. Polyphosphazenes sit 145 K below the rest of the
+dataset, polysiloxanes 148 K below and the silane class 155 K below, and
+shrinkage alone accounts for −23.4 K, −24.0 K and −25.3 K of their bias, which is
+28%, 38% and 56% of what is observed. They remain the most displaced families
+in absolute terms, but they cannot carry the chemical argument by themselves.
+
+The families that can carry it are the ones moving against the shrinkage line.
+Polydienes (bias +48.0 K, residual +49.9 K), polyolefins (+37.8 K, +47.7 K),
+polyhalo-olefins (+28.4 K, +43.5 K) and polystyrenes (+19.9 K, +23.6 K) are all
+*under*predicted even though every one of them sits below the dataset median,
+where regression toward the training mean would push the prediction up rather
+than down. A model deprived of its flexible unsaturated and saturated hydrocarbon
+chains places them too low, having learned its temperature scale from stiffer
+condensation backbones, and no shrinkage toward the training mean produces that
+sign. The chemical reading of the signed error therefore rests on these four
+families rather than on the inorganic ones, and this line of evidence is partial:
+for the families with the most extreme *T*~g~ the two explanations are not
+separated by the data available here.
+
+**Table 6.** Family-holdout bias against regression toward the training mean,
+histogram gradient boosting, one row per withheld family. Offset is the family's
+median *T*~g~ minus the median of the rest of the dataset; bias is
+mean(*T*~g~ observed − *T*~g~ predicted) over the withheld family; both in K.
+Expected bias is the least-squares fit of bias on offset across all twenty-one
+families (Pearson *r* = +0.425, *p* = 0.055), and residual is bias minus that
+fit. Shown are the four families with the largest positive residuals, the four
+with the largest negative, and the abstention class. All twenty-one are in
+`results/table_bias_shrinkage.csv`.
+
+| Family | Offset (K) | Bias (K) | Expected from offset (K) | Residual (K) |
+|---|---|---|---|---|
+| Polydienes | −34.0 | +48.0 | −1.9 | +49.9 |
+| Polyolefins | −75.0 | +37.8 | −9.9 | +47.7 |
+| Polyhalo-olefins | −101.8 | +28.4 | −15.1 | +43.5 |
+| Polystyrenes | −43.0 | +19.9 | −3.7 | +23.6 |
+| Other backbone | −154.6 | −45.3 | −25.3 | −20.0 |
+| Polyimides | +150.5 | +3.9 | +33.8 | −29.9 |
+| Polysiloxanes | −148.0 | −63.7 | −24.0 | −39.6 |
+| Polyureas | +35.0 | −43.1 | +11.4 | −54.5 |
+| Polyphosphazenes | −145.0 | −83.7 | −23.4 | −60.3 |
 
 Polycarbonates illustrate the benign case from the same angle: they are
 surrounded in structure space by polyesters and polyethers, which remain in
@@ -460,74 +638,159 @@ result and the two candidate drivers are not competing for the same variance.
 ### 3.4. Conformal intervals lose validity exactly where they are needed
 
 All conformal results below use extremely randomised trees as the point
-predictor. Split conformal behaves as advertised on random partitions: 0.904
-empirical coverage against a nominal 0.90. Under shift the guarantee degrades
-with structural novelty — 0.834 on scaffold splits, 0.730 on cluster splits and
-0.701 under family holdout (Figure 4, left; Table 8). This is not a defect of the
-method
-but of its premise: conformal validity requires calibration and test data to be
-exchangeable, and a chemistry-aware holdout is constructed precisely to break
-that.
+predictor, not the histogram gradient boosting of Section 3.2. Of the two leading
+models it is the only one that exposes a per-tree ensemble spread, which the
+sparsification diagnostic of Section 2.7 needs, and the accuracy it gives up is
+0.38 K of random-split MAE, a difference a paired *t*-test does not resolve
+(*p* = 0.069). The paper's two headline results therefore come from different
+models: the 28.1 K to 48.1 K accuracy gap from histogram gradient boosting, every
+coverage figure from extremely randomised trees.
+
+Split conformal behaves as advertised on random partitions: 0.904 empirical
+coverage against a nominal 0.90, as a mean over the ten splits. Under shift the
+guarantee degrades with structural novelty — 0.834 on scaffold splits, 0.730 on
+cluster splits and 0.701 under family holdout, all mean-of-splits (Figure 4a;
+Table 7). This is not a defect of the method but of its premise: conformal
+validity requires calibration and test data to be exchangeable, and a
+chemistry-aware holdout is constructed precisely to break that.
 
 Marginal coverage also conceals a failure that is present even when it holds. On
-random splits, where overall coverage is a healthy 0.904, coverage in the
-least-similar structural band is 0.650 (Figure 4, right; Figure 5). A nominally
-90% interval covers two-thirds of the repeat units that a screening campaign would
+random splits, where overall coverage is a healthy 0.904, coverage among the
+structures whose nearest training analogue lies below Tanimoto 0.4 is 0.657
+pooled over the ten splits (Figure 5); the split-averaged worst band, which takes
+each split's weakest band before averaging, is 0.650 (Figure 4b). A nominally 90%
+interval covers two-thirds of the repeat units that a screening campaign would
 actually be evaluating. A model can pass every validity check in current practice
 and still be wrong about a third of the unfamiliar polymers it is deployed on.
 
 Neither obvious remedy works. The normalised predictor, which scales residuals by
-a fitted difficulty estimate, improves the worst band on random splits (0.741 vs
-0.650) but fails with everything else under shift (0.825 scaffold, 0.711 cluster,
-0.709 family) and is the *worst* of the four under cluster holdout. Conditioning
-the quantile on polymer family fails for a structural reason rather than an
-empirical one: under family holdout the withheld family has no calibration members
-by construction, so the predictor falls back to the global quantile for 100% of
-test structures and reproduces split conformal exactly (0.701, identical interval
-widths).
+a fitted difficulty estimate, does lift the least-similar band: from 0.657 to
+0.759 on random splits and from 0.552 to 0.629 on scaffold splits, both
+band-resolved. Its marginal coverage still falls away under shift, to 0.825 on
+scaffold, 0.711 on cluster and 0.709 under family holdout, mean-of-splits, and
+under cluster holdout that is the worst marginal coverage of the four methods.
+Conditioning the quantile on polymer family fails for a structural reason rather
+than an empirical one: under family holdout the withheld family has no
+calibration members by construction, so the predictor falls back to the global
+quantile for 100% of test structures and reproduces split conformal exactly
+(0.701 mean-of-splits, identical interval widths).
 
 Conditioning on nearest-training similarity is the variant that survives, because
 that coordinate is defined for every repeat unit whether or not its family was
-seen. It holds 0.907, 0.895, 0.886 and 0.877 across the four regimes, never
-requiring a fallback under family holdout. On random splits it achieves this
-while being *narrower* than split conformal (129.1 K vs 132.3 K), and it widens
-only where the chemistry demands it — to 155 K under scaffold, 232 K under
-cluster and 208 K under family holdout. That adaptivity is what the
-coverage–width criterion rewards (Figure 6): under family holdout, 411 against
-48,020 for split conformal.
+seen. It holds 0.907, 0.895, 0.886 and 0.877 mean-of-splits across the four
+regimes, never requiring a fallback under family holdout. On random splits it
+achieves this while being *narrower* than split conformal (129.1 K against
+132.3 K), and it widens only where the chemistry demands it — to 155 K under
+scaffold, 232 K under cluster and 208 K under family holdout (Figure 6). The
+coverage–width criterion registers the same thing, at 411 under family holdout
+against 48,020 for split conformal, but that ratio is almost entirely the
+exponential penalty of Section 2.7 acting on a 0.20 coverage shortfall rather
+than a statement about width, and it should be read as a restatement of the
+coverage gap.
+
+**Table 7.** Conformal performance by split regime and method, extremely
+randomised trees, nominal coverage 0.90. Marginal coverage is the mean over
+splits (ten for random, scaffold and cluster; twenty-one for family). The
+least-similar band is Tanimoto < 0.4, pooled over splits. Width is in K. Fallback
+is the mean fraction of test structures whose category had no calibration members
+and which therefore received the global quantile. CWC is the coverage–width
+criterion with η = 30. Source: `results/table_conformal.csv` and
+`results/table_applicability_domain.csv`.
+
+| Regime | Method | Coverage (mean of splits) | Band < 0.4 (pooled) | Width (K) | Fallback | CWC |
+|---|---|---|---|---|---|---|
+| Random | SCP | 0.904 | 0.657 | 132.3 | 0.00 | 132 |
+| Random | Normalised SCP | 0.901 | 0.759 | 127.0 | 0.00 | 127 |
+| Random | Mondrian, family | 0.899 | 0.696 | 133.1 | 0.08 | 136 |
+| Random | Mondrian, similarity | 0.907 | 0.888 | 129.1 | 0.00 | 129 |
+| Scaffold | SCP | 0.834 | 0.552 | 126.5 | 0.00 | 923 |
+| Scaffold | Normalised SCP | 0.825 | 0.629 | 124.1 | 0.00 | 1,165 |
+| Scaffold | Mondrian, family | 0.832 | 0.576 | 127.2 | 0.10 | 990 |
+| Scaffold | Mondrian, similarity | 0.895 | 0.938 | 154.8 | 0.00 | 179 |
+| Cluster | SCP | 0.730 | 0.655 | 126.4 | 0.00 | 20,920 |
+| Cluster | Normalised SCP | 0.711 | 0.667 | 127.7 | 0.00 | 37,007 |
+| Cluster | Mondrian, family | 0.758 | 0.694 | 141.8 | 0.21 | 10,101 |
+| Cluster | Mondrian, similarity | 0.886 | 0.825 | 232.2 | 0.13 | 356 |
+| Family | SCP | 0.701 | 0.636 | 121.7 | 0.00 | 48,020 |
+| Family | Normalised SCP | 0.709 | 0.650 | 129.5 | 0.00 | 39,813 |
+| Family | Mondrian, family | 0.701 | 0.636 | 121.7 | 1.00 | 48,020 |
+| Family | Mondrian, similarity | 0.877 | 0.890 | 208.3 | 0.00 | 411 |
 
 Whether width alone could have bought the same result is worth testing directly,
-because if it could the taxonomy would be doing no work. Under family holdout the
-width-matched control of Section 2.7 — split conformal inflated by the single
-constant *k* = 1.67 that equalises mean width with the novelty-conditioned
-predictor — reaches 0.908 pooled marginal coverage against the
-novelty-conditioned predictor's 0.898. Marginally, therefore, a global inflation
-does match and slightly exceed it. Conditionally it does not: in the least
-similar band (Tanimoto < 0.4) the width-matched control covers 0.849 against
-0.890. Recovering that band by global inflation alone requires *k* = 1.93, which
-carries the mean interval to 234 K against the novelty-conditioned 203 K, over-
-covering the bands that are already adequate in order to reach the one that is
-not. Two caveats attach to this control and both weaken the inflation strategy
-further. It is an oracle: *k* is computed from the test-set widths it is being
-compared against, so neither 1.67 nor 1.93 is knowable at prediction time. And
-the factor is regime-dependent, so a constant chosen on one holdout has no claim
-on another. The defensible statement is the conditional one: no single global
-inflation of split conformal reaches nominal coverage in the least-familiar band
-without over-covering everywhere else, and the factor that would be required
-cannot be computed when the prediction is made.
+because if it could the taxonomy would be doing no work. The width-matched
+control of Section 2.7 multiplies every split conformal interval about its centre
+by a single constant *k* (Table 8). Under family holdout the value that
+equalises mean width with the novelty-conditioned predictor is *k* = 1.669, and
+it reaches 0.908 pooled marginal coverage against the novelty-conditioned
+predictor's 0.898. Marginally, then, a global inflation matches and slightly
+exceeds it. Conditionally it does not: in the least-similar band (Tanimoto < 0.4,
+2,614 pooled predictions) the width-matched control covers 0.849 against 0.890.
+Those are paired predictions on identical structures, so the discordant pairs
+settle the comparison: the novelty-conditioned predictor covers 134 structures
+the width-matched control misses and misses 27 that it covers, McNemar
+*p* = 3.0 × 10⁻¹⁸. Matching the novelty-conditioned band coverage by global
+inflation alone takes *k* = 1.93, which carries the mean interval from 203 K to
+234 K; reaching nominal 0.90 in that band takes *k* = 2.0, at 243 K, and
+over-covers marginally at 0.945.
+
+That result is regime-dependent, and the exception has to be reported with it.
+Under cluster holdout the same comparison reverses. The oracle factor there is
+*k* = 1.792, and it covers 0.864 of the least-similar band (12,846 pooled
+predictions) against the novelty-conditioned predictor's 0.825; on the paired
+indicators it covers 877 structures the novelty-conditioned predictor misses
+against 386 the other way, McNemar *p* = 2.4 × 10⁻⁴⁴. This is consistent with the
+fallback rate of Section 4.3: under cluster holdout 12.8% of test structures fall
+in a similarity band that has no calibration members and receive the global
+quantile anyway, so the taxonomy is doing less work there than under family
+holdout, where it never falls back. The allocation claim holds under family
+holdout and does not hold under cluster holdout.
+
+Two caveats attach to the control in both regimes. It is an oracle: *k* is
+computed from the test-set widths it is then compared against, so none of 1.669,
+1.792, 1.93 or 2.0 is knowable at prediction time. And the factor is
+regime-dependent — 1.669 under family holdout against 1.792 under cluster — so a
+constant chosen on one holdout has no claim on another. The defensible statement
+is narrower than either regime alone would support: under family holdout no
+global inflation of split conformal reaches the novelty-conditioned predictor's
+coverage in the least-familiar band without over-covering elsewhere, and the
+factor that would be required cannot be computed when the prediction is made;
+under cluster holdout an oracle inflation does reach further in that band than
+the taxonomy does.
+
+**Table 8.** Width-matched oracle control, extremely randomised trees, nominal
+coverage 0.90. Split conformal intervals are multiplied about their centre by the
+constant *k*; the oracle row in each block is the *k* that equalises mean width
+with the novelty-conditioned predictor on the same test set, and is not available
+at prediction time. Coverage is pooled over all held-out predictions in the
+regime, 7,174 under family holdout and 24,985 under cluster holdout; the
+least-similar band is Tanimoto < 0.4 and holds 2,614 and 12,846 of them. Width in
+K. The full sweep over *k* is in `results/table_width_matched.csv`.
+
+| Regime | Predictor | *k* | Coverage (pooled) | Band < 0.4 (pooled) | Width (K) |
+|---|---|---|---|---|---|
+| Family | Split conformal | 1.000 | 0.743 | 0.636 | 121.4 |
+| Family | Width-matched oracle | 1.669 | 0.908 | 0.849 | 202.5 |
+| Family | Inflated to match band | 1.930 | 0.939 | 0.890 | 234.2 |
+| Family | Inflated to nominal band | 2.000 | 0.945 | 0.900 | 242.7 |
+| Family | Mondrian, similarity | — | 0.898 | 0.890 | 202.5 |
+| Cluster | Split conformal | 1.000 | 0.716 | 0.655 | 126.3 |
+| Cluster | Width-matched oracle | 1.792 | 0.905 | 0.864 | 226.3 |
+| Cluster | Mondrian, similarity | — | 0.870 | 0.825 | 226.3 |
 
 ### 3.5. An applicability domain, and an honest limit on the repair
 
-Resolving coverage by similarity band under family holdout (Table 5) turns the
-result into an operational rule. Split conformal covers 0.636 of structures whose
-nearest training analogue lies below Tanimoto 0.4, and 0.771, 0.809 and 0.874 in
-the next three bands. Its intervals are essentially constant in
-width (121–123 K) across all six bands, while the absolute error across those
-bands varies by a factor of 1.83, from 55.5 K in the least-similar band to
-30.3 K in the best (Figure 7). Applying one width to a 1.8-fold spread in error is precisely
-the failure mode. Novelty-conditioned calibration instead holds 0.890, 0.919,
-0.907 and 0.937 in the four least-familiar bands, at widths that scale from
-246 K down to 149 K.
+Resolving coverage by similarity band under family holdout (Table 9) turns the
+result into an operational rule. All coverage in this section is band-resolved:
+pooled within a band over the twenty-one splits, which together hold out each of
+the 7,174 structures exactly once. Split conformal covers 0.636 of structures
+whose nearest training analogue lies below Tanimoto 0.4, and 0.771, 0.809 and
+0.874 in the next three bands. Its intervals are essentially constant in width
+(121–123 K) across all six bands, while the absolute error across those bands
+varies by a factor of 1.83, from 55.5 K in the least-similar band to 30.3 K in
+the 0.6–0.7 band, its lowest (Figure 7). Applying one width to a 1.8-fold spread
+in error is precisely the failure mode. Novelty-conditioned calibration instead
+holds 0.890, 0.919, 0.907 and 0.937 in the four least-familiar bands, at widths
+that scale from 246 K down to 149 K.
 
 The repair has a cost that should be stated plainly. In the most-similar band
 (Tanimoto ≥ 0.8) the novelty-conditioned predictor *under*-covers, at 0.673
@@ -541,10 +804,27 @@ is therefore to report novelty-conditioned intervals together with the
 nearest-training similarity itself, so that a reader can see which regime a given
 prediction sits in rather than trusting a single interval uniformly.
 
+**Table 9.** Coverage, interval width and absolute error resolved by
+nearest-training Tanimoto similarity band under family holdout, extremely
+randomised trees, nominal coverage 0.90. The twenty-one splits hold out each of
+the 7,174 structures exactly once, so *n* sums to 7,174 and all quantities are
+pooled within a band across splits. Widths and errors in K. Error is not monotone
+in similarity: it falls to 30.3 K in the 0.6–0.7 band and rises again above 0.8.
+Sources: `results/table_applicability_domain.csv`, `results/table_band_mae.csv`.
+
+| Band | *n* | MAE (K) | SCP coverage | SCP width (K) | Mondrian coverage | Mondrian width (K) |
+|---|---|---|---|---|---|---|
+| < 0.4 | 2,614 | 55.5 | 0.636 | 121.2 | 0.890 | 245.5 |
+| 0.4–0.5 | 2,033 | 42.1 | 0.771 | 121.3 | 0.919 | 205.5 |
+| 0.5–0.6 | 1,403 | 37.8 | 0.809 | 121.3 | 0.907 | 176.7 |
+| 0.6–0.7 | 605 | 30.3 | 0.874 | 121.5 | 0.937 | 148.7 |
+| 0.7–0.8 | 363 | 31.2 | 0.854 | 122.9 | 0.832 | 115.0 |
+| ≥ 0.8 | 156 | 36.7 | 0.788 | 120.7 | 0.673 | 87.9 |
+
 ### 3.6. The penalty follows which structures were removed, not how many
 
 The matched design separates the two effects that a conventional family holdout
-confounds (Figure 3, Table 6). Across twenty-one families and three repeats, with
+confounds (Figure 3, Table 10). Across twenty-one families and three repeats, with
 the test set held identical and the two comparison pools held identical in size:
 
 * Removing an equal quantity of *unrelated* structures — the **control** arm —
@@ -558,6 +838,25 @@ the test set held identical and the two comparison pools held identical in size:
   all twenty-one families for both models**. With forty-two of forty-two signs
   positive the Wilcoxon test returns its floor, *p* = 9.5 × 10⁻⁷ per model; the
   sign count is the result, not the *p*-value.
+
+**Table 10.** Matched-pair effects in K, over twenty-one families and three
+repeats per family, with the test set held identical within each triple. Family
+effect is naive − control, size effect is control − informed, total effect is
+naive − informed; positive means worse. Each family contributes the mean of its
+three repeats, the mean column averages those twenty-one family means, and the
+95% interval is a percentile bootstrap over them, to be read as dispersion across
+families rather than inference about a population (Section 2.8). The Wilcoxon
+*p* of 9.5 × 10⁻⁷ is the floor of the test at twenty-one paired values, reached
+whenever all signs agree. Source: `results/table_matched_statistics.csv`.
+
+| Model | Effect | Mean (K) | 95% CI (K) | Median (K) | Wilcoxon *p* | Positive |
+|---|---|---|---|---|---|---|
+| Extremely randomised trees | Family | +14.97 | [+11.21, +19.28] | +12.86 | 9.5 × 10⁻⁷ | 21 / 21 |
+| Extremely randomised trees | Size | +0.29 | [−0.63, +1.24] | −0.15 | 0.71 | 9 / 21 |
+| Extremely randomised trees | Total | +15.26 | [+11.35, +19.83] | +12.55 | 9.5 × 10⁻⁷ | 21 / 21 |
+| Histogram gradient boosting | Family | +15.15 | [+11.02, +20.03] | +11.28 | 9.5 × 10⁻⁷ | 21 / 21 |
+| Histogram gradient boosting | Size | −0.58 | [−1.81, +0.64] | −0.02 | 0.45 | 10 / 21 |
+| Histogram gradient boosting | Total | +14.57 | [+10.63, +19.35] | +12.11 | 9.5 × 10⁻⁷ | 21 / 21 |
 
 The two effects are therefore not merely different in size but different in
 character. The family effect is roughly 15 K and unanimous in sign across every
@@ -586,6 +885,37 @@ Note that polyamides rank third here despite being the second-largest family in
 the dataset (999 structures) — further evidence that abundance does not confer
 transferability when the chemistry is distinctive.
 
+A near-duplicate objection has to be answered separately. The informed arm keeps
+the rest of the family, so for some test structures it holds a very close
+analogue that the naive arm cannot have, and the family effect might be no more
+than the loss of those analogues. Splitting the effect by how close the informed
+arm's nearest training neighbour actually was tests that directly (Table 11). The
+effect does not vanish where no near analogue existed. For extremely randomised
+trees it is +11.4 K over the 1,426 test structures whose nearest informed-arm
+neighbour lay below Tanimoto 0.6, against +15.6 K over the 1,655 whose neighbour
+lay above 0.9; for histogram gradient boosting the same two bands give +11.6 K
+and +13.7 K. The effect is larger where a near-duplicate was available, which is
+what one would expect, but most of it is present where none was.
+
+**Table 11.** Matched-pair family effect resolved by how close the informed arm's
+nearest training neighbour was, in K, over twenty-one families and three repeats.
+Bands are the informed arm's nearest-training Tanimoto similarity for the same
+test structure; *n* is the number of test structures in the band, each appearing
+once per repeat, paired across arms. Arm means are MAE in K over those
+structures, and the family effect is the paired mean of naive − control. Source:
+`results/table_matched_by_analogue.csv`.
+
+| Model | Informed-arm band | *n* | Informed | Control | Naive | Family effect |
+|---|---|---|---|---|---|---|
+| Extremely randomised trees | < 0.6 | 1,426 | 45.48 | 43.63 | 55.05 | +11.42 |
+| Extremely randomised trees | 0.6–0.8 | 2,307 | 29.89 | 30.44 | 46.18 | +15.74 |
+| Extremely randomised trees | 0.8–0.9 | 1,071 | 23.47 | 23.87 | 38.52 | +14.65 |
+| Extremely randomised trees | ≥ 0.9 | 1,655 | 17.83 | 20.48 | 36.09 | +15.61 |
+| Histogram gradient boosting | < 0.6 | 1,426 | 43.95 | 41.63 | 53.27 | +11.63 |
+| Histogram gradient boosting | 0.6–0.8 | 2,307 | 29.35 | 29.28 | 42.61 | +13.32 |
+| Histogram gradient boosting | 0.8–0.9 | 1,071 | 23.88 | 24.03 | 36.10 | +12.07 |
+| Histogram gradient boosting | ≥ 0.9 | 1,655 | 18.46 | 20.12 | 33.83 | +13.71 |
+
 The practical reading follows from the locality contrast. At a fixed
 training-set size, a pool that excludes the target family predicts it about 15 K
 worse than a pool of the same size that retains the family and excludes an
@@ -603,13 +933,29 @@ with binary Morgan fingerprints (radius 2, 2,048 bits) in place of the descripto
 block tests this directly, since the two representations share almost nothing:
 one is a set of physically motivated aggregate quantities, the other a sparse
 record of local substructural environments. Both use extremely randomised trees.
+The two family arms are the full twenty-one holdouts, but the random arms differ
+in repeat count: five splits for Morgan against ten for descriptors.
 
-The gap survives the substitution and is not narrower (Table 7). Fingerprints are
+The gap survives the substitution and is not narrower (Table 12). Fingerprints are
 worse in absolute terms in both regimes — 35.8 K against 28.5 K on random splits
 and 62.7 K against 49.6 K under family holdout — and their family-holdout penalty
-is larger in absolute terms (+26.9 K against +21.1 K) while being
-indistinguishable as a ratio (1.752 against 1.738). Substructural environments
+is larger in absolute terms (+26.9 K against +21.1 K) while being similar as a
+ratio (1.752 against 1.738). We do not attach an interval to the difference
+between those two ratios, because the random arms behind them rest on different
+numbers of repeats; the statement supported is that substructural environments
 offer no protection here in aggregate.
+
+**Table 12.** Representation ablation, extremely randomised trees. MAE in K as the
+mean over splits, with the standard deviation across splits after ± and the
+number of splits in parentheses. Penalty is family MAE minus random MAE and the
+ratio is their quotient. Sources:
+`results/table_representation_summary.csv`,
+`results/table_representation_ablation.csv`.
+
+| Representation | Random MAE (K) | Family MAE (K) | Penalty (K) | Penalty ratio |
+|---|---|---|---|---|
+| RDKit descriptors, 217 columns | 28.51 ± 0.93 (10) | 49.56 ± 16.19 (21) | +21.05 | 1.738 |
+| Morgan, radius 2, 2,048 bits | 35.81 ± 0.92 (5) | 62.73 ± 15.38 (21) | +26.92 | 1.752 |
 
 The per-family picture is not uniform, and one plausible mechanism is ruled out
 by it. Fingerprints are worse than descriptors on eighteen of the twenty-one
@@ -636,18 +982,26 @@ quantile is calibrated against the wrong population. Rebuilding the calibration
 set by holding families out *within* the training pool produces residuals of the
 kind the test set will actually demand.
 
-Both levers work, and to a similar degree (Table 9). Against a nominal 0.90 under
-family holdout, with the point model identical in all four arms:
+Both levers work, and to a similar degree (Table 13).
 
-| Calibration set | Quantile | Coverage | Worst band | Width | *n* calibration |
+**Table 13.** Calibration-set construction under family holdout, extremely
+randomised trees, nominal coverage 0.90, with the point model identical in all
+four arms. Coverage is the mean over the twenty-one splits. Worst band is the
+split-averaged worst band defined in Section 2.7: within each split the weakest
+similarity band is taken and those minima are then averaged, which is why it sits
+below the band-resolved coverage of the least-similar band in Table 9. Width in
+K, as a mean over splits; *n* calibration is the mean calibration-set size per
+split. Source: `results/table_calibration_study.csv`.
+
+| Calibration set | Quantile | Coverage (mean of splits) | Worst band (split-averaged) | Width (K) | *n* calibration |
 |---|---|---|---|---|---|
-| Random | Global (SCP) | 0.701 | 0.564 | 122 K | 1,366 |
-| Random | Novelty-conditioned | 0.877 | 0.753 | 208 K | 1,366 |
-| Family-out | Global (SCP) | 0.855 | 0.753 | 187 K | 3,349 |
-| Family-out | Novelty-conditioned | 0.863 | 0.778 | 189 K | 3,349 |
+| Random | Global (SCP) | 0.701 | 0.564 | 122 | 1,366 |
+| Random | Novelty-conditioned | 0.877 | 0.753 | 208 | 1,366 |
+| Family-out | Global (SCP) | 0.855 | 0.753 | 187 | 3,349 |
+| Family-out | Novelty-conditioned | 0.863 | 0.778 | 189 | 3,349 |
 
 Rebuilding the calibration set lifts plain split conformal from 0.701 to 0.855
-without touching the quantile rule, the model or the representation. It does so by
+mean-of-splits without touching the quantile rule, the model or the representation. It does so by
 widening intervals from 122 K to 187 K, which is the appropriate response: the
 residuals it now calibrates against are genuinely larger. The construction is not,
 however, the only thing that changes in that swap. The family-out construction
@@ -661,8 +1015,8 @@ The two repairs are largely substitutes rather than complements. Applying both
 gives 0.863 marginal coverage, no better than the novelty-conditioned quantile
 alone at 0.877, because they address the same root cause from opposite ends —
 that calibration residuals understate extrapolation error. The combination has
-the best worst-band coverage of the four arms, 0.778 against 0.753 and 0.753, but
-that margin is not resolved: across the twenty-one families the combination beats
+the best split-averaged worst band of the four arms, 0.778 against 0.753 and
+0.753, but that margin is not resolved: across the twenty-one families the combination beats
 the novelty-conditioned quantile alone on worst-band coverage in only 9, with a
 mean difference of +0.025 and a Wilcoxon *p* of 0.40. It should be read as no
 worse rather than as better.
@@ -681,7 +1035,20 @@ group contributions, with no interaction terms and no dependence on which
 linkages the groups sit in. If the family-holdout penalty is really about absent
 linkage chemistry, a model that never learns linkage-specific behaviour in the
 first place should lose less when a linkage type is withdrawn. It does, and it
-pays for that in accuracy everywhere (Table 11).
+pays for that in accuracy everywhere (Table 14).
+
+**Table 14.** Van Krevelen group-contribution baseline against the ensemble, MAE
+in K as the mean over splits (ten for random, scaffold and cluster; twenty-one
+for family). Penalty is family MAE minus random MAE and the ratio is their
+quotient. The additive contributions *Y*~i~ are refitted on each training fold,
+so the baseline receives the same data as the ensemble. Source:
+`results/table_baseline_comparison.csv`.
+
+| Model | Random | Scaffold | Cluster | Family | Penalty (K) | Ratio |
+|---|---|---|---|---|---|---|
+| Group contribution | 43.84 | 43.80 | 54.86 | 59.80 | +15.96 | 1.364 |
+| Histogram gradient boosting | 28.13 | 33.81 | 44.47 | 48.11 | +19.98 | 1.710 |
+| Training-median baseline | 93.79 | 95.71 | 121.61 | 95.46 | +1.67 | 1.018 |
 
 The group-contribution baseline of Section 2.6 gives 43.8 K MAE on random splits,
 43.8 K under scaffold holdout, 54.9 K under cluster holdout and 59.8 K under
@@ -724,12 +1091,17 @@ measurement. The random, scaffold and cluster results are unchanged to three
 decimal places for every model, as they must be, since those regimes never
 consult a family label; pooled *R*² in those three regimes is likewise identical
 to three decimals. Under family holdout, where the labels do enter, pooled *R*²
-moves by at most 0.005 across the five models and is unchanged at 0.746 for
-histogram gradient boosting. The remaining family-dependent results move by about
-a kelvin and no conclusion changes sign: family-holdout MAE goes
-from 46.8 K to 48.1 K for histogram gradient boosting and from 48.9 K to 49.6 K
-for extremely randomised trees, and the matched-design family effect from
-+14.61 K to +14.97 K and from +13.28 K to +15.15 K. The one qualitative change
+moves by at most 0.006 across the five models — the largest is support vector
+regression at 0.0052 — and is unchanged at 0.746 for histogram gradient boosting.
+The remaining family-dependent results move by about a kelvin and no conclusion
+changes sign: family-holdout MAE goes from 46.8 K to 48.1 K for histogram
+gradient boosting and from 48.9 K to 49.6 K for extremely randomised trees, and
+the matched-design family effect from +14.61 K to +14.97 K and from +13.28 K to
++15.15 K. The 1.29 K move in family-holdout MAE has two parts, because the
+revision also created a twenty-first holdout group. Averaged over the same twenty
+groups the old labels supplied, the corrected labels give 47.89 K, so relabelling
+accounts for +1.07 K of the move and the new Other backbone group for the
+remaining +0.22 K. The one qualitative change
 is in the paper's favour. Under the old labels the family effect was positive in
 20 of 20 families for one model but only 18 of 20 for the other, the two
 exceptions being polycarbonates and polysulfides; polycarbonates was also the
@@ -775,13 +1147,22 @@ backbone linkages translate into chain stiffness and interchain interaction, and
 those mappings are local to a linkage type. Remove every phosphazene, and no
 amount of additional polyester data teaches the model what a P=N backbone does to
 segmental mobility; it extrapolates organic intuition into inorganic chemistry
-and overpredicts those chains by 84 K on average (Section 3.3). Three lines of
-evidence support that reading: deterioration correlates with structural isolation
-while no size effect is resolved (Section 3.3); the withheld-family errors are
-systematic displacements of a consistent sign, about half the error on a typical
-family (Section 3.3); and an additive model that never learns linkage-specific
+and overpredicts those chains by 84 K on average (Section 3.3). Four lines of
+evidence support that reading, one of them only in part. Deterioration correlates
+with structural isolation while no size effect is resolved (Section 3.3). The
+family effect is not the loss of near-duplicates: it is +11.4 K even among test
+structures for which the informed arm itself held no training neighbour above
+Tanimoto 0.6 (Section 3.6). An additive model that never learns linkage-specific
 behaviour deteriorates proportionally less when a linkage type is withdrawn
-(Section 3.9).
+(Section 3.9). The fourth line, that the withheld-family errors are systematic
+displacements of a consistent sign, holds only partly. Bias also correlates with
+the family's *T*~g~ offset from the rest of the dataset, at *r* = +0.425
+(*p* = 0.055), and for polyphosphazenes and polysiloxanes — the two families the
+chemical argument would most like to use — regression toward the training mean
+accounts for between a quarter and a half of the displacement. What survives that
+confound are the families moving against it: polydienes, polyolefins,
+polyhalo-olefins and polystyrenes, all underpredicted while sitting below the
+dataset median (Section 3.3).
 
 The consequence for data-collection strategy needs stating carefully, because the
 experiment removes data rather than adding it. What was tested is that
@@ -826,14 +1207,14 @@ advantage is
 real but it should be stated as a smaller and repairable blind spot rather than
 as none.
 
-Section 3.4 also tested whether width alone explains the advantage. Marginally it
-can: an oracle inflation of split conformal matched to the same mean width
-reaches 0.908 against 0.898. Conditionally it cannot, missing the least-similar
-band at 0.849 against 0.890, and the global factor that would close that band
-costs 234 K of mean width against 203 K and is not knowable at prediction time.
-The claim we make is therefore about allocation, not about total width: the
-novelty-conditioned predictor puts its width where the error is, and no constant
-multiple of split conformal does that.
+Section 3.4 tested whether width alone explains the advantage, and the answer
+depends on the regime. Under family holdout it does not: matched to the same mean
+width, an oracle inflation of split conformal still misses the least-similar
+band, 0.849 against 0.890, and loses the paired comparison there decisively
+(McNemar *p* = 3.0 × 10⁻¹⁸); under cluster holdout, where the taxonomy falls back
+for 12.8% of structures, the same oracle takes that band instead, 0.864 against
+0.825. The allocation claim therefore holds where the taxonomy never falls back
+and not where it does.
 
 ### 4.4. Practical recommendations
 
@@ -888,12 +1269,22 @@ from this dataset's *labelled* portion. Testing whether pretraining narrows the
 family effect is the natural next experiment, and the matched design transfers to
 it unchanged.
 
+The signed-error evidence for the chemical mechanism is partial. For families
+whose *T*~g~ sits far from the rest of the dataset, regression toward the
+training mean and an absent linkage chemistry predict displacement of the same
+sign, and the twenty-one family means available here do not separate them
+(Section 3.3). The argument rests on the families that move against the shrinkage
+line; a design that varied *T*~g~ offset and backbone novelty independently would
+settle it, and this one does not.
+
 Finally, the novelty-conditioned predictor under-covers the most-similar band
 under family holdout (Section 3.5) and falls back to the global quantile for
-12.8% of structures under cluster holdout (Section 4.3). The affected groups are
-small and the direction of the trade favours screening, but the method is an
-improvement rather than a solution, and conditional coverage should continue to
-be reported rather than assumed.
+12.8% of structures under cluster holdout, where an oracle width-matched
+inflation of split conformal reaches further into the least-similar band than the
+taxonomy does (Section 4.3). The affected groups are small and the direction of
+the trade favours screening, but the method is an improvement rather than a
+solution, and conditional coverage should continue to be reported rather than
+assumed.
 
 ## 5. Conclusions
 
@@ -919,13 +1310,15 @@ bias.
 
 The uncertainty attached to these predictions fails in the same place. Split
 conformal intervals hold their nominal 90% marginally on random splits while
-covering only 65% of the least familiar structures, and lose marginal validity
+covering 66% of the least familiar structures, and lose marginal validity
 under shift. Conditioning the calibration on polymer family cannot repair this,
 because a withheld family has no calibration data by construction. Conditioning
-on nearest-training structural similarity does, holding 0.88–0.91 across every
-regime tested and allocating width to the bands where the error actually is.
-Rebuilding the calibration set from within-training family holdouts is a second
-lever that reaches 0.855 with the plain global quantile, though in this
+on nearest-training structural similarity does, holding 0.88–0.91 as a mean over
+splits in every regime tested and allocating width to the bands where the error
+actually is, though under cluster holdout an oracle inflation of split conformal
+reaches further into the least-similar band than the taxonomy does. Rebuilding
+the calibration set from within-training family holdouts is a second lever that
+reaches 0.855 with the plain global quantile, though in this
 experiment it also enlarges the calibration set from 1,366 to 3,349 structures,
 so construction and size cannot be separated; combining the two levers is no better than the novelty-conditioned
 quantile alone.

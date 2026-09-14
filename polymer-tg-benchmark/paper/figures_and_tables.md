@@ -18,19 +18,28 @@ outputs in `results/`; nothing is hand-entered. Figures are written as vector PD
 
 ## Main tables
 
-| # | File | Shows |
+Tables 1–14 are typeset inline in the manuscript with self-contained captions.
+Several are compact excerpts of a longer CSV; the source file is named in every
+caption. Appendix A of the PDF carries the one listing that is deliberately not
+inline in full, the twenty-one-family holdout table behind Table 5.
+
+| # | Source file | Shows |
 |---|---|---|
 | 1 | `table_curation.csv` | Curation audit; reproduces the published numbers for this dataset. |
-| 2 | `table_families.csv` | Family composition and *T*~g~ statistics. |
-| 3 | `table_point_by_regime.csv` | MAE, RMSE, *R*² by regime and model, with across-repeat spread. |
-| 4 | `table_family_holdout.csv` | Per-family holdout error and deterioration ratio. |
-| 5 | `table_applicability_domain.csv` | Coverage and interval width by similarity band. |
-| 6 | `table_matched_summary.csv`, `table_matched_statistics.csv` | Matched-pair arms, effects, bootstrap CIs and Wilcoxon tests. |
-| 7 | `table_representation_ablation.csv` | Descriptor vs Morgan fingerprint generalisation penalty. |
-| 8 | `table_conformal.csv` | Coverage, width, CWC and fallback rate by regime and conformal method. |
-| 9 | `table_calibration_study.csv` | Random vs family-out calibration construction, with calibration-set size. |
-| 10 | `table_pooled_r2.csv` | Pooled *R*² against the mean of per-split *R*², by regime and model. The two aggregations are not interchangeable. |
-| 11 | `table_baseline_comparison.csv`, `table_baseline_by_regime.csv` | Van Krevelen group-contribution baseline against the ensemble across all four regimes. |
+| 2 | `table_families.csv` | Family composition and *T*~g~ statistics, all 21 groups. |
+| 3 | `table_point_by_regime.csv` | MAE by regime and model, with across-split spread. Excerpt: MAE only; RMSE and *R*² are in the CSV. |
+| 4 | `table_pooled_r2.csv` | Pooled *R*² against the mean of per-split *R*². Excerpt: histogram gradient boosting. |
+| 5 | `table_family_holdout.csv` | Per-family holdout error and deterioration. Excerpt: three most and three least deteriorated. |
+| 6 | `table_bias_shrinkage.csv` | Family-holdout bias against regression toward the training mean. Excerpt: largest residuals of either sign. |
+| 7 | `table_conformal.csv`, `table_applicability_domain.csv` | Coverage, band coverage, width, fallback and CWC by regime and method. |
+| 8 | `table_width_matched.csv` | Width-matched oracle control and the McNemar test, under family and cluster holdout. |
+| 9 | `table_applicability_domain.csv`, `table_band_mae.csv` | Coverage, width and error by similarity band under family holdout. |
+| 10 | `table_matched_statistics.csv` | Matched-pair effects, bootstrap CIs and Wilcoxon tests. |
+| 11 | `table_matched_by_analogue.csv` | Matched family effect resolved by the informed arm's nearest-neighbour similarity. |
+| 12 | `table_representation_summary.csv`, `table_representation_ablation.csv` | Descriptor against Morgan fingerprint generalisation penalty, with repeat counts. |
+| 13 | `table_calibration_study.csv` | Random against family-out calibration construction, with calibration-set size. |
+| 14 | `table_baseline_comparison.csv` | Van Krevelen group-contribution baseline against the ensemble across all four regimes. |
+
 
 ## Supplementary
 
