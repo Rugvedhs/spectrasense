@@ -33,3 +33,6 @@ polymer-tg-benchmark/data/processed/
 # Python bytecode
 __pycache__/
 *.py[cod]
+
+# Pre-taxonomy-fix snapshot; the same files are recoverable from git history
+polymer-tg-benchmark/results_old/
