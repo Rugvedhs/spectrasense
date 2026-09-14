@@ -83,6 +83,15 @@ TABLES = {
         "Family-holdout error and deterioration (histogram gradient boosting)",
         ["group", "n", "mae", "r2", "deterioration", "mean_nn_similarity"],
     ),
+    "table_pooled_r2.csv": (
+        "Pooled R2 against the mean of per-split R2, by regime and model",
+        ["regime", "model", "n_predictions", "r2_pooled", "r2_mean_of_splits"],
+    ),
+    "table_baseline_comparison.csv": (
+        "Group-contribution baseline against the ensemble, by regime",
+        ["model", "random", "scaffold", "cluster", "family", "penalty_K",
+         "penalty_ratio"],
+    ),
 }
 
 

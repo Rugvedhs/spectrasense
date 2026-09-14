@@ -28,16 +28,20 @@ outputs in `results/`; nothing is hand-entered. Figures are written as vector PD
 | 6 | `table_matched_summary.csv`, `table_matched_statistics.csv` | Matched-pair arms, effects, bootstrap CIs and Wilcoxon tests. |
 | 7 | `table_representation_ablation.csv` | Descriptor vs Morgan fingerprint generalisation penalty. |
 | 8 | `table_conformal.csv` | Coverage, width, CWC and fallback rate by regime and conformal method. |
-| 9 | `table_calibration_study.csv` | Random vs family-out calibration construction. |
+| 9 | `table_calibration_study.csv` | Random vs family-out calibration construction, with calibration-set size. |
+| 10 | `table_pooled_r2.csv` | Pooled *R*² against the mean of per-split *R*², by regime and model. The two aggregations are not interchangeable. |
+| 11 | `table_baseline_comparison.csv`, `table_baseline_by_regime.csv` | Van Krevelen group-contribution baseline against the ensemble across all four regimes. |
 
 ## Supplementary
 
 | # | File | Shows |
 |---|---|---|
-| S1 | `table_S1_family_validation.csv` | 25 reference polymers with expected and assigned family. All agree. |
+| S1 | `table_S1_family_validation.csv` | 25 reference polymers with expected and assigned family. All agree. This is a pinned regression suite, not an independent validation set. |
 | S2 | `table_gap_drivers.csv`, `table_gap_driver_correlations.csv` | Deterioration against structural isolation, *T*~g~ shift and family size. |
 | S3 | `table_attachment_points.csv` | Attachment-point counts per structure. |
 | S4 | `calibration_study_conditional.csv` | Per-band coverage under each calibration construction. |
+| S5 | `table_band_mae.csv`, `table_band_mae_ratio.csv` | Absolute error resolved by nearest-training similarity band, and the worst-to-best band ratio. |
+| S6 | `point_family_gc.csv` | Per-family group-contribution error under family holdout. |
 
 ## Regenerating
 
