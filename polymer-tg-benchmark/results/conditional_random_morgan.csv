@@ -1,0 +1,521 @@
+group,n,coverage,coverage_error,mean_width,reliable,taxonomy,conformal,split,regime,model
+0,62,0.5967741935483871,-0.3032258064516129,174.05320000000017,True,similarity,SCP,random_0,random,extra_trees
+1,80,0.775,-0.125,174.0532000000002,True,similarity,SCP,random_0,random,extra_trees
+2,146,0.8356164383561644,-0.06438356164383563,174.05320000000017,True,similarity,SCP,random_0,random,extra_trees
+3,210,0.9095238095238095,0.00952380952380949,174.0532000000002,True,similarity,SCP,random_0,random,extra_trees
+4,284,0.9225352112676056,0.022535211267605604,174.05320000000017,True,similarity,SCP,random_0,random,extra_trees
+5,653,0.9647779479326187,0.0647779479326187,174.0532000000002,True,similarity,SCP,random_0,random,extra_trees
+Polydienes,23,0.5652173913043478,-0.33478260869565224,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyanhydrides,11,0.7272727272727273,-0.17272727272727273,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polysulfides,16,0.75,-0.15000000000000002,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polyurethanes,43,0.7674418604651163,-0.1325581395348837,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polysiloxanes,48,0.8333333333333334,-0.06666666666666665,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polyolefins,34,0.8529411764705882,-0.04705882352941182,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polyesters,161,0.8881987577639752,-0.011801242236024856,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyphosphazenes,21,0.9047619047619048,0.004761904761904745,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polycarbonates,21,0.9047619047619048,0.004761904761904745,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyphenylenes,87,0.9080459770114943,0.008045977011494232,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyacrylics,122,0.9098360655737705,0.00983606557377048,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polysulfones,40,0.925,0.025000000000000022,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polyamides,194,0.9329896907216495,0.03298969072164948,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyvinyls,46,0.9347826086956522,0.034782608695652195,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyimides,331,0.9365558912386707,0.036555891238670646,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyethers,150,0.94,0.039999999999999925,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polystyrenes,57,0.9824561403508771,0.08245614035087712,174.05320000000017,True,family,SCP,random_0,random,extra_trees
+Polyhalo-olefins,12,1.0,0.09999999999999998,174.0532000000002,True,family,SCP,random_0,random,extra_trees
+Polyureas,10,1.0,0.09999999999999998,174.05320000000015,True,family,SCP,random_0,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,174.05320000000017,False,family,SCP,random_0,random,extra_trees
+0,62,0.8709677419354839,-0.029032258064516148,310.1680000000002,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+5,653,0.9065849923430321,0.0065849923430321144,118.0,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+4,284,0.9225352112676056,0.022535211267605604,174.05320000000017,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+1,80,0.925,0.025000000000000022,297.14119999999974,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+3,210,0.9285714285714286,0.02857142857142858,201.982,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+2,146,0.9315068493150684,0.03150684931506842,259.10400000000004,True,similarity,Mondrian-similarity,random_0,random,extra_trees
+Polydienes,23,0.782608695652174,-0.11739130434782608,257.93760000000003,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyurethanes,43,0.8372093023255814,-0.06279069767441858,181.18247441860467,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyolefins,34,0.8529411764705882,-0.04705882352941182,233.04636470588233,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polysiloxanes,48,0.8541666666666666,-0.04583333333333339,174.07715833333336,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polysulfides,16,0.875,-0.025000000000000022,247.16249999999997,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyesters,161,0.8944099378881988,-0.005590062111801242,173.10078509316776,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyphenylenes,87,0.896551724137931,-0.0034482758620689724,190.62547126436777,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polycarbonates,21,0.9047619047619048,0.004761904761904745,151.39260952380957,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyamides,194,0.9072164948453608,0.007216494845360799,148.62515670103093,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyanhydrides,11,0.9090909090909091,0.009090909090909038,216.9806545454546,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyimides,331,0.9154078549848943,0.015407854984894276,148.73324229607255,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyethers,150,0.9266666666666666,0.026666666666666616,173.8060106666667,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polysulfones,40,0.95,0.04999999999999993,178.23903000000004,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyacrylics,122,0.9508196721311475,0.050819672131147464,188.0158295081967,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyphosphazenes,21,0.9523809523809523,0.052380952380952306,216.0794666666667,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyvinyls,46,0.9782608695652174,0.07826086956521738,213.0355304347826,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyhalo-olefins,12,1.0,0.09999999999999998,248.84646666666663,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polystyrenes,57,1.0,0.09999999999999998,199.87717192982458,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyureas,10,1.0,0.09999999999999998,155.62984,True,family,Mondrian-similarity,random_0,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,160.01545000000004,False,family,Mondrian-similarity,random_0,random,extra_trees
+0,62,0.6935483870967742,-0.20645161290322578,217.71909548387097,True,similarity,Mondrian-family,random_0,random,extra_trees
+2,146,0.815068493150685,-0.08493150684931505,186.0956295890411,True,similarity,Mondrian-family,random_0,random,extra_trees
+1,80,0.8625,-0.03749999999999998,215.719985,True,similarity,Mondrian-family,random_0,random,extra_trees
+3,210,0.9142857142857143,0.014285714285714235,185.493417142857,True,similarity,Mondrian-family,random_0,random,extra_trees
+4,284,0.9154929577464789,0.015492957746478853,189.7562456338025,True,similarity,Mondrian-family,random_0,random,extra_trees
+5,653,0.9709035222052067,0.07090352220520668,188.39654052067345,True,similarity,Mondrian-family,random_0,random,extra_trees
+Polydienes,23,0.5652173913043478,-0.33478260869565224,174.0532000000002,True,family,Mondrian-family,random_0,random,extra_trees
+Polyanhydrides,11,0.7272727272727273,-0.17272727272727273,174.0532000000002,True,family,Mondrian-family,random_0,random,extra_trees
+Polysulfides,16,0.75,-0.15000000000000002,174.05320000000017,True,family,Mondrian-family,random_0,random,extra_trees
+Polyesters,161,0.8322981366459627,-0.06770186335403727,135.94240000000053,True,family,Mondrian-family,random_0,random,extra_trees
+Polyurethanes,43,0.8604651162790697,-0.03953488372093028,230.11599999999999,True,family,Mondrian-family,random_0,random,extra_trees
+Polyacrylics,122,0.8688524590163934,-0.031147540983606614,131.31600000000003,True,family,Mondrian-family,random_0,random,extra_trees
+Polysulfones,40,0.9,0.0,152.976,True,family,Mondrian-family,random_0,random,extra_trees
+Polycarbonates,21,0.9047619047619048,0.004761904761904745,174.0532000000002,True,family,Mondrian-family,random_0,random,extra_trees
+Polyamides,194,0.9329896907216495,0.03298969072164948,173.43599999999998,True,family,Mondrian-family,random_0,random,extra_trees
+Polyvinyls,46,0.9347826086956522,0.034782608695652195,141.026,True,family,Mondrian-family,random_0,random,extra_trees
+Polysiloxanes,48,0.9375,0.03749999999999998,311.036,True,family,Mondrian-family,random_0,random,extra_trees
+Polyphenylenes,87,0.9425287356321839,0.042528735632183845,228.42799999999997,True,family,Mondrian-family,random_0,random,extra_trees
+Polyimides,331,0.9546827794561934,0.054682779456193376,195.74855999999866,True,family,Mondrian-family,random_0,random,extra_trees
+Polyethers,150,0.9666666666666667,0.06666666666666665,205.14799999999997,True,family,Mondrian-family,random_0,random,extra_trees
+Polyolefins,34,0.9705882352941176,0.07058823529411762,463.172,True,family,Mondrian-family,random_0,random,extra_trees
+Polystyrenes,57,0.9824561403508771,0.08245614035087712,173.25199999999998,True,family,Mondrian-family,random_0,random,extra_trees
+Polyhalo-olefins,12,1.0,0.09999999999999998,174.0532000000002,True,family,Mondrian-family,random_0,random,extra_trees
+Polyphosphazenes,21,1.0,0.09999999999999998,293.7079999999999,True,family,Mondrian-family,random_0,random,extra_trees
+Polyureas,10,1.0,0.09999999999999998,174.05320000000015,True,family,Mondrian-family,random_0,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,174.05320000000017,False,family,Mondrian-family,random_0,random,extra_trees
+0,62,0.7419354838709677,-0.15806451612903227,249.82860991251806,True,similarity,Normalised SCP,random_0,random,extra_trees
+1,80,0.8375,-0.0625,222.15937174613572,True,similarity,Normalised SCP,random_0,random,extra_trees
+2,146,0.863013698630137,-0.03698630136986303,210.91363183226784,True,similarity,Normalised SCP,random_0,random,extra_trees
+4,284,0.9084507042253521,0.008450704225352101,174.77427448727343,True,similarity,Normalised SCP,random_0,random,extra_trees
+3,210,0.9238095238095239,0.023809523809523836,186.37960956716572,True,similarity,Normalised SCP,random_0,random,extra_trees
+5,653,0.9494640122511485,0.04946401225114849,159.7308469909094,True,similarity,Normalised SCP,random_0,random,extra_trees
+Polydienes,23,0.6956521739130435,-0.20434782608695656,209.34256584760612,True,family,Normalised SCP,random_0,random,extra_trees
+Polyurethanes,43,0.6976744186046512,-0.20232558139534884,134.74791318848585,True,family,Normalised SCP,random_0,random,extra_trees
+Polysiloxanes,48,0.8541666666666666,-0.04583333333333339,164.02055021193803,True,family,Normalised SCP,random_0,random,extra_trees
+Polysulfides,16,0.875,-0.025000000000000022,264.78638293477354,True,family,Normalised SCP,random_0,random,extra_trees
+Polyolefins,34,0.8823529411764706,-0.01764705882352946,244.43606526097733,True,family,Normalised SCP,random_0,random,extra_trees
+Polyphosphazenes,21,0.9047619047619048,0.004761904761904745,193.03830020789397,True,family,Normalised SCP,random_0,random,extra_trees
+Polycarbonates,21,0.9047619047619048,0.004761904761904745,172.83325481010155,True,family,Normalised SCP,random_0,random,extra_trees
+Polyesters,161,0.906832298136646,0.006832298136645987,180.2979614400867,True,family,Normalised SCP,random_0,random,extra_trees
+Polyanhydrides,11,0.9090909090909091,0.009090909090909038,239.7849062493009,True,family,Normalised SCP,random_0,random,extra_trees
+Polyethers,150,0.9133333333333333,0.013333333333333308,160.75094186961783,True,family,Normalised SCP,random_0,random,extra_trees
+Polyacrylics,122,0.9180327868852459,0.0180327868852459,201.99186898966198,True,family,Normalised SCP,random_0,random,extra_trees
+Polyimides,331,0.9274924471299094,0.027492447129909392,161.60783290732505,True,family,Normalised SCP,random_0,random,extra_trees
+Polyphenylenes,87,0.9310344827586207,0.03103448275862064,181.4198960344225,True,family,Normalised SCP,random_0,random,extra_trees
+Polyamides,194,0.9329896907216495,0.03298969072164948,180.2310889345843,True,family,Normalised SCP,random_0,random,extra_trees
+Polysulfones,40,0.95,0.04999999999999993,195.49521939621047,True,family,Normalised SCP,random_0,random,extra_trees
+Polyvinyls,46,0.9565217391304348,0.05652173913043479,178.35770326060054,True,family,Normalised SCP,random_0,random,extra_trees
+Polystyrenes,57,0.9824561403508771,0.08245614035087712,176.58652155471455,True,family,Normalised SCP,random_0,random,extra_trees
+Polyhalo-olefins,12,1.0,0.09999999999999998,315.36160031276546,True,family,Normalised SCP,random_0,random,extra_trees
+Polyureas,10,1.0,0.09999999999999998,284.08349479683557,True,family,Normalised SCP,random_0,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,130.7441490961595,False,family,Normalised SCP,random_0,random,extra_trees
+0,49,0.673469387755102,-0.226530612244898,163.0,True,similarity,SCP,random_1,random,extra_trees
+1,80,0.7,-0.20000000000000007,163.0,True,similarity,SCP,random_1,random,extra_trees
+3,230,0.8391304347826087,-0.060869565217391286,163.0,True,similarity,SCP,random_1,random,extra_trees
+2,163,0.8588957055214724,-0.04110429447852759,163.0,True,similarity,SCP,random_1,random,extra_trees
+4,246,0.9390243902439024,0.03902439024390236,163.0,True,similarity,SCP,random_1,random,extra_trees
+5,667,0.9700149925037481,0.0700149925037481,163.0,True,similarity,SCP,random_1,random,extra_trees
+Polydienes,17,0.6470588235294118,-0.2529411764705882,163.0,True,family,SCP,random_1,random,extra_trees
+Polysulfides,12,0.6666666666666666,-0.2333333333333334,163.0,True,family,SCP,random_1,random,extra_trees
+Polyphenylenes,86,0.8023255813953488,-0.0976744186046512,163.0,True,family,SCP,random_1,random,extra_trees
+Polycarbonates,17,0.8235294117647058,-0.07647058823529418,163.0,True,family,SCP,random_1,random,extra_trees
+Polysiloxanes,47,0.8297872340425532,-0.07021276595744685,163.0,True,family,SCP,random_1,random,extra_trees
+Polyolefins,33,0.8484848484848485,-0.051515151515151514,163.0,True,family,SCP,random_1,random,extra_trees
+Polyanhydrides,8,0.875,-0.025000000000000022,163.0,False,family,SCP,random_1,random,extra_trees
+Polyacrylics,153,0.8758169934640523,-0.024183006535947738,163.0,True,family,SCP,random_1,random,extra_trees
+Polyesters,162,0.9012345679012346,0.0012345679012345512,163.0,True,family,SCP,random_1,random,extra_trees
+Polyhalo-olefins,11,0.9090909090909091,0.009090909090909038,163.0,True,family,SCP,random_1,random,extra_trees
+Polyvinyls,44,0.9090909090909091,0.009090909090909038,163.0,True,family,SCP,random_1,random,extra_trees
+Polyurethanes,37,0.918918918918919,0.018918918918918948,163.0,True,family,SCP,random_1,random,extra_trees
+Polyamides,205,0.926829268292683,0.02682926829268295,163.0,True,family,SCP,random_1,random,extra_trees
+Polyethers,127,0.937007874015748,0.03700787401574801,163.0,True,family,SCP,random_1,random,extra_trees
+Polyimides,349,0.9398280802292264,0.03982808022922635,163.0,True,family,SCP,random_1,random,extra_trees
+Polystyrenes,54,0.9444444444444444,0.0444444444444444,163.0,True,family,SCP,random_1,random,extra_trees
+Polyphosphazenes,20,0.95,0.04999999999999993,163.0,True,family,SCP,random_1,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,163.0,False,family,SCP,random_1,random,extra_trees
+Polysulfones,39,1.0,0.09999999999999998,163.0,True,family,SCP,random_1,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,163.0,False,family,SCP,random_1,random,extra_trees
+1,80,0.8375,-0.0625,262.032,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+3,230,0.8608695652173913,-0.03913043478260869,171.23199999999997,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+5,667,0.9205397301349325,0.020539730134932488,122.354,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+4,246,0.9349593495934959,0.03495934959349589,155.27999999999997,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+2,163,0.9631901840490797,0.06319018404907972,242.69599999999997,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+0,49,0.9795918367346939,0.07959183673469383,361.02,True,similarity,Mondrian-similarity,random_1,random,extra_trees
+Polydienes,17,0.7647058823529411,-0.1352941176470589,222.17588235294116,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polycarbonates,17,0.8235294117647058,-0.07647058823529418,170.24788235294116,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyphenylenes,86,0.8837209302325582,-0.016279069767441867,197.79279069767443,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyurethanes,37,0.8918918918918919,-0.008108108108108136,154.3447027027027,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyethers,127,0.8976377952755905,-0.0023622047244095112,165.48448818897634,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyimides,349,0.9054441260744985,0.005444126074498512,144.95736962750718,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyesters,162,0.9074074074074074,0.007407407407407418,158.18666666666667,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyolefins,33,0.9090909090909091,0.009090909090909038,222.04151515151514,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polysiloxanes,47,0.9148936170212766,0.014893617021276562,181.8267659574468,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyacrylics,153,0.9150326797385621,0.015032679738562038,171.66630065359476,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyamides,205,0.9219512195121952,0.02195121951219514,148.89891707317074,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyphosphazenes,20,0.95,0.04999999999999993,208.0109,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyvinyls,44,0.9772727272727273,0.07727272727272727,205.79749999999996,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polystyrenes,54,0.9814814814814815,0.08148148148148149,182.35592592592585,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,162.665,False,family,Mondrian-similarity,random_1,random,extra_trees
+Polyhalo-olefins,11,1.0,0.09999999999999998,180.20163636363634,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polysulfones,39,1.0,0.09999999999999998,163.00523076923074,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyanhydrides,8,1.0,0.09999999999999998,198.608,False,family,Mondrian-similarity,random_1,random,extra_trees
+Polysulfides,12,1.0,0.09999999999999998,252.063,True,family,Mondrian-similarity,random_1,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,133.32933333333332,False,family,Mondrian-similarity,random_1,random,extra_trees
+0,49,0.6938775510204082,-0.20612244897959187,181.89688979591844,True,similarity,Mondrian-family,random_1,random,extra_trees
+1,80,0.7,-0.20000000000000007,195.42072000000002,True,similarity,Mondrian-family,random_1,random,extra_trees
+3,230,0.8521739130434782,-0.047826086956521796,167.99340173913046,True,similarity,Mondrian-family,random_1,random,extra_trees
+2,163,0.8650306748466258,-0.03496932515337425,177.5545202453988,True,similarity,Mondrian-family,random_1,random,extra_trees
+4,246,0.9146341463414634,0.014634146341463428,162.0922130081301,True,similarity,Mondrian-family,random_1,random,extra_trees
+5,667,0.9505247376311844,0.05052473763118437,156.8120383808096,True,similarity,Mondrian-family,random_1,random,extra_trees
+Polydienes,17,0.6470588235294118,-0.2529411764705882,163.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polysulfides,12,0.6666666666666666,-0.2333333333333334,163.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polyurethanes,37,0.7567567567567568,-0.14324324324324322,103.63039999999994,True,family,Mondrian-family,random_1,random,extra_trees
+Polycarbonates,17,0.8235294117647058,-0.07647058823529418,163.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polysiloxanes,47,0.851063829787234,-0.04893617021276597,181.18000000000006,True,family,Mondrian-family,random_1,random,extra_trees
+Polyphenylenes,86,0.8604651162790697,-0.03953488372093028,205.20000000000047,True,family,Mondrian-family,random_1,random,extra_trees
+Polyethers,127,0.8740157480314961,-0.025984251968503957,139.65999999999994,True,family,Mondrian-family,random_1,random,extra_trees
+Polyanhydrides,8,0.875,-0.025000000000000022,163.0,False,family,Mondrian-family,random_1,random,extra_trees
+Polyesters,162,0.8888888888888888,-0.011111111111111183,156.0128,True,family,Mondrian-family,random_1,random,extra_trees
+Polyimides,349,0.8997134670487106,-0.0002865329512894421,146.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polyhalo-olefins,11,0.9090909090909091,0.009090909090909038,163.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polyolefins,33,0.9090909090909091,0.009090909090909038,227.5,True,family,Mondrian-family,random_1,random,extra_trees
+Polyacrylics,153,0.9150326797385621,0.015032679738562038,182.5884000000003,True,family,Mondrian-family,random_1,random,extra_trees
+Polyamides,205,0.9170731707317074,0.017073170731707332,148.0,True,family,Mondrian-family,random_1,random,extra_trees
+Polysulfones,39,0.9487179487179487,0.048717948717948656,125.74799999999992,True,family,Mondrian-family,random_1,random,extra_trees
+Polyvinyls,44,0.9772727272727273,0.07727272727272727,273.5119999999995,True,family,Mondrian-family,random_1,random,extra_trees
+Polystyrenes,54,0.9814814814814815,0.08148148148148149,224.47119999999993,True,family,Mondrian-family,random_1,random,extra_trees
+Polyimines,8,1.0,0.09999999999999998,163.0,False,family,Mondrian-family,random_1,random,extra_trees
+Polyphosphazenes,20,1.0,0.09999999999999998,245.612,True,family,Mondrian-family,random_1,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,163.0,False,family,Mondrian-family,random_1,random,extra_trees
+1,80,0.75,-0.15000000000000002,200.60230581173363,True,similarity,Normalised SCP,random_1,random,extra_trees
+2,163,0.8404907975460123,-0.05950920245398772,178.42045566270227,True,similarity,Normalised SCP,random_1,random,extra_trees
+0,49,0.8571428571428571,-0.04285714285714293,242.6772093613905,True,similarity,Normalised SCP,random_1,random,extra_trees
+3,230,0.8608695652173913,-0.03913043478260869,180.91942328602315,True,similarity,Normalised SCP,random_1,random,extra_trees
+4,246,0.926829268292683,0.02682926829268295,162.18018866002376,True,similarity,Normalised SCP,random_1,random,extra_trees
+5,667,0.9370314842578711,0.03703148425787106,147.01298664267745,True,similarity,Normalised SCP,random_1,random,extra_trees
+Polycarbonates,17,0.7058823529411765,-0.1941176470588235,166.3087106464984,True,family,Normalised SCP,random_1,random,extra_trees
+Polysulfides,12,0.75,-0.15000000000000002,198.83434931756474,True,family,Normalised SCP,random_1,random,extra_trees
+Polydienes,17,0.7647058823529411,-0.1352941176470589,216.08605291022917,True,family,Normalised SCP,random_1,random,extra_trees
+Polyurethanes,37,0.8378378378378378,-0.06216216216216219,142.95422686516528,True,family,Normalised SCP,random_1,random,extra_trees
+Polyphosphazenes,20,0.85,-0.050000000000000044,144.41129791606372,True,family,Normalised SCP,random_1,random,extra_trees
+Polysiloxanes,47,0.8723404255319149,-0.02765957446808509,208.79077770965898,True,family,Normalised SCP,random_1,random,extra_trees
+Polyanhydrides,8,0.875,-0.025000000000000022,156.53595459015685,False,family,Normalised SCP,random_1,random,extra_trees
+Polyimines,8,0.875,-0.025000000000000022,157.54794664868956,False,family,Normalised SCP,random_1,random,extra_trees
+Polyesters,162,0.8765432098765432,-0.023456790123456805,147.86254454354906,True,family,Normalised SCP,random_1,random,extra_trees
+Polyphenylenes,86,0.8837209302325582,-0.016279069767441867,187.51998341223688,True,family,Normalised SCP,random_1,random,extra_trees
+Polyamides,205,0.8926829268292683,-0.007317073170731714,136.66641131066487,True,family,Normalised SCP,random_1,random,extra_trees
+Polyacrylics,153,0.9084967320261438,0.00849673202614376,194.6975843761326,True,family,Normalised SCP,random_1,random,extra_trees
+Polyvinyls,44,0.9090909090909091,0.009090909090909038,146.75788919689433,True,family,Normalised SCP,random_1,random,extra_trees
+Polyolefins,33,0.9090909090909091,0.009090909090909038,205.98312787448427,True,family,Normalised SCP,random_1,random,extra_trees
+Polyhalo-olefins,11,0.9090909090909091,0.009090909090909038,255.88447283254072,True,family,Normalised SCP,random_1,random,extra_trees
+Polyimides,349,0.9169054441260746,0.01690544412607453,162.48051739814045,True,family,Normalised SCP,random_1,random,extra_trees
+Polyethers,127,0.9291338582677166,0.029133858267716528,156.35595174490317,True,family,Normalised SCP,random_1,random,extra_trees
+Polystyrenes,54,0.9444444444444444,0.0444444444444444,174.5722761590516,True,family,Normalised SCP,random_1,random,extra_trees
+Polysulfones,39,0.9743589743589743,0.07435897435897432,162.14054925202691,True,family,Normalised SCP,random_1,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,154.77645436988226,False,family,Normalised SCP,random_1,random,extra_trees
+0,37,0.5405405405405406,-0.35945945945945945,149.93599999999995,True,similarity,SCP,random_2,random,extra_trees
+1,84,0.6190476190476191,-0.28095238095238095,149.93599999999992,True,similarity,SCP,random_2,random,extra_trees
+2,146,0.7945205479452054,-0.10547945205479459,149.93599999999995,True,similarity,SCP,random_2,random,extra_trees
+3,241,0.8257261410788381,-0.0742738589211619,149.93599999999998,True,similarity,SCP,random_2,random,extra_trees
+4,265,0.8981132075471698,-0.0018867924528301883,149.93599999999998,True,similarity,SCP,random_2,random,extra_trees
+5,662,0.9380664652567976,0.03806646525679758,149.93599999999995,True,similarity,SCP,random_2,random,extra_trees
+Polydienes,17,0.6470588235294118,-0.2529411764705882,149.93599999999998,True,family,SCP,random_2,random,extra_trees
+Polyhalo-olefins,10,0.7,-0.20000000000000007,149.93599999999998,True,family,SCP,random_2,random,extra_trees
+Polyolefins,35,0.7142857142857143,-0.18571428571428572,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyureas,4,0.75,-0.15000000000000002,149.93599999999998,False,family,SCP,random_2,random,extra_trees
+Polysiloxanes,36,0.7777777777777778,-0.12222222222222223,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyphenylenes,101,0.7920792079207921,-0.1079207920792079,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyimines,6,0.8333333333333334,-0.06666666666666665,149.93599999999995,False,family,SCP,random_2,random,extra_trees
+Polyethers,145,0.8551724137931035,-0.04482758620689653,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyanhydrides,14,0.8571428571428571,-0.04285714285714293,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyacrylics,126,0.8650793650793651,-0.03492063492063491,149.93600000000004,True,family,SCP,random_2,random,extra_trees
+Polyimides,334,0.8682634730538922,-0.031736526946107846,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyurethanes,39,0.8717948717948718,-0.028205128205128216,149.93599999999992,True,family,SCP,random_2,random,extra_trees
+Polystyrenes,50,0.88,-0.020000000000000018,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polysulfides,9,0.8888888888888888,-0.011111111111111183,149.93599999999998,False,family,SCP,random_2,random,extra_trees
+Polyamides,190,0.8894736842105263,-0.010526315789473717,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyvinyls,49,0.8979591836734694,-0.0020408163265306367,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polysulfones,42,0.9285714285714286,0.02857142857142858,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polyesters,181,0.9337016574585635,0.03370165745856346,149.93599999999995,True,family,SCP,random_2,random,extra_trees
+Polycarbonates,20,0.95,0.04999999999999993,149.936,True,family,SCP,random_2,random,extra_trees
+Polyphosphazenes,27,0.9629629629629629,0.06296296296296289,149.936,True,family,SCP,random_2,random,extra_trees
+0,37,0.8648648648648649,-0.03513513513513511,285.366,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+3,241,0.8713692946058091,-0.02863070539419088,178.39599999999996,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+5,662,0.8716012084592145,-0.028398791540785506,103.68499999999912,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+4,265,0.8867924528301887,-0.013207547169811318,144.39600000000002,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+2,146,0.9041095890410958,0.004109589041095818,221.21360000000007,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+1,84,0.9166666666666666,0.016666666666666607,259.288,True,similarity,Mondrian-similarity,random_2,random,extra_trees
+Polyimides,334,0.8323353293413174,-0.06766467065868265,129.07902574850246,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyphenylenes,101,0.8415841584158416,-0.05841584158415847,173.54818019801945,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyolefins,35,0.8571428571428571,-0.04285714285714293,201.0417485714284,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polysiloxanes,36,0.8611111111111112,-0.03888888888888886,140.89952777777728,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyethers,145,0.8620689655172413,-0.037931034482758696,152.8061572413789,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polysulfides,9,0.8888888888888888,-0.011111111111111183,193.02866666666628,False,family,Mondrian-similarity,random_2,random,extra_trees
+Polyacrylics,126,0.8968253968253969,-0.0031746031746031633,149.38972857142818,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polystyrenes,50,0.9,0.0,170.46549199999978,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyamides,190,0.9,0.0,132.4796978947363,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyesters,181,0.9005524861878453,0.0005524861878453136,144.32045414364603,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polysulfones,42,0.9047619047619048,0.004761904761904745,143.93722380952346,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyurethanes,39,0.9230769230769231,0.023076923076923106,153.20199487179454,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyphosphazenes,27,0.9259259259259259,0.025925925925925908,179.3051629629628,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyvinyls,49,0.9387755102040817,0.038775510204081653,181.29843265306107,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polydienes,17,0.9411764705882353,0.04117647058823526,226.9844588235294,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polycarbonates,20,0.95,0.04999999999999993,154.08949999999956,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyanhydrides,14,1.0,0.09999999999999998,171.60401428571396,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyhalo-olefins,10,1.0,0.09999999999999998,243.31812000000005,True,family,Mondrian-similarity,random_2,random,extra_trees
+Polyimines,6,1.0,0.09999999999999998,162.4261666666665,False,family,Mondrian-similarity,random_2,random,extra_trees
+Polyureas,4,1.0,0.09999999999999998,188.6651499999998,False,family,Mondrian-similarity,random_2,random,extra_trees
+0,37,0.5675675675675675,-0.3324324324324325,186.27432432432428,True,similarity,Mondrian-family,random_2,random,extra_trees
+1,84,0.7023809523809523,-0.1976190476190477,187.55617142857147,True,similarity,Mondrian-family,random_2,random,extra_trees
+2,146,0.8013698630136986,-0.09863013698630141,174.02846849315068,True,similarity,Mondrian-family,random_2,random,extra_trees
+3,241,0.8257261410788381,-0.0742738589211619,158.63255435684647,True,similarity,Mondrian-family,random_2,random,extra_trees
+4,265,0.8981132075471698,-0.0018867924528301883,155.06801056603777,True,similarity,Mondrian-family,random_2,random,extra_trees
+5,662,0.9350453172205438,0.035045317220543826,156.17845498489424,True,similarity,Mondrian-family,random_2,random,extra_trees
+Polydienes,17,0.6470588235294118,-0.2529411764705882,149.93599999999998,True,family,Mondrian-family,random_2,random,extra_trees
+Polyhalo-olefins,10,0.7,-0.20000000000000007,149.93599999999998,True,family,Mondrian-family,random_2,random,extra_trees
+Polyureas,4,0.75,-0.15000000000000002,149.93599999999998,False,family,Mondrian-family,random_2,random,extra_trees
+Polyethers,145,0.7931034482758621,-0.10689655172413792,122.98599999999999,True,family,Mondrian-family,random_2,random,extra_trees
+Polyimines,6,0.8333333333333334,-0.06666666666666665,149.93599999999995,False,family,Mondrian-family,random_2,random,extra_trees
+Polyurethanes,39,0.8461538461538461,-0.05384615384615388,117.31800000000005,True,family,Mondrian-family,random_2,random,extra_trees
+Polyesters,181,0.850828729281768,-0.04917127071823202,124.534,True,family,Mondrian-family,random_2,random,extra_trees
+Polyanhydrides,14,0.8571428571428571,-0.04285714285714293,149.93599999999995,True,family,Mondrian-family,random_2,random,extra_trees
+Polysulfones,42,0.8571428571428571,-0.04285714285714293,133.19600000000003,True,family,Mondrian-family,random_2,random,extra_trees
+Polyimides,334,0.8682634730538922,-0.031736526946107846,147.85000000000002,True,family,Mondrian-family,random_2,random,extra_trees
+Polyolefins,35,0.8857142857142857,-0.014285714285714346,265.272,True,family,Mondrian-family,random_2,random,extra_trees
+Polysulfides,9,0.8888888888888888,-0.011111111111111183,149.93599999999998,False,family,Mondrian-family,random_2,random,extra_trees
+Polyacrylics,126,0.8888888888888888,-0.011111111111111183,160.70000000000005,True,family,Mondrian-family,random_2,random,extra_trees
+Polyamides,190,0.8894736842105263,-0.010526315789473717,149.93599999999995,True,family,Mondrian-family,random_2,random,extra_trees
+Polyvinyls,49,0.9183673469387755,0.01836734693877551,168.72520000000026,True,family,Mondrian-family,random_2,random,extra_trees
+Polystyrenes,50,0.92,0.020000000000000018,200.87999999999997,True,family,Mondrian-family,random_2,random,extra_trees
+Polysiloxanes,36,0.9444444444444444,0.0444444444444444,234.04159999999987,True,family,Mondrian-family,random_2,random,extra_trees
+Polycarbonates,20,0.95,0.04999999999999993,149.936,True,family,Mondrian-family,random_2,random,extra_trees
+Polyphenylenes,101,0.9603960396039604,0.06039603960396034,299.2,True,family,Mondrian-family,random_2,random,extra_trees
+Polyphosphazenes,27,0.9629629629629629,0.06296296296296289,143.39999999999978,True,family,Mondrian-family,random_2,random,extra_trees
+0,37,0.7027027027027027,-0.19729729729729728,227.0429359150471,True,similarity,Normalised SCP,random_2,random,extra_trees
+1,84,0.7738095238095238,-0.1261904761904762,200.11301793731232,True,similarity,Normalised SCP,random_2,random,extra_trees
+2,146,0.8287671232876712,-0.07123287671232881,179.37529406929238,True,similarity,Normalised SCP,random_2,random,extra_trees
+3,241,0.8464730290456431,-0.05352697095435688,167.3569906451019,True,similarity,Normalised SCP,random_2,random,extra_trees
+4,265,0.8830188679245283,-0.016981132075471694,152.56236066181714,True,similarity,Normalised SCP,random_2,random,extra_trees
+5,662,0.9199395770392749,0.019939577039274847,133.17928355438926,True,similarity,Normalised SCP,random_2,random,extra_trees
+Polyureas,4,0.75,-0.15000000000000002,137.75449414248658,False,family,Normalised SCP,random_2,random,extra_trees
+Polydienes,17,0.7647058823529411,-0.1352941176470589,219.90321581884672,True,family,Normalised SCP,random_2,random,extra_trees
+Polysiloxanes,36,0.8055555555555556,-0.09444444444444444,168.94807883036952,True,family,Normalised SCP,random_2,random,extra_trees
+Polyphenylenes,101,0.8217821782178217,-0.07821782178217829,182.47963560601434,True,family,Normalised SCP,random_2,random,extra_trees
+Polyolefins,35,0.8285714285714286,-0.0714285714285714,208.26438729259985,True,family,Normalised SCP,random_2,random,extra_trees
+Polyimines,6,0.8333333333333334,-0.06666666666666665,95.81485162984235,False,family,Normalised SCP,random_2,random,extra_trees
+Polyvinyls,49,0.8367346938775511,-0.06326530612244896,147.94539884139888,True,family,Normalised SCP,random_2,random,extra_trees
+Polyamides,190,0.868421052631579,-0.03157894736842104,120.71770926184439,True,family,Normalised SCP,random_2,random,extra_trees
+Polyimides,334,0.8712574850299402,-0.028742514970059863,146.85052065847762,True,family,Normalised SCP,random_2,random,extra_trees
+Polyethers,145,0.8827586206896552,-0.017241379310344862,145.36556909651645,True,family,Normalised SCP,random_2,random,extra_trees
+Polycarbonates,20,0.9,0.0,139.34221831352127,True,family,Normalised SCP,random_2,random,extra_trees
+Polystyrenes,50,0.9,0.0,194.0724039487348,True,family,Normalised SCP,random_2,random,extra_trees
+Polysulfones,42,0.9047619047619048,0.004761904761904745,138.1627151450601,True,family,Normalised SCP,random_2,random,extra_trees
+Polyacrylics,126,0.9047619047619048,0.004761904761904745,169.87606298984514,True,family,Normalised SCP,random_2,random,extra_trees
+Polyesters,181,0.9060773480662984,0.006077348066298338,148.7961458917689,True,family,Normalised SCP,random_2,random,extra_trees
+Polyurethanes,39,0.9230769230769231,0.023076923076923106,135.5551691290239,True,family,Normalised SCP,random_2,random,extra_trees
+Polyphosphazenes,27,0.9259259259259259,0.025925925925925908,156.69889836144733,True,family,Normalised SCP,random_2,random,extra_trees
+Polyanhydrides,14,0.9285714285714286,0.02857142857142858,196.2271226864155,True,family,Normalised SCP,random_2,random,extra_trees
+Polysulfides,9,1.0,0.09999999999999998,171.54204871475292,False,family,Normalised SCP,random_2,random,extra_trees
+Polyhalo-olefins,10,1.0,0.09999999999999998,290.93960862839606,True,family,Normalised SCP,random_2,random,extra_trees
+1,79,0.6329113924050633,-0.2670886075949367,171.48,True,similarity,SCP,random_3,random,extra_trees
+0,45,0.6444444444444445,-0.25555555555555554,171.47999999999996,True,similarity,SCP,random_3,random,extra_trees
+2,139,0.8273381294964028,-0.07266187050359718,171.48000000000002,True,similarity,SCP,random_3,random,extra_trees
+3,217,0.8709677419354839,-0.029032258064516148,171.48000000000002,True,similarity,SCP,random_3,random,extra_trees
+4,301,0.9435215946843853,0.04352159468438532,171.48000000000002,True,similarity,SCP,random_3,random,extra_trees
+5,654,0.981651376146789,0.08165137614678897,171.48000000000002,True,similarity,SCP,random_3,random,extra_trees
+Polydienes,22,0.6818181818181818,-0.21818181818181825,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyhalo-olefins,13,0.7692307692307693,-0.13076923076923075,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyolefins,27,0.8518518518518519,-0.04814814814814816,171.47999999999996,True,family,SCP,random_3,random,extra_trees
+Polyphenylenes,83,0.8554216867469879,-0.04457831325301209,171.48,True,family,SCP,random_3,random,extra_trees
+Polysiloxanes,41,0.8780487804878049,-0.02195121951219514,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polysulfides,9,0.8888888888888888,-0.011111111111111183,171.48000000000002,False,family,SCP,random_3,random,extra_trees
+Polyphosphazenes,29,0.896551724137931,-0.0034482758620689724,171.48,True,family,SCP,random_3,random,extra_trees
+Polystyrenes,50,0.9,0.0,171.48,True,family,SCP,random_3,random,extra_trees
+Polyethers,155,0.9032258064516129,0.003225806451612856,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyesters,168,0.9166666666666666,0.016666666666666607,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyimides,330,0.9181818181818182,0.018181818181818188,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyamides,208,0.9278846153846154,0.027884615384615397,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyacrylics,129,0.937984496124031,0.037984496124030986,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polysulfones,51,0.9411764705882353,0.04117647058823526,171.48,True,family,SCP,random_3,random,extra_trees
+Polyvinyls,53,0.9433962264150944,0.04339622641509433,171.47999999999996,True,family,SCP,random_3,random,extra_trees
+Polyurethanes,34,0.9705882352941176,0.07058823529411762,171.48,True,family,SCP,random_3,random,extra_trees
+Polyanhydrides,3,1.0,0.09999999999999998,171.48000000000002,False,family,SCP,random_3,random,extra_trees
+Polyimines,7,1.0,0.09999999999999998,171.48000000000002,False,family,SCP,random_3,random,extra_trees
+Polycarbonates,17,1.0,0.09999999999999998,171.48000000000002,True,family,SCP,random_3,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,171.48000000000002,False,family,SCP,random_3,random,extra_trees
+3,217,0.880184331797235,-0.019815668202765035,175.684,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+5,654,0.9036697247706422,0.003669724770642202,109.71800000000002,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+0,45,0.9111111111111111,0.011111111111111072,359.604,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+4,301,0.9169435215946844,0.016943521594684374,150.62,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+1,79,0.9367088607594937,0.036708860759493644,349.0920000000001,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+2,139,0.9424460431654677,0.04244604316546763,237.23900000000003,True,similarity,Mondrian-similarity,random_3,random,extra_trees
+Polydienes,22,0.8181818181818182,-0.08181818181818179,282.9813636363637,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polysiloxanes,41,0.8292682926829268,-0.07073170731707323,166.0240243902439,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyethers,155,0.8838709677419355,-0.016129032258064502,166.2937483870968,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyamides,208,0.8846153846153846,-0.015384615384615441,135.69099519230772,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyacrylics,129,0.8992248062015504,-0.0007751937984495916,161.38323255813955,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyimides,330,0.9,0.0,141.91272424242428,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polysulfones,51,0.9019607843137255,0.0019607843137254832,173.19284313725493,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyesters,168,0.9107142857142857,0.010714285714285676,155.27294642857146,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polystyrenes,50,0.92,0.020000000000000018,183.76534,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyphenylenes,83,0.927710843373494,0.027710843373493943,193.11431325301206,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyurethanes,34,0.9705882352941176,0.07058823529411762,138.50117647058826,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyvinyls,53,0.9811320754716981,0.0811320754716981,199.44015094339628,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyimines,7,1.0,0.09999999999999998,170.86742857142858,False,family,Mondrian-similarity,random_3,random,extra_trees
+Polyphosphazenes,29,1.0,0.09999999999999998,174.94293103448274,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyolefins,27,1.0,0.09999999999999998,224.80759259259256,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyhalo-olefins,13,1.0,0.09999999999999998,297.1876153846154,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyanhydrides,3,1.0,0.09999999999999998,131.70666666666668,False,family,Mondrian-similarity,random_3,random,extra_trees
+Polysulfides,9,1.0,0.09999999999999998,215.6576666666667,False,family,Mondrian-similarity,random_3,random,extra_trees
+Polycarbonates,17,1.0,0.09999999999999998,144.0984705882353,True,family,Mondrian-similarity,random_3,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,144.60550000000003,False,family,Mondrian-similarity,random_3,random,extra_trees
+0,45,0.6888888888888889,-0.21111111111111114,182.52266666666668,True,similarity,Mondrian-family,random_3,random,extra_trees
+1,79,0.7341772151898734,-0.16582278481012658,214.50574683544306,True,similarity,Mondrian-family,random_3,random,extra_trees
+3,217,0.8525345622119815,-0.04746543778801848,176.13433179723512,True,similarity,Mondrian-family,random_3,random,extra_trees
+2,139,0.8561151079136691,-0.04388489208633095,189.66537841726628,True,similarity,Mondrian-family,random_3,random,extra_trees
+4,301,0.9435215946843853,0.04352159468438532,176.99894750830572,True,similarity,Mondrian-family,random_3,random,extra_trees
+5,654,0.9709480122324159,0.07094801223241587,170.8316862385322,True,similarity,Mondrian-family,random_3,random,extra_trees
+Polydienes,22,0.6818181818181818,-0.21818181818181825,171.48000000000002,True,family,Mondrian-family,random_3,random,extra_trees
+Polyhalo-olefins,13,0.7692307692307693,-0.13076923076923075,171.48000000000002,True,family,Mondrian-family,random_3,random,extra_trees
+Polyethers,155,0.8774193548387097,-0.022580645161290325,157.30800000000002,True,family,Mondrian-family,random_3,random,extra_trees
+Polycarbonates,17,0.8823529411764706,-0.01764705882352946,132.248,True,family,Mondrian-family,random_3,random,extra_trees
+Polysulfides,9,0.8888888888888888,-0.011111111111111183,171.48000000000002,False,family,Mondrian-family,random_3,random,extra_trees
+Polyamides,208,0.8990384615384616,-0.0009615384615384581,149.07200000000006,True,family,Mondrian-family,random_3,random,extra_trees
+Polystyrenes,50,0.9,0.0,152.0,True,family,Mondrian-family,random_3,random,extra_trees
+Polysiloxanes,41,0.9024390243902439,0.0024390243902439046,218.784,True,family,Mondrian-family,random_3,random,extra_trees
+Polyimides,330,0.9030303030303031,0.00303030303030305,147.94000000000005,True,family,Mondrian-family,random_3,random,extra_trees
+Polyesters,168,0.9285714285714286,0.02857142857142858,178.78400000000002,True,family,Mondrian-family,random_3,random,extra_trees
+Polyacrylics,129,0.9457364341085271,0.045736434108527124,175.00840000000062,True,family,Mondrian-family,random_3,random,extra_trees
+Polyphenylenes,83,0.9518072289156626,0.051807228915662584,235.14400000000006,True,family,Mondrian-family,random_3,random,extra_trees
+Polysulfones,51,0.9607843137254902,0.0607843137254902,268.0,True,family,Mondrian-family,random_3,random,extra_trees
+Polyvinyls,53,0.9622641509433962,0.06226415094339621,215.874,True,family,Mondrian-family,random_3,random,extra_trees
+Polyphosphazenes,29,0.9655172413793104,0.06551724137931036,268.4080000000001,True,family,Mondrian-family,random_3,random,extra_trees
+Polyurethanes,34,0.9705882352941176,0.07058823529411762,183.49199999999996,True,family,Mondrian-family,random_3,random,extra_trees
+Polyanhydrides,3,1.0,0.09999999999999998,171.48000000000002,False,family,Mondrian-family,random_3,random,extra_trees
+Polyolefins,27,1.0,0.09999999999999998,376.5560000000001,True,family,Mondrian-family,random_3,random,extra_trees
+Polyimines,7,1.0,0.09999999999999998,171.48000000000002,False,family,Mondrian-family,random_3,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,171.48000000000002,False,family,Mondrian-family,random_3,random,extra_trees
+1,79,0.7468354430379747,-0.15316455696202536,223.12185908065183,True,similarity,Normalised SCP,random_3,random,extra_trees
+0,45,0.7555555555555555,-0.1444444444444445,229.91836509821587,True,similarity,Normalised SCP,random_3,random,extra_trees
+2,139,0.8633093525179856,-0.03669064748201445,190.03492742681638,True,similarity,Normalised SCP,random_3,random,extra_trees
+3,217,0.8709677419354839,-0.029032258064516148,176.42612955042569,True,similarity,Normalised SCP,random_3,random,extra_trees
+4,301,0.9136212624584718,0.013621262458471728,168.92941455723962,True,similarity,Normalised SCP,random_3,random,extra_trees
+5,654,0.9587155963302753,0.05871559633027523,143.76764458168208,True,similarity,Normalised SCP,random_3,random,extra_trees
+Polydienes,22,0.8181818181818182,-0.08181818181818179,229.23631395309087,True,family,Normalised SCP,random_3,random,extra_trees
+Polyphenylenes,83,0.8795180722891566,-0.02048192771084345,188.37724440154255,True,family,Normalised SCP,random_3,random,extra_trees
+Polyimides,330,0.8878787878787879,-0.012121212121212088,167.6845412063052,True,family,Normalised SCP,random_3,random,extra_trees
+Polyamides,208,0.8894230769230769,-0.01057692307692315,132.0266617638594,True,family,Normalised SCP,random_3,random,extra_trees
+Polyethers,155,0.896774193548387,-0.003225806451612967,154.66494617830318,True,family,Normalised SCP,random_3,random,extra_trees
+Polysulfones,51,0.9019607843137255,0.0019607843137254832,178.2949180654253,True,family,Normalised SCP,random_3,random,extra_trees
+Polysiloxanes,41,0.9024390243902439,0.0024390243902439046,201.36490990091096,True,family,Normalised SCP,random_3,random,extra_trees
+Polyesters,168,0.9107142857142857,0.010714285714285676,155.32029271601374,True,family,Normalised SCP,random_3,random,extra_trees
+Polyvinyls,53,0.9245283018867925,0.024528301886792447,159.05626661110315,True,family,Normalised SCP,random_3,random,extra_trees
+Polyphosphazenes,29,0.9310344827586207,0.03103448275862064,153.77405391272544,True,family,Normalised SCP,random_3,random,extra_trees
+Polycarbonates,17,0.9411764705882353,0.04117647058823526,132.68574855419433,True,family,Normalised SCP,random_3,random,extra_trees
+Polyacrylics,129,0.9457364341085271,0.045736434108527124,169.40640997695527,True,family,Normalised SCP,random_3,random,extra_trees
+Polystyrenes,50,0.96,0.05999999999999994,193.59854044257915,True,family,Normalised SCP,random_3,random,extra_trees
+Polyolefins,27,0.9629629629629629,0.06296296296296289,250.15026408688632,True,family,Normalised SCP,random_3,random,extra_trees
+Polyimines,7,1.0,0.09999999999999998,197.5133950005089,False,family,Normalised SCP,random_3,random,extra_trees
+Polyhalo-olefins,13,1.0,0.09999999999999998,238.35197011934568,True,family,Normalised SCP,random_3,random,extra_trees
+Polyanhydrides,3,1.0,0.09999999999999998,115.30685790223227,False,family,Normalised SCP,random_3,random,extra_trees
+Polyurethanes,34,1.0,0.09999999999999998,161.64394930351648,True,family,Normalised SCP,random_3,random,extra_trees
+Polysulfides,9,1.0,0.09999999999999998,214.14551650673855,False,family,Normalised SCP,random_3,random,extra_trees
+Polyureas,6,1.0,0.09999999999999998,161.57448788774968,False,family,Normalised SCP,random_3,random,extra_trees
+0,65,0.6307692307692307,-0.2692307692307693,172.0,True,similarity,SCP,random_4,random,extra_trees
+1,86,0.7558139534883721,-0.14418604651162792,172.0,True,similarity,SCP,random_4,random,extra_trees
+2,164,0.823170731707317,-0.076829268292683,172.0,True,similarity,SCP,random_4,random,extra_trees
+3,206,0.9223300970873787,0.022330097087378653,172.0,True,similarity,SCP,random_4,random,extra_trees
+4,296,0.9324324324324325,0.032432432432432434,172.0,True,similarity,SCP,random_4,random,extra_trees
+5,618,0.9644012944983819,0.06440129449838183,172.0,True,similarity,SCP,random_4,random,extra_trees
+Polyolefins,34,0.6176470588235294,-0.2823529411764706,172.0,True,family,SCP,random_4,random,extra_trees
+Polyanhydrides,9,0.6666666666666666,-0.2333333333333334,172.0,False,family,SCP,random_4,random,extra_trees
+Polysulfides,13,0.7692307692307693,-0.13076923076923075,172.0,True,family,SCP,random_4,random,extra_trees
+Polycarbonates,16,0.8125,-0.08750000000000002,172.0,True,family,SCP,random_4,random,extra_trees
+Polyhalo-olefins,11,0.8181818181818182,-0.08181818181818179,172.0,True,family,SCP,random_4,random,extra_trees
+Polyphenylenes,86,0.8255813953488372,-0.07441860465116279,172.0,True,family,SCP,random_4,random,extra_trees
+Polyphosphazenes,33,0.8484848484848485,-0.051515151515151514,172.0,True,family,SCP,random_4,random,extra_trees
+Polyureas,7,0.8571428571428571,-0.04285714285714293,172.0,False,family,SCP,random_4,random,extra_trees
+Polystyrenes,52,0.8653846153846154,-0.0346153846153846,172.0,True,family,SCP,random_4,random,extra_trees
+Polydienes,19,0.8947368421052632,-0.0052631578947368585,172.0,True,family,SCP,random_4,random,extra_trees
+Polyacrylics,123,0.9024390243902439,0.0024390243902439046,172.0,True,family,SCP,random_4,random,extra_trees
+Polyurethanes,45,0.9111111111111111,0.011111111111111072,172.0,True,family,SCP,random_4,random,extra_trees
+Polyethers,133,0.9172932330827067,0.017293233082706694,172.0,True,family,SCP,random_4,random,extra_trees
+Polysulfones,49,0.9183673469387755,0.01836734693877551,172.0,True,family,SCP,random_4,random,extra_trees
+Polyamides,203,0.9211822660098522,0.02118226600985218,172.0,True,family,SCP,random_4,random,extra_trees
+Polyimines,13,0.9230769230769231,0.023076923076923106,172.0,True,family,SCP,random_4,random,extra_trees
+Polysiloxanes,31,0.9354838709677419,0.03548387096774186,172.0,True,family,SCP,random_4,random,extra_trees
+Polyimides,334,0.9431137724550899,0.04311377245508985,172.0,True,family,SCP,random_4,random,extra_trees
+Polyesters,172,0.9476744186046512,0.04767441860465116,172.0,True,family,SCP,random_4,random,extra_trees
+Polyvinyls,52,1.0,0.09999999999999998,172.0,True,family,SCP,random_4,random,extra_trees
+0,65,0.8461538461538461,-0.05384615384615388,290.40000000000003,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+2,164,0.8841463414634146,-0.01585365853658538,223.37226666666666,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+5,618,0.9174757281553398,0.01747572815533982,123.712,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+1,86,0.9186046511627907,0.018604651162790642,258.30800000000005,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+4,296,0.918918918918919,0.018918918918918948,161.908,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+3,206,0.9223300970873787,0.022330097087378653,181.336,True,similarity,Mondrian-similarity,random_4,random,extra_trees
+Polyanhydrides,9,0.6666666666666666,-0.2333333333333334,194.2342814814815,False,family,Mondrian-similarity,random_4,random,extra_trees
+Polycarbonates,16,0.8125,-0.08750000000000002,151.70728333333335,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyolefins,34,0.8235294117647058,-0.07647058823529418,237.68590588235293,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polysulfides,13,0.8461538461538461,-0.05384615384615388,211.8019487179487,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyphosphazenes,33,0.8484848484848485,-0.051515151515151514,189.94709494949493,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyureas,7,0.8571428571428571,-0.04285714285714293,175.45032380952378,False,family,Mondrian-similarity,random_4,random,extra_trees
+Polystyrenes,52,0.8653846153846154,-0.0346153846153846,189.8164564102564,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyphenylenes,86,0.8953488372093024,-0.0046511627906976605,183.16022945736432,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyamides,203,0.896551724137931,-0.0034482758620689724,148.8552722495895,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyimides,334,0.9131736526946108,0.013173652694610793,148.23262594810376,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyethers,133,0.9172932330827067,0.017293233082706694,168.94643609022555,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyacrylics,123,0.9186991869918699,0.0186991869918699,172.12497560975606,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyimines,13,0.9230769230769231,0.023076923076923106,183.09171282051284,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyurethanes,45,0.9333333333333333,0.033333333333333326,166.36733037037038,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polysiloxanes,31,0.9354838709677419,0.03548387096774186,158.01653333333337,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyesters,172,0.936046511627907,0.03604651162790695,158.99654728682168,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polydienes,19,0.9473684210526315,0.047368421052631504,239.3404912280702,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polysulfones,49,0.9591836734693877,0.05918367346938769,172.81845986394558,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyhalo-olefins,11,1.0,0.09999999999999998,248.72693333333336,True,family,Mondrian-similarity,random_4,random,extra_trees
+Polyvinyls,52,1.0,0.09999999999999998,194.15289230769227,True,family,Mondrian-similarity,random_4,random,extra_trees
+0,65,0.6923076923076923,-0.20769230769230773,184.5822153846154,True,similarity,Mondrian-family,random_4,random,extra_trees
+1,86,0.7441860465116279,-0.15581395348837213,174.8352558139535,True,similarity,Mondrian-family,random_4,random,extra_trees
+2,164,0.8109756097560976,-0.08902439024390241,168.9479878048781,True,similarity,Mondrian-family,random_4,random,extra_trees
+3,206,0.9077669902912622,0.007766990291262155,169.16929126213594,True,similarity,Mondrian-family,random_4,random,extra_trees
+4,296,0.9087837837837838,0.00878378378378375,164.4765540540541,True,similarity,Mondrian-family,random_4,random,extra_trees
+5,618,0.9449838187702265,0.0449838187702265,160.28192880258902,True,similarity,Mondrian-family,random_4,random,extra_trees
+Polyanhydrides,9,0.6666666666666666,-0.2333333333333334,172.0,False,family,Mondrian-family,random_4,random,extra_trees
+Polysulfides,13,0.7692307692307693,-0.13076923076923075,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polysulfones,49,0.7959183673469388,-0.10408163265306125,116.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polycarbonates,16,0.8125,-0.08750000000000002,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polyhalo-olefins,11,0.8181818181818182,-0.08181818181818179,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polyolefins,34,0.8235294117647058,-0.07647058823529418,258.30800000000005,True,family,Mondrian-family,random_4,random,extra_trees
+Polyethers,133,0.8421052631578947,-0.05789473684210533,145.42000000000004,True,family,Mondrian-family,random_4,random,extra_trees
+Polyphosphazenes,33,0.8484848484848485,-0.051515151515151514,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polyamides,203,0.8571428571428571,-0.04285714285714293,120.632,True,family,Mondrian-family,random_4,random,extra_trees
+Polyureas,7,0.8571428571428571,-0.04285714285714293,172.0,False,family,Mondrian-family,random_4,random,extra_trees
+Polysiloxanes,31,0.8709677419354839,-0.029032258064516148,137.09199999999998,True,family,Mondrian-family,random_4,random,extra_trees
+Polyphenylenes,86,0.872093023255814,-0.027906976744186074,189.0940000000001,True,family,Mondrian-family,random_4,random,extra_trees
+Polystyrenes,52,0.8846153846153846,-0.015384615384615441,180.51600000000002,True,family,Mondrian-family,random_4,random,extra_trees
+Polydienes,19,0.8947368421052632,-0.0052631578947368585,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polyacrylics,123,0.9024390243902439,0.0024390243902439046,178.18,True,family,Mondrian-family,random_4,random,extra_trees
+Polyurethanes,45,0.9111111111111111,0.011111111111111072,181.196,True,family,Mondrian-family,random_4,random,extra_trees
+Polyimines,13,0.9230769230769231,0.023076923076923106,172.0,True,family,Mondrian-family,random_4,random,extra_trees
+Polyesters,172,0.936046511627907,0.03604651162790695,161.908,True,family,Mondrian-family,random_4,random,extra_trees
+Polyimides,334,0.9431137724550899,0.04311377245508985,180.63400000000001,True,family,Mondrian-family,random_4,random,extra_trees
+Polyvinyls,52,1.0,0.09999999999999998,193.71199999999996,True,family,Mondrian-family,random_4,random,extra_trees
+1,86,0.7674418604651163,-0.1325581395348837,208.83249732146342,True,similarity,Normalised SCP,random_4,random,extra_trees
+0,65,0.8,-0.09999999999999998,236.53447331080707,True,similarity,Normalised SCP,random_4,random,extra_trees
+2,164,0.823170731707317,-0.076829268292683,187.39185182413866,True,similarity,Normalised SCP,random_4,random,extra_trees
+3,206,0.883495145631068,-0.01650485436893201,170.95551164842223,True,similarity,Normalised SCP,random_4,random,extra_trees
+4,296,0.8952702702702703,-0.004729729729729737,163.52004031682628,True,similarity,Normalised SCP,random_4,random,extra_trees
+5,618,0.9401294498381877,0.04012944983818767,149.42001339458426,True,similarity,Normalised SCP,random_4,random,extra_trees
+Polysulfides,13,0.6153846153846154,-0.2846153846153846,194.38326930779508,True,family,Normalised SCP,random_4,random,extra_trees
+Polyanhydrides,9,0.6666666666666666,-0.2333333333333334,182.90717455034525,False,family,Normalised SCP,random_4,random,extra_trees
+Polysiloxanes,31,0.8064516129032258,-0.09354838709677427,136.2929906685087,True,family,Normalised SCP,random_4,random,extra_trees
+Polycarbonates,16,0.8125,-0.08750000000000002,131.28439298212794,True,family,Normalised SCP,random_4,random,extra_trees
+Polyhalo-olefins,11,0.8181818181818182,-0.08181818181818179,193.415338165307,True,family,Normalised SCP,random_4,random,extra_trees
+Polyphosphazenes,33,0.8484848484848485,-0.051515151515151514,217.02513110140157,True,family,Normalised SCP,random_4,random,extra_trees
+Polyolefins,34,0.8529411764705882,-0.04705882352941182,244.04343449490085,True,family,Normalised SCP,random_4,random,extra_trees
+Polyureas,7,0.8571428571428571,-0.04285714285714293,191.023739897519,False,family,Normalised SCP,random_4,random,extra_trees
+Polyethers,133,0.8646616541353384,-0.03533834586466167,154.54132040938998,True,family,Normalised SCP,random_4,random,extra_trees
+Polyurethanes,45,0.8666666666666667,-0.033333333333333326,153.2317564590192,True,family,Normalised SCP,random_4,random,extra_trees
+Polyphenylenes,86,0.872093023255814,-0.027906976744186074,188.87826930192995,True,family,Normalised SCP,random_4,random,extra_trees
+Polyesters,172,0.872093023255814,-0.027906976744186074,136.23094366442535,True,family,Normalised SCP,random_4,random,extra_trees
+Polyacrylics,123,0.8861788617886179,-0.013821138211382089,173.06368295270124,True,family,Normalised SCP,random_4,random,extra_trees
+Polydienes,19,0.8947368421052632,-0.0052631578947368585,251.70972859078037,True,family,Normalised SCP,random_4,random,extra_trees
+Polystyrenes,52,0.9038461538461539,0.0038461538461538325,191.0002090909478,True,family,Normalised SCP,random_4,random,extra_trees
+Polyimides,334,0.9221556886227545,0.02215568862275452,164.1522178723704,True,family,Normalised SCP,random_4,random,extra_trees
+Polyvinyls,52,0.9230769230769231,0.023076923076923106,134.39205691719044,True,family,Normalised SCP,random_4,random,extra_trees
+Polyimines,13,0.9230769230769231,0.023076923076923106,169.82509497764724,True,family,Normalised SCP,random_4,random,extra_trees
+Polyamides,203,0.9310344827586207,0.03103448275862064,169.4226288785811,True,family,Normalised SCP,random_4,random,extra_trees
+Polysulfones,49,0.9795918367346939,0.07959183673469383,184.94610828437362,True,family,Normalised SCP,random_4,random,extra_trees

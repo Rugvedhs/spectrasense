@@ -440,3 +440,151 @@ trustworthy on a new backbone family by training it on more of what it already
 has. Either the family must be represented in training, or the prediction must
 carry an interval that widens honestly when it is not — which is the case for
 novelty-conditioned calibration made in Section 3.4.
+
+## 4. Discussion
+
+### 4.1. What a *T*~g~ leaderboard is actually measuring
+
+The most consequential number in this study is not an error but a ratio. Changing
+the model changes MAE by 0.38 K, an amount ten repeated splits cannot resolve;
+changing the partitioning protocol changes it by 16.3 K. Any comparison of
+architectures on this dataset that does not fix and report the split regime is
+dominated by a variable it does not control.
+
+This reframes a decade of incremental gains. Reported improvements from kernel
+methods to tree ensembles to graph networks to pretrained chemical language models
+are real, but they are improvements in interpolation, measured where structural
+analogues are plentiful. None of the comparisons establishes that the newer model
+extrapolates better, because none was evaluated under a regime that requires
+extrapolation. That is not a criticism of the models; it is a criticism of the
+protocol they were scored under, and it is cheap to fix.
+
+### 4.2. Why chemistry and not volume
+
+The matched design's central result — +14.61 K for removing a family against
++0.32 K for removing the same number of unrelated structures — has a
+straightforward physical reading. Descriptor-based models of *T*~g~ learn how
+particular backbone linkages translate into chain stiffness and interchain
+interaction. Those mappings are local to a linkage type. Remove every
+phosphazene, and no amount of additional polyester data teaches the model what a
+P=N backbone does to segmental mobility; it extrapolates organic intuition into
+inorganic chemistry and overpredicts by tens of kelvin.
+
+The correlation analysis supports the same reading from a different direction.
+Deterioration tracks nearest-training similarity but not family size, and
+polyamides — the second-largest family in the dataset at 982 structures — rank
+second worst in the matched design. A family can be simultaneously abundant and
+untransferable if its characteristic linkage is not reproduced elsewhere.
+
+This has a direct consequence for data-collection strategy. The instinct when a
+model underperforms is to gather more data; these results say that gathering more
+data *within* already-covered chemistry will not help at all with new backbones.
+Coverage of the structure space, not dataset size, is the binding constraint, and
+a modest number of well-chosen structures from an uncovered family is worth more
+than a large number from a covered one.
+
+### 4.3. Why novelty-conditioning works and family-conditioning cannot
+
+The contrast between the two Mondrian taxonomies is not an empirical accident but
+a structural fact, and it generalises beyond this dataset. A conditional conformal
+predictor can only offer category-specific validity for categories it has
+calibration data for. Polymer family fails this test in exactly the deployment
+scenario of interest: the family is new, so it has no calibration members, and the
+predictor silently degrades to the unconditional one. Our family-holdout
+experiments show this happening for 100% of test structures, with coverage and
+interval widths identical to split conformal to three decimal places.
+
+Nearest-training similarity has no such blind spot. It is computable for any
+repeat unit against any training set, its value is available before the label is,
+and its bands are populated by calibration structures drawn from every family. The
+taxonomy therefore remains well defined precisely where the family-based one
+collapses. The same argument recommends similarity — or any other
+deployment-computable novelty coordinate — over class-based taxonomies for
+conditional conformal prediction in materials problems generally, wherever the
+classes of interest are the ones the model has not seen.
+
+It is worth stressing that the improvement is not bought with width. On random
+splits the novelty-conditioned predictor is narrower than split conformal
+(129.1 K vs 132.3 K) while covering the difficult band far better. It widens only
+where the chemistry warrants, reaching 232 K under cluster holdout. An interval
+predictor that simply inflated everything would score well on coverage and be
+useless for ranking candidates; this one reallocates width from the easy
+structures to the hard ones.
+
+### 4.4. Practical recommendations
+
+For anyone building or reporting a *T*~g~ model intended for screening:
+
+1. **Report the split regime as a primary result, not a methods detail**, and
+   report at least one chemistry-aware regime alongside any random split. The gap
+   between them is the honest estimate of screening performance.
+2. **Repeat every regime.** Chemistry-aware splits vary by ±8–16 K across repeats;
+   a single number from one scaffold split is not interpretable.
+3. **Report errors resolved by polymer family**, not only in aggregate. An
+   aggregate MAE of 47 K conceals a range from 22 K to 85 K, and a user working on
+   polysiloxanes is served by the wrong number.
+4. **Ship intervals, and condition them on a deployment-computable novelty
+   coordinate.** Report the nearest-training similarity next to each prediction so
+   a reader can see which regime it belongs to.
+5. **Fit every data-dependent preprocessing step inside the fold**, including
+   descriptor filtering. It is a one-line change to a pipeline and removes an
+   unquantified optimism from the reported numbers.
+
+### 4.5. Limitations
+
+The target itself is noisy in a way no structural model can address. Independent
+literature reports of the same repeat unit differ by up to 115 K in this dataset,
+because a repeat-unit graph cannot express molecular weight, tacticity,
+crosslink density, thermal history or measurement protocol. A 28 K random-split
+MAE should be read against that floor, and part of the residual is irreducible.
+
+The family taxonomy is our own. It is rule-based, inspectable and validated
+against twenty-five reference polymers (Table S1), which we prefer to an opaque
+inherited label, but a different chemically defensible taxonomy would shift the
+family-level numbers. The matched-pair conclusion is robust to this in kind if not
+in magnitude, since it holds for all twenty families individually rather than only
+on average.
+
+Our models are descriptor-based ensembles. We show in Section 3.7 that the
+generalisation gap survives a change of representation to Morgan fingerprints, but
+we have not tested a pretrained chemical language model or a graph neural network.
+Such a model, having seen millions of hypothetical polymers during pretraining,
+might have effective coverage of families absent from this dataset's *labelled*
+portion. Testing whether pretraining narrows the family effect is the natural next
+experiment, and the matched design transfers to it unchanged.
+
+Finally, the novelty-conditioned predictor under-covers the most-similar band
+under family holdout (Section 3.5). The affected group is small (1.8% of
+predictions) and the direction of the trade favours screening, but the method is
+an improvement rather than a solution, and conditional coverage should continue to
+be reported rather than assumed.
+
+## 5. Conclusions
+
+Machine-learned glass transition temperatures are far more reliable inside
+familiar backbone chemistry than outside it, and standard practice measures only
+the former. On 7,174 experimental repeat units, moving from random to
+chemistry-aware partitions raises error from 28.1 K to as much as 46.8 K and
+lowers *R*² from 0.87 to 0.32 — a shift roughly forty times larger than the
+difference between the best and second-best model.
+
+A matched-pair design shows that this penalty is caused by the absent chemistry
+rather than the absent data: removing an equal quantity of unrelated structures
+costs +0.32 K and is statistically indistinguishable from zero, while removing the
+family costs +14.61 K and is worse in all twenty families tested. Transferability
+tracks how structurally isolated a family is, not how large it is, so it cannot be
+bought with more data from chemistry that is already covered.
+
+The uncertainty attached to these predictions fails in the same place. Split
+conformal intervals hold their nominal 90% marginally on random splits while
+covering only 65% of the least familiar structures, and lose marginal validity
+entirely under shift. Conditioning the calibration on polymer family cannot repair
+this, because a withheld family has no calibration data by construction.
+Conditioning on nearest-training structural similarity does, holding 0.88–0.91
+across every regime tested without inflating intervals on easy predictions.
+
+The practical implication is a short list: report a chemistry-aware split, repeat
+it, resolve errors by family, and attach novelty-conditioned intervals together
+with the similarity value itself. None of these is expensive, and together they
+turn a *T*~g~ model from something that scores well into something a screening
+campaign can act on.
