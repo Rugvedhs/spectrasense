@@ -38,55 +38,50 @@ from reportlab.platypus import (
 
 FONT_DIR = Path(matplotlib.__file__).parent / "mpl-data" / "fonts" / "ttf"
 
-FIGURE_CAPTIONS = {
-    1: "Reported glass transition temperature by repeat-unit family, ordered by "
-       "median; boxes span the interquartile range, whiskers the 5th to 95th "
-       "percentiles, and family sizes are listed at the right. The ordering is "
-       "the one polymer chemistry predicts, which is evidence that the derived "
-       "taxonomy is meaningful rather than merely self-consistent.",
-    2: "Test MAE in K by model and split regime; error bars are the standard "
-       "deviation across splits. For random, scaffold and cluster that is spread "
-       "across ten repeats of the same protocol; for family holdout each family "
-       "is withheld exactly once, so the bar is dispersion between families and "
-       "not run-to-run noise. The spread between regimes dwarfs the spread "
-       "between models.",
-    3: "Matched-pair design. (a) The three training arms predicting an identical "
-       "set of held-out structures; informed and control are almost coincident, "
-       "while naive is displaced to the right in every family. (b) The family "
-       "effect, naive minus control, with training-set size held constant.",
-    4: "Coverage of nominally 90% conformal intervals, extremely randomised "
-       "trees. (a) Marginal coverage, as a mean over the splits of each regime. "
-       "(b) The split-averaged worst band: within each split the weakest "
-       "similarity band is taken and those minima are averaged. Line style "
-       "encodes method alongside colour, so the exact coincidence of split "
-       "conformal and the family-conditioned quantile under family holdout "
-       "remains visible.",
-    5: "Conditional coverage against nearest-training Tanimoto similarity, one "
-       "panel per split regime, pooled within each band across the splits of that "
-       "regime. Split conformal degrades monotonically with structural novelty; "
-       "the novelty-conditioned quantile stays near nominal.",
-    6: "Split-averaged worst similarity-band coverage against mean interval "
-       "width in K. Marker colour is the conformal method, shape the split "
-       "regime. The coverage-width criterion is not plotted; it is reported in "
-       "Table 7.",
-    7: "Mean absolute error in K against nearest-training similarity, for random "
-       "and family-holdout splits, pooled within each band. Group sizes are "
-       "annotated.",
-}
+# Figure captions and the appendix table caption live in the manuscript source,
+# under "## Figure Captions" and "## Appendix A", so that a referee reading the
+# submitted source can check them.  This script reads them from there; the only
+# thing it keeps is the column selection for the appendix table, which is
+# typesetting rather than prose.
+CAPTION_SECTIONS = ("Figure Captions", "Appendix A")
 
-TABLES = {
+APPENDIX_TABLES = {
     # Tables 1-14 are numbered, captioned and typeset inline from the manuscript
     # source.  The appendix carries only what an inline table deliberately does
     # not: the full twenty-one-family listing that Table 5 quotes six rows of.
     "table_family_holdout.csv": (
-        "Table A1. Family-holdout error and deterioration for histogram gradient "
-        "boosting, all twenty-one families, in full. MAE and RMSE in K; "
-        "deterioration is the family's holdout MAE over the model's mean "
-        "random-split MAE. Table 5 quotes the three most and three least "
-        "deteriorated rows of this listing.",
+        "Table A1",
         ["group", "n", "mae", "rmse", "r2", "deterioration", "mean_nn_similarity"],
     ),
 }
+
+
+def extract_captions(text: str) -> tuple[dict[int, str], dict[str, str]]:
+    """Pull the figure and appendix-table captions out of the manuscript source.
+
+    A caption is a paragraph opening ``**Figure 3.**`` or ``**Table A1.**`` in
+    one of the caption sections.  Returning them here keeps the markdown the
+    single point of truth: there is no second copy to drift.
+    """
+    figures: dict[int, str] = {}
+    tables: dict[str, str] = {}
+    in_section = False
+    for block in re.split(r"\n\s*\n", text):
+        stripped = block.strip()
+        if stripped.startswith("## "):
+            heading = stripped[3:].strip()
+            in_section = any(heading.startswith(s) for s in CAPTION_SECTIONS)
+            continue
+        if not in_section:
+            continue
+        match = re.match(r"\*\*Figure (\d+)\.\*\*\s*(.+)", stripped, re.S)
+        if match:
+            figures[int(match.group(1))] = " ".join(match.group(2).split())
+            continue
+        match = re.match(r"\*\*(Table A\d+)\.\*\*\s*(.+)", stripped, re.S)
+        if match:
+            tables[match.group(1)] = " ".join(match.group(2).split())
+    return figures, tables
 
 
 def register_fonts() -> None:
@@ -164,7 +159,8 @@ def build_styles():
     }
 
 
-def figure_flowable(number: int, figures_dir: Path, styles, width: float):
+def figure_flowable(number: int, figures_dir: Path, styles, width: float,
+                    captions: dict[int, str]):
     path = figures_dir / f"fig{number}_*.png"
     matches = sorted(figures_dir.glob(f"fig{number}_*.png"))
     if not matches:
@@ -183,7 +179,7 @@ def figure_flowable(number: int, figures_dir: Path, styles, width: float):
     image = Image(str(matches[0]), width=drawn, height=drawn * h / w)
     image.hAlign = "CENTER"
     caption = Paragraph(
-        f"<b>Figure {number}.</b> {inline(FIGURE_CAPTIONS.get(number, ''))}",
+        f"<b>Figure {number}.</b> {inline(captions.get(number, ''))}",
         styles["caption"],
     )
     return [Spacer(1, 6), KeepTogether([image, caption])]
@@ -326,7 +322,18 @@ def main() -> None:
     placed: set[int] = set()
     in_abstract = False
 
-    for kind, payload in parse_manuscript(Path(args.manuscript).read_text()):
+    manuscript = Path(args.manuscript).read_text()
+    figure_captions, appendix_captions = extract_captions(manuscript)
+
+    # The caption sections carry text that is typeset with the figure and with
+    # the appendix table, so they are not emitted a second time as body prose.
+    skipping = False
+
+    for kind, payload in parse_manuscript(manuscript):
+        if kind == "h1":
+            skipping = any(payload.strip().startswith(s) for s in CAPTION_SECTIONS)
+        if skipping and kind != "title":
+            continue
         if kind == "title":
             story.append(Paragraph(inline(payload), styles["title"]))
             story.append(Spacer(1, 4))
@@ -347,15 +354,17 @@ def main() -> None:
                 if number not in placed:
                     placed.add(number)
                     story.extend(figure_flowable(number, Path(args.figures_dir),
-                                                 styles, width))
+                                                 styles, width, figure_captions))
 
     # Any figure never cited still belongs in the document.
-    for number in sorted(set(FIGURE_CAPTIONS) - placed):
-        story.extend(figure_flowable(number, Path(args.figures_dir), styles, width))
+    for number in sorted(set(figure_captions) - placed):
+        story.extend(figure_flowable(number, Path(args.figures_dir), styles, width,
+                                     figure_captions))
 
     story.append(PageBreak())
     story.append(Paragraph("Appendix A. Full per-family listing", styles["h1"]))
-    for filename, (title, columns) in TABLES.items():
+    for filename, (label, columns) in APPENDIX_TABLES.items():
+        title = f"{label}. {appendix_captions.get(label, '')}"
         story.extend(table_flowable(Path(args.results_dir) / filename, title,
                                     columns, styles, width))
 

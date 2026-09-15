@@ -861,30 +861,56 @@ def fig_coverage_vs_similarity(ad: pd.DataFrame, out: Path) -> None:
     F.save(fig, out / "fig5_coverage_vs_similarity")
 
 
-def fig_width_tradeoff(conformal_table: pd.DataFrame, out: Path) -> None:
-    methods = [m for m in CONFORMAL_ORDER if m in set(conformal_table["conformal"])]
-    markers = {"random": "o", "scaffold": "s", "cluster": "^", "family": "D"}
+def fig_width_tradeoff(width_matched: pd.DataFrame, out: Path) -> None:
+    """What a uniform inflation of split conformal buys, against the taxonomy.
 
-    fig, ax = plt.subplots(figsize=(F.SINGLE_COLUMN, 2.7))
-    for method in methods:
-        for _, row in conformal_table[conformal_table["conformal"] == method].iterrows():
-            ax.scatter(row["mean_width"], row["worst_similarity_coverage"], s=20,
-                       color=F.CONFORMAL_COLORS[method],
-                       marker=markers.get(row["regime"], "o"),
-                       edgecolor="white", linewidth=0.4, zorder=3)
-    F.reference_line(ax, 0.9, "nominal 0.90")
-    ax.set_xlabel("Mean interval width (K)")
-    ax.set_ylabel("Worst similarity-band coverage")
-    F.yardstick(ax)
+    The earlier version of this figure plotted worst-band coverage against width
+    for the four conformal methods and was read as showing that the repair costs
+    no width.  That is not the paper's position: at matched marginal coverage the
+    novelty-conditioned intervals are the wider of the two.  The figure now shows
+    the sweep itself, so the comparison a reader should make is the one drawn.
+    """
+    if width_matched.empty:
+        return
+    regimes = [r for r in ("family", "cluster") if r in set(width_matched["regime"])]
+    if not regimes:
+        return
 
-    method_handles = [plt.Line2D([], [], marker="o", linestyle="", markersize=3.2,
-                                 color=F.CONFORMAL_COLORS[m], label=m)
-                      for m in methods]
-    regime_handles = [plt.Line2D([], [], marker=markers[r], linestyle="",
-                                 markersize=3.2, color=F.MUTED, label=r.capitalize())
-                      for r in markers if r in set(conformal_table["regime"])]
-    ax.legend(handles=method_handles + regime_handles, loc="lower right",
-              fontsize=6, ncol=1)
+    fig, axes = plt.subplots(1, len(regimes), figsize=(F.DOUBLE_COLUMN, 2.9),
+                             sharey=True)
+    axes = np.atleast_1d(axes)
+    for ax, regime, letter in zip(axes, regimes, "ab"):
+        block = width_matched[width_matched["regime"] == regime].sort_values("mean_width")
+        sweep = block[~block["is_oracle_k"] & ~block["is_coverage_matched_k"]]
+        ax.plot(sweep["mean_width"], sweep["coverage_lowest_band"], color=F.MUTED,
+                linewidth=0.9, marker="o", markersize=2.2, markerfacecolor="white",
+                markeredgewidth=0.6, zorder=2,
+                label="Split conformal × $k$")
+
+        for flag, marker, label in (
+            ("is_coverage_matched_k", "s", "Coverage-matched oracle"),
+            ("is_oracle_k", "D", "Width-matched oracle"),
+        ):
+            row = block[block[flag]]
+            if row.empty:
+                continue
+            ax.scatter(row["mean_width"], row["coverage_lowest_band"], s=34,
+                       facecolor="white", edgecolor=F.VERMILLION, linewidth=1.0,
+                       marker=marker, zorder=4, label=label)
+
+        row = block.iloc[0]
+        ax.scatter([row["mondrian_mean_width"]], [row["mondrian_coverage_lowest_band"]],
+                   s=34, color=F.BLUE, edgecolor="white", linewidth=0.5, marker="o",
+                   zorder=5, label="Mondrian, similarity")
+
+        F.reference_line(ax, 0.9, "nominal 0.90" if letter == "a" else None)
+        ax.set_xlabel("Mean interval width (K)")
+        ax.set_title(f"{regime.capitalize()} holdout", fontsize=7.5, color=F.INK)
+        F.panel(ax, letter)
+    axes[0].set_ylabel("Coverage, Tanimoto < 0.4 (pooled)")
+    F.yardstick(axes[0])
+    handles, labels = axes[0].get_legend_handles_labels()
+    axes[-1].legend(handles, labels, loc="lower right", fontsize=6, ncol=1)
     F.save(fig, out / "fig6_width_tradeoff")
 
 
@@ -950,11 +976,13 @@ def main() -> None:
         fig_generalization_gap(point, figures)
     fig_dataset(structures, figures)
 
+    width_matched = table_width_matched_control(results, results)
+
     if not intervals.empty:
         conformal_table = table_conformal(intervals, results)
         print(conformal_table.to_string(index=False))
         fig_coverage(conformal_table, figures)
-        fig_width_tradeoff(conformal_table, figures)
+    fig_width_tradeoff(width_matched, figures)
     if not conditional.empty:
         ad = table_applicability_domain(conditional, results)
         fig_coverage_vs_similarity(ad, figures)
@@ -965,12 +993,13 @@ def main() -> None:
         fig_matched(raw, statistics, figures)
     fig_error_vs_similarity(results, figures)
 
-    width_matched = table_width_matched_control(results, results)
     if not width_matched.empty:
-        print("\nwidth-matched oracle control:")
-        print(width_matched[width_matched["is_oracle_k"]][
-            ["regime", "k", "coverage_pooled", "coverage_lowest_band",
-             "mondrian_coverage_lowest_band", "mean_width", "mcnemar_p"]
+        print("\noracle inflation controls (coverage-matched, then width-matched):")
+        print(width_matched[width_matched["is_coverage_matched_k"]
+                            | width_matched["is_oracle_k"]][
+            ["regime", "k", "is_coverage_matched_k", "coverage_pooled",
+             "coverage_lowest_band", "mondrian_coverage_lowest_band", "mean_width",
+             "mondrian_mean_width", "mcnemar_p"]
         ].to_string(index=False))
 
     shrinkage = table_bias_shrinkage(results, structures, results)

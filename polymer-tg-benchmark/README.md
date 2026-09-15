@@ -40,7 +40,7 @@ causes, and tests whether uncertainty estimates remain trustworthy across it.
 
 7,208 repeat-unit records (SMILES + reported Tg), the PoLyInfo-derived collection
 redistributed with the POINT² benchmark, aggregated here to **7,174 unique
-canonical structures**. Our independent curation reproduces the published audit
+canonical structures**. Our independent curation reproduces a prior public audit
 of this dataset exactly — 7,208 → 7,174 structures, 31 repeated canonical groups,
 34 absorbed records, 28 groups with disagreeing Tg, 115 K maximum within-structure
 range, 7,170/3/1 structures with 2/3/4 attachment points.
