@@ -470,6 +470,7 @@ def table_width_matched_control(results: Path, out: Path,
             rows.append({
                 "regime": regime, "model": model, "k": k,
                 "is_oracle_k": abs(k - round(oracle_k, 4)) < 1e-9,
+                "is_coverage_matched_k": False,
                 "coverage_pooled": float(covered.mean()),
                 "coverage_lowest_band": float(covered[lowest].mean()),
                 "mean_width": float((2 * half).mean()),
@@ -478,6 +479,42 @@ def table_width_matched_control(results: Path, out: Path,
                 "mondrian_mean_width": float(mondrian_width.mean()),
                 "n_lowest_band": int(lowest.sum()),
             })
+
+        # A width-matched oracle is handed more marginal coverage than the
+        # predictor it is compared against, so the band comparison is not like
+        # for like: part of any advantage it shows is simply the extra coverage.
+        # Matching on marginal coverage instead isolates how each predictor
+        # *allocates* a fixed coverage budget across the similarity range, which
+        # is the question the section actually asks.
+        low, high = 0.5, 4.0
+        for _ in range(60):
+            mid_k = (low + high) / 2
+            trial = scp_width / 2 * mid_k
+            if ((y >= centre - trial) & (y <= centre + trial)).mean() < mondrian.mean():
+                low = mid_k
+            else:
+                high = mid_k
+        matched_k = (low + high) / 2
+        half_matched = scp_width / 2 * matched_k
+        covered_matched = (y >= centre - half_matched) & (y <= centre + half_matched)
+        cm_only_mondrian = int((mondrian[lowest] & ~covered_matched[lowest]).sum())
+        cm_only_oracle = int((~mondrian[lowest] & covered_matched[lowest]).sum())
+        cm_discordant = cm_only_mondrian + cm_only_oracle
+        rows.append({
+            "regime": regime, "model": model, "k": round(matched_k, 4),
+            "is_oracle_k": False, "is_coverage_matched_k": True,
+            "coverage_pooled": float(covered_matched.mean()),
+            "coverage_lowest_band": float(covered_matched[lowest].mean()),
+            "mean_width": float((2 * half_matched).mean()),
+            "mondrian_coverage_pooled": float(mondrian.mean()),
+            "mondrian_coverage_lowest_band": float(mondrian[lowest].mean()),
+            "mondrian_mean_width": float(mondrian_width.mean()),
+            "n_lowest_band": int(lowest.sum()),
+            "mcnemar_only_mondrian": cm_only_mondrian,
+            "mcnemar_only_width_matched": cm_only_oracle,
+            "mcnemar_p": float(stats.binomtest(cm_only_mondrian, cm_discordant, 0.5).pvalue)
+            if cm_discordant else np.nan,
+        })
 
         # McNemar at the oracle factor, in the band the claim is about.
         half = scp_width / 2 * oracle_k
