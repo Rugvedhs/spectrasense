@@ -4,9 +4,11 @@ target_journal: "Polymers (MDPI)"
 article_type: "Article"
 keywords:
   - glass transition temperature
-  - polymer informatics
+  - backbone chemistry
   - structure-property relationships
+  - group-contribution methods
   - repeat-unit chemistry
+  - polymer informatics
   - uncertainty quantification
   - conformal prediction
   - applicability domain
@@ -15,46 +17,60 @@ keywords:
 
 ## Abstract
 
-Machine-learned models of the polymer glass transition temperature (*T*~g~)
-reach coefficients of determination above 0.85 on random partitions, whose test
-sets hold chemistry already in training. On 7,174 canonical repeat units in
-twenty backbone families and an abstention class, we measure what screening
-outside familiar chemistry costs. For histogram gradient boosting, mean absolute
-error rises from 28.1 K on random partitions to 33.8 K (scaffold), 44.5 K
-(fingerprint-cluster) and 48.1 K
-(whole-family holdout), and pooled *R*² falls from 0.87 to 0.75; the two best
-models differ by 0.38 K. A matched-pair design varying only which structures
-training loses, on a fixed test set, attributes +14.97 K
-(95% CI [+11.21, +19.28]) to removing the family, worse in all twenty-one
-families for both models, and under 1 K of unresolved sign to removing an equal
-number of unrelated structures. Uncertainty fails in the same place: for
-extremely randomised trees, split conformal holds 0.904 marginal coverage
-(mean of splits) on random splits while covering 0.657 of the least familiar
-band (pooled), and loses marginal validity under shift. Family-conditioned
-calibration cannot repair this, a withheld family having no calibration members;
-similarity-conditioned calibration holds 0.877–0.907 mean-of-splits in all four
-regimes (Section 2.7).
+Which polymer backbones can a machine-learned glass transition temperature
+(*T*~g~) model be trusted on? Random partitions, reporting *R*² above 0.85,
+cannot answer: their test sets hold chemistry seen in training. On 7,174
+repeat units in twenty backbone families plus an abstention class, histogram
+gradient boosting gives 28.1 K mean absolute error (random), 33.8 K (scaffold),
+44.5 K (fingerprint-cluster), 48.1 K (whole-family holdout), pooled *R*² falling
+0.87 to 0.75; the two best models differ by 0.38 K. The failure is chemical:
+withheld polyphosphazenes and polysiloxanes are overpredicted (bias −83.7,
+−63.7 K), polydienes and polyolefins underpredicted (+48.0, +37.8 K);
+deterioration tracks structural isolation, not family size. A matched-pair
+design with fixed test structures attributes +14.97 K (95% CI [+11.21, +19.28]) to
+removing the family, worse in all twenty-one families for both models, and under
+1 K of unresolved sign to removing as many unrelated structures. Uncertainty
+fails there: for extremely randomised trees, split conformal holds 0.904
+marginal coverage (mean of splits) on random splits while covering 0.657 of the
+least familiar band (pooled), and loses marginal validity under shift.
+Family-conditioned calibration cannot repair this, a withheld family having no
+calibration members; similarity-conditioned calibration holds 0.877–0.907 in all
+four regimes (mean of splits).
 
 ## 1. Introduction
 
 The glass transition temperature is the single most consulted thermal descriptor of
 an amorphous polymer. It bounds the service window of a thermoplastic, sets
 processing conditions, and governs the mechanical response of a matrix in a
-composite. Measuring it by differential scanning calorimetry or dynamic mechanical
+composite. What fixes its value is the chain itself: *T*~g~ rises with the barrier
+to segmental rotation about backbone bonds and with the strength of the
+interactions between neighbouring chains, so a rigid, strongly interacting
+heteroaromatic backbone vitrifies far above a flexible Si–O or P=N one. The
+families at the two ends of the dataset used here show that spread directly:
+aromatic polyimides have a median *T*~g~ of 249 °C, polysiloxanes and
+polyphosphazenes of −8 °C (Table 2).
+
+Measuring *T*~g~ by differential scanning calorimetry or dynamic mechanical
 analysis is routine but slow, and it requires a synthesised, purified sample, so
-predicting *T*~g~ from the structure of the repeat unit has been a target of
-polymer theory since group-contribution methods were first formalised
-[VanKrevelen2009, Bicerano, Askadskii2003].
+predicting it from the structure of the repeat unit has been a target of
+polymer theory since group-contribution methods were first formalised [1–3].
+Those schemes write *T*~g~ as a composition-weighted sum of tabulated group
+contributions over the repeat-unit
+molar mass. The assumption is compositional additivity: no interaction terms,
+and no dependence on which linkage a group sits in. That assumption is what lets
+such a scheme be applied to a repeat unit its table was never fitted on, and it
+is also what caps its accuracy. Refitted on the training data used here, an
+additive scheme of this form reaches 43.8 K mean absolute error on random
+partitions, where a descriptor ensemble reaches 28.1 K (Section 3.9).
 
 Data-driven surrogates have largely displaced those schemes. Curated repositories
-such as PoLyInfo [Otsuka] made supervised learning on experimental *T*~g~
+such as PoLyInfo [4] made supervised learning on experimental *T*~g~
 practical, and a decade of work has explored the resulting design space: physically
-interpretable descriptor sets with tree ensembles and kernel methods
-[Tao2021, Casanola2024],
-graph neural networks over the repeat-unit graph [Qiu2023], and chemical language
-models pretrained on millions of hypothetical polymers [Kuenneth2023, Xu2023].
-Recent community infrastructure has consolidated the datasets and the evaluation
-code [Jablonka2025, Xu2025]. The accuracies reported are genuinely useful:
+interpretable descriptor sets with tree ensembles and kernel methods [5,6],
+graph neural networks over the repeat-unit graph [7], and chemical language
+models pretrained on millions of hypothetical polymers [8,9]. Recent community
+infrastructure has consolidated the datasets and the evaluation code [10,11].
+The accuracies reported are genuinely useful:
 mean absolute errors in the region of 25–30 K against experimental values whose own
 inter-source spread can exceed 100 K.
 
@@ -65,11 +81,20 @@ already seen. The motivating application is the reverse. A screening campaign
 enumerates candidates precisely because they are not yet in the literature, and the
 candidates that matter most are the ones furthest from the training distribution.
 The mismatch between the validation regime and the deployment regime is well known
-in cheminformatics, where scaffold and time-based splits were introduced for exactly
-this reason [Sheridan2013, Wu2018], and it has begun to be examined for polymers
-[Babbar2023, Akdogan2026].
+in cheminformatics, where scaffold and time-based splits were introduced for
+exactly this reason [12,13], and it has begun to be examined for polymers
+[14,15].
 
-Two questions remain open, and this work addresses both.
+Three questions remain open, and this work addresses all three.
+
+**Which backbone chemistries does a model fail on, and in which direction?** An
+aggregate error over a heterogeneous collection is not actionable for a chemist
+working on one class of polymer. Errors resolved by family, and reported with
+their sign, say what a pooled MAE cannot: whether a backbone is placed
+systematically too high or too low, and whether that displacement follows the
+chemistry or merely follows the distance of the family's *T*~g~ from the rest of
+the record. The two readings have to be separated before the error structure can
+be called chemical.
 
 **Is the family-holdout penalty caused by the missing chemistry?** Withholding an
 entire polymer family and observing an error increase is the standard diagnostic,
@@ -78,23 +103,24 @@ how intrinsically hard they are and in how wide their *T*~g~ distribution is —
 the training set shrinks. A comparison against a random-split baseline therefore
 measures the sum of a population effect, a data-volume effect and the effect of
 interest. The closest prior analysis of this dataset states the confound
-explicitly and leaves it unresolved [Teh]. Resolving it requires holding the test set fixed and matching
-the training pools on size.
+explicitly and leaves it unresolved [16]. Resolving it requires holding the test
+set fixed and matching the training pools on size.
 
-**Does the uncertainty survive the shift?** A point prediction without a
-trustworthy interval is not actionable for screening, and split conformal
-prediction [Papadopoulos2002, Vovk2005, Lei2018] is an attractive answer because it
+**Can a *T*~g~ prediction for a backbone the model has not seen be trusted?** A
+point prediction without a trustworthy interval is not actionable for screening,
+and split conformal
+prediction [17–19] is an attractive answer because it
 wraps any regressor in intervals with a finite-sample coverage guarantee under
 exchangeability. Two difficulties arise here. Exchangeability is precisely what a
 family holdout violates. And the guarantee is *marginal*: a predictor can achieve
 90% coverage overall while systematically under-covering a subpopulation, and in
 this problem that subpopulation is the unfamiliar chemistry the model was deployed
 to explore. Ensemble uncertainty paired with an explicit applicability-domain
-check has been applied to polymer property prediction [Agrawal2026], but without
+check has been applied to polymer property prediction [20], but without
 a family-resolved conditional-coverage test. A recent analysis on a 410-sample
 simulation-derived set reports this
 pattern and characterises conformal intervals as conservative triage indicators
-rather than fine-grained screening tools [Akdogan2026]; whether the failure is
+rather than fine-grained screening tools [15]; whether the failure is
 repairable, and whether it persists at the scale and heterogeneity of the
 experimental record, has not been tested.
 
@@ -102,35 +128,48 @@ experimental record, has not been tested.
 
 1. **An independently re-derived, chemically resolved dataset.** We re-curate
    7,208 experimental repeat-unit records to 7,174 canonical structures,
-   reproducing a prior public analysis of this collection [Teh] step for step, and assign
+   reproducing a prior public analysis of this collection [16] step for step, and assign
    each structure to one of twenty backbone families or to an explicit
    abstention class using a *backbone-aware* substructure classifier.
    Classifying on the chain path rather than on whole-molecule matches keeps
    poly(alkyl acrylate)s out of the polyester class, which matters because every
    family-holdout conclusion inherits the labels.
-2. **A matched-pair design that isolates the family effect.** Three training
+2. **A family-resolved account of where prediction fails, and in which
+   direction.** Holdout deterioration spans a factor of nearly three across the
+   twenty-one groups, and the signed error is systematic: withheld
+   polyphosphazenes and polysiloxanes are overpredicted, by 83.7 K and 63.7 K on
+   average, and withheld polydienes and polyolefins underpredicted, by 48.0 K and
+   37.8 K. Regression toward the training mean accounts for part of the first
+   pair and none of the second, so the chemical reading rests on the
+   underpredicted hydrocarbon families rather than on the inorganic ones
+   (Section 3.3). Deterioration tracks how structurally isolated a family is
+   (Pearson *r* between −0.62 and −0.69 across four models) while a family-size
+   effect is not resolved at twenty-one families.
+3. **A matched-pair design that isolates the family effect.** Three training
    pools — one retaining the family, one with it removed, and one size-matched
    control from which an equal number of unrelated structures was removed —
    predict an identical held-out test set, separating the cost of missing
    chemistry from the cost of missing data.
-3. **A conditional-coverage evaluation of conformal uncertainty**, and a
+4. **A test of whether a *T*~g~ prediction for an unseen backbone can be
+   trusted**, by conditional-coverage evaluation of conformal uncertainty, with a
    novelty-conditioned Mondrian taxonomy that substantially narrows the subgroup
    coverage gap where a family-conditioned taxonomy structurally cannot.
-4. **An applicability-domain diagnostic in units a practitioner can act on.**
+5. **An applicability-domain diagnostic in units a practitioner can act on.**
    Using conformal prediction itself as the applicability-domain statement, in
-   the tradition of [Norinder2014], coverage, interval width and absolute error
-   are resolved by nearest-neighbour Tanimoto similarity, and the similarity
-   itself is reported alongside each
-   prediction so that a reader can see which regime a prediction sits in. We do
+   the tradition established by Norinder et al. [21], coverage, interval width
+   and absolute error are resolved by nearest-neighbour Tanimoto similarity, and
+   the similarity itself is reported alongside each prediction so that a reader
+   can see which regime a prediction sits in. We do
    not offer a single similarity below which an interval should be disbelieved,
    because under family holdout the error is not monotone in similarity: for
    extremely randomised trees it falls from 55.5 K below Tanimoto 0.4 to 30.3 K
    in the 0.6–0.7 band and then rises again to 36.7 K above 0.8 (Section 3.5), so
    no cut-point separates trustworthy from untrustworthy predictions.
-5. **A group-contribution reference point and a taxonomy sensitivity check**,
-   so that the machine-learned result is placed against the additive schemes it
-   proposes to replace and against a perturbation of its own labels.
-6. **A reproducible open implementation**, with leak-free in-fold preprocessing
+6. **A Van Krevelen group-contribution reference point and a taxonomy
+   sensitivity check**, so that the machine-learned result is placed against the
+   additive schemes it proposes to replace and against a perturbation of its own
+   labels.
+7. **A reproducible open implementation**, with leak-free in-fold preprocessing
    and a test suite pinning both the chemistry of the family assignment and the
    finite-sample behaviour of the conformal predictors.
 
@@ -139,8 +178,8 @@ experimental record, has not been tested.
 ### 2.1. Dataset and curation
 
 We use the experimental homopolymer *T*~g~ collection redistributed with the
-POINT² polymer informatics benchmark [Xu2025], which derives from the PoLyInfo
-record [Otsuka]. Each entry pairs a repeat unit written as a PSMILES string —
+POINT² polymer informatics benchmark [11], which derives from the PoLyInfo
+record [4]. Each entry pairs a repeat unit written as a PSMILES string —
 SMILES with two ``*`` atoms marking the polymerisation attachment points — with a
 reported *T*~g~.
 
@@ -148,7 +187,7 @@ The raw export is record-level: one repeat unit may appear several times carryin
 values from different primary sources. Modelling on records would allow identical
 inputs to fall on both sides of a partition and would weight frequently reported
 polymers more heavily, so all analysis is performed on a structure-level table.
-Repeat units were canonicalised with RDKit [RDKit] and grouped; where a canonical structure
+Repeat units were canonicalised with RDKit [22] and grouped; where a canonical structure
 carried several reported values, the median was taken, and the number of
 contributing records and the full reported range were retained as provenance.
 
@@ -183,23 +222,23 @@ category. The twenty-five chemistry cases in Table S1 are pinned by unit tests.
 Two representations were computed. The full RDKit descriptor block (217 columns)
 provides physically interpretable features; the topological ``Ipc`` index was
 replaced by its base-10 logarithm because it overflows for larger repeat units.
-Binary Morgan fingerprints (radius 2, 2,048 bits) [Rogers2010] provide the
+Binary Morgan fingerprints (radius 2, 2,048 bits) [23] provide the
 similarity space in which structural novelty is measured. Attachment points were
 retained in both, since they identify where the chain continues and the environments around them
 encode exactly the linkage motifs that set *T*~g~.
 
 Descriptor column filtering — removal of non-finite, constant and exactly
 duplicated columns — is implemented as the first step of a scikit-learn pipeline
-[Pedregosa2011] and is therefore **fitted on the training fold only**. Performing this filtering
+[24] and is therefore **fitted on the training fold only**. Performing this filtering
 once over the full table, as is common, lets test structures influence the feature
 definition; the closest prior analysis of this dataset notes this as an unquantified
-limitation of its own results [Teh].
+limitation of its own results [16].
 
 ### 2.4. Partitioning regimes
 
 Four regimes were used, in increasing order of enforced novelty: **random**
 partitions (repeated, 80:20); **scaffold** partitions, in which generic
-Bemis–Murcko scaffolds [Bemis1996] are assigned whole; **cluster** partitions,
+Bemis–Murcko scaffolds [25] are assigned whole; **cluster** partitions,
 using average-linkage agglomerative clusters in Jaccard space over Morgan bits;
 and **family** holdouts, in which every member of one backbone family is withheld.
 All non-family regimes were repeated ten times with different seeds, because
@@ -244,7 +283,7 @@ A sixth model, a group-contribution baseline, was run through the same four
 regimes. It implements the classical Van Krevelen additive form
 *T*~g~ = *Y*~g~/*M* with *Y*~g~ = Σ*n*~i~*Y*~i~, where *M* is the repeat-unit
 molar mass, *n*~i~ the count of structural group *i* and *Y*~i~ its molar
-glass-transition contribution [VanKrevelen2009, Bicerano, Askadskii2003]. Groups
+glass-transition contribution [1–3]. Groups
 are RDKit fragment counts supplemented by element, ring, rotatable-bond,
 hydrogen-bonding and backbone-length counts, which carry the chain skeleton that
 fragment counts alone would miss. The contributions *Y*~i~ are fitted by ridge
@@ -256,6 +295,11 @@ since an additive law expressed in Celsius would make the contributions depend o
 an arbitrary zero.
 
 ### 2.7. Conformal prediction and coverage diagnostics
+
+The screening question this machinery is built to answer is a narrow one: given a
+predicted *T*~g~ for a repeat unit whose backbone chemistry the model has not
+seen, how wide an interval has to be quoted before the number can be acted on?
+The construction below is standard; what it is asked to do here is chemical.
 
 Each training pool is divided three ways: a **fit** partition (60%) trains the
 point regressor, a **difficulty** partition (20%) supplies out-of-sample
@@ -270,7 +314,7 @@ regressor is fitted on about 48% of the dataset, three-fifths of what an
 80%-trained literature model sees, so the random-split errors reported below are
 mildly pessimistic relative to published figures obtained without a calibration
 carve-out. Data-reusing constructions such as the jackknife+ avoid the carve-out
-at the cost of refitting [Barber2021]; the split construction is kept here so
+at the cost of refitting [26]; the split construction is kept here so
 that all four interval methods share one fitted model and one calibration set and
 differ in nothing else.
 
@@ -282,8 +326,8 @@ compared:
 * **SCP** — one global quantile of absolute residuals.
 * **Normalised SCP** — residuals scaled by a fitted difficulty estimate, so
   intervals widen where the model expects to struggle rather than everywhere
-  [Papadopoulos2011].
-* **Mondrian SCP** — a separate quantile per category [Vovk2013, Bostrom2020],
+  [27].
+* **Mondrian SCP** — a separate quantile per category [28,29],
   under two taxonomies: *polymer family*, and *nearest-training-similarity band*.
 
 The asymmetry between the two taxonomies is the point. A family-conditioned
@@ -291,7 +335,7 @@ taxonomy is undefined for a family with no calibration members, which is exactly
 the family-holdout case; a novelty-conditioned taxonomy is defined for any repeat
 unit, seen family or not. A third route to validity under shift is to reweight
 the calibration scores by the likelihood ratio between the test and training
-covariate distributions [Tibshirani2019]; Section 4.3 says why that route is not
+covariate distributions [30]; Section 4.3 says why that route is not
 taken here.
 
 A fourth, an **oracle inflation control**, is used only to test whether the
@@ -392,7 +436,7 @@ quoted; it runs as part of the test suite.
 ### 3.1. The public record survives re-derivation
 
 Independent re-curation of the 7,208 raw records reproduces a prior public
-analysis of this collection [Teh] step for step, and Table 1 sets the two side by
+analysis of this collection [16] step for step, and Table 1 sets the two side by
 side so that the correspondence can be read rather than asserted: 7,174 unique
 raw SMILES, no RDKit parse failures, 7,174 canonical structures, 31 canonical
 groups containing more than one record, 34 records absorbed by aggregation, 28 of
@@ -405,15 +449,15 @@ dataset is therefore a stable object to build on, and the numbers below are not
 sensitive to curation choices.
 
 **Table 1.** Curation audit of the POINT² experimental *T*~g~ export
-[Xu2025]: reported by [Teh] | this work. Counts describe the whole collection,
+[11]: reported by [16] | this work. Counts describe the whole collection,
 not a model run; the within-structure range is the largest spread between
 independent reports of one canonical repeat unit. The attachment-point rows are
-record-level in [Teh] and structure-level here, which is the whole of their
-disagreement. The values in the [Teh] column are transcribed from that analysis
-and are not an output of this pipeline; our column is
+record-level in the prior analysis [16] and structure-level here, which is the
+whole of their disagreement. The values in the prior-analysis column are
+transcribed from that work and are not an output of this pipeline; our column is
 `results/table_curation.csv` and `results/table_attachment_points.csv`.
 
-| Step | Reported by [Teh] | This work |
+| Step | Reported by [16] | This work |
 |---|---|---|
 | Raw records | 7,208 | 7,208 |
 | Unique raw SMILES | 7,174 | 7,174 |
@@ -831,8 +875,8 @@ K. The full sweep over *k* is in `results/table_width_matched.csv`.
 
 Resolving coverage by similarity band under family holdout (Table 9) turns the
 result into an operational rule, and into an applicability-domain statement of
-the kind conformal prediction has been used to make since [Norinder2014]: the
-interval, rather than a separate distance threshold, carries the domain
+the kind conformal prediction has been used to make since Norinder et al. [21]:
+the interval, rather than a separate distance threshold, carries the domain
 information. All coverage in this section is band-resolved:
 pooled within a band over the twenty-one splits, which together hold out each of
 the 7,174 structures exactly once. Split conformal covers 0.636 of structures
@@ -1085,7 +1129,7 @@ similarity be computed. Family-out calibration requires refitting the model once
 per held-out training family — here eight additional fits per split. For most
 purposes the novelty-conditioned quantile alone is the better trade.
 
-### 3.9. An additive baseline deteriorates less and predicts worse
+### 3.9. A Van Krevelen baseline deteriorates less and predicts worse
 
 The additive schemes that machine-learned models propose to replace make a
 different inductive assumption: that *T*~g~ is a composition-weighted sum of
@@ -1176,6 +1220,17 @@ movement for a 2.8% relabelling: about a kelvin on aggregate errors, with the
 sign structure of the matched design intact.
 
 ## 4. Discussion
+
+The result a polymer chemist can act on is the family-resolved one. A *T*~g~
+model does not have a single accuracy: histogram gradient boosting predicts
+withheld polyvinyls to 30.2 K and withheld polyphosphazenes to 84.8 K, and it
+displaces whole backbone classes in a consistent direction rather than
+scattering about them. What follows takes that structure apart: what an aggregate leaderboard
+number conceals (Section 4.1), why the penalty follows which chemistry is missing
+rather than how much data is missing (Section 4.2), why an interval conditioned
+on structural novelty survives where one conditioned on polymer family cannot
+(Section 4.3), what to do about it (Section 4.4), and what the evidence here does
+not support (Section 4.5).
 
 ### 4.1. What a *T*~g~ leaderboard is actually measuring
 
@@ -1274,7 +1329,7 @@ against 194.1 K under family holdout, so the claim is about where the width goes
 and not about spending less of it.
 
 A weighted conformal correction is the other principled response to a covariate
-shift of this kind [Tibshirani2019], and it is not used here for a practical
+shift of this kind [30], and it is not used here for a practical
 reason. The weights it needs are the likelihood ratio between the test and
 training covariate distributions, estimated from unlabelled test data. With 44 to
 1,707 structures per family in a 217-dimensional descriptor space, and with the
@@ -1504,8 +1559,8 @@ Not applicable.
 All code, the curated structure-level table and every result file underlying this
 work are available at https://github.com/Rugvedhs/spectrasense, in the directory
 ``polymer-tg-benchmark``. The underlying experimental *T*~g~ records are
-redistributed with the POINT² benchmark [Xu2025] and derive from PoLyInfo
-[Otsuka].
+redistributed with the POINT² benchmark [11] and derive from PoLyInfo
+[4].
 
 ## Acknowledgments
 

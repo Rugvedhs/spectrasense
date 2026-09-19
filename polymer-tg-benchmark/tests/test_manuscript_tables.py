@@ -31,3 +31,14 @@ def test_every_numbered_table_is_covered():
         f"tables in the manuscript: {sorted(found)}; "
         f"tables with a checker: {sorted(checker.EXPECTED)}"
     )
+
+
+def test_citations_are_numeric_and_resolve():
+    """MDPI numeric style: every citation resolves, every reference is cited."""
+    import importlib
+
+    spec = importlib.util.spec_from_file_location(
+        "renumber_citations", SCRIPTS / "renumber_citations.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert module.check() == 0

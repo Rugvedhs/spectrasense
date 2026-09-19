@@ -11,8 +11,10 @@ manuscript quotes, then compares cell by cell.
 Run it directly for a report, or let ``pytest tests`` run it.
 
 One column is deliberately not checked and is declared as such: the "Reported by
-[Teh]" column of Table 1 is transcribed from a prior public analysis of the same
-dataset and is not an output of this pipeline.
+[N]" column of Table 1 is transcribed from a prior public analysis of the same
+dataset and is not an output of this pipeline.  Its heading carries whatever
+number the reference list currently assigns that analysis, so it is matched by
+pattern rather than by a literal.
 """
 
 from __future__ import annotations
@@ -28,7 +30,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = ROOT / "paper" / "manuscript.md"
 RESULTS = ROOT / "results"
 
-UNCHECKED = {(1, "Reported by [Teh]")}
+UNCHECKED = {(1, re.compile(r"^Reported by \[\d+\]$"))}
 
 
 # --------------------------------------------------------------------------
@@ -130,7 +132,7 @@ def f(value: float, places: int, sign: bool = False) -> str:
 def expect_1() -> list[list[str]]:
     curation = csv("table_curation").set_index("step")["value"]
     points = csv("table_attachment_points").set_index("n_attachment_points")["n_structures"]
-    rows = [["Step", "Reported by [Teh]", "This work"]]
+    rows = [["Step", "", "This work"]]   # heading and column skipped, see UNCHECKED
     labels = {
         "Raw records": "Raw records",
         "Unique raw SMILES": "Unique raw SMILES",
@@ -436,7 +438,8 @@ def check(manuscript: Path = MANUSCRIPT) -> list[str]:
                 continue
             for column, (a, b) in enumerate(zip(found_row, expected_row)):
                 label = header[column] if column < len(header) else str(column)
-                if (number, found[0][column].strip()) in UNCHECKED:
+                heading = found[0][column].strip() if column < len(found[0]) else ""
+                if any(n == number and p.match(heading) for n, p in UNCHECKED):
                     continue
                 if not agrees(a, b):
                     problems.append(

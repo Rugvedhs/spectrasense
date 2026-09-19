@@ -264,10 +264,17 @@ def parse_manuscript(text: str):
             if buffer:
                 yield "para", " ".join(buffer); buffer = []
             yield "h1", line[3:]
-        elif re.match(r"^\s*[*-]\s+", line) or re.match(r"^\s*\d+\.\s+", line):
+        elif re.match(r"^\s*\d+\.\s+", line):
+            # Ordered items keep their number: the reference list is numbered in
+            # citation order, so there the number is the citation itself.
             if buffer:
                 yield "para", " ".join(buffer); buffer = []
-            yield "bullet", re.sub(r"^\s*(?:[*-]|\d+\.)\s+", "", line)
+            ordinal = re.match(r"^\s*(\d+)\.\s+(.*)", line)
+            yield "ordinal", (ordinal.group(1), ordinal.group(2))
+        elif re.match(r"^\s*[*-]\s+", line):
+            if buffer:
+                yield "para", " ".join(buffer); buffer = []
+            yield "bullet", re.sub(r"^\s*[*-]\s+", "", line)
         else:
             buffer.append(line.strip())
     if table:
@@ -345,6 +352,10 @@ def main() -> None:
             story.append(Paragraph(inline(payload), styles["h2"]))
         elif kind == "bullet":
             story.append(Paragraph(inline(payload), styles["bullet"], bulletText="•"))
+        elif kind == "ordinal":
+            ordinal, text = payload
+            story.append(Paragraph(inline(text), styles["bullet"],
+                                   bulletText=f"{ordinal}."))
         elif kind == "table":
             story.extend(inline_table(payload, styles, width))
         else:
@@ -379,6 +390,10 @@ def main() -> None:
             elif kind == "bullet":
                 story.append(Paragraph(inline(payload), styles["bullet"],
                                        bulletText="•"))
+            elif kind == "ordinal":
+                ordinal, text = payload
+                story.append(Paragraph(inline(text), styles["bullet"],
+                                       bulletText=f"{ordinal}."))
             elif kind == "table":
                 story.extend(inline_table(payload, styles, width))
             else:

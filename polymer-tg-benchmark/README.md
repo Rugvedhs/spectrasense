@@ -79,8 +79,9 @@ src/ptgbench/
   metrics.py    point, interval, subgroup-coverage and sparsification metrics
   pipeline.py   one split, end to end
   figures.py    validated colour-vision-safe figure style
-scripts/        prepare_features.py, run_benchmark.py, run_all.sh, analyze.py
-paper/          manuscript and generated figures
+scripts/        prepare_features.py, run_benchmark.py, run_all.sh, analyze.py,
+                check_manuscript_tables.py, renumber_citations.py, build_pdf.py
+paper/          manuscript, references, cover letter and generated figures
 ```
 
 ## Methodological choices worth knowing
