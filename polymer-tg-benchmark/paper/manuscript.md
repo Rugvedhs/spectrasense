@@ -1536,11 +1536,15 @@ family holdout.
 
 ## Author Contributions
 
-Conceptualisation, [AUTHOR]; methodology, [AUTHOR]; software, [AUTHOR];
-validation, [AUTHOR]; formal analysis, [AUTHOR]; investigation, [AUTHOR]; data
-curation, [AUTHOR]; writing—original draft preparation, [AUTHOR];
-writing—review and editing, [AUTHOR]; visualisation, [AUTHOR]. All authors have
-read and agreed to the published version of the manuscript.
+Conceptualisation, [FIRST AUTHOR INITIALS]; methodology, [FIRST AUTHOR
+INITIALS] and B.L.; software, [FIRST AUTHOR INITIALS] and B.L.; validation,
+[FIRST AUTHOR INITIALS]; formal analysis, [FIRST AUTHOR INITIALS];
+investigation, [FIRST AUTHOR INITIALS]; data curation, [FIRST AUTHOR INITIALS];
+writing—original draft preparation, [FIRST AUTHOR INITIALS] and B.L.;
+writing—review and editing, [FIRST AUTHOR INITIALS] and B.L.; visualisation,
+B.L.; supervision, [FIRST AUTHOR INITIALS]; project administration, [FIRST
+AUTHOR INITIALS]. All authors have read and agreed to the published version of
+the manuscript.
 
 ## Funding
 
