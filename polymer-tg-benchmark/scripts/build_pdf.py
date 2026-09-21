@@ -36,6 +36,8 @@ from reportlab.platypus import (
     TableStyle,
 )
 
+FRONT_MATTER: dict[str, str] = {}
+
 FONT_DIR = Path(matplotlib.__file__).parent / "mpl-data" / "fonts" / "ttf"
 
 # Figure captions and the appendix table caption live in the manuscript source,
@@ -145,6 +147,14 @@ def build_styles():
                                       "leading": 14, "spaceBefore": 10, "spaceAfter": 4,
                                       "alignment": 0}),
         "body": ParagraphStyle("body", **{**base, "spaceAfter": 6}),
+        "byline": ParagraphStyle("byline", **{**base, "fontSize": 10,
+                                              "leading": 14, "alignment": TA_CENTER,
+                                              "spaceAfter": 2}),
+        "affiliation": ParagraphStyle("affiliation", **{**base, "fontSize": 8,
+                                                       "leading": 11,
+                                                       "alignment": TA_CENTER,
+                                                       "textColor": colors.HexColor("#333333"),
+                                                       "spaceAfter": 1}),
         "abstract": ParagraphStyle("abstract", **{**base, "fontSize": 9,
                                                   "leading": 12.5, "leftIndent": 10,
                                                   "rightIndent": 10, "spaceAfter": 8}),
@@ -225,6 +235,10 @@ def parse_manuscript(text: str):
     if lines and lines[0].strip() == "---":
         end = lines.index("---", 1)
         front = "\n".join(lines[1:end])
+        for field in ("authors", "affiliations", "correspondence"):
+            match = re.search(rf'{field}:\s*"(.*)"', front)
+            if match:
+                FRONT_MATTER[field] = match.group(1)
         title = re.search(r'title:\s*"(.*)"', front)
         yield "title", title.group(1) if title else "Manuscript"
         lines = lines[end + 1:]
@@ -325,6 +339,7 @@ def main() -> None:
         title="Backbone chemistry and the reliability of machine-learned polymer Tg",
     )
     width = doc.width
+    front_matter = FRONT_MATTER
     story: list = []
     placed: set[int] = set()
     in_abstract = False
@@ -343,7 +358,13 @@ def main() -> None:
             continue
         if kind == "title":
             story.append(Paragraph(inline(payload), styles["title"]))
-            story.append(Spacer(1, 4))
+            for field, style in (("authors", "byline"),
+                                 ("affiliations", "affiliation"),
+                                 ("correspondence", "affiliation")):
+                value = front_matter.get(field)
+                if value:
+                    story.append(Paragraph(inline(value), styles[style]))
+            story.append(Spacer(1, 6))
         elif kind == "h1":
             in_abstract = payload.strip().lower() == "abstract"
             story.append(Paragraph(inline(payload), styles["h1"]))

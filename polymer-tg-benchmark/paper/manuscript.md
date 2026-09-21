@@ -2,6 +2,9 @@
 title: "Backbone Chemistry Governs the Reliability of Machine-Learned Glass Transition Temperatures: A Family-Resolved Benchmark with Novelty-Conditioned Conformal Uncertainty"
 target_journal: "Polymers (MDPI)"
 article_type: "Article"
+authors: "[FIRST AUTHOR NAME] 1,*, Brighton Liang 1, Logan Eborhart 1"
+affiliations: "1 [AFFILIATION: school, city, country]"
+correspondence: "* Correspondence: [CORRESPONDING EMAIL]"
 keywords:
   - glass transition temperature
   - backbone chemistry
@@ -1538,13 +1541,13 @@ family holdout.
 
 Conceptualisation, [FIRST AUTHOR INITIALS]; methodology, [FIRST AUTHOR
 INITIALS] and B.L.; software, [FIRST AUTHOR INITIALS] and B.L.; validation,
-[FIRST AUTHOR INITIALS]; formal analysis, [FIRST AUTHOR INITIALS];
-investigation, [FIRST AUTHOR INITIALS]; data curation, [FIRST AUTHOR INITIALS];
-writing—original draft preparation, [FIRST AUTHOR INITIALS] and B.L.;
-writing—review and editing, [FIRST AUTHOR INITIALS] and B.L.; visualisation,
-B.L.; supervision, [FIRST AUTHOR INITIALS]; project administration, [FIRST
-AUTHOR INITIALS]. All authors have read and agreed to the published version of
-the manuscript.
+[FIRST AUTHOR INITIALS] and L.E.; formal analysis, [FIRST AUTHOR INITIALS];
+investigation, [FIRST AUTHOR INITIALS]; data curation, [FIRST AUTHOR INITIALS]
+and L.E.; writing—original draft preparation, [FIRST AUTHOR INITIALS] and B.L.;
+writing—review and editing, [FIRST AUTHOR INITIALS], B.L. and L.E.;
+visualisation, B.L.; supervision, [FIRST AUTHOR INITIALS]; project
+administration, [FIRST AUTHOR INITIALS]. All authors have read and agreed to the
+published version of the manuscript.
 
 ## Funding
 
