@@ -129,3 +129,20 @@ after any edit to the manuscript:
   reference is cited.
 - `pytest tests -q` — the above plus the chemistry and conformal unit tests.
 - `scripts/build_pdf.py` — typesets the current manuscript source.
+
+
+## Why each annotated reference is cited
+
+Moved out of `references.md`, which a submitted manuscript needs clean.
+
+- **[1]** the additive form *T*~g~ = *Y*~g~/*M* used for the group-contribution baseline in Section 2.6.
+- **[3]** an alternative additive scheme based on repeat-unit volume increments.
+- **[11]** source of the *T*~g~ collection used here.
+- **[13]** scaffold splits.
+- **[15]** the closest prior work; 410 simulation-derived samples, marginal split conformal only.
+- **[16]** a prior public analysis of this dataset: it reports the 7,208 → 7,174 curation audit, the 31/34/28 aggregation counts and the 115 K maximum within-structure range reproduced in Section 3.1, and states the family-holdout confound that Section 2.5 sets out to resolve.
+- **[21]** conformal prediction used as the applicability-domain statement itself.
+- **[26]** the data-reusing alternative to the split construction, noted in Section 2.7.
+- **[27]** normalised nonconformity.
+- **[28]** Mondrian conformal prediction.
+- **[30]** weighted conformal prediction; discussed in Sections 2.7 and 4.3.

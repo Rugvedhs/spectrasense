@@ -92,7 +92,7 @@ def register_fonts() -> None:
         "Body-Bold": "DejaVuSerif-Bold.ttf",
         "Body-Italic": "DejaVuSerif-Italic.ttf",
         "Body-BoldItalic": "DejaVuSerif-BoldItalic.ttf",
-        "Head": "DejaVuSans-Bold.ttf",
+        "Head": "DejaVuSerif-Bold.ttf",
         "Mono": "DejaVuSansMono.ttf",
     }
     for name, filename in faces.items():
@@ -107,6 +107,7 @@ def inline(text: str) -> str:
     """Convert the markdown subset used in the manuscript to ReportLab markup."""
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     text = re.sub(r"~([A-Za-z0-9]+)~", r"<sub>\1</sub>", text)      # T~g~
+    text = re.sub(r"\^([^^]+)\^", r"<super>\1</super>", text)        # affiliation marks
 
     # Code spans are lifted out before emphasis is processed: their contents are
     # literal, and a span such as `*` would otherwise be eaten by the italic rule
@@ -137,8 +138,8 @@ def build_styles():
     styles = getSampleStyleSheet()
     base = dict(fontName="Body", fontSize=9.5, leading=13.5, alignment=TA_JUSTIFY)
     return {
-        "title": ParagraphStyle("title", **{**base, "fontName": "Head", "fontSize": 16,
-                                            "leading": 20, "alignment": TA_CENTER,
+        "title": ParagraphStyle("title", **{**base, "fontName": "Head", "fontSize": 14.5,
+                                            "leading": 18.5, "alignment": TA_CENTER,
                                             "spaceAfter": 10}),
         "h1": ParagraphStyle("h1", **{**base, "fontName": "Head", "fontSize": 12.5,
                                       "leading": 16, "spaceBefore": 14, "spaceAfter": 6,
@@ -270,7 +271,11 @@ def parse_manuscript(text: str):
                 yield "para", " ".join(buffer)
                 buffer = []
             continue
-        if line.startswith("### "):
+        if line.startswith("# ") and not line.startswith("## "):
+            if buffer:
+                yield "para", " ".join(buffer); buffer = []
+            yield "h1", line[2:]
+        elif line.startswith("### "):
             if buffer:
                 yield "para", " ".join(buffer); buffer = []
             yield "h2", line[4:]
@@ -420,7 +425,15 @@ def main() -> None:
             else:
                 story.append(Paragraph(inline(payload), styles["body"]))
 
-    doc.build(story)
+    def decorate(canvas, document):
+        """Page number, centred in the bottom margin."""
+        canvas.saveState()
+        canvas.setFont("Body", 8)
+        canvas.setFillColorRGB(0.35, 0.35, 0.35)
+        canvas.drawCentredString(A4[0] / 2.0, 11 * mm, str(document.page))
+        canvas.restoreState()
+
+    doc.build(story, onFirstPage=decorate, onLaterPages=decorate)
     size = Path(args.out).stat().st_size / 1024
     print(f"wrote {args.out} ({size:.0f} KB)")
 
